@@ -1,0 +1,21 @@
+<table>
+  <thead>
+    <tr>
+      <th>Votes</th>
+      <th>Title</th>
+      <th>Upvote!</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @movies.each do |movie| %>
+      <tr>
+        <td>Votes: </td>
+        <td><%= movie.title %></td>
+        <td>(Button to upvote)</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "Go Home", "/" %>
+<%= link_to "New Movie", new_movie_path %>
