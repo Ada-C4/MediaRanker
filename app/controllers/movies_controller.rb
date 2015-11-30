@@ -1,5 +1,4 @@
 class MoviesController < ApplicationController
-  class CompaniesController < ApplicationController
   def index
     @movies = Movie.all
   end
@@ -29,7 +28,7 @@ class MoviesController < ApplicationController
   end
 
   def destroy
-    Company.destroy(params[:id])
+    Movie.destroy(params[:id])
     redirect_to "/movies/"
   end
 
