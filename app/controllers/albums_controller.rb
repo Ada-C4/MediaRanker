@@ -21,4 +21,10 @@ class AlbumsController < ApplicationController
 
   def new
   end
+
+  private
+
+  def album_params
+    params.permit(album:[:title, :description, :ranking, :artist])
+  end
 end

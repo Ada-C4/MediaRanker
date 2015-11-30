@@ -3,6 +3,7 @@ class MoviesController < ApplicationController
   end
 
   def show
+    @movie = Movie.find(id: params)
   end
 
   def new
@@ -20,5 +21,11 @@ class MoviesController < ApplicationController
   end
 
   def new
+  end
+
+  private
+
+  def movie_params
+    params.permit(movie:[:title, :description, :ranking, :director])
   end
 end

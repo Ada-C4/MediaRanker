@@ -21,4 +21,10 @@ class BooksController < ApplicationController
 
   def new
   end
+
+  private
+
+  def book_params
+    params.permit(book:[:title, :description, :ranking, :author])
+  end
 end
