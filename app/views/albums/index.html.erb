@@ -1,0 +1,29 @@
+<table>
+  <tr>
+    <th>
+      Ranking
+    </th>
+    <th>
+      Name
+    </th>
+    <th>
+      Upvote
+    </th>
+  </tr>
+<% @albums.each do |album| %>
+  <tr>
+    <td>
+      Ranked:
+    </td>
+    <td>
+      <a href="/albums/<%= album.id %>"><%= album.name %></a>
+    </td>
+    <td>
+      <%= button_to "Upvote", "/albums/#{album.id}",  method: :patch, class: 'x-button' %>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<%= button_to "View All Media", "/",  method: :get, class: 'x-button' %>
+<%= button_to "Add an Album", new_album_path,  method: :get, class: 'x-button' %>
