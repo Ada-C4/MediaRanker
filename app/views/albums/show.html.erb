@@ -6,6 +6,6 @@
   <%= @album.description %>
 </p>
 <br>
-Upvote Button Here
+<%= button_to "Upvote", album_upvote_path(@album), method: :patch %>
 <br>
 <%= button_to "Edit #{@album.name}", edit_album_path(@album), method: :get %> <%= button_to "DELETE", "/albums/#{@album.id}", method: "delete",  data: { confirm: "Are you sure?" } %> View All Albums Button Here View All Media Button Here

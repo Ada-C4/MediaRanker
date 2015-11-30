@@ -6,6 +6,6 @@
   <%= @book.description %>
 </p>
 <br>
-Upvote Button Here
+<%= button_to "Upvote", book_upvote_path(@book), method: :patch %>
 <br>
 <%= button_to "Edit #{@book.name}", edit_book_path(@book), method: :get %> <%= button_to "DELETE", "/books/#{@book.id}", method: "delete",  data: { confirm: "Are you sure?" } %> View All Books Button Here View All Media Button Here

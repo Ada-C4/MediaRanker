@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  patch '/movies/:id/upvote' => 'movies#upvote', as: :upvote
+  patch '/movies/:id/upvote' => 'movies#upvote', as: :movie_upvote
+  patch '/books/:id/upvote' => 'books#upvote', as: :book_upvote
+  patch '/albums/:id/upvote' => 'albums#upvote', as: :album_upvote
+
   resources :movies
   resources :books
   resources :albums
