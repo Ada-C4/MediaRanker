@@ -2,7 +2,7 @@
 
 <h4>Ranked: <%= @movie.ranking %></h4>
 
-button for upvote
+<%= button_to "Upvote", upvote_movie_path %>
 
 <%= button_to "Edit #{@movie.name}", edit_movie_path, method: :get %>
 
