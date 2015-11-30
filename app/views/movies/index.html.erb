@@ -1,0 +1,29 @@
+<table>
+  <tr>
+    <td>
+      Ranking
+    </td>
+    <td>
+      Name
+    </td>
+    <td>
+      Upvote
+    </td>
+  </tr>
+<% @movies.each do |movie| %>
+  <tr>
+    <td>
+      Ranked:
+    </td>
+    <td>
+      <a href="/movies/<%= movie.id %>"><%= movie.name %></a>
+    </td>
+    <td>
+      <%= button_to "Upvote", "/movies/#{movie.id}",  method: :patch, class: 'x-button' %>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<%= button_to "View All Media", "/",  method: :get, class: 'x-button' %>
+<%= button_to "Add A Movie", new_movie_path,  method: :get, class: 'x-button' %>
