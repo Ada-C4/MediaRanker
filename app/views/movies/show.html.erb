@@ -1,12 +1,12 @@
-<strong><%= @movie.name %> </strong> Directed by: <%= @movie.director %></h3>
-<p>
+<h1><%= @movie.name %> <small>Directed by: <%= @movie.director %></small></h1>
+<h4>
   Ranked: <%= @movie.rank %>
-</p>
+</h4>
 <p>
   <%= @movie.description %>
 </p>
 
-<%= link_to "Upvote", "/" %> <br>
+<%= link_to "Upvote", upvote_movie_path, method: :patch %> <br>
 <%= link_to "Edit #{@movie.name}", edit_movie_path(@movie) %>
 <%= link_to "DELETE", movie_path, method: :delete, data: { confirm: "Are you sure?" } %>
 <%= link_to "View All Movies", movies_path %>
