@@ -25,16 +25,16 @@ class BooksController < ApplicationController
   end
 
   def show
-    @book = Books.find(params[:id])
+    @book = Book.find(params[:id])
   end
 
   def edit
-    @book = Books.find(params[:id])
+    @book = Book.find(params[:id])
   end
 
   def update
-    @book = Books.find(params[:id])
-    @book.attributes = book_params[:movie]
+    @book = Book.find(params[:id])
+    @book.attributes = book_params[:book]
 
     if @book.save
       redirect_to book_path(@book)
@@ -44,14 +44,14 @@ class BooksController < ApplicationController
   end
 
   def destroy
-    book = Books.find(params[:id])
+    book = Book.find(params[:id])
     book.destroy
 
     redirect_to books_path
   end
 
   def upvote
-    book = Books.find(params[:id])
+    book = Book.find(params[:id])
     book.increment!(:votes)
 
     redirect_to :back

@@ -1,0 +1,19 @@
+<h1><%= @book.title %></h1>
+
+<h2><%= @book.votes.present? ? "#{@book.votes} votes" : "0 votes" %></h2>
+
+<% if @book.author.present? %>
+  <h3>directed by <%= @book.author %></h2>
+<% end %>
+
+<p>
+  <%= @book.description %>
+</p>
+
+<%= link_to "Upvote!", book_upvote_path(@book), :method => :patch %>
+
+<%= link_to "Delete Book", book_path(@book), method: :delete, data: { confirm: 'Are you sure?' } %>
+
+<%= link_to "Edit Book", edit_book_path %>
+
+<%= link_to "All Books", books_path %>
