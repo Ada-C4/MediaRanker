@@ -38,6 +38,22 @@ class MoviesController < ApplicationController
     end
   end
 
+  def edit
+    @item = Movie.find(params[:id])
+    @person = :director
+    @action = "update"
+  end
+
+  def update
+    @person = :director
+    @item = Movie.update(params[:id], movie_params[:movie])
+    if @item.save
+      redirect_to "/movies/#{@item.id}"
+    else
+      render "new"
+    end
+  end
+
 
   def destroy
     Movie.destroy(params[:id])
