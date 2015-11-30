@@ -49,7 +49,8 @@ class MoviesController < ApplicationController
     movie = Movie.find(params[:id])
     movie.increment!(:votes)
 
-    redirect_to movies_path
+    redirect_to :back
+
   end
 
 
