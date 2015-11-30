@@ -1,0 +1,7 @@
+<h1> <strong><<%= @album.name %></strong> Recorded By: <%= @album.artist %> </h1>
+<h3>Ranked: <%= @album.rank %> </h3>
+<h4> <%= @album.description %> </h4>
+
+<%= button_to "Upvote", action: "update", value:"upvote" %>
+<%= button_to "Edit" , action: "edit" %>
+<%= button 'Delete', {action: "delete", id: @album.id}, method: :delete, data: { confirm: 'Are you sure?' } %>

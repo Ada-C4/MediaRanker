@@ -1,5 +1,9 @@
 class MoviesController < ApplicationController
 
+  def get_movie
+    @movie = Movie.find(params[:movie_id])
+  end
+
   def index
   end
 
@@ -7,6 +11,7 @@ class MoviesController < ApplicationController
   end
 
   def show
+    get_movie
   end
 
   def update

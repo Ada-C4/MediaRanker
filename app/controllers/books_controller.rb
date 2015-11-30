@@ -1,5 +1,9 @@
 class BooksController < ApplicationController
 
+  def get_book
+    @book = Book.find(params[:book_id])
+  end
+
   def index
   end
 
@@ -7,6 +11,7 @@ class BooksController < ApplicationController
   end
 
   def show
+    get_book
   end
 
   def update

@@ -5,3 +5,31 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+seed_movie = [
+  {name: "movie1", director: "boobli", description: "accountant", rank: 4},
+  {name: "movie2", director: "32", description: "actor", rank: 5},
+  {name: "movie3", director: "dddd", description: "actor", rank: 3}
+]
+
+seed_movie.each do |movie|
+  Movie.create(movie)
+end
+
+seed_book = [
+  {name: "book1", author: "boodbli", description: "accountant", rank: 2},
+  {name: "book2", author: "bosaobli", description: "actor", rank: 6},
+  {name: "book3", author: "bosobli", description: "actor", rank: 10}
+]
+seed_book.each do |book|
+  Book.create(book)
+end
+
+seed_album = [
+  {name: "album1", artist: "booXXbli", description: "accountant", rank: 5},
+  {name: "album2", artist: "S", description: "actor", rank: 4},
+  {name: "album4", artist: "boobli", description: "actor", rank: 3}
+]
+
+seed_album.each do |album|
+  Album.create(album)
+end
