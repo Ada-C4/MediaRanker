@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   resources :movies
-  
+  patch '/movies/:id/upvote' => 'movies#upvote', as: :movie_upvote
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

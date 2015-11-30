@@ -9,9 +9,9 @@
   <tbody>
     <% @movies.each do |movie| %>
       <tr>
-        <td>Votes: </td>
+        <td><%= movie.votes.present? ? movie.votes : "0" %></td>
         <td><%= link_to movie.title, movie_path(movie) %></td>
-        <td>(Button to upvote)</td>
+        <td><%= link_to "Upvote!", movie_upvote_path(movie), :method => :patch %></td>
       </tr>
     <% end %>
   </tbody>
