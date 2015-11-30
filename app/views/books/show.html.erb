@@ -5,6 +5,6 @@
 </p>
 <%= button_to "Upvote", "/books/#{@book.id}",  method: :patch, class: 'x-button' %>
 <%= button_to "Edit #{@book.name}", edit_book_path,  method: :get, class: 'x-button' %>
-<%= button_to "DELETE", "/books/#{@book.id}",  method: :delete, class: 'x-button' %>
+<%= button_to "DELETE", "/books/#{@book.id}",  method: :delete, data: { confirm: "Are you sure?" }, class: 'x-button' %>
 <%= button_to "View All Books", books_path,  method: :get, class: 'x-button' %>
 <%= button_to "View All Media", "/",  method: :get, class: 'x-button' %>

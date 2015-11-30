@@ -5,6 +5,6 @@
 </p>
 <%= button_to "Upvote", "/movies/#{@movie.id}",  method: :patch, class: 'x-button' %>
 <%= button_to "Edit #{@movie.name}", edit_movie_path,  method: :get, class: 'x-button' %>
-<%= button_to "DELETE", "/movies/#{@movie.id}",  method: :delete, class: 'x-button' %>
+<%= button_to "DELETE", "/movies/#{@movie.id}",  method: :delete, data: { confirm: "Are you sure?" }, class: 'x-button' %>
 <%= button_to "View All Movies", movies_path,  method: :get, class: 'x-button' %>
 <%= button_to "View All Media", "/",  method: :get, class: 'x-button' %>
