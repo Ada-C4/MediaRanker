@@ -1,5 +1,6 @@
 class MoviesController < ApplicationController
   def index
+    @movies = Movie.all
   end
 
   def show
@@ -21,7 +22,7 @@ class MoviesController < ApplicationController
   end
 
   private
-  
+
   def movie_params
   end
 end
