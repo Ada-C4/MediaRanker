@@ -1,4 +1,42 @@
 Rails.application.routes.draw do
+  get 'albums/new'
+
+  get 'albums/edit'
+
+  get 'albums/index'
+
+  get 'albums/show'
+
+  get 'books/new'
+
+  get 'books/edit'
+
+  get 'books/index'
+
+  get 'books/show'
+
+  get 'album/new'
+
+  get 'album/edit'
+
+  get 'album/index'
+
+  get 'album/show'
+
+  get 'movies/new'
+
+  get 'movies/create'
+
+  get 'movies/destroy'
+
+  get 'movies/edit'
+
+  get 'movies/update'
+
+  get 'movies/index'
+
+  get 'movies/show'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
