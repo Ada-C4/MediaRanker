@@ -1,1 +1,12 @@
+<h1>Top Movies</h1>
 
+<table>
+  <% @movies.each do |movie| %>
+    <tr>
+      <td><%= movie.title %></td>
+      <td><%= movie.votes %> votes</td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to "All Movies", movies_path %>

@@ -1,7 +1,7 @@
 class MoviesController < ApplicationController
   def index
-    @movies = Movie.all
-    # code to sort movies by number of votes
+    movies = Movie.all
+    @movies = movies.order(votes: :desc)
   end
 
   def new
@@ -50,7 +50,6 @@ class MoviesController < ApplicationController
     movie.increment!(:votes)
 
     redirect_to :back
-
   end
 
 
