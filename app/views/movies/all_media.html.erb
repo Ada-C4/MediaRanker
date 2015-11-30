@@ -5,25 +5,34 @@
 <ul>
   <% @movies.each do |movie| %>
   <li>
-    <%= movie.name %>
+    <span class="content-name"><%= movie.name %></span>
+    Ranked: <%= movie.votes %>
   </li>
   <% end %>
 </ul>
+
+<%= link_to "View More Movies", movies_path %>
 
 <h3>Top Books</h3>
 <ul>
   <% @books.each do |book| %>
   <li>
-    <%= book.name %>
+    <span class="content-name"><%= book.name %></span>
+    Ranked: <%= book.votes %>
   </li>
   <% end %>
 </ul>
+
+<%= link_to "View More Books", books_path %>
 
 <h3>Top Albums</h3>
 <ul>
   <% @albums.each do |album| %>
   <li>
-    <%= album.name %>
+    <span class="content-name"><%= album.name %></span>
+    Ranked: <%= album.votes %>
   </li>
   <% end %>
 </ul>
+
+<%= link_to "View More Albums", albums_path %>
