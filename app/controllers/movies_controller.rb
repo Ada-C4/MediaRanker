@@ -2,8 +2,14 @@ class MoviesController < ApplicationController
   def index
   end
 
+  def upvote
+    @movie = Movie.find(params[:id])
+    @movie.update_attribute(:ranking, @movie.ranking + 1)
+    redirect_to action: :show
+  end
+
   def show
-    @movie = Movie.find(id: params)
+    @movie = Movie.find(params[:id])
   end
 
   def new
