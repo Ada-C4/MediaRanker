@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20151130213741) do
     t.string   "name"
     t.string   "artist"
     t.string   "description"
-    t.integer  "ranking"
+    t.integer  "rank"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20151130213741) do
     t.string   "name"
     t.string   "author"
     t.string   "description"
-    t.integer  "ranking"
+    t.integer  "rank"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20151130213741) do
     t.string   "name"
     t.string   "director"
     t.string   "description"
-    t.integer  "ranking"
+    t.integer  "rank"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
