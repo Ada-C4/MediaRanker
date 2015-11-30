@@ -1,4 +1,10 @@
 class MoviesController < ApplicationController
+  def home
+    @books = Book.all
+    @albums = Album.all
+    @movies = Movie.all
+  end
+
   def index
     @movies = Movie.all
   end

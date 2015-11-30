@@ -1,0 +1,49 @@
+<img src="http://vignette3.wikia.nocookie.net/everymanhybrid/images/9/98/Skull_illustration_by_yungtyrant.jpg/revision/latest?cb=20130409004754">
+<%= link_to "Media Ranker", "/" %>
+<h2>Ranking the Best of Everything</h2>
+<hr>
+
+<div class="row">
+  <div class="col-md-4">
+    <h1>Top Movies</h1>
+    <ul>
+      <% @movies.each do |movie| %>
+        <li>
+          <%= link_to movie.name, movie_path(id: movie.id) %>
+          <span>Ranking: </span><%= movie.ranking %>
+        </li>
+      <% end %>
+    </ul>
+    <%= link_to "View More Movies", movies_path %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-4">
+    <h1>Top Books</h1>
+    <ul>
+      <% @books.each do |book| %>
+        <li>
+          <%= link_to book.name, book_path(id: book.id) %>
+          <span>Ranking: </span><%= book.ranking %>
+        </li>
+      <% end %>
+    </ul>
+    <%= link_to "View More Books", books_path %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-4">
+    <h1>Top Albums</h1>
+    <ul>
+      <% @albums.each do |album| %>
+        <li>
+          <%= link_to album.name, album_path(id: album.id) %>
+          <span>Ranking: </span><%= album.ranking %>
+        </li>
+      <% end %>
+    </ul>
+    <%= link_to "View More Albums", albums_path %>
+  </div>
+</div>
