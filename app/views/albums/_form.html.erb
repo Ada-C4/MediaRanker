@@ -9,3 +9,4 @@
   <%= f.text_field :description %>
   <br>
   <%= @album.persisted? ? (f.submit value: "Update album", id: 'special-button') : (f.submit value: "Add album", id: 'special-button') %>
+<% end %>

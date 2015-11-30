@@ -3,5 +3,4 @@
 <h4> <%= @album.description %> </h4>
 
 <%= button_to "Upvote", action: "update", value:"upvote" %>
-<%= button_to "Edit" , action: "edit" %>
-<%= button 'Delete', {action: "delete", id: @album.id}, method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= button_to "Edit", { action: "edit", id: @album.id },  method: :get %>

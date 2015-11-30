@@ -1,7 +1,7 @@
 class AlbumsController < ApplicationController
 
   def get_album
-    @album = Album.find(params[:album_id])
+    @album = Album.find(params[:id])
   end
 
   def index
@@ -9,6 +9,10 @@ class AlbumsController < ApplicationController
 
   def new
     @album = Album.new
+  end
+
+  def edit
+    get_album
   end
 
   def show
