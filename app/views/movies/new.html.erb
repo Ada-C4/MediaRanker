@@ -1,4 +1,10 @@
-<%= form_for @movie, new_movie_path do |f| %>
+<h1>New Movie</h1>
+<%= form_for @movie, url: {action: "create"} do |f| %>
+<%= f.label :name %>
 <%= f.text_field :name %>
+<%= f.label :description %>
 <%= f.text_field :description %>
+<%= f.label :rank %>
 <%= f.number_field :rank %>
+<%= f.submit "Save"%>
+<% end %>
