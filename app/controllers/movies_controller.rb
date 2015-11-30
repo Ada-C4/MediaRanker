@@ -18,6 +18,8 @@ class MoviesController < ApplicationController
     @content_path = movies_path
     @item_path = "/movies/"
     @content_type = "Movies"
+    @correct_string = "Directed by "
+    @person = @content.director
   end
 
   def new
