@@ -1,6 +1,15 @@
 <div class="row">
   <div class="col-lg-12">
-    <h1><
+    <h1><%= @book.title %>
+        <small>Written by: <%= @book.author %></small>
     </h1>
+    <h4>Ranked:<%= @book.ranking %></h4>
+    <p><%= @book.description %></p>
+    <div>
+      <%= button_to 'Upvote', book_upvote_path(@book.id), method: :post %>
+    </div>
+    <div>
+      # CRUD links for edit, delete, plus more
+    </div>
   </div>
 </div>

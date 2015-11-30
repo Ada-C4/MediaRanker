@@ -1,6 +1,15 @@
 <div class="row">
   <div class="col-lg-12">
-    <h1><
+    <h1><%= @album.title %>
+        <small>Recorded by: <%= @album.artist %></small>
     </h1>
+    <h4>Ranked:<%= @album.ranking %></h4>
+    <p><%= @album.description %></p>
+    <div>
+      <%= button_to 'Upvote', album_upvote_path(@album.id), method: :post %>
+    </div>
+    <div>
+      # CRUD links for edit, delete, plus more
+    </div>
   </div>
 </div>
