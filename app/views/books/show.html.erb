@@ -1,0 +1,11 @@
+<h1><%= @book.name %></h1>
+<small>Written by: <%= @book.author %></small>
+<h4>Upvotes:<%= @book.upvotes %></h4>
+<p><%= @book.description %></p>
+
+<h4>[Upvote Button]</h4>
+
+<span>[Edit <%= @book.name %>]</span>
+<span>[DELETE]</span>
+<%= link_to "View All Books", books_path %>
+<%= link_to "View All Media", root_path %>

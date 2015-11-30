@@ -5,7 +5,8 @@ class BooksController < ApplicationController
  end
 
  def show
-
+   id = params[:id]
+   @book = Book.find(id)
  end
 
  def new
