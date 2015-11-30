@@ -6,7 +6,10 @@ class MoviesController < ApplicationController
   end
 
   def index
-    @movies = Movie.all
+    @content_list = Movie.all
+    @item_path = "/movies/"
+    @content_type = "Movie"
+    @new_content_path = new_movie_path
   end
 
   def show
