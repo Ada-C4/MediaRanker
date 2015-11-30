@@ -38,5 +38,3 @@ private
     params.permit(movie: [:name, :director, :description, :rank])
   end
 end
-
-end
