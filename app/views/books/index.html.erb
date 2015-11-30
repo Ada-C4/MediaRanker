@@ -1,0 +1,16 @@
+<table>
+  <tbody>
+    <tr>
+      <th>Ranking</th>
+      <th>Name</th>
+      <th>Upvote</th>
+    </tr>
+    <% @books.each do |book| %>
+      <tr>
+        <td><%= book.upvotes %></td>
+        <td><%= book.name %></td>
+        <td>[Upvote Button]</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
