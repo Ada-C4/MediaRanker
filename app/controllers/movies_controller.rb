@@ -18,6 +18,21 @@ class MoviesController < ApplicationController
     redirect_to "/movies/#{id}"
   end
 
+  def edit
+    id = params[:id]
+    @movie = Movie.find(id)
+  end
+
+  def update
+    id = params[:id]
+    @movie = Movie.find(id)
+    @movie.update(
+    name: movie_params[:movie][:name],
+    director: movie_params[:movie][:director],
+    description: movie_params[:movie][:description]
+    )
+    redirect_to "/movies/#{id}"
+  end
 
   private
 
