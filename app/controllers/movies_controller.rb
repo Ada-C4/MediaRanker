@@ -5,7 +5,7 @@ class MoviesController < ApplicationController
   end
 
   def index
-    @movies = sort(Movie.all)
+    @media = sort(Movie.all)
   end
 
   def show

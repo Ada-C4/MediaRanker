@@ -5,7 +5,7 @@ class BooksController < ApplicationController
   end
 
   def index
-    @books = sort(Book.all)
+    @media = sort(Book.all)
   end
 
   def show

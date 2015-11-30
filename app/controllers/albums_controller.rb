@@ -5,7 +5,7 @@ class AlbumsController < ApplicationController
   end
 
   def index
-    @albums = sort(Album.all)
+    @media = sort(Album.all)
   end
 
   def show

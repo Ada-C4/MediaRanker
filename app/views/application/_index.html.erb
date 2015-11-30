@@ -1,0 +1,18 @@
+<table>
+  <tr>
+    <th>Ranking</th>
+    <th>Name</th>
+    <th>Upvote</th>
+  </tr>
+
+  <% @media.each do |media| %>
+    <tr>
+      <td>Ranked: <%= media.ranking %></td>
+      <td><%= link_to media.name, polymorphic_path(media) %></td>
+      <td><%= button_to "Upvote", polymorphic_path([media]) %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= button_to "View All Media", root_path, method: :get %>
+<%= button_to "Add a #{@media.first.class}", polymorphic_path(@media.first), method: :get %>
