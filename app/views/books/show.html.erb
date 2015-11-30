@@ -1,0 +1,9 @@
+<h1><%= @book.name %></h1>
+<h2>Directed by: <%= @book.author %></h2>
+<h3>Ranked: <%= @book.ranking %></h3>
+<p><%= @book.description %></p>
+<%= button_to "Upvote", book_path(id: params[:id]) %>
+<%= link_to "Edit #{@book.name}", edit_book_path(id: params[:id]) %>
+<%= link_to "DELETE", book_path(id: params[:id]), method: :delete %>
+<%= link_to "View All books", books_path %>
+<%= link_to "View All Media", "/" %>
