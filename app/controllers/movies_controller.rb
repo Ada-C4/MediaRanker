@@ -18,4 +18,29 @@ class MoviesController < ApplicationController
     @content_path = movies_path
   end
 
+  def new
+    @item = Movie.new
+    @person = :director
+    @action = "create"
+  end
+
+  def create
+    @person = :director
+    new_params = movie_params[:movie]
+    new_params[:votes] = 0
+    @item = Movie.new(new_params)
+    if @item.save
+      redirect_to "/movies/#{movie.id}"
+    else
+      render "new"
+    end
+  end
+
+
+  private
+
+  def movie_params
+    params.permit(movie:[:name, :director, :description])
+  end
+
 end
