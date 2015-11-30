@@ -13,7 +13,7 @@ class AlbumsController < ApplicationController
     @content_path = albums_path
     @item_path = "/albums/"
     @content_type = "albums"
-    @correct_string = "Written by: "
+    @correct_string = "Recorded by: "
     @person = @content.artist
   end
 
