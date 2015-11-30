@@ -1,0 +1,9 @@
+<h1><%= @movie.title %></h1>
+
+<% if @movie.director.present? %>
+  <h2>directed by <%= @movie.director %></h2>
+<% end %>
+
+<p>
+  <%= @movie.description %>
+</p>
