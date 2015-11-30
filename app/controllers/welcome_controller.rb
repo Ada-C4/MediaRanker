@@ -1,7 +1,7 @@
 class WelcomeController < ApplicationController
   def index
-    @movies = Movie.all.limit(10)
-    @books = Book.all.limit(10)
-    @albums = Album.all.limit(10)
+    @movies = Movie.order(ranked: :desc).limit(10)
+    @books = Book.order(ranked: :desc).limit(10)
+    @albums = Album.order(ranked: :desc).limit(10)
   end
 end
