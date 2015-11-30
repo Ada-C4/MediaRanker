@@ -8,7 +8,7 @@
   <% @movies.each do |movie| %>
     <tr>
       <td>Ranked: <%= movie.ranking %></td>
-      <td><%= movie.name %></td>
+      <td><%= link_to movie.name, movie_path(movie.id) %></td>
       <td>button goes here</td>
     </tr>
   <% end %>

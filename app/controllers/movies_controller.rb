@@ -25,6 +25,26 @@ class MoviesController < ApplicationController
     end
   end
 
+  def edit
+    @movie = Movie.find(params[:id])
+  end
+
+  def update
+    @movie = Movie.find(params[:id])
+    @movie.attributes = strong_params
+    if @movie.save
+      render "show"
+    else
+      render "new"
+    end
+  end
+
+  def destroy
+    movie = Movie.find(params[:id])
+    movie.destroy
+    redirect_to movies_path
+  end
+
   private
 
   def strong_params
