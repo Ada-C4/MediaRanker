@@ -1,12 +1,19 @@
 class MoviesController < ApplicationController
   def home
-    @books = Book.all
-    @albums = Album.all
-    @movies = Movie.all
+    @books = Book.order(ranking: :desc).limit(10)
+    @albums = Album.order(ranking: :desc).limit(10)
+    @movies = Movie.order(ranking: :desc).limit(10)
   end
 
   def index
-    @movies = Movie.all
+    @movies = Movie.order(ranking: :desc)
+  end
+
+  def upvote
+    @movie = Movie.find(params[:id])
+    ranking = @movie.ranking + 1
+    @movie.update(ranking: ranking)
+    redirect_to movie_path(@movie.id)
   end
 
   def show

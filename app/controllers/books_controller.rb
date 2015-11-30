@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
   def index
-    @books = Book.all
+    @books = Book.order(ranking: :desc)
   end
 
   def show
@@ -10,6 +10,13 @@ class BooksController < ApplicationController
 
   def new
     @book = Book.new
+  end
+
+  def upvote
+    @book = Book.find(params[:id])
+    ranking = @book.ranking + 1
+    @book.update(ranking: ranking)
+    redirect_to book_path(@book.id)
   end
 
   def create

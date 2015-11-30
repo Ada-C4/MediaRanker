@@ -1,6 +1,6 @@
 class AlbumsController < ApplicationController
   def index
-    @albums = Album.all
+    @albums = Album.order(ranking: :desc)
   end
 
   def show
@@ -10,6 +10,13 @@ class AlbumsController < ApplicationController
 
   def new
     @album = Album.new
+  end
+
+  def upvote
+    @album = Album.find(params[:id])
+    ranking = @album.ranking + 1
+    @album.update(ranking: ranking)
+    redirect_to album_path(@album.id)
   end
 
   def create
