@@ -1,0 +1,24 @@
+<div>
+  <h1>Top Movies</h1>
+  <% @movies.each do |movie| %>
+    <p>
+      <a href="/movies/<%= movie.id %>"><%= movie.name %></a> Ranked:
+    </p>
+  <% end %>
+</div>
+<div>
+  <h1>Top Books</h1>
+  <% @books.each do |book| %>
+    <p>
+      <a href="/books/<%= book.id %>"><%= book.name %></a> Ranked:
+    </p>
+  <% end %>
+</div>
+<div>
+  <h1>Top Albums</h1>
+  <% @albums.each do |album| %>
+    <p>
+      <a href="/albums/<%= album.id %>"><%= album.name %></a> Ranked:
+    </p>
+  <% end %>
+</div>
