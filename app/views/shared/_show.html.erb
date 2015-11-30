@@ -11,6 +11,6 @@ Directed by: <%= @content.director %>
 <%= button_to "Upvote" %>
 <br>
 <%= button_to "Edit #{@content.name}", @edit_path %>
-<%= button_to "Delete" %>
-<%= link_to "View All Movies", @content_path %>
+<%= button_to("Delete", @item_path + @content.id.to_s, onclick: "return confirm('Are you sure?')", method: :delete, title: "Delete") %>
+<%= link_to "View All #{@content_type}", @content_path %>
 <%= link_to "View All Media", "/" %>
