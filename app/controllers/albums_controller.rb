@@ -8,9 +8,12 @@ class AlbumsController < ApplicationController
   end
 
   def new
+    @album = Album.new
   end
 
   def create
+    album = Album.create(album_params)
+    redirect_to album_path(album)
   end
 
   def edit

@@ -8,9 +8,12 @@ class BooksController < ApplicationController
   end
 
   def new
+    @book = Book.new
   end
 
   def create
+    book = Book.create(book_params)
+    redirect_to book_path(book)
   end
 
   def edit
