@@ -1,0 +1,11 @@
+<h1><%= @book.name %></h1> <h2>Written by: <%= @book.author%></h2>
+<br>
+<h3>Ranked: <%= @book.ranked %></h3>
+<br>
+<p>
+  <%= @book.description %>
+</p>
+<br>
+Upvote Button Here
+<br>
+<%= button_to "Edit #{@book.name}", edit_book_path(@book) %> <%= button_to "DELETE", "/books/#{@book.id}", method: "delete",  data: { confirm: "Are you sure?" } %> View All Books Button Here View All Media Button Here

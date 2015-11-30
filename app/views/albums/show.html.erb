@@ -1,0 +1,11 @@
+<h1><%= @album.name %></h1> <h2>Recorded by: <%= @album.artist%></h2>
+<br>
+<h3>Ranked: <%= @album.ranked %></h3>
+<br>
+<p>
+  <%= @album.description %>
+</p>
+<br>
+Upvote Button Here
+<br>
+<%= button_to "Edit #{@album.name}", edit_album_path(@album) %> <%= button_to "DELETE", "/albums/#{@album.id}", method: "delete",  data: { confirm: "Are you sure?" } %> View All Albums Button Here View All Media Button Here
