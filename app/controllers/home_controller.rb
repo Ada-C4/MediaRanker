@@ -1,7 +1,11 @@
 class HomeController < ApplicationController
 
   def all_media
-  	@top_movies = Movie.order_by(:votes).limit(10)
+  	# x is the number of items that will show in the 'top' display
+  	x = 2
+  	@top_movies = Movie.order(:votes).limit(x)
+  	@top_books = Book.order(votes: :desc).limit(x)
+  	@top_albums = Album.order(:votes).limit(x)
   end
 
 end

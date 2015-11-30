@@ -1,2 +1,7 @@
 <h1>Home#media</h1>
 <p>Find me in app/views/home/media.html.erb</p>
+<% @top_books.each do |book| %>
+  <li>
+    <%= link_to "#{book.name}", book_path(book) %> - Ranked <%= book.votes %>
+  </li>
+<% end %>
