@@ -1,12 +1,12 @@
 class MoviesController < ApplicationController
   def all_media
-    @movies = Movie.all
-    @books = Book.all
-    @albums = Album.all
+    @movies = Movie.order(votes: :desc)
+    @books = Book.order(votes: :desc)
+    @albums = Album.order(votes: :desc)
   end
 
   def index
-    @content_list = Movie.all
+    @content_list = Movie.order(votes: :desc)
     @item_path = "/movies/"
     @content_type = "Movie"
     @new_content_path = new_movie_path
@@ -54,12 +54,18 @@ class MoviesController < ApplicationController
     end
   end
 
-
   def destroy
     Movie.destroy(params[:id])
     redirect_to movies_path
   end
 
+  def upvote
+    id = params[:id]
+    movie = Movie.find(id)
+    votes = movie.votes + 1
+    movie.update(votes: votes)
+    redirect_to "/movies/#{id}"
+  end
 
   private
 

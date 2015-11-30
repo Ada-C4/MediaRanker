@@ -2,6 +2,10 @@ Rails.application.routes.draw do
 
   root 'movies#all_media'
 
+  patch '/movies/:id/upvote' => 'movies#upvote'
+  patch '/books/:id/upvote' => 'books#upvote'
+  patch '/albums/:id/upvote' => 'albums#upvote' 
+
   resources :movies
   resources :books
   resources :albums
