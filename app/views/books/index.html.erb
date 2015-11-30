@@ -10,13 +10,13 @@
       Upvote
     </th>
   </tr>
-  <% @movies.each do |movie| %>
+  <% @books.each do |book| %>
     <tr>
       <td>
-        Ranked: <%= movie.ranked %>
+        Ranked: <%= book.ranked %>
       </td>
       <td>
-        <%= link_to movie.name, movie_path(movie) %>
+        <%= link_to book.name, book_path(book) %>
       </td>
       <td>
         Upvote Button Will Go Here
