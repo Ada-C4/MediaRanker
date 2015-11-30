@@ -3,5 +3,6 @@
   <h2>Ranked: <%= @movie.rank %></h2>
   <%= @movie.description %>
   <%= link_to "Edit #{@movie.name}", edit_movie_path(params[:id]) %>
+  <%= button_to "Delete", movie_path(params[:id]), method: :delete, data: { confirm: "Are you sure you want to delete this market?"} %>
   <%= link_to "View All Movies", movies_path %>
 </div>
