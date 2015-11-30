@@ -1,0 +1,26 @@
+<table>
+  <tr>
+    <th>
+      Ranking
+    </th>
+    <th>
+      Name
+    </th>
+    <th>
+      Upvote
+    </th>
+  </tr>
+  <% @albums.each do |album| %>
+    <tr>
+      <td>
+        Ranked: <%= album.ranked %>
+      </td>
+      <td>
+        <%= link_to album.name, album_path(album) %>
+      </td>
+      <td>
+        Upvote Button Will Go Here
+      </td>
+    </tr>
+  <% end %>
+</table>
