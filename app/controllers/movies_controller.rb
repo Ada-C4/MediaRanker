@@ -1,6 +1,6 @@
 class MoviesController < ApplicationController
   def index
-    @movies = Movie.where(:user_id => params[:user_id])
+    @movies = Movie.all
   end
 
   def show
@@ -34,7 +34,7 @@ class MoviesController < ApplicationController
     movie = Movie.find(id)
     movie.update(
     name: movie_params[:movie][:name],
-    director: movie_params[:movie][:name],
+    director: movie_params[:movie][:director],
     description: movie_params[:movie][:description],
     )
     movie.save
