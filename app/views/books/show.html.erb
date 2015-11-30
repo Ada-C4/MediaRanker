@@ -9,7 +9,8 @@
       <%= button_to 'Upvote', book_upvote_path(@book.id), method: :post %>
     </div>
     <div>
-      # CRUD links for edit, delete, plus more
+      <%= link_to "Edit #{@book.title}", edit_book_path(@book.id) %>
+      <%= link_to "Delete",  { :controller=>"books", action: :destroy, :id => @book.id}, method: :delete, data: { confirm: 'Are you sure?' } %>
     </div>
   </div>
 </div>

@@ -9,7 +9,8 @@
       <%= button_to 'Upvote', movie_upvote_path(@movie.id), method: :post %>
     </div>
     <div>
-      # CRUD links for edit, delete, plus more
+      <%= link_to "Edit #{@movie.title}", edit_movie_path(@movie.id) %>
+      <%= link_to "Delete",  { :controller=>"movies", action: :destroy, :id => @movie.id}, method: :delete, data: { confirm: 'Are you sure?' } %>
     </div>
   </div>
 </div>

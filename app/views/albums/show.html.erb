@@ -9,7 +9,8 @@
       <%= button_to 'Upvote', album_upvote_path(@album.id), method: :post %>
     </div>
     <div>
-      # CRUD links for edit, delete, plus more
+      <%= link_to "Edit #{@album.title}", edit_album_path(@album.id) %>
+      <%= link_to "Delete",  { :controller=>"albums", action: :destroy, :id => @album.id}, method: :delete, data: { confirm: 'Are you sure?' } %>
     </div>
   </div>
 </div>

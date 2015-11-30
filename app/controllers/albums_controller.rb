@@ -24,6 +24,9 @@ class AlbumsController < ApplicationController
   end
 
   def destroy
+    id = params[:id]
+    Album.destroy(id)
+    redirect_to albums_path
   end
 
   def new
