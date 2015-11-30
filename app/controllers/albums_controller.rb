@@ -2,6 +2,12 @@ class AlbumsController < ApplicationController
   def index
   end
 
+  def upvote
+    @album = Album.find(params[:id])
+    @album.update_attribute(:ranking, @album.ranking + 1)
+    redirect_to action: :show
+  end
+
   def show
     @album = Album.find(params[:id])
   end

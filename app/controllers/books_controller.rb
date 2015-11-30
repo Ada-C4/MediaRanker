@@ -2,6 +2,12 @@ class BooksController < ApplicationController
   def index
   end
 
+  def upvote
+    @book = Book.find(params[:id])
+    @book.update_attribute(:ranking, @book.ranking + 1)
+    redirect_to action: :show
+  end
+
   def show
     @book = Book.find(params[:id])
   end
