@@ -5,7 +5,7 @@
 
 <h4>[Upvote Button]</h4>
 
-<span>[Edit <%= @book.name %>]</span>
+<%= link_to "Edit #{@book.name}", edit_book_path(@book.id) %>
 <span>[DELETE]</span>
 <%= link_to "View All Books", books_path %>
 <%= link_to "View All Media", root_path %>
