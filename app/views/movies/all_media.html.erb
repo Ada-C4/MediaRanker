@@ -1,11 +1,10 @@
-<h1>Media Ranker</h1>
-<h2>Ranking the Best of Everything</h2>
+
 
 <h3>Top Movies</h3>
 <ul>
   <% @movies.each do |movie| %>
   <li>
-    <span class="content-name"><%= movie.name %></span>
+    <span class="content-name"><%= link_to movie.name, movie_path(movie.id) %></span>
     Ranked: <%= movie.votes %>
   </li>
   <% end %>
@@ -17,7 +16,7 @@
 <ul>
   <% @books.each do |book| %>
   <li>
-    <span class="content-name"><%= book.name %></span>
+    <span class="content-name"><%= link_to book.name, book_path(book.id) %></span>
     Ranked: <%= book.votes %>
   </li>
   <% end %>
@@ -29,7 +28,7 @@
 <ul>
   <% @albums.each do |album| %>
   <li>
-    <span class="content-name"><%= album.name %></span>
+    <span class="content-name"><%= link_to album.name, album_path(album.id) %></span>
     Ranked: <%= album.votes %>
   </li>
   <% end %>

@@ -10,7 +10,9 @@ class MoviesController < ApplicationController
   end
 
   def show
-    @movie = Movie.find(params[:id])
+    @content = Movie.find(params[:id])
+    @edit_path = edit_movie_path(params[:id])
+    @content_path = movies_path
   end
 
 end

@@ -1,0 +1,16 @@
+<span class="content-name"><%= @content.name %></span>
+Directed by: <%= @content.director %>
+
+<div>
+  Ranked: <%= @content.votes %>
+</div>
+<div>
+  <%= @content.description %>
+</div>
+
+<%= button_to "Upvote" %>
+<br>
+<%= button_to "Edit #{@content.name}", @edit_path %>
+<%= button_to "Delete" %>
+<%= link_to "View All Movies", @content_path %>
+<%= link_to "View All Media", "/" %>
