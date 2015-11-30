@@ -1,1 +1,15 @@
-
+<%= form_for @album do |f| %>
+  <%= f.label :name %>
+  <br>
+  <%= f.text_field :name %>
+  <br>
+  <%= f.label :artist %>
+  <br>
+  <%= f.text_field :artist %>
+  <br>
+  <%= f.label :description %>
+  <br>
+  <%= f.text_area :description %>
+  <br>
+  <%= f.submit "Save" %>
+<% end %>
