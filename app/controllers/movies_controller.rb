@@ -1,2 +1,6 @@
-class MoviesController < ApplicationControllerxp
+class MoviesController < ApplicationController
+
+  def index
+    
+  end
 end
