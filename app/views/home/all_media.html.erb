@@ -1,24 +1,24 @@
 <h1>Top Movies</h1>
 <% @top_movies.each do |movie| %>
   <li>
-    <%= link_to "#{movie.name}", movie_path(movie) %> - Ranked <%= movie.votes %>
+    <h2><%= link_to "#{movie.name}", movie_path(movie) %></h2>Ranked: <%= movie.votes %>
   </li>
 <% end %>
-<%= link_to 'all movies', movies_path %>
+<%= link_to 'view more movies', movies_path %>
 
 <h1>Top Books</h1>
 <% @top_books.each do |book| %>
   <li>
-    <%= link_to "#{book.name}", book_path(book) %> - Ranked <%= book.votes %>
+    <h2><%= link_to "#{book.name}", book_path(book) %></h2> Ranked: <%= book.votes %>
   </li>
 <% end %>
-<%= link_to 'all books', books_path %>
+<%= link_to 'view more books', books_path %>
 
 
 <h1>Top Albums</h1>
 <% @top_albums.each do |album| %>
   <li>
-    <%= link_to "#{album.name}", album_path(album) %> - Ranked <%= album.votes %>
+    <h2><%= link_to "#{album.name}", album_path(album) %></h2>Ranked: <%= album.votes %>
   </li>
 <% end %>
-<%= link_to 'all albums', albums_path %>
+<%= link_to 'view more albums', albums_path %>
