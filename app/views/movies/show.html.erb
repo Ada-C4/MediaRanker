@@ -8,4 +8,4 @@
 <br>
 Upvote Button Here
 <br>
-<%= button_to "Edit #{@movie.name}", edit_movie_path(@movie) %> <%= button_to "DELETE", "/movies/#{@movie.id}", method: "delete",  data: { confirm: "Are you sure?" } %> View All Movies Button Here View All Media Button Here
+<%= button_to "Edit #{@movie.name}", edit_movie_path(@movie), method: :get %> <%= button_to "DELETE", "/movies/#{@movie.id}", method: "delete",  data: { confirm: "Are you sure?" } %> View All Movies Button Here View All Media Button Here

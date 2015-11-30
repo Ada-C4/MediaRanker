@@ -8,4 +8,4 @@
 <br>
 Upvote Button Here
 <br>
-<%= button_to "Edit #{@album.name}", edit_album_path(@album) %> <%= button_to "DELETE", "/albums/#{@album.id}", method: "delete",  data: { confirm: "Are you sure?" } %> View All Albums Button Here View All Media Button Here
+<%= button_to "Edit #{@album.name}", edit_album_path(@album), method: :get %> <%= button_to "DELETE", "/albums/#{@album.id}", method: "delete",  data: { confirm: "Are you sure?" } %> View All Albums Button Here View All Media Button Here
