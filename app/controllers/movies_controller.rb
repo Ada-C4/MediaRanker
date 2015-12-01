@@ -34,7 +34,7 @@ class MoviesController < ApplicationController
     director: movie_params[:movie][:director],
     description: movie_params[:movie][:description]
     )
-    redirect_to "/movies/#{id}"
+    redirect_to movie_path(@movie)
   end
 
   def destroy

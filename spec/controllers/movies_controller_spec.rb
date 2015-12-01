@@ -62,4 +62,23 @@ RSpec.describe MoviesController, type: :controller do
       expect(subject).to render_template :edit
     end
   end
+
+  describe "PATCH 'update'" do
+    let(:movie) do
+      Movie.create(name: "Test")
+    end
+
+    let(:update_params) do
+      {
+        movie: {
+          name: "Updated Test"
+        }
+      }
+    end
+
+    it "redirects to the show view" do
+      patch :update, { id: movie.id, movie: update_params }
+      expect(subject).to redirect_to movie_path(movie.id)
+    end
+  end
 end
