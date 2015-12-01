@@ -1,0 +1,12 @@
+<table>
+  <th>Ranking</th>
+  <th>Name  </th>
+  <th> Upvote </th>
+  <% @movies.each do |movie| %>
+    <tr>
+      <td>Ranked: <%= movie.rank %> </td>
+      <td> <%= movie.name %> </td>
+      <td> <%= button_to "Upvote", { action: "update" , class: "upvote", id: movie.id}, method: "patch" %> </td>
+    </tr>
+  <% end %>
+</table>

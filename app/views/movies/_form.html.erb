@@ -1,0 +1,12 @@
+<%= form_for @movie do |f| %>
+  <%= f.label :Name %>:
+  <%= f.text_field :name, :required => true %>
+	<br>
+  <%= f.label :Director %>:
+  <%= f.text_field :director, :required => true %>
+  <br>
+  <%= f.label :Description %>:
+  <%= f.text_field :description %>
+  <br>
+  <%= @movie.persisted? ? (f.submit value: "Update movie", id: 'special-button') : (f.submit value: "Add movie", id: 'special-button') %>
+<% end %>
