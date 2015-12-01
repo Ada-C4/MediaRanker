@@ -4,6 +4,9 @@ Rails.application.routes.draw do
 
   resources :books
   post 'books/:id' => 'books#upvote', as: :book_upvote
+
+  resources :albums
+  post 'albums/:id' => 'albums#upvote', as: :album_upvote
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
