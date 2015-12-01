@@ -9,8 +9,12 @@ class MoviesController < ApplicationController
   end
 
   def create
-    new_movie = Movie.create(movie_params[:movie])
-    redirect_to movie_path(new_movie)
+    @movie = Movie.new(movie_params[:movie])
+    if @movie.save
+      redirect_to movie_path(@movie)
+    else
+      render "new"
+    end
   end
 
   def show
@@ -22,8 +26,13 @@ class MoviesController < ApplicationController
   end
 
   def update
-    Movie.update(params[:id], movie_params[:movie])
-    redirect_to movie_path(params[:id])
+    @movie = Movie.find(params[:id])
+    @movie.update( movie_params[:movie])
+    if @movie.save
+      redirect_to movie_path(@movie)
+    else
+      render "edit"
+    end
   end
 
   def destroy
