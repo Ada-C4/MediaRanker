@@ -25,7 +25,7 @@ class AlbumsController < ApplicationController
     @item = Album.new
     @special = "Artist"
 
-    render "new"
+    render "form"
   end
 
   def create

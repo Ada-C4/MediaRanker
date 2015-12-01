@@ -25,7 +25,7 @@ class BooksController < ApplicationController
     @item = Book.new
     @special = "Author"
 
-    render "new"
+    render "form"
   end
 
   def create

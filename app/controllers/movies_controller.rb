@@ -25,7 +25,7 @@ class MoviesController < ApplicationController
     @item = Movie.new
     @special = "Director"
 
-    render "new"
+    render "form"
   end
 
   def create
