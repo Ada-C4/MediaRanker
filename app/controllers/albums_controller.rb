@@ -1,7 +1,6 @@
 class AlbumsController < ApplicationController
   def index
-    @albums = Album.all.order(ranked: :desc)
-    Movie.order(ranked: :desc).limit(10)
+    @albums = Album.order(ranked: :desc)
   end
 
   def show

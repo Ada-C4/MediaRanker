@@ -19,7 +19,7 @@
         <%= link_to movie.name, movie_path(movie) %>
       </td>
       <td>
-        Upvote Button Will Go Here
+        <%= button_to "Upvote", movie_upvote_path(movie), method: :patch %>
       </td>
     </tr>
   <% end %>
