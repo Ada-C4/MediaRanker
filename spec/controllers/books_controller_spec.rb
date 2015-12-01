@@ -9,4 +9,15 @@ RSpec.describe BooksController, type: :controller do
     end
 
   end
+
+  describe "GET 'show'" do
+    let(:book) do
+      Book.create(name: "test")
+    end
+
+    it "renders show view" do
+      get :show, id: book.id
+      expect(response.status).to eq 200
+    end
+  end
 end
