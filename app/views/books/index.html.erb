@@ -1,0 +1,6 @@
+<ul>
+  <% @books.each do |book| %>
+    <li><%= book.rank %> <%= link_to "#{book.name}", book_path(book.id) %> <%= button_to "upvote", book_upvote_path(book.id), method: :post %></li>
+  <% end %>
+</ul>
+<%= link_to "new", new_book_path %>

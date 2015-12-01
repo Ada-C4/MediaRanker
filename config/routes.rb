@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   resources :movies
-  post 'movies/:id/' => 'movies#upvote', as: :upvote
+  post 'movies/:id/' => 'movies#upvote', as: :movie_upvote
+
+  resources :books
+  post 'books/:id' => 'books#upvote', as: :book_upvote
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
