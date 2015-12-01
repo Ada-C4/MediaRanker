@@ -1,13 +1,1 @@
-<h1><%= @movie.name %> <small>Directed by: <%= @movie.director %></small></h1>
-
-<h4>Ranked: <%= @movie.ranking %></h4>
-
-<%= button_to "Upvote", upvote_movie_path %>
-
-<%= button_to "Edit #{@movie.name}", edit_movie_path, method: :get %>
-
-<%= button_to "DELETE", movie_path, method: :delete %>
-
-<%= button_to "View All Movies", movies_path, method: :get %>
-
-<%= button_to "View All Media", root_path, method: :get %>
+<%= render "show" %>

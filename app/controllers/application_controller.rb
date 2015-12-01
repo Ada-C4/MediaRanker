@@ -3,14 +3,9 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  def sort(data)
-    d = data.sort_by { |instance| instance.ranking }
-    d.reverse
-  end
-
   def index
-    @movies = sort(Movie.all)
-    @books = sort(Book.all)
-    @albums = sort(Album.all)
+    @movies = Movie.order(ranking: :desc).limit(2)
+    @books = Book.order(ranking: :desc).limit(2)
+    @albums = Album.order(ranking: :desc).limit(2)
   end
 end

@@ -1,11 +1,6 @@
 class AlbumsController < ApplicationController
-  def sort(data)
-    d = data.sort_by { |instance| instance.ranking }
-    d.reverse
-  end
-
   def index
-    @media = sort(Album.all)
+    @media = Album.order(ranking: :desc)
   end
 
   def show
@@ -55,6 +50,6 @@ class AlbumsController < ApplicationController
   private
 
   def strong_params
-    params.require(:album).permit(:name, :director, :description, :ranking)
+    params.require(:album).permit(:name, :artist, :description, :ranking)
   end
 end

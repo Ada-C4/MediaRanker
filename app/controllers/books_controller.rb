@@ -1,11 +1,6 @@
 class BooksController < ApplicationController
-  def sort(data)
-    d = data.sort_by { |instance| instance.ranking }
-    d.reverse
-  end
-
   def index
-    @media = sort(Book.all)
+    @media = Book.order(ranking: :desc)
   end
 
   def show

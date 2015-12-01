@@ -1,11 +1,6 @@
 class MoviesController < ApplicationController
-  def sort(data)
-    d = data.sort_by { |instance| instance.ranking }
-    d.reverse
-  end
-
   def index
-    @media = sort(Movie.all)
+    @media = Movie.order(ranking: :desc)
   end
 
   def show
