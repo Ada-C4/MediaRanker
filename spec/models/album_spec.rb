@@ -10,5 +10,14 @@ RSpec.describe Album, type: :model do
       Album.create(title: "a")
       expect(Album.new(title: "a")).to be_invalid
     end
+
+    it "cannot have a title with 151 characters" do
+      expect(Album.new(title: "a" * 151)).to be_invalid
+    end
+
+    it "can have a title with 150 characters" do
+      expect(Album.new(title: "a" * 150)).to be_valid
+    end
+
   end
 end
