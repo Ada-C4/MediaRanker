@@ -15,6 +15,8 @@ class MoviesController < ApplicationController
 
   def new
     @movie = Movie.new
+    @title = "Add New Movie"
+    @action = "create"
   end
 
   def create
@@ -24,6 +26,8 @@ class MoviesController < ApplicationController
 
   def edit
     @movie = Movie.find(params[:id])
+    @title = "Edit #{@movie.name}"
+    @action = "update"
   end
 
   def upvote
@@ -31,12 +35,17 @@ class MoviesController < ApplicationController
       get_movie
       @movie.update(:rank => @movie[:rank] + 1)
     end
-    redirect_to "/movies"
+    redirect_to "/movies/#{@movie.id}"
   end
 
   def update
     @movie = Movie.update(params[:id], name: movie_params[:movie][:name], director: movie_params[:movie][:director], description: movie_params[:movie][:description], rank: movie_params[:movie][:rank])
     redirect_to "/movies"
+  end
+
+  def destroy
+    Movie.destroy(params[:id])
+    redirect_to '/movies'
   end
 
   private

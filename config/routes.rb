@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :movies
 
-  patch 'movies/:id' => 'movies#upvote'
+  patch 'movies/:id/upvote' => 'movies#upvote'
 
 
 
