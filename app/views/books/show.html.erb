@@ -4,6 +4,6 @@
 
 <%= button_to "Upvote", { action: "update" , class: "upvote"}, method: "patch"%>
 <%= button_to "Edit", { action: "edit", id: @book.id },  method: :get %>
-<%= button_to "Delete", action: "destroy", id: @book.id %>
+<%= button_to "Delete", { action: "destroy", id: @book.id}, method: :delete, data: { confirm: 'Are you sure?' } %>
 <%= button_to "View all books", books_path, method: :get%>
 <%= button_to "View all media", root_path, method: :get %>

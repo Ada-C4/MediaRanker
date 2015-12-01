@@ -44,6 +44,8 @@ class MoviesController < ApplicationController
   end
 
   def destroy
+    Movie.destroy(params[:id])
+    redirect_to movies_path
   end
 
   private
