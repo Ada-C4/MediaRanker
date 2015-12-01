@@ -24,8 +24,12 @@ class BooksController < ApplicationController
   end
 
   def create
-    Book.create(book_params[:book])
-    redirect_to books_path
+    @book = Book.create(book_params[:book])
+    if @book.save
+      redirect_to books_path
+    else
+      render "new"
+    end
   end
 
   def destroy
