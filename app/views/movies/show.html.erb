@@ -6,4 +6,4 @@ Ranked: <%= @movie.rank %>
 <br>
 Description: <%= @movie.description %>
 <%= link_to "upvote", "/movies/#{@movie.id}/upvote", method: :patch %>
-<%= link_to "edit", "/movies/#{@movie.id}/edit" %>
+<%= link_to "edit", edit_movie_path(@movie.id) %>

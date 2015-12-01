@@ -1,4 +1,9 @@
 class MoviesController < ApplicationController
+  before_action :get_movie, only: [:edit, :update, :destroy]
+  def get_movie
+    @movie = Movie.find(params[:id])
+  end
+
   def index
     # @movie = Movie.find(params[:id])
     @movies = Movie.all
@@ -19,7 +24,6 @@ class MoviesController < ApplicationController
   end
 
   def edit
-    @movie = Movie.find(params[:id])
     @legend = "Edit Movie"
   end
 
@@ -37,7 +41,7 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params[:id])
     @movie.rank += 1
     @movie.save
-    redirect_to movie_path(params[:id])
+    render "show"
   end
 
 private
