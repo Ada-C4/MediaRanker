@@ -1,25 +1,14 @@
 <table>
-  <thead>
     <tr>
-      <th>
-        Ranking
-      </th>
-      <th>
-        Name
-      </th>
-      <th>
-        Upvote
-      </th>
+      <th>Ranking</th>
+      <th>Name</th>
+      <th>Upvote</th>
     </tr>
-  </thead>
+
   <% @content_list.each do |item| %>
   <tr>
-    <td>
-      Ranked: <%= item.votes %>
-    </td>
-    <td>
-      <%= link_to item.name, @item_path + item.id.to_s %>
-    </td>
+    <td>Ranked: <%= item.votes %></td>
+    <td><%= link_to item.name, polymorphic_path(item) %></td>
     <td>
       <%= button_to "Upvote", @item_path + "#{item.id}/upvote", method: :patch %>
     </td>
@@ -27,5 +16,5 @@
   <% end %>
 </table>
 
-<%= link_to "View All Media", "/" %>
-<%= link_to "Add a #{@content_type}", @new_content_path %>
+<%= link_to "View All Media", root_path %>
+<%= link_to "Add a #{item_type}", new_polymorphic_path(item_type) %>

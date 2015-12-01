@@ -10,7 +10,7 @@
 
 <%= button_to "Upvote", @item_path + "#{@content.id}/upvote", method: :patch %>
 <br>
-<%= button_to "Edit #{@content.name}", @edit_path, method: :get %>
-<%= button_to("Delete", @item_path + @content.id.to_s, onclick: "return confirm('Are you sure?')", method: :delete, title: "Delete") %>
-<%= link_to "View All #{@content_type}s", @content_path %>
-<%= link_to "View All Media", "/" %>
+<%= button_to "Edit #{@content.name}", edit_polymorphic_path(@content), method: :get %>
+<%= button_to "Delete", polymorphic_path(@content), onclick: "return confirm('Are you sure?')", method: :delete %>
+<%= link_to "View All #{@content.class}s", polymorphic_path(@content.class) %>
+<%= link_to "View All Media", root_path %>

@@ -2,8 +2,6 @@ class BooksController < ApplicationController
   def index
     @content_list = Book.order(votes: :desc)
     @item_path, @content_type = Book.page_grammer
-    # @item_path = "/books/"
-    # @content_type = "Book"
     @new_content_path = new_book_path
   end
 
@@ -12,8 +10,6 @@ class BooksController < ApplicationController
     @edit_path = edit_book_path(params[:id])
     @content_path = books_path
     @item_path, @content_type = Book.page_grammer
-    # @item_path = "/books/"
-    # @content_type = "Book"
     @correct_string = "Written by: "
     @person = @content.author
   end
@@ -26,9 +22,7 @@ class BooksController < ApplicationController
 
   def create
     @person = :author
-    new_params = book_params[:book]
-    new_params[:votes] = 0
-    @item = Book.new(new_params)
+    @item = Book.new(book_params)
     if @item.save
       redirect_to "/books/#{@item.id}"
     else
@@ -69,7 +63,7 @@ class BooksController < ApplicationController
   private
 
   def book_params
-    params.permit(book:[:name, :author, :description])
+    params.permit(book:[:name, :author, :description, :votes])
   end
 
 end

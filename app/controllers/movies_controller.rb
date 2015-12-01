@@ -1,9 +1,5 @@
 class MoviesController < ApplicationController
-  def all_media
-    @movies = Movie.all.order(votes: :desc).limit(10)
-    @books = Book.all.order(votes: :desc).limit(10)
-    @albums = Album.all.order(votes: :desc).limit(10)
-  end
+
 
   def index
     @content_list = Movie.order(votes: :desc)
@@ -28,9 +24,7 @@ class MoviesController < ApplicationController
 
   def create
     @person = :director
-    new_params = movie_params[:movie]
-    new_params[:votes] = 0
-    @item = Movie.new(new_params)
+    @item = Movie.new(movie_params)
     if @item.save
       redirect_to "/movies/#{@item.id}"
     else
@@ -70,7 +64,7 @@ class MoviesController < ApplicationController
   private
 
   def movie_params
-    params.permit(movie:[:name, :director, :description])
+    params.permit(movie:[:name, :director, :description, :votes])
   end
 
 end

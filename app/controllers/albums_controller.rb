@@ -3,8 +3,6 @@ class AlbumsController < ApplicationController
   def index
     @content_list = Album.order(votes: :desc)
     @item_path, @content_type = Album.page_grammer
-    # @item_path = "/albums/"
-    # @content_type = "album"
     @new_content_path = new_album_path
   end
 
@@ -13,8 +11,6 @@ class AlbumsController < ApplicationController
     @edit_path = edit_album_path(params[:id])
     @content_path = albums_path
     @item_path, @content_type = Album.page_grammer
-    # @item_path = "/albums/"
-    # @content_type = "Album"
     @correct_string = "Recorded by: "
     @person = @content.artist
   end
@@ -27,9 +23,7 @@ class AlbumsController < ApplicationController
 
   def create
     @person = :author
-    new_params = album_params[:album]
-    new_params[:votes] = 0
-    @item = Album.new(new_params)
+    @item = Album.new(album_params)
     if @item.save
       redirect_to "/albums/#{@item.id}"
     else
@@ -70,7 +64,7 @@ class AlbumsController < ApplicationController
   private
 
   def album_params
-    params.permit(album:[:name, :artist, :description])
+    params.permit(album:[:name, :artist, :description, :votes])
   end
 
 end
