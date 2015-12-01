@@ -1,9 +1,1 @@
-<h1><%= @album.name %></h1>
-<h2>Directed by: <%= @album.artist %></h2>
-<h3>Ranked: <%= @album.ranking %></h3>
-<p><%= @album.description %></p>
-<%= button_to "Upvote", upvote_album_path(id: params[:id]) %>
-<%= link_to "Edit #{@album.name}", edit_album_path(id: params[:id]) %>
-<%= link_to "DELETE", album_path(id: params[:id]), method: :delete %>
-<%= link_to "View All albums", albums_path %>
-<%= link_to "View All Media", "/" %>
+<%= render partial:"show_page", locals: {item: @album, create_verb: "Recorded", created_by: @album.artist, name:"albums", } %>
