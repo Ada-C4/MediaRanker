@@ -25,16 +25,29 @@ RSpec.describe AlbumsController, type: :controller do
   end
 
   describe "POST 'create'" do
-    let (:params) do
+    let (:good_params) do
       {
         album: { name: "Test Album", description: "Album's description", artist: "Album's artist"
         }
       }
     end
 
+    let (:bad_params) do
+      {
+        album: { description: "Album's description", artist: "Album's artist"
+        }
+      }
+    end
+
     it "redirects to show page" do
-      post :create, params
+      post :create, good_params
       expect(subject).to redirect_to album_path(assigns(:album).id)
     end
+
+    it "renders new template on error" do
+      post :create, bad_params
+      expect(subject).to render_template :new
+    end
   end
+
 end
