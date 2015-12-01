@@ -1,1 +1,18 @@
 <h1>Media Ranker</h1>
+<span>Ranking the Best of Everything</span>
+
+<div>
+<h1>Top Movies</h1>
+</div>
+
+<div>
+<h1>Top Books</h1>
+<% @books.each do |book| %>
+  <h2><%= link_to book.name, book_path(book.id) %><small>Upvotes: <%= book.upvotes %></small></h2>
+<% end %>
+<%= link_to "View More Books", books_path %> 
+</div>
+
+<div>
+<h1>Top Albums</h1>
+</div>
