@@ -1,0 +1,36 @@
+<% unless @items.empty? %>
+  <div class="container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>
+            Ranking
+          </th>
+          <th>
+            Name
+          </th>
+          <th>
+            Upvote
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @items.each do |item| %>
+          <tr>
+            <td>
+              Ranked: <%= item.votes %>
+            </td>
+            <td>
+              <%= link_to item.name, polymorphic_path(item) %>
+            </td>
+            <td>
+              <%= link_to "Upvote", polymorphic_path(item) %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <%= link_to "View All Media", root_path %>
+  <%= link_to "Add a " + @type, new_polymorphic_path(@type.downcase) %>
+<% end %>

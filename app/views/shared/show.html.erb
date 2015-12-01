@@ -1,0 +1,8 @@
+<h1><%= @item.name %></h1>
+<%= "#{@special} by: #{@item.creator}" %>
+<br>
+Ranked: <%= @item.votes %>
+<%= link_to "Upvote", polymorphic_path(@item, action: :upvote) %>
+<%= link_to "Edit #{@item.name}", edit_polymorphic_path(@item) %>
+<%= link_to "View All #{@type}", polymorphic_path(@type.downcase) %>
+<%= link_to "View All Media", root_path %>
