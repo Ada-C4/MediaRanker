@@ -7,6 +7,8 @@ class MoviesController < ApplicationController
     @media = movies.order(votes: :asc) if params[:order] == 'asc'
     @media = movies.order(votes: :desc) if params[:order] == 'desc'
 
+    @type = "movie"
+
   end
 
   def new

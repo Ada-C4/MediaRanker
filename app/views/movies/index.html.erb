@@ -1,1 +1,4 @@
+<%= link_to "sort by ascending", polymorphic_path(Movie, :order => 'asc') %>
+<%= link_to "sort by descending", polymorphic_path(Movie, :order => 'desc') %>
+
 <%= render partial: 'index' %>

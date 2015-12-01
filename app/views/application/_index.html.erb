@@ -1,5 +1,4 @@
-<%= link_to "sort by ascending", polymorphic_path(Movie, :order => 'asc') %>
-<%= link_to "sort by descending", polymorphic_path(Movie, :order => 'desc') %>
+
 
 <table>
   <thead>
@@ -21,4 +20,4 @@
 </table>
 
 <%= link_to "Go Home", "/" %>
-<%= link_to "New #{@media.first.class}", new_polymorphic_path(@media.first.class) %>
+<%= link_to "New #{@type.capitalize}", new_polymorphic_path(@type) %>

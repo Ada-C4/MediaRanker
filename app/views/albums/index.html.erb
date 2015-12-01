@@ -1,0 +1,4 @@
+<%= link_to "sort by ascending", polymorphic_path(Album, :order => 'asc') %>
+<%= link_to "sort by descending", polymorphic_path(Album, :order => 'desc') %>
+
+<%= render partial: 'index' %>
