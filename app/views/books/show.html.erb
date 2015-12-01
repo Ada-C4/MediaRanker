@@ -1,3 +1,6 @@
 <h2><%= @book.name %></h2>
-<h3><%= @book.author %></h3>
+<h3>Written by: <%= @book.author %></h3>
+<h4>Ranked: <%= @book.rank %><h4>
 <p><%= @book.description %></p>
+
+<%= link_to "Edit #{@book.name}", edit_book_path %>
