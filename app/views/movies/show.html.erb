@@ -4,5 +4,6 @@
 UPVOTE button
 
 
-<%= button_to 'EDIT', { action: "edit", id: @movie.id },  method: :get %>
+<%= button_to 'EDIT', method: :get %>
 <%= button_to 'DELETE',  { action: :destroy, id: @movie.id }, method: :delete, data: { confirm: 'Delete Movie, For Real?' } %>
+<%= link_to 'View All Movies', movies_path %>
