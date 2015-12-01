@@ -1,5 +1,7 @@
 <div>
-  <h1><%= @movie.name %> Directed by: <%= @movie.director %></h1>
+  <h1>
+    <%= @movie.name %>
+  </h1>
   <h2>Ranked: <%= @movie.rank %></h2>
   <%= @movie.description %>
   <%= link_to "Edit #{@movie.name}", edit_movie_path(params[:id]) %>

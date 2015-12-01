@@ -5,6 +5,7 @@ class MoviesController < ApplicationController
 
   def show
     @movie = Movie.find(params[:id])
+    @creater = "Directed by:"
   end
 
   def new
@@ -12,8 +13,7 @@ class MoviesController < ApplicationController
   end
 
   def create
-    Movie.create(movie_params[:movie])
-    @movie = Movie.new(movie_params[:movie])
+    @movie = Movie.create(movie_params[:movie])
     if @movie.save
       redirect_to movie_path(id: @movie.id)
     else

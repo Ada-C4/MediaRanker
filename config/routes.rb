@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'movies#home'
-  patch 'movies/:id/upvote' => 'movies#upvote', as: :upvote
+  patch 'movies/:id/upvote' => 'movies#upvote', as: :movies_upvote
   resources :movies do
   end
 end
