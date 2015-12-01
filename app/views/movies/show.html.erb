@@ -8,4 +8,4 @@
 <br>
 <%= button_to "Upvote", movie_upvote_path(@movie), method: :patch %>
 <br>
-<%= button_to "Edit #{@movie.name}", edit_movie_path(@movie), method: :get %> <%= button_to "DELETE", "/movies/#{@movie.id}", method: "delete",  data: { confirm: "Are you sure?" } %> View All Movies Button Here View All Media Button Here
+<%= button_to "Edit #{@movie.name}", edit_movie_path(@movie), method: :get %> <%= button_to "DELETE", "/movies/#{@movie.id}", method: "delete",  data: { confirm: "Are you sure?" } %> <%= button_to "View All Movies", movies_path, method: :get %> <%= button_to "View All Media", root_path, method: :get %>
