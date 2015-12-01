@@ -39,15 +39,27 @@ class MoviesController < ApplicationController
   end
 
   def edit
+    @item = Movie.find(params[:id])
+    @special = "Director"
 
+    render "shared/new"
   end
 
   def update
+    @item = Movie.find(params[:id])
+    @item.attributes = movie_params
 
+    if @item.save
+      redirect_to movies_path
+    else
+      render "shared/new"
+    end
   end
 
   def destroy
+    Movie.destroy(Movie.find(params[:id]))
 
+    redirect_to movies_path
   end
 
   private
