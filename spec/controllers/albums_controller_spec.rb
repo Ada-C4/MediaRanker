@@ -42,7 +42,7 @@ RSpec.describe AlbumsController, type: :controller do
     	end
 
     	# item created properly
-    	it "redirects to index page" do
+    	it "redirects to show page" do
     		post :create, params
     		expect(subject).to redirect_to album_path(1)
     	end
@@ -70,7 +70,6 @@ RSpec.describe AlbumsController, type: :controller do
     		patch :update, params
     		expect(subject).to redirect_to album_path(1)
     	end
-    	
     end
 
 	end
