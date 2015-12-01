@@ -1,7 +1,5 @@
 class Movie < ActiveRecord::Base
   validates :title, presence: true
-  validates :description, presence: true
-  validates :director, presence: true
   validates :ranking, presence: true
 
   def self.top_ten
