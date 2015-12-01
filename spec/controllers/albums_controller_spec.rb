@@ -14,7 +14,7 @@ RSpec.describe AlbumsController, type: :controller do
 
 	  describe "GET 'show'" do
 	  	let(:album) do
-	  		Album.create(name: 'a album')
+	  		Album.create(name: 'an album')
 	  	end
 	  	it "renders the show view" do
 	  		get :show, id: album.id
@@ -54,7 +54,24 @@ RSpec.describe AlbumsController, type: :controller do
     	end
     end
 
-    
+    describe "PATCH 'update" do
+    	let(:params) do
+    		{
+    			id: 1,
+    			album: 
+    			{
+    				name: "this is a name",
+    				description: 'description',
+    			}
+    		}
+    	end
+    	it 'updates with new name' do
+    		album = Album.create(params[:album])
+    		patch :update, params
+    		expect(subject).to redirect_to album_path(1)
+    	end
+    	
+    end
 
 	end
 end
