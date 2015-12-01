@@ -1,3 +1,4 @@
 <h1>New Album</h1>
 
-<%= render partial:"album_form" %>
+<!-- <%= render partial:"album_form" %> -->
+<%= render partial:"form", locals: {item: @album, person: :artist} %>

@@ -1,3 +1,4 @@
 <h1>Edit Movie</h1>
 
-<%= render partial:"movie_form" %>
+<!-- <%= render partial:"movie_form" %> -->
+<%= render partial:"form", locals: {item: @movie, person: :director} %>

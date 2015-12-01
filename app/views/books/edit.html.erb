@@ -1,3 +1,4 @@
 <h1>Edit Book</h1>
 
-<%= render partial:"book_form" %>
+<!-- <%= render partial:"book_form" %> -->
+<%= render partial:"form", locals: {item: @book, person: :author} %>
