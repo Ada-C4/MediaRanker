@@ -2,8 +2,8 @@
 <h3>Ranked: <%= @album.rank %> </h3>
 <h4> <%= @album.description %> </h4>
 
-
+<%= button_to "Upvote", { action: "update" , class: "upvote"}, method: "patch"%>
 <%= button_to "Edit", { action: "edit", id: @album.id },  method: :get %>
 <%= button_to "Delete", action: "destroy", id: @album.id %>
-<%= button_to "View all movies", movies_path, method: :get%>
+<%= button_to "View all albums", albums_path, method: :get%>
 <%= button_to "View all media", root_path, method: :get %>

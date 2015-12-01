@@ -20,7 +20,7 @@ class AlbumsController < ApplicationController
   end
 
   def update
-    if params[:value] == "upvote"
+    if params[:class] == "upvote"
       get_album
       rank = @album[:rank] + 1
       @album.update(:rank => rank)
