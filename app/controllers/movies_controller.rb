@@ -35,7 +35,7 @@ class MoviesController < ApplicationController
 
   def create
     movie.create(movie_params[:movie])
-    redirect_to show_path
+    redirect_to movies_path
   end
 
   def destroy

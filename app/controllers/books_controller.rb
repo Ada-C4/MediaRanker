@@ -9,7 +9,7 @@ class BooksController < ApplicationController
   end
 
   def new
-    @album = Album.new
+    @book = Book.new
   end
 
   def edit
@@ -34,8 +34,8 @@ class BooksController < ApplicationController
   end
 
   def create
-    Book.create(book[:book])
-    redirect_to show_path
+    Book.create(book_params[:book])
+    redirect_to books_path
   end
 
   def destroy

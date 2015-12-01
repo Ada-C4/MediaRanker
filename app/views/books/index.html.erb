@@ -5,8 +5,10 @@
   <% @books.each do |book| %>
     <tr>
       <td>Ranked: <%= book.rank %> </td>
-      <td> <%= book.name %> </td>
+      <td> <%= link_to book.name, book_path(book.id) %> </td>
       <td> <%= button_to "Upvote", { action: "update" , class: "upvote", id: book.id}, method: "patch" %> </td>
     </tr>
   <% end %>
 </table>
+<%= button_to "Add a book", new_book_path, method: :get %>
+<%= button_to "View all movies", movies_path, method: :get%>
