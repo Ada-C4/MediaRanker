@@ -42,7 +42,7 @@ class AlbumsController < ApplicationController
 
   def update
     id = params[:id]
-    album = album.find(id)
+    album = Album.find(id)
     album.update(
     name: album_params[:album][:name],
     artist: album_params[:album][:artist],
@@ -61,6 +61,6 @@ class AlbumsController < ApplicationController
   private
 
   def album_params
-    params.permit(book:[:name, :artist, :description])
+    params.permit(album:[:name, :artist, :description])
   end
 end
