@@ -1,0 +1,19 @@
+<h1><%= @art.title %></h1>
+
+<h2><%= @art.votes.present? ? "#{@art.votes} votes" : "0 votes" %></h2>
+
+<% if @art_attribute.present? %>
+  <h3><%= "#{art_verb} by #{@art_attribute}" %></h2>
+<% end %>
+
+<p>
+  <%= @art.description %>
+</p>
+
+<%= link_to "Upvote!", polymorphic_path(@art, :action => :upvote), :method => :patch %>
+
+<%= link_to "Delete #{type.capitalize}", polymorphic_path(@art), method: :delete, data: { confirm: 'Are you sure?' } %>
+
+<%= link_to "Edit #{type.capitalize}", edit_polymorphic_path(@art) %>
+
+<%= link_to "All #{type_plural.capitalize}", polymorphic_path(type_plural) %>
