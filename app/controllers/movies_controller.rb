@@ -20,11 +20,12 @@ class MoviesController < ApplicationController
 
   def edit
     @movie = Movie.find(params[:id])
+    @legend = "Edit Movie"
   end
 
   def update
     Movie.update(params[:id], movie_params[:movie])
-    redirect_to movies_path
+    redirect_to "/movies/#{@movie.id}"
   end
 
   def destroy
@@ -36,7 +37,7 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params[:id])
     @movie.rank += 1
     @movie.save
-    redirect_to movie_path(@movie.id)
+    redirect_to movie_path(params[:id])
   end
 
 private
