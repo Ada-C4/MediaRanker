@@ -12,7 +12,7 @@ class MoviesController < ApplicationController
   def show
     get_movie
   end
-  
+
   def new
     @movie = Movie.new
   end
@@ -23,14 +23,19 @@ class MoviesController < ApplicationController
   end
 
   def edit
-    get_movie
+    @movie = Movie.find(params[:id])
   end
 
-  def update
+  def upvote
     if params[:class] == "vote"
       get_movie
       @movie.update(:rank => @movie[:rank] + 1)
     end
+    redirect_to "/movies"
+  end
+
+  def update
+    @movie = Movie.update(params[:id], name: movie_params[:movie][:name], director: movie_params[:movie][:director], description: movie_params[:movie][:description], rank: movie_params[:movie][:rank])
     redirect_to "/movies"
   end
 

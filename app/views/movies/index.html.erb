@@ -18,7 +18,7 @@
       <td><%= movie.rank %></td>
       <td><%= link_to movie.name, movie_path(movie)%></td>
       <td>
-        <%= button_to "Upvote", { action: "update", id: movie.id, class: "vote" }, method: "put" %>
+        <%= button_to "Upvote", { action: "upvote", id: movie.id, class: "vote" }, method: "patch" %>
       </td>
     </tr>
     <% end %>

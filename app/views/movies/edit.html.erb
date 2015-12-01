@@ -1,5 +1,5 @@
 <h1>Edit Movie</h1>
-<%= form_for @movie, url: {action: "edit"} do |f| %>
+<%= form_for @movie, url: {action: "update"} do |f| %>
 <%= f.label :name %>
 <%= f.text_field :name %>
 <%= f.label :director %>
