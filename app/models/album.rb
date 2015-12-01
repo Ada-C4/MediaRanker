@@ -4,4 +4,8 @@ class Album < ActiveRecord::Base
     Album.order("ranking DESC").limit(10)
   end
 
+  def self.by_ranking
+    Album.order("ranking DESC")
+  end
+
 end

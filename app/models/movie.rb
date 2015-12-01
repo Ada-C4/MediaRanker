@@ -4,4 +4,8 @@ class Movie < ActiveRecord::Base
     Movie.order("ranking DESC").limit(10)
   end
 
+  def self.by_ranking
+    Movie.order("ranking DESC")
+  end
+
 end

@@ -1,2 +1,28 @@
-<h1>Movies#index</h1>
-<p>Find me in app/views/movies/index.html.erb</p>
+<div class="row">
+  <div class="col-lg-12">
+    <table class="table table-hover">
+      <tbody>
+        <tr>
+          <th>Ranking</th>
+          <th>Name</th>
+          <th>Upvote</th>
+        </tr>
+        <% @movies.by_ranking.each do |movie| %>
+          <tr>
+          <td>
+            Ranked:<%=movie.ranking %>
+          </td>
+          <td>
+            <%= link_to "#{movie.title}", movie_path(movie.id), action: :show %>
+          </td>
+          <td>
+            <%= button_to "Upvote", movie_upvote_path(movie.id), method: :post, class: "btn btn-default" %>
+          </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= link_to "View All Media", root_path, class: "btn btn-default" %>
+    <%= link_to "Add a Movie", new_movie_path, class: "btn btn-default" %>
+  </div>
+</div>
