@@ -8,9 +8,9 @@
 
 
 seed_movies = [
-  {name: "The Little Mermaid", director: "Albert Einstein", description: "A fish creature wants legs, watch the epic journey.", votes: 22},
-  {name: "Generic Movie", director: "Daphne", description: "Very Generic", votes: 10},
-  {name: "Pan's Labyrinth", director: "Guillermo del Toro", description: "", votes: 55}
+  {name: "The Little Mermaid", creator: "Albert Einstein", description: "A fish creature wants legs, watch the epic journey.", votes: 22},
+  {name: "Generic Movie", creator: "Daphne", description: "Very Generic", votes: 10},
+  {name: "Pan's Labyrinth", creator: "Guillermo del Toro", description: "", votes: 55}
 ]
 
 seed_movies.each do |seed|
@@ -18,8 +18,8 @@ seed_movies.each do |seed|
 end
 
 seed_books = [
-  {name: "The Name of the Wind", author: "Patrick Rothfuss", description: "", votes: 100},
-  {name: "Generic Book", author: "Darkwing Daphne", description: "Very Generic", votes: 15},
+  {name: "The Name of the Wind", creator: "Patrick Rothfuss", description: "", votes: 100},
+  {name: "Generic Book", creator: "Darkwing Daphne", description: "Very Generic", votes: 15},
 ]
 
 seed_books.each do |seed|
@@ -27,8 +27,8 @@ seed_books.each do |seed|
 end
 
 seed_albums = [
-  {name: "Spice", artist: "Spice Girls", description: "Awesomesweetrocktacular", votes: 25},
-  {name: "Generic Album", artist: "Generic Artist", description: "Very Generic", votes: 10},
+  {name: "Spice", creator: "Spice Girls", description: "Awesomesweetrocktacular", votes: 25},
+  {name: "Generic Album", creator: "Generic Artist", description: "Very Generic", votes: 10},
 ]
 
 seed_albums.each do |seed|
