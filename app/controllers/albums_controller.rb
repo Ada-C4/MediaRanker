@@ -12,7 +12,7 @@ class AlbumsController < ApplicationController
     @edit_path = edit_album_path(params[:id])
     @content_path = albums_path
     @item_path = "/albums/"
-    @content_type = "albums"
+    @content_type = "Album"
     @correct_string = "Recorded by: "
     @person = @content.artist
   end

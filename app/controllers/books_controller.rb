@@ -11,7 +11,7 @@ class BooksController < ApplicationController
     @edit_path = edit_book_path(params[:id])
     @content_path = books_path
     @item_path = "/books/"
-    @content_type = "Books"
+    @content_type = "Book"
     @correct_string = "Written by: "
     @person = @content.author
   end

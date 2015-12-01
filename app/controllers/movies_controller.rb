@@ -17,7 +17,7 @@ class MoviesController < ApplicationController
     @edit_path = edit_movie_path(params[:id])
     @content_path = movies_path
     @item_path = "/movies/"
-    @content_type = "Movies"
+    @content_type = "Movie"
     @correct_string = "Directed by "
     @person = @content.director
   end
