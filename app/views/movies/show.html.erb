@@ -1,0 +1,11 @@
+<h1><%= @movie.name %></h1>
+<small>Written by: <%= @movie.director %></small>
+<h4>Upvotes: <%= @movie.upvotes %></h4>
+<p><%= @movie.description %></p>
+
+<%= button_to "Upvote", upvote_movie_path %>
+<br>
+<%= link_to "Edit #{@movie.name}", edit_movie_path(@movie.id) %>
+<%=link_to "DELETE", movie_path(@movie.id), method: :delete, data: {confirm: "Are you sure?"} %>
+<%= link_to "View All Movies", movies_path %>
+<%= link_to "View All Media", root_path %>
