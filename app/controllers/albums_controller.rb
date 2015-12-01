@@ -41,7 +41,6 @@ class AlbumsController < ApplicationController
   def edit
     id = params[:id]
     @album = Album.find(id)
-    session[:return_to] = request.referer
   end
 
   def update
@@ -52,13 +51,7 @@ class AlbumsController < ApplicationController
     artist: album_params[:album][:artist],
     description: album_params[:album][:description],
     )
-    album.save
-    if session[:return_to].nil?
-      redirect_to "/"
-    else
-      redirect_to session[:return_to]
-    end
-    session[:return_to] = nil
+    redirect_to album_path(album.id)
   end
 
 

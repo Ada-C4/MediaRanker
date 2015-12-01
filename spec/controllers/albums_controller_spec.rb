@@ -68,6 +68,32 @@ RSpec.describe AlbumsController, type: :controller do
     end
 
     describe "PATCH 'update'" do
-      
+      it "redirects to show page" do
+        album = Album.create(name: "Something", artist: "Someone", description: "Something something something")
+        params =   {
+          album: {
+            name: "Something",
+            artist: "Someone",
+            description: "Something something something"
+          },
+          id: album.id
+        }
+        patch :update, params
+        expect(subject).to redirect_to album_path(album.id)
+      end
     end
+
+    # describe "DELETE 'destroy'" do
+    #   let(:album) do
+    #     Album.create(name: "Test")
+    #   end
+    #
+    #   it "redirects to index page" do
+    #
+    #     delete :destroy, album
+    #
+    #     # Success case to index page
+    #     expect(subject).to redirect_to albums_path
+    #   end
+    # end
 end
