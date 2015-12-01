@@ -54,5 +54,7 @@ RSpec.describe AlbumsController, type: :controller do
     	end
     end
 
+    
+
 	end
 end
