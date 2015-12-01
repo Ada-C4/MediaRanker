@@ -7,17 +7,39 @@ RSpec.describe AlbumsController, type: :controller do
       expect(response.status).to eq 200
     end
   end
+
   describe "GET 'new'" do
     it "is successful" do
       get :new
       expect(response.status).to eq 200
     end
   end
+
   describe "GET 'show/:id'" do
-    it "is successful" do
-      @album = Album.create(name: "hello")
-      get :show, id: 1
+    let(:album) do
+      Album.create(name: "hello")
+    end
+
+    it "renders show view" do
+      get :show, id: album.id
       expect(response.status).to eq 200
     end
   end
+
+  describe "POST 'create'" do
+    let(:params) do
+      {
+        album: {
+          id: 1,
+          name: "something something"
+        }
+      }
+    end
+    
+    it "redirects to show page" do
+      post :create, params
+      expect(subject).to redirect_to album_path(params[:album][:id])
+    end
+  end
+
 end
