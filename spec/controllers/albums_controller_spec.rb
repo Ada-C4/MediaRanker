@@ -42,10 +42,8 @@ RSpec.describe AlbumsController, type: :controller do
       end
 
       it "redirects to index page" do
-        subject { post :create, good_params }
 
-        # Same as above
-        # post :create, params
+        post :create, good_params
 
         # Success case to index page
         expect(subject).to redirect_to albums_path
@@ -56,5 +54,20 @@ RSpec.describe AlbumsController, type: :controller do
         post :create, bad_params
         expect(subject).to render_template :new
       end
+    end
+
+    describe "GET 'edit'" do
+      let(:album) do
+        Album.create(name: "Test")
+      end
+
+      it "renders the edit view" do
+        get :edit, id: album.id
+        expect(subject).to render_template :edit
+      end
+    end
+
+    describe "PATCH 'update'" do
+      
     end
 end
