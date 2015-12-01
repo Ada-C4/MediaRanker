@@ -1,0 +1,17 @@
+<h1> All movies </h1>
+
+<table>
+  <tr>
+    <th> Ranking </th>
+    <th> Name </th>
+    <th> Upvote </th>
+  </tr>
+
+  <% @movies.each do |movie| %>
+  <tr>
+    <td><%= movie.rank %></td>
+    <td><%= link_to movie.name, "movies/#{movie.id}" %></td>
+    <td>UPVOTE BUTTON</td>
+  </tr>
+  <% end %>
+</table>
