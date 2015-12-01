@@ -1,4 +1,15 @@
-<h1><%= @movie.name %></h1>
+<h1><%= item.name %></h1>
+<h2><%= create_verb %> by: <%= created_by %></h2>
+<h3>Ranked: <%= item.ranking %></h3>
+<p><%= item.description %></p>
+<%= button_to "Upvote", polymorphic_path([:upvote, item]) %>
+<%= link_to "Edit #{item.name}", edit_polymorphic_path(item, id: params[:id]) %>
+<%= link_to "DELETE", polymorphic_path(item, id: params[:id]), method: :delete %>
+<%= link_to "View All Movies", polymorphic_path(name) %>
+<%= link_to "View All Media", "/" %>
+
+
+<!-- <h1><%= @movie.name %></h1>
 <h2>Directed by: <%= @movie.director %></h2>
 <h3>Ranked: <%= @movie.ranking %></h3>
 <p><%= @movie.description %></p>
@@ -6,4 +17,4 @@
 <%= link_to "Edit #{@movie.name}", edit_movie_path(id: params[:id]) %>
 <%= link_to "DELETE", movie_path(id: params[:id]), method: :delete %>
 <%= link_to "View All Movies", movies_path %>
-<%= link_to "View All Media", "/" %>
+<%= link_to "View All Media", "/" %> -->
