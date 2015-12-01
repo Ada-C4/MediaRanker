@@ -19,6 +19,11 @@ class AlbumsController < ApplicationController
   end
 
   def create
+    @album = Album.create(title: album_params[:album][:title],
+                 description: album_params[:album][:description],
+                 artist: album_params[:album][:artist],
+                 ranking: 0)
+    redirect_to album_path(@album.id)
   end
 
   def edit
@@ -31,9 +36,6 @@ class AlbumsController < ApplicationController
     id = params[:id]
     Album.destroy(id)
     redirect_to albums_path
-  end
-
-  def new
   end
 
   private

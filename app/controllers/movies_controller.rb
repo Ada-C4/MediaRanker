@@ -18,6 +18,8 @@ class MoviesController < ApplicationController
   end
 
   def create
+    Movie.create(movie_params[:movie])
+    redirect_to action: :index
   end
 
   def edit

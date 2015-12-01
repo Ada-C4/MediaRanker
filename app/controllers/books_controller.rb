@@ -18,6 +18,8 @@ class BooksController < ApplicationController
   end
 
   def create
+    Book.create(book_params[:book])
+    redirect_to action: :index
   end
 
   def edit
