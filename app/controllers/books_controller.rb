@@ -19,8 +19,11 @@ class BooksController < ApplicationController
   end
 
   def update
-  	@media.update(book_params)
-  	redirect_to book_path(@media)
+  	if @media.update(book_params)
+  		redirect_to book_path(@media)
+  	else 
+  		redirect_to edit_book_path(@media)
+  	end
   end
 
   def upvote

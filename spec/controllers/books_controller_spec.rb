@@ -52,7 +52,7 @@ RSpec.describe BooksController, type: :controller do
     	end
 
     	# item created properly
-    	it "redirects to index page" do
+    	it "redirects to show page" do
     		post :create, params
     		expect(subject).to redirect_to book_path(1)
     	end
@@ -75,6 +75,11 @@ RSpec.describe BooksController, type: :controller do
   		it "should should be successful" do
   			patch :update, { id: book_id, books: update_params }
   			expect(subject).to redirect_to book_path(book_id)
+  		end
+
+  		it "should reload the page if name is set to nil" do
+  			patch :update, { id: book_id, books: {name: nil}}
+  			expect(subject).to redirect_to edit_book_path(book_id)
   		end
   	end
 

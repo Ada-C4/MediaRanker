@@ -52,7 +52,7 @@ end
     	end
 
     	# item created properly
-    	it "redirects to index page" do
+    	it "redirects to showd page" do
     		post :create, params
     		expect(subject).to redirect_to movie_path(1)
     	end
