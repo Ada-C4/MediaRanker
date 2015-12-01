@@ -4,7 +4,7 @@ class AlbumsController < ApplicationController
   end
 
   def show
-    @album = Album.find(params[:id])
+    @media = Album.find(params[:id])
   end
 
   def new
@@ -25,9 +25,9 @@ class AlbumsController < ApplicationController
   end
 
   def update
-    @album = Album.find(params[:id])
-    @album.attributes = strong_params
-    if @album.save
+    @media = Album.find(params[:id])
+    @media.attributes = strong_params
+    if @media.save
       render "show"
     else
       render "new"
@@ -41,9 +41,9 @@ class AlbumsController < ApplicationController
   end
 
   def upvote
-    @album = Album.find(params[:id])
-    @album.ranking += 1
-    @album.save
+    @media = Album.find(params[:id])
+    @media.ranking += 1
+    @media.save
     render "show"
   end
 

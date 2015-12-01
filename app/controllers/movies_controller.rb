@@ -4,7 +4,7 @@ class MoviesController < ApplicationController
   end
 
   def show
-    @movie = Movie.find(params[:id])
+    @media = Movie.find(params[:id])
   end
 
   def new
@@ -25,9 +25,9 @@ class MoviesController < ApplicationController
   end
 
   def update
-    @movie = Movie.find(params[:id])
-    @movie.attributes = strong_params
-    if @movie.save
+    @media = Movie.find(params[:id])
+    @media.attributes = strong_params
+    if @media.save
       render "show"
     else
       render "new"
@@ -41,9 +41,9 @@ class MoviesController < ApplicationController
   end
 
   def upvote
-    @movie = Movie.find(params[:id])
-    @movie.ranking += 1
-    @movie.save
+    @media = Movie.find(params[:id])
+    @media.ranking += 1
+    @media.save
     render "show"
   end
 

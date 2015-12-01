@@ -4,7 +4,7 @@ class BooksController < ApplicationController
   end
 
   def show
-    @book = Book.find(params[:id])
+    @media = Book.find(params[:id])
   end
 
   def new
@@ -25,9 +25,9 @@ class BooksController < ApplicationController
   end
 
   def update
-    @book = Book.find(params[:id])
-    @book.attributes = strong_params
-    if @book.save
+    @media = Book.find(params[:id])
+    @media.attributes = strong_params
+    if @media.save
       render "show"
     else
       render "new"
@@ -41,9 +41,9 @@ class BooksController < ApplicationController
   end
 
   def upvote
-    @book = Book.find(params[:id])
-    @book.ranking += 1
-    @book.save
+    @media = Book.find(params[:id])
+    @media.ranking += 1
+    @media.save
     render "show"
   end
 
