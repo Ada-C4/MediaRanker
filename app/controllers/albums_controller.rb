@@ -35,8 +35,12 @@ class AlbumsController < ApplicationController
 
 
   def create
-    Album.create(album_params[:album])
-    redirect_to albums_path
+    @album = Album.new(album_params[:album])
+    if @album.save
+      redirect_to albums_path
+    else
+      render "new"
+    end
   end
 
   def destroy
