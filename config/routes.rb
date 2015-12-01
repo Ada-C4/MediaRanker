@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   post "/books/:id"  => "books#upvote",  as: :upvote_book
   post "/movies/:id"  => "movies#upvote",  as: :upvote_movie
+  post "/albums/:id"  => "albums#upvote",  as: :upvote_album
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
