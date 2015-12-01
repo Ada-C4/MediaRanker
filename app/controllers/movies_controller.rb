@@ -15,6 +15,12 @@ class MoviesController < ApplicationController
     render "shared/show"
   end
 
+  def upvote
+    Movie.find(params[:id]).increment!(:votes)
+
+    redirect_to :back
+  end
+
   def new
     @item = Movie.new
     @special = "Director"
@@ -33,7 +39,7 @@ class MoviesController < ApplicationController
   end
 
   def edit
-    
+
   end
 
   def update
