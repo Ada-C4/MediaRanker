@@ -61,4 +61,17 @@ RSpec.describe MoviesController, type: :controller do
       expect(subject).to redirect_to movies_path
     end
   end
+
+  describe "GET 'edit'" do
+    let(:movie) do
+      Movie.create(name: "Test", director: "Me", description: "boring film", rank: 7)
+    end
+
+    it "renders edit view" do
+      get :edit, id: movie.id
+      expect(subject).to render_template :edit
+    end
+  end
+
+  
 end
