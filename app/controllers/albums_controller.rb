@@ -2,8 +2,9 @@ class AlbumsController < ApplicationController
 
   def index
     @content_list = Album.order(votes: :desc)
-    @item_path = "/albums/"
-    @content_type = "album"
+    @item_path, @content_type = Album.page_grammer
+    # @item_path = "/albums/"
+    # @content_type = "album"
     @new_content_path = new_album_path
   end
 
@@ -11,8 +12,9 @@ class AlbumsController < ApplicationController
     @content = Album.find(params[:id])
     @edit_path = edit_album_path(params[:id])
     @content_path = albums_path
-    @item_path = "/albums/"
-    @content_type = "Album"
+    @item_path, @content_type = Album.page_grammer
+    # @item_path = "/albums/"
+    # @content_type = "Album"
     @correct_string = "Recorded by: "
     @person = @content.artist
   end

@@ -7,8 +7,7 @@ class MoviesController < ApplicationController
 
   def index
     @content_list = Movie.order(votes: :desc)
-    @item_path = "/movies/"
-    @content_type = "Movie"
+    @item_path, @content_type = Movie.page_grammer
     @new_content_path = new_movie_path
   end
 
@@ -16,8 +15,7 @@ class MoviesController < ApplicationController
     @content = Movie.find(params[:id])
     @edit_path = edit_movie_path(params[:id])
     @content_path = movies_path
-    @item_path = "/movies/"
-    @content_type = "Movie"
+    @item_path, @content_type = Movie.page_grammer
     @correct_string = "Directed by "
     @person = @content.director
   end

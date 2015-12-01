@@ -1,8 +1,9 @@
 class BooksController < ApplicationController
   def index
     @content_list = Book.order(votes: :desc)
-    @item_path = "/books/"
-    @content_type = "Book"
+    @item_path, @content_type = Book.page_grammer
+    # @item_path = "/books/"
+    # @content_type = "Book"
     @new_content_path = new_book_path
   end
 
@@ -10,8 +11,9 @@ class BooksController < ApplicationController
     @content = Book.find(params[:id])
     @edit_path = edit_book_path(params[:id])
     @content_path = books_path
-    @item_path = "/books/"
-    @content_type = "Book"
+    @item_path, @content_type = Book.page_grammer
+    # @item_path = "/books/"
+    # @content_type = "Book"
     @correct_string = "Written by: "
     @person = @content.author
   end
