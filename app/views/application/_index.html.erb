@@ -5,13 +5,13 @@
       <th>Name</th>
       <th>Upvote</th>
     </tr>
-    <% @media.each do |media| %>
+    <% media.each do |m| %>
     <tr >
-      <td>Ranked: <%= media.rank %></td>
-      <td><%= link_to "#{media.name}", polymorphic_path(media) %></td>
-      <td><%= link_to "Upvote", movies_upvote_path(id: movie.id), method: :patch %></td>
+      <td>Ranked: <%= m.rank %></td>
+      <td><%= link_to "#{m.name}", polymorphic_path(m) %></td>
+      <td><%= link_to "Upvote", polymorphic_path([:upvote, m]), method: :patch %></td>
     </tr>
     <% end %>
   </table>
-  <%= link_to "Add a #{media.class}", new_movie_path %>
+  <%= link_to "Add a #{singular_name.class}", new_polymorphic_path(singular_name) %>
 </div>
