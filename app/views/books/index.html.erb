@@ -1,6 +1,1 @@
-<h1>Books#index</h1>
-<% @books.each do |book| %>
-  <li>
-    <%= book.name %>
-  </li>
-<% end %>
+<%= render partial: 'index', locals:{media: 'book', route: 'book_path(book)', form_path: 'book_upvote_path'} %>

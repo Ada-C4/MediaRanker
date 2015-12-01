@@ -1,12 +1,13 @@
 class MoviesController < ApplicationController
-	before_action :set_movie, only: [:edit, :show, :update, :destroy] 
+	before_action :set_movie, only: [:edit, :show, :update, :destroy, :upvote] 
 
   def new
-  	@movie = Movie.new
+  	@media = Movie.new
   end
 
   def create
   	@movie = Movie.new(movie_params)
+  	@movie.votes = 0
   	if @movie.save
   		redirect_to movie_path(@movie)
   	else
@@ -15,6 +16,7 @@ class MoviesController < ApplicationController
   end
 
   def edit
+  	@media = @movie
   end
 
   def update
@@ -23,7 +25,7 @@ class MoviesController < ApplicationController
   end
 
   def index
-  	@movies = Movie.all
+  	@media = Movie.order(votes: :desc)
   end
 
   def show
@@ -32,6 +34,12 @@ class MoviesController < ApplicationController
   def destroy
   	@movie.destroy
   	redirect_to movies_path
+  end
+
+  def upvote
+  	@movie.votes += 1
+  	@movie.save
+  	redirect_to :back
   end
 
   private

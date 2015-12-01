@@ -1,12 +1,13 @@
 class BooksController < ApplicationController
-  before_action :set_book, only: [:edit, :show, :update, :destroy] 
+  before_action :set_book, only: [:edit, :show, :update, :destroy, :upvote] 
 
   def new
-  	@book = Book.new
+  	@media = Book.new
   end
 
   def create
   	@book = Book.new(book_params)
+  	@book.votes = 0
   	if @book.save
   		redirect_to book_path(@book)
   	else
@@ -15,6 +16,7 @@ class BooksController < ApplicationController
   end
 
   def edit
+  	@media = @book
   end
 
   def update
@@ -22,8 +24,14 @@ class BooksController < ApplicationController
   	redirect_to book_path(@book)
   end
 
+  def upvote
+  	@book.votes += 1
+  	@book.save
+  	redirect_to :back
+  end
+
   def index
-  	@books = Book.all
+  	@media = Book.order(votes: :desc)
   end
 
   def show
