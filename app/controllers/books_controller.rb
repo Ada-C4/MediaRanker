@@ -8,20 +8,20 @@ class BooksController < ApplicationController
   end
 
   def new
-    @book = Book.new
+    @media = Book.new
   end
 
   def create
-    @book = Book.new(strong_params)
-    if @book.save
-      redirect_to book_path(@book.id)
+    @media = Book.new(strong_params)
+    if @media.save
+      redirect_to book_path(@media.id)
     else
       render "new"
     end
   end
 
   def edit
-    @book = Book.find(params[:id])
+    @media = Book.find(params[:id])
   end
 
   def update

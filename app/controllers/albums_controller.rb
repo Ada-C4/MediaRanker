@@ -8,20 +8,20 @@ class AlbumsController < ApplicationController
   end
 
   def new
-    @album = Album.new
+    @media = Album.new
   end
 
   def create
-    @album = Album.new(strong_params)
-    if @album.save
-      redirect_to album_path(@album.id)
+    @media = Album.new(strong_params)
+    if @media.save
+      redirect_to album_path(@media.id)
     else
       render "new"
     end
   end
 
   def edit
-    @album = Album.find(params[:id])
+    @media = Album.find(params[:id])
   end
 
   def update

@@ -8,20 +8,20 @@ class MoviesController < ApplicationController
   end
 
   def new
-    @movie = Movie.new
+    @media = Movie.new
   end
 
   def create
-    @movie = Movie.new(strong_params)
-    if @movie.save
-      redirect_to movie_path(@movie.id)
+    @media = Movie.new(strong_params)
+    if @media.save
+      redirect_to movie_path(@media.id)
     else
       render "new"
     end
   end
 
   def edit
-    @movie = Movie.find(params[:id])
+    @media = Movie.find(params[:id])
   end
 
   def update
