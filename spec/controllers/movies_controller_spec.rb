@@ -51,4 +51,15 @@ RSpec.describe MoviesController, type: :controller do
       expect(subject).to render_template :new
     end
   end
+
+  describe "GET 'edit'" do
+    let(:movie) do
+      Movie.create(name: "Test")
+    end
+
+    it "renders the edit view" do
+      get :edit, id: movie.id
+      expect(subject).to render_template :edit
+    end
+  end
 end
