@@ -14,8 +14,12 @@ class MoviesController < ApplicationController
 
   def create
     id = params[:id]
-    Movie.create(movie_params[:movie])
-    redirect_to "/movies/#{id}"
+    @movie = Movie.create(movie_params[:movie])
+    if @movie.save
+      redirect_to "/movies/#{id}"
+    else
+      render :new
+    end
   end
 
   def edit

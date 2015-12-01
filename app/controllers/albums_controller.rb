@@ -14,8 +14,12 @@ class AlbumsController < ApplicationController
 
   def create
     id = params[:id]
-    Album.create(album_params[:album])
-    redirect_to "/albums/#{id}"
+    @album = Album.create(album_params[:album])
+    if @album.save
+      redirect_to "/albums/#{id}"
+    else
+      render :new
+    end
   end
 
   def edit
