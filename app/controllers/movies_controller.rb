@@ -19,8 +19,11 @@ class MoviesController < ApplicationController
   end
 
   def update
-  	@media.update(movie_params)
-  	redirect_to movie_path(@media)
+  	if @media.update(movie_params)
+  		redirect_to movie_path(@media)
+  	else 
+  		redirect_to edit_movie_path(@media)
+  	end
   end
 
   def index

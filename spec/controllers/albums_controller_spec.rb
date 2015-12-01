@@ -65,6 +65,10 @@ end
 			patch :update, { id: album_id, album: update_params }
 			expect(subject).to redirect_to album_path(album_id)
 		end
+		it "should reload the page if not validated" do
+			patch :update, { id: album_id, album: {name: nil}}
+			expect(subject).to redirect_to edit_album_path(album_id)
+		end
 	end
 
 	end

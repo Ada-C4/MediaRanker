@@ -19,8 +19,11 @@ class AlbumsController < ApplicationController
   end
 
   def update
-  	@media.update(album_params)
-  	redirect_to album_path(@media)
+  	if @media.update(album_params)
+  		redirect_to album_path(@media)
+  	else 
+  		redirect_to edit_album_path(@media)
+  	end
   end
 
   def index

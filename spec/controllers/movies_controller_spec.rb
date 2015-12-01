@@ -79,6 +79,10 @@ end
 			patch :update, update_params
 			expect(subject).to redirect_to movie_path(movie_id)
 		end
+		it "should reload the page if not validated" do
+			patch :update, { id: movie_id, movie: {name: nil}}
+			expect(subject).to redirect_to edit_movie_path(movie_id)
+		end
 	end
 
 
