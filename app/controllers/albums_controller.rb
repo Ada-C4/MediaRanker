@@ -35,7 +35,8 @@ class AlbumsController < ApplicationController
 
 
   def create
-
+    Album.create(album_params[:album])
+    redirect_to show_path
   end
 
   def destroy

@@ -34,6 +34,8 @@ class BooksController < ApplicationController
   end
 
   def create
+    Book.create(book[:book])
+    redirect_to show_path
   end
 
   def destroy
