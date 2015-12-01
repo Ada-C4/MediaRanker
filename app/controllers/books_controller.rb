@@ -16,17 +16,16 @@ class BooksController < ApplicationController
   end
 
   def edit
-  	@media = @book
   end
 
   def update
-  	@book.update(book_params)
+  	@media.update(book_params)
   	redirect_to book_path(@book)
   end
 
   def upvote
-  	@book.votes += 1
-  	@book.save
+  	@media.votes += 1
+  	@media.save
   	redirect_to :back
   end
 
@@ -38,7 +37,7 @@ class BooksController < ApplicationController
   end
 
   def destroy
-  	@book.destroy
+  	@media.destroy
   	redirect_to books_path
   end
 
@@ -49,7 +48,7 @@ class BooksController < ApplicationController
   end
 
   def set_book
-  	@book = Book.find(params[:id])
+  	@media = Book.find(params[:id])
   end
 
 end

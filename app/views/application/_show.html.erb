@@ -1,4 +1,11 @@
 
 
+<h1><%= @media.name %></h1> <h2><%= created %>: <%= creator %></h2>
+<h3>Ranked: <%= @media.votes %></h3>
+<p><%= @media.description %></p>
+
+<%= render partial: 'upvote', locals:{media: media} %>
+<br>
+
 <%= link_to "View All #{medias}".titleize, polymorphic_path(medias) %>
 <%= link_to 'View All Media', home_path %>

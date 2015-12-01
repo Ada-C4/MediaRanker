@@ -16,11 +16,10 @@ class MoviesController < ApplicationController
   end
 
   def edit
-  	@media = @movie
   end
 
   def update
-  	@movie.update(movie_params)
+  	@media.update(movie_params)
   	redirect_to movie_path(@movie)
   end
 
@@ -32,13 +31,13 @@ class MoviesController < ApplicationController
   end
 
   def destroy
-  	@movie.destroy
+  	@media.destroy
   	redirect_to movies_path
   end
 
   def upvote
-  	@movie.votes += 1
-  	@movie.save
+  	@media.votes += 1
+  	@media.save
   	redirect_to :back
   end
 
@@ -49,7 +48,7 @@ class MoviesController < ApplicationController
   end
 
   def set_movie
-  	@movie = Movie.find(params[:id])
+  	@media = Movie.find(params[:id])
   end
 
 end

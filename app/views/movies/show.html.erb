@@ -1,1 +1,1 @@
-<%= @movie.name %>
+<%= render partial: 'show', locals: {media: 'movie', medias: 'movies', created: 'Directed by', creator: @media.director} %>

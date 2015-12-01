@@ -16,12 +16,11 @@ class AlbumsController < ApplicationController
   end
 
   def edit
-  	@media = @album
   end
 
   def update
-  	@album.update(album_params)
-  	redirect_to album_path(@album)
+  	@media.update(album_params)
+  	redirect_to album_path(@media)
   end
 
   def index
@@ -32,13 +31,13 @@ class AlbumsController < ApplicationController
   end
 
   def destroy
-  	@album.destroy
+  	@media.destroy
   	redirect_to albums_path
   end
 
   def upvote
-  	@album.votes += 1
-  	@album.save
+  	@media.votes += 1
+  	@media.save
   	redirect_to :back
   end
 
@@ -49,6 +48,6 @@ class AlbumsController < ApplicationController
   end
 
   def set_album
-  	@album = Album.find(params[:id])
+  	@media = Album.find(params[:id])
   end
 end
