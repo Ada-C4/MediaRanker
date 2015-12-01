@@ -40,6 +40,21 @@ class BooksController < ApplicationController
     redirect_to "/books/"
   end
 
+  def upvote
+    id = params[:id]
+    @book = Book.find(id)
+    current_score = Book.find(id).upvotes
+    if current_score.nil?
+      new_score = 1
+    else
+      new_score = current_score + 1
+    end
+    @book.update(
+    upvotes: new_score
+    )
+    redirect_to "/books/#{id}"
+  end
+
   private
 
   def book_params

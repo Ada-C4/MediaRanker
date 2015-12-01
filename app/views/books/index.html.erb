@@ -14,12 +14,17 @@
   <tr>
     <td>
       Ranked:
+      <% if book.upvotes.nil? %>
+        0
+      <% else %>
+        <%= book.upvotes %>
+      <% end %>
     </td>
     <td>
       <a href="/books/<%= book.id %>"><%= book.name %></a>
     </td>
     <td>
-      <%= button_to "Upvote", "/books/#{book.id}",  method: :patch, class: 'x-button' %>
+      <%= button_to "Upvote", "/books/#{book.id}/upvote",  method: :patch, class: 'x-button' %>
     </td>
   </tr>
 <% end %>
