@@ -1,9 +1,15 @@
 <h1><%= @movie.name %></h1><h2>Directed by: <%= @movie.director %></h2>
-<h3>Ranked: </h3>
+<h3>Ranked:
+  <% if @movie.upvotes.nil? %>
+    0
+  <% else %>
+    <%= @movie.upvotes %>
+  <% end %>
+</h3>
 <p>
   <%= @movie.description %>
 </p>
-<%= button_to "Upvote", "/movies/#{@movie.id}",  method: :patch, class: 'x-button' %>
+<%= button_to "Upvote", upvote_movie_path,  method: :patch, class: 'x-button' %>
 <%= button_to "Edit #{@movie.name}", edit_movie_path,  method: :get, class: 'x-button' %>
 <%= button_to "DELETE", "/movies/#{@movie.id}",  method: :delete, data: { confirm: "Are you sure?" }, class: 'x-button' %>
 <%= button_to "View All Movies", movies_path,  method: :get, class: 'x-button' %>

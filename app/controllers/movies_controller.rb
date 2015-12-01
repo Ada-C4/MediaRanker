@@ -40,6 +40,21 @@ class MoviesController < ApplicationController
     redirect_to "/movies/"
   end
 
+  def upvote
+    id = params[:id]
+    @movie = Movie.find(id)
+    current_score = Movie.find(id).upvotes
+    if current_score.nil?
+      new_score = 1
+    else
+      new_score = current_score + 1
+    end
+    @movie.update(
+    upvotes: new_score
+    )
+    redirect_to "/movies/#{id}"
+  end
+
   private
 
   def movie_params
