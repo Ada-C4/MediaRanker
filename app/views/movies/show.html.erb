@@ -1,9 +1,10 @@
 <h1> <%= @movie.name %> </h1> <h2>Directed by: <%= @movie.director %> </h2>
 <h3>Ranked: <%= @movie.rank %> </h3>
 <h4><%= @movie.description %> </h4>
-UPVOTE button
+<%= button_to 'Upvote', upvote_path(@movie.id) %>
 
 
-<%= button_to 'EDIT', method: :get %>
-<%= button_to 'DELETE',  { action: :destroy, id: @movie.id }, method: :delete, data: { confirm: 'Delete Movie, For Real?' } %>
+
+<%= link_to 'EDIT', edit_movie_path %>
+<%= link_to 'DELETE',  { action: :destroy, id: @movie.id }, method: :delete, data: { confirm: 'Delete Movie, For Real?' } %>
 <%= link_to 'View All Movies', movies_path %>

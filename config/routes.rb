@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   # root 'movies#home'
   resources :movies
+  post 'movies/:id' => 'movies#upvote', as: :upvote
+end
+
 
 
 
@@ -58,4 +61,3 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-end
