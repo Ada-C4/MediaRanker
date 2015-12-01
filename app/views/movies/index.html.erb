@@ -1,7 +1,7 @@
 <h1>Here are all the movies!</h1>
 <ul>
   <% @movies.each do |movie| %>
-    <li><%= movie.rank %> <%= link_to "#{movie.name}", movie_path(movie.id) %> <%= button_to "upvote", upvote_path(movie.id), method: :patch %></li>
+    <li><%= movie.rank %> <%= link_to "#{movie.name}", movie_path(movie.id) %> <%= button_to "upvote", upvote_path(movie.id), method: :post %></li>
   <% end %>
 </ul>
 <%= link_to "new", new_movie_path %>
