@@ -25,7 +25,8 @@ class AlbumsController < ApplicationController
   end
 
   def show
-    @album = Album.find(params[:id])
+    @art = Album.find(params[:id])
+    @art_attribute = @art.artist
   end
 
   def edit

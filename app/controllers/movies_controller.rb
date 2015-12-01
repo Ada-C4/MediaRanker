@@ -7,8 +7,6 @@ class MoviesController < ApplicationController
     @media = movies.order(votes: :asc) if params[:order] == 'asc'
     @media = movies.order(votes: :desc) if params[:order] == 'desc'
 
-    @type = "movie"
-
   end
 
   def new
@@ -27,7 +25,8 @@ class MoviesController < ApplicationController
   end
 
   def show
-    @movie = Movie.find(params[:id])
+    @art = Movie.find(params[:id])
+    @art_attribute = @art.director
   end
 
   def edit

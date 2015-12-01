@@ -7,8 +7,6 @@ class BooksController < ApplicationController
     @media = books.order(votes: :asc) if params[:order] == 'asc'
     @media = books.order(votes: :desc) if params[:order] == 'desc'
 
-    @type = "book"
-
   end
 
   def new
