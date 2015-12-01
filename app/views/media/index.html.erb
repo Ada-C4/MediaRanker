@@ -4,8 +4,9 @@
 <div>
 <h1>Top Movies</h1>
 <% @movies.each do |movie| %>
-  <h2><%= movie.name %><small>Upvotes: <%= movie.upvotes %></small></h2>
+  <h2><%= link_to movie.name, movie_path(movie.id) %><small>Upvotes: <%= movie.upvotes %></small></h2>
 <% end %>
+<%= link_to "View More Movies", movies_path %>
 </div>
 
 <div>
@@ -19,6 +20,7 @@
 <div>
 <h1>Top Albums</h1>
 <% @albums.each do |album| %>
-  <h2><%= album.name %><small>Upvotes: <%= album.upvotes %></small></h2>
+  <h2><%= link_to album.name, album_path(album.id) %><small>Upvotes: <%= album.upvotes %></small></h2>
 <% end %>
+<%= link_to "View More Albums", albums_path %>
 </div>
