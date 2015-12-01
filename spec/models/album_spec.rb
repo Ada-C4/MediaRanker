@@ -5,6 +5,5 @@ RSpec.describe Album, type: :model do
     it "must have a name" do
       expect(Album.new(name: nil)).to_not be_valid
     end
-
   end
 end
