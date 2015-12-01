@@ -5,6 +5,7 @@ RSpec.describe AlbumsController, type: :controller do
     it "is successful" do
       get :index
       expect(response.status).to eq 200
+      expect(subject).to render_template :index
     end
   end
 
@@ -12,6 +13,7 @@ RSpec.describe AlbumsController, type: :controller do
     it "is successful" do
       get :new
       expect(response.status).to eq 200
+      expect(subject).to render_template :new
     end
   end
 
@@ -27,7 +29,7 @@ RSpec.describe AlbumsController, type: :controller do
   end
 
   describe "POST 'create'" do
-    let(:params) do
+    let(:params1) do
       {
         album: {
           id: 1,
@@ -35,10 +37,22 @@ RSpec.describe AlbumsController, type: :controller do
         }
       }
     end
+    let(:params2) do
+      {
+        album: {
+          description: "something"
+        }
+      }
+    end
 
-    it "redirects to show page" do
-      post :create, params
-      expect(subject).to redirect_to album_path(params[:album][:id])
+    it "successful create redirects to show page" do
+      post :create, params1
+      expect(subject).to redirect_to album_path(params1[:album][:id])
+    end
+
+    it "unsuccessful create renders new page" do
+      post :create, params2
+      expect(subject).to render_template :new
     end
   end
 
