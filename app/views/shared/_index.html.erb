@@ -1,0 +1,21 @@
+<table>
+  <thead>
+    <tr>
+      <th>Ranking</th>
+      <th>Name</th>
+      <th>Upvote</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% medias.each do |media| %>
+      <tr>
+        <td><%= media.upvotes %></td>
+        <td><%= link_to media.name, polymorphic_path(media) %></td>
+        <td><%= button_to "Upvote", upvote_media_path(media.id) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "View All Media", root_path %>
+<%= link_to "Add a #{media}", new_media_path %>
