@@ -15,7 +15,9 @@ class AlbumsController < ApplicationController
   end
 
   def new
+    @album = Album.new
   end
+
   def create
   end
 
