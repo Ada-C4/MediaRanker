@@ -19,7 +19,13 @@ end
 	      get :index
 	      expect(response.status).to eq 200
 	    end
+	  end
 
+	  describe "GET 'new'" do
+	  	it "renders the 'new' view" do
+	  		get :new
+	  		expect(subject).to render_template("new")
+	  	end
 	  end
 
 	  describe "GET 'show'" do

@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe BooksController, type: :controller do
 
-		let(:create_params) do {
+	let(:create_params) do {
 			book: {
 				name: "Some book",
 				description: "It's got music!"
@@ -10,7 +10,7 @@ RSpec.describe BooksController, type: :controller do
 		}
 	end
 
-		let(:book) { Book.create(create_params[:book]) }
+	let(:book) { Book.create(create_params[:book]) }
 
 	describe BooksController do
 
@@ -20,6 +20,13 @@ RSpec.describe BooksController, type: :controller do
 	      get :index
 	      expect(response.status).to eq 200
 	    end
+	  end
+
+	  describe "GET 'new'" do
+	  	it "renders the 'new' view" do
+	  		get :new
+	  		expect(subject).to render_template("new")
+	  	end
 	  end
 
 	  describe "GET 'show'" do
@@ -77,7 +84,7 @@ RSpec.describe BooksController, type: :controller do
   			expect(subject).to redirect_to book_path(book_id)
   		end
 
-  		it "should reload the page if name is set to nil" do
+  		it "should reload the page if not validated" do
   			patch :update, { id: book_id, books: {name: nil}}
   			expect(subject).to redirect_to edit_book_path(book_id)
   		end
