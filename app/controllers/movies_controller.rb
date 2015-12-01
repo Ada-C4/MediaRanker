@@ -18,8 +18,11 @@ class MoviesController < ApplicationController
   end
 
   def create
-    Movie.create(movie_params[:movie])
-    redirect_to action: :index
+    @movie = Movie.create(title: movie_params[:movie][:title],
+                 description: movie_params[:movie][:description],
+                 director: movie_params[:movie][:director],
+                 ranking: 0)
+    redirect_to movie_path(@movie.id)
   end
 
   def edit
@@ -34,8 +37,6 @@ class MoviesController < ApplicationController
     redirect_to movies_path
   end
 
-  def new
-  end
 
   private
 

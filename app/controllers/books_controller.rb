@@ -18,8 +18,11 @@ class BooksController < ApplicationController
   end
 
   def create
-    Book.create(book_params[:book])
-    redirect_to action: :index
+    @book = Book.create(title: book_params[:book][:title],
+                 description: book_params[:book][:description],
+                 author: book_params[:book][:author],
+                 ranking: 0)
+    redirect_to book_path(@book.id)
   end
 
   def edit
@@ -34,8 +37,6 @@ class BooksController < ApplicationController
     redirect_to books_path
   end
 
-  def new
-  end
 
   private
 
