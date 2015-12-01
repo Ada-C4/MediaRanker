@@ -20,7 +20,7 @@ class BooksController < ApplicationController
 
   def update
   	@media.update(book_params)
-  	redirect_to book_path(@book)
+  	redirect_to book_path(@media)
   end
 
   def upvote

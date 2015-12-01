@@ -2,6 +2,16 @@ require 'rails_helper'
 
 RSpec.describe BooksController, type: :controller do
 
+		let(:create_params) do {
+			book: {
+				name: "Some book",
+				description: "It's got music!"
+			}
+		}
+	end
+
+		let(:book) { Book.create(create_params[:book]) }
+
 	describe BooksController do
 
 	  describe "GET 'index'" do
@@ -53,6 +63,20 @@ RSpec.describe BooksController, type: :controller do
     		expect(subject).to render_template("new")
     	end
     end
+
+   	describe "PATCH 'update'" do
+  		let(:book_id) { book.id }
+  		let(:update_params) do 
+  			{
+  					name: "Some book",
+  					description: "It's got music that I don't like :("
+  			}
+  		end
+  		it "should should be successful" do
+  			patch :update, { id: book_id, books: update_params }
+  			expect(subject).to redirect_to book_path(book_id)
+  		end
+  	end
 
 
 	end

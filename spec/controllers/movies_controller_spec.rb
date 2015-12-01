@@ -2,6 +2,16 @@ require 'rails_helper'
 
 RSpec.describe MoviesController, type: :controller do
 
+	let(:create_params) do {
+		movie: {
+			name: "Some movie",
+			description: "It's got music!"
+		}
+	}
+end
+
+	let(:movie) { Movie.create(create_params[:movie]) }
+
 	describe MoviesController do
 	  describe "GET 'index'" do
 
@@ -53,6 +63,23 @@ RSpec.describe MoviesController, type: :controller do
     		expect(subject).to render_template("new")
     	end
     end
+
+     	describe "PATCH 'update'" do
+		let(:movie_id) { movie.id }
+		let(:update_params) do
+			{
+				id: movie_id,
+				movie: {
+					name: "Some movie",
+					description: "It's got music that I don't like :("
+				}
+			}
+		end
+		it "should should be successful" do
+			patch :update, update_params
+			expect(subject).to redirect_to movie_path(movie_id)
+		end
+	end
 
 
 	end
