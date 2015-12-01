@@ -26,6 +26,11 @@ class MoviesController < ApplicationController
       rank = @movie[:rank] + 1
       @movie.update(:rank => rank)
       render "show"
+    elsif params[:class] == "upvote_i"
+      get_movie
+      rank = @movie[:rank] + 1
+      @movie.update(:rank => rank)
+      redirect_to movies_path
     else
       get_movie
       @movie.update(movie_params[:movie])
@@ -34,7 +39,7 @@ class MoviesController < ApplicationController
   end
 
   def create
-    movie.create(movie_params[:movie])
+    Movie.create(movie_params[:movie])
     redirect_to movies_path
   end
 
