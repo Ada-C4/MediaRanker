@@ -31,6 +31,13 @@ class BooksController < ApplicationController
   redirect_to books_path
  end
 
+ def upvote
+   book = Book.find(params[:id])
+   book.upvotes += 1
+   book.save!
+   redirect_to book_path(params[:id])
+ end
+
  private
 
   def book_params
