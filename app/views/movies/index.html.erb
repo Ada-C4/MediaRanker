@@ -1,5 +1,5 @@
 <table>
-  <tbody>
+  <thead>
     <tr>
       <th>
         Ranking
@@ -11,11 +11,14 @@
         Upvote
       </th>
     </tr>
+  </thead>
+  <tbody>
+    <% @movies.each do |movie| %>
     <tr>
-      <td>
-
-      </td>
+      <td><%= movie.rank %></td>
+      <td><%= movie.name %></td>
     </tr>
+    <% end %>
   </tbody>
 </table>
 
