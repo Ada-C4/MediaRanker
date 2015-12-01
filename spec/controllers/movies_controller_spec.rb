@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe AlbumsController, type: :controller do
+RSpec.describe MoviesController, type: :controller do
   describe "GET new" do
     it "is successful" do
       get :new
@@ -9,21 +9,21 @@ RSpec.describe AlbumsController, type: :controller do
   end
 
   describe "GET show" do
-    let(:album) do
-      Album.create(name: "Brawn")
+    let(:movie) do
+      Movie.create(name: "Brawn")
     end
     it "renders the show view" do
-      get :show, id: album.id
+      get :show, id: movie.id
       expect(response.status).to eq 200
     end
   end
 
   describe "GET edit" do
-    let(:album) do
-      Album.create(name: "Prawn")
+    let(:movie) do
+      Movie.create(name: "Prawn")
     end
     it "renders the edit view" do
-      get :edit, id: album.id
+      get :edit, id: movie.id
       expect(response.status).to eq 200
     end
   end
