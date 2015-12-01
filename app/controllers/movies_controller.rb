@@ -3,7 +3,7 @@ class MoviesController < ApplicationController
     @items = Movie.order(votes: :desc)
     @type = "Movie"
 
-    render "shared/index"
+    render "index"
   end
 
   def show
@@ -12,7 +12,7 @@ class MoviesController < ApplicationController
     @special = "Directed"
 
 
-    render "shared/show"
+    render "show"
   end
 
   def upvote
@@ -25,7 +25,7 @@ class MoviesController < ApplicationController
     @item = Movie.new
     @special = "Director"
 
-    render "shared/new"
+    render "new"
   end
 
   def create
@@ -34,7 +34,7 @@ class MoviesController < ApplicationController
     if @item.save
       redirect_to movies_path
     else
-      render "shared/new"
+      render "new"
     end
   end
 
@@ -42,7 +42,7 @@ class MoviesController < ApplicationController
     @item = Movie.find(params[:id])
     @special = "Director"
 
-    render "shared/new"
+    render "new"
   end
 
   def update
@@ -52,7 +52,7 @@ class MoviesController < ApplicationController
     if @item.save
       redirect_to movies_path
     else
-      render "shared/new"
+      render "new"
     end
   end
 

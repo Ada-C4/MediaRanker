@@ -3,7 +3,7 @@ class BooksController < ApplicationController
     @items = Book.order(votes: :desc)
     @type = "Book"
 
-    render "shared/index"
+    render "index"
   end
 
   def show
@@ -12,7 +12,7 @@ class BooksController < ApplicationController
     @special = "Written"
 
 
-    render "shared/show"
+    render "show"
   end
 
   def upvote
@@ -25,7 +25,7 @@ class BooksController < ApplicationController
     @item = Book.new
     @special = "Author"
 
-    render "shared/new"
+    render "new"
   end
 
   def create
@@ -34,7 +34,7 @@ class BooksController < ApplicationController
     if @item.save
       redirect_to books_path
     else
-      render "shared/new"
+      render "new"
     end
   end
 
@@ -42,7 +42,7 @@ class BooksController < ApplicationController
     @item = Book.find(params[:id])
     @special = "Author"
 
-    render "shared/new"
+    render "new"
   end
 
   def update
@@ -52,7 +52,7 @@ class BooksController < ApplicationController
     if @item.save
       redirect_to books_path
     else
-      render "shared/new"
+      render "new"
     end
   end
 

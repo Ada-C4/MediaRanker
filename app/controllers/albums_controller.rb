@@ -3,7 +3,7 @@ class AlbumsController < ApplicationController
     @items = Album.order(votes: :desc)
     @type = "Album"
 
-    render "shared/index"
+    render "index"
   end
 
   def show
@@ -12,7 +12,7 @@ class AlbumsController < ApplicationController
     @special = "Recorded"
 
 
-    render "shared/show"
+    render "show"
   end
 
   def upvote
@@ -25,7 +25,7 @@ class AlbumsController < ApplicationController
     @item = Album.new
     @special = "Artist"
 
-    render "shared/new"
+    render "new"
   end
 
   def create
@@ -34,7 +34,7 @@ class AlbumsController < ApplicationController
     if @item.save
       redirect_to albums_path
     else
-      render "shared/new"
+      render "new"
     end
   end
 
@@ -42,7 +42,7 @@ class AlbumsController < ApplicationController
     @item = Album.find(params[:id])
     @special = "Artist"
 
-    render "shared/new"
+    render "new"
   end
 
   def update
@@ -52,7 +52,7 @@ class AlbumsController < ApplicationController
     if @item.save
       redirect_to albums_path
     else
-      render "shared/new"
+      render "new"
     end
   end
 
