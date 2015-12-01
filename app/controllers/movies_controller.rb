@@ -1,8 +1,8 @@
 class MoviesController < ApplicationController
   def all_media
-    @movies = Movie.order(votes: :desc)
-    @books = Book.order(votes: :desc)
-    @albums = Album.order(votes: :desc)
+    @movies = Movie.all.order(votes: :desc).limit(10)
+    @books = Book.all.order(votes: :desc).limit(10)
+    @albums = Album.all.order(votes: :desc).limit(10)
   end
 
   def index
