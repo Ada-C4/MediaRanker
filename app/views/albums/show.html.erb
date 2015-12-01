@@ -2,3 +2,5 @@
 <h3>Recorded by: <%= @album.artist %></h3>
 <h4>Ranked: <%= @album.rank %><h4>
 <p><%= @album.description %></p>
+
+<%= link_to "Edit #{@album.name}", edit_album_path %>

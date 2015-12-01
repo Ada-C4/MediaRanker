@@ -2,3 +2,5 @@
 <h3>Directed by: <%= @movie.director %></h3>
 <h4>Ranked: <%= @movie.rank %><h4>
 <p><%= @movie.description %></p>
+
+<%= link_to "Edit #{@movie.name}", edit_movie_path %>

@@ -1,0 +1,15 @@
+<h3>Edit Album</h3>
+
+<%= form_for @album, url: {action: "update"}, html: {class: "edit-album"} do |f| %>
+
+<%= f.label :name, "Name" %>
+<%= f.text_field :name %>
+
+<%= f.label :artist, "Artist" %>
+<%= f.text_field :artist %>
+
+<%= f.label :description, "Description" %>
+<%= f.text_area :description %>
+
+<%= f.submit "Save" %>
+<% end %>
