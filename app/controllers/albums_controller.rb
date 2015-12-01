@@ -30,7 +30,7 @@ class AlbumsController < ApplicationController
     if @media.save
       render "show"
     else
-      render "new"
+      render "edit"
     end
   end
 

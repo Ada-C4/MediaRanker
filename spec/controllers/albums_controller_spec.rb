@@ -29,15 +29,14 @@ RSpec.describe AlbumsController, type: :controller do
   end
 
   describe "POST 'create'" do
-    let(:params1) do
+    let(:good_params) do
       {
         album: {
-          id: 1,
           name: "something something"
         }
       }
     end
-    let(:params2) do
+    let(:bad_params) do
       {
         album: {
           description: "something"
@@ -46,12 +45,12 @@ RSpec.describe AlbumsController, type: :controller do
     end
 
     it "successful create redirects to show page" do
-      post :create, params1
-      expect(subject).to redirect_to album_path(params1[:album][:id])
+      post :create, good_params
+      expect(subject).to redirect_to album_path(1)
     end
 
     it "unsuccessful create renders new page" do
-      post :create, params2
+      post :create, bad_params
       expect(subject).to render_template :new
     end
   end
@@ -79,7 +78,7 @@ RSpec.describe AlbumsController, type: :controller do
   end
 
   describe "PATCH 'update'" do
-    let(:params1) do
+    let(:good_params) do
       {
         id: 1,
         album: {
@@ -88,7 +87,7 @@ RSpec.describe AlbumsController, type: :controller do
       }
     end
 
-    let(:params2) do
+    let(:bad_params) do
       {
         id: 1,
         album: {
@@ -99,16 +98,16 @@ RSpec.describe AlbumsController, type: :controller do
     end
 
     it "successful update renders show view" do
-      Album.create(params1[:album])
-      patch :update, params1
+      Album.create(good_params[:album])
+      patch :update, good_params
       expect(response.status).to eq 200
       expect(subject).to render_template :show
     end
 
     it "unsuccessful update renders new view" do
-      Album.create(params1[:album])
-      patch :update, params2
-      expect(subject).to render_template :new
+      Album.create(good_params[:album])
+      patch :update, bad_params
+      expect(subject).to render_template :edit
     end
   end
 
