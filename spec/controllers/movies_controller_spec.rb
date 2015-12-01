@@ -81,4 +81,15 @@ RSpec.describe MoviesController, type: :controller do
       expect(subject).to redirect_to movie_path(movie.id)
     end
   end
+
+  describe "DELETE 'destroy'" do
+    let(:movie) do
+      Movie.create(name: "Test")
+    end
+
+    it "redirects to the index view" do
+      delete :destroy, id: movie.id
+      expect(subject).to redirect_to movies_path
+    end
+  end
 end

@@ -40,7 +40,7 @@ class MoviesController < ApplicationController
   def destroy
     id = params[:id]
     Movie.destroy(id)
-    redirect_to "/movies/"
+    redirect_to movies_path
   end
 
   def upvote
@@ -55,7 +55,7 @@ class MoviesController < ApplicationController
     @movie.update(
     upvotes: new_score
     )
-    redirect_to "/movies/#{id}"
+    redirect_to movie_path(@movie)
   end
 
   private
