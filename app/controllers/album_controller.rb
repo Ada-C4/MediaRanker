@@ -1,5 +1,6 @@
 class AlbumController < ApplicationController
   def index
+    @models = Albums.all
   end
 
   def show
@@ -18,5 +19,5 @@ class AlbumController < ApplicationController
   end
 
   def destroy
-  end 
+  end
 end
