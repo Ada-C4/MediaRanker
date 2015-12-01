@@ -5,6 +5,7 @@ class AlbumsController < ApplicationController
   end
 
   def index
+    @albums = Album.all
   end
 
   def new
