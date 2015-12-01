@@ -11,4 +11,8 @@ class BooksController < ApplicationController
     redirect_to book_path(b)
   end
 
+  def new
+    @book = Book.new
+  end
+
 end
