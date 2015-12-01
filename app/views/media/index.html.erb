@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <h1>Top Movies</h1>
+      <%= render partial: "top", collection: @movies, as: :item %>
+      <%= link_to "View More Movies", movies_path %>
+    </div>
+    <div class="col-md-4">
+      <h1>Top Albums</h1>
+      <%= render partial: "top", collection: @books, as: :item %>
+      <%= link_to "View More Books", movies_path %>
+    </div>
+    <div class="col-md-4">
+      <h1>Top Albums</h1>
+      <%= render partial: "top", collection: @albums, as: :item %>
+      <%= link_to "View More Albums", movies_path %>
+    </div>
+  </div>
+</div>
