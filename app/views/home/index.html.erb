@@ -3,6 +3,11 @@
   <% @movies.each do |movie| %>
     <p>
       <a href="/movies/<%= movie.id %>"><%= movie.name %></a> Ranked:
+      <% if movie.upvotes.nil? %>
+        0
+      <% else %>
+        <%= movie.upvotes %>
+      <% end %>
     </p>
   <% end %>
 </div>
@@ -11,6 +16,11 @@
   <% @books.each do |book| %>
     <p>
       <a href="/books/<%= book.id %>"><%= book.name %></a> Ranked:
+      <% if book.upvotes.nil? %>
+        0
+      <% else %>
+        <%= book.upvotes %>
+      <% end %>
     </p>
   <% end %>
 </div>
@@ -19,6 +29,11 @@
   <% @albums.each do |album| %>
     <p>
       <a href="/albums/<%= album.id %>"><%= album.name %></a> Ranked:
+      <% if album.upvotes.nil? %>
+        0
+      <% else %>
+        <%= album.upvotes %>
+      <% end %>
     </p>
   <% end %>
 </div>
