@@ -1,0 +1,12 @@
+<table>
+  <th>Ranking</th>
+  <th>Name  </th>
+  <th> Upvote </th>
+  <% @books.each do |book| %>
+    <tr>
+      <td>Ranked: <%= book.rank %> </td>
+      <td> <%= book.name %> </td>
+      <td> <%= button_to "Upvote", { action: "update" , class: "upvote", id: book.id}, method: "patch" %> </td>
+    </tr>
+  <% end %>
+</table>
