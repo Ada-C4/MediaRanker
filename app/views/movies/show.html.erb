@@ -9,3 +9,4 @@ Description: <%= @movie.description %>
 <%= link_to "edit #{@movie.name}", edit_movie_path(@movie.id) %>
 <%= link_to "delete", movie_path(@movie.id), method: :delete, data: { :confirm => "Are you sure?" } %>
 <%= link_to "View all movies", movies_path %>
+<%= link_to "View all media", %>
