@@ -40,6 +40,21 @@ class AlbumsController < ApplicationController
     redirect_to "/albums/"
   end
 
+  def upvote
+    id = params[:id]
+    @album = Album.find(id)
+    current_score = Album.find(id).upvotes
+    if current_score.nil?
+      new_score = 1
+    else
+      new_score = current_score + 1
+    end
+    @album.update(
+    upvotes: new_score
+    )
+    redirect_to "/albums/#{id}"
+  end
+
   private
 
   def album_params

@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   resources :albums do
     member do
-      patch '/upvote' => 'books#upvote'
+      patch '/upvote' => 'albums#upvote'
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.

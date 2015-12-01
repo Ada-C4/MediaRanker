@@ -1,9 +1,15 @@
 <h1><%= @album.name %></h1><h2>Recorded by: <%= @album.artist %></h2>
-<h3>Ranked: </h3>
+<h3>Ranked:
+  <% if @album.upvotes.nil? %>
+    0
+  <% else %>
+    <%= @album.upvotes %>
+  <% end %>
+</h3>
 <p>
   <%= @album.description %>
 </p>
-<%= button_to "Upvote", "/albums/#{@album.id}",  method: :patch, class: 'x-button' %>
+<%= button_to "Upvote", upvote_album_path,  method: :patch, class: 'x-button' %>
 <%= button_to "Edit #{@album.name}", edit_album_path,  method: :get, class: 'x-button' %>
 <%= button_to "DELETE", "/albums/#{@album.id}",  method: :delete, data: { confirm: "Are you sure?" }, class: 'x-button' %>
 <%= button_to "View All Albums", albums_path,  method: :get, class: 'x-button' %>
