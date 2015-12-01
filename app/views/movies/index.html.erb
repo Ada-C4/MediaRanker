@@ -4,3 +4,4 @@
     <li><%= movie.rank %> <%= movie.name %> <%= button_to "upvote", upvote_path(movie.id), method: :patch %></li>
   <% end %>
 </ul>
+<%= link_to "new", new_movie_path %>
