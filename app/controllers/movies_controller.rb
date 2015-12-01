@@ -1,10 +1,15 @@
 class MoviesController < ApplicationController
+  before_action :get_movie, only: [:show, :edit, :destroy, :upvote, :update]
+
+  def get_movie
+    @movie = Movie.find(params[:id])
+  end
+
   def index
     @movies = Movie.order(ranked: :desc)
   end
 
   def show
-    @movie = Movie.find(params[:id])
   end
 
   def new
@@ -21,26 +26,22 @@ class MoviesController < ApplicationController
   end
 
   def edit
-    @movie = Movie.find(params[:id])
   end
 
   def update
-    @movie = Movie.find(params[:id])
     @movie.update(movie_params)
     redirect_to movie_path(@movie)
   end
 
   def destroy
-    movie = Movie.find(params[:id])
-    movie.destroy
+    @movie.destroy
     redirect_to movies_path
   end
 
   def upvote
-    movie = Movie.find(params[:id])
-    movie.ranked += 1
-    movie.save
-    redirect_to movie_path(movie)
+    @movie.ranked += 1
+    @movie.save
+    redirect_to movie_path(@movie)
   end
 
   private

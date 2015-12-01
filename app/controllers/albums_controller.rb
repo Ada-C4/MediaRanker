@@ -1,10 +1,15 @@
 class AlbumsController < ApplicationController
+  before_action :get_album, only: [:show, :edit, :destroy, :upvote, :update]
+
+  def get_album
+    @album = Album.find(params[:id])
+  end
+
   def index
     @albums = Album.order(ranked: :desc)
   end
 
   def show
-    @album = Album.find(params[:id])
   end
 
   def new
@@ -21,26 +26,22 @@ class AlbumsController < ApplicationController
   end
 
   def edit
-    @album = Album.find(params[:id])
   end
 
   def update
-    @album = Album.find(params[:id])
     @album.update(album_params)
     redirect_to album_path(@album)
   end
 
   def destroy
-    album = Album.find(params[:id])
-    album.destroy
+    @album.destroy
     redirect_to albums_path
   end
 
   def upvote
-    album = Album.find(params[:id])
-    album.ranked += 1
-    album.save
-    redirect_to album_path(album)
+    @album.ranked += 1
+    @album.save
+    redirect_to album_path(@album)
   end
 
   private
