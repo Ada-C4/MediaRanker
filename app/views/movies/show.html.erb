@@ -3,7 +3,7 @@
     <h1><%= @movie.title %>
         <small>Directed by: <%= @movie.director %></small>
     </h1>
-    <h4>Ranked:<%= @movie.ranking %></h4>
+    <h4>Ranked: <%= @movie.ranking %></h4>
     <p><%= @movie.description %></p>
     <div>
       <%= button_to 'Upvote', movie_upvote_path(@movie.id), method: :post, class: "btn btn-primary" %>

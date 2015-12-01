@@ -3,7 +3,7 @@
     <h1><%= @album.title %>
         <small>Recorded by: <%= @album.artist %></small>
     </h1>
-    <h4>Ranked:<%= @album.ranking %></h4>
+    <h4>Ranked: <%= @album.ranking %></h4>
     <p><%= @album.description %></p>
     <div>
       <%= button_to "Upvote", album_upvote_path(@album.id), method: :post, class: "btn btn-primary" %>

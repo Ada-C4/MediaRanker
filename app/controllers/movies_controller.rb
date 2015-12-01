@@ -26,10 +26,17 @@ class MoviesController < ApplicationController
   end
 
   def edit
+    id = params[:id]
+    @movie = Movie.find(id)
   end
 
   def update
+    id = params[:id]
+    @movie = Movie.find(id)
+    @movie.update(movie_params[:movie])
+    redirect_to movie_path(@movie.id)
   end
+
 
   def destroy
     id = params[:id]
