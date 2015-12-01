@@ -79,7 +79,7 @@ RSpec.describe AlbumsController, type: :controller do
   end
 
   describe "PATCH 'update'" do
-    let(:params) do
+    let(:params1) do
       {
         id: 1,
         album: {
@@ -88,10 +88,27 @@ RSpec.describe AlbumsController, type: :controller do
       }
     end
 
-    it "renders show view" do
-      Album.create(params[:album])
-      patch :update, params
+    let(:params2) do
+      {
+        id: 1,
+        album: {
+          name: nil,
+          description: "world"
+        }
+      }
+    end
+
+    it "successful update renders show view" do
+      Album.create(params1[:album])
+      patch :update, params1
       expect(response.status).to eq 200
+      expect(subject).to render_template :show
+    end
+
+    it "unsuccessful update renders new view" do
+      Album.create(params1[:album])
+      patch :update, params2
+      expect(subject).to render_template :new
     end
   end
 
