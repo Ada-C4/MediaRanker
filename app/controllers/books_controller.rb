@@ -2,10 +2,10 @@ class BooksController < ApplicationController
   def index
     books = Book.all
 
-    @books = books.order(votes: :desc) if params[:order].nil?
+    @media = books.order(votes: :desc) if params[:order].nil?
 
-    @books = books.order(votes: :asc) if params[:order] == 'asc'
-    @books = books.order(votes: :desc) if params[:order] == 'desc'
+    @media = books.order(votes: :asc) if params[:order] == 'asc'
+    @media = books.order(votes: :desc) if params[:order] == 'desc'
 
   end
 
