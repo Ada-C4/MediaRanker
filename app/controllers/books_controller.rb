@@ -26,6 +26,11 @@ class BooksController < ApplicationController
       rank = @book[:rank] + 1
       @book.update(:rank => rank)
       render "show"
+    elsif params[:class] == "upvote_i"
+      get_book
+      rank = @book[:rank] + 1
+      @book.update(:rank => rank)
+      redirect_to books_path
     else
       get_book
       @book.update(book_params[:book])
@@ -35,6 +40,7 @@ class BooksController < ApplicationController
 
   def create
     @book = Book.new(book_params[:book])
+    @book.update(:rank => 0)
     if @book.save
       redirect_to books_path
     else

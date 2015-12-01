@@ -26,6 +26,11 @@ class AlbumsController < ApplicationController
       rank = @album[:rank] + 1
       @album.update(:rank => rank)
       render "show"
+    elsif params[:class] == "upvote_i"
+      get_album
+      rank = @album[:rank] + 1
+      @album.update(:rank => rank)
+      redirect_to albums_path
     else
       get_album
       @album.update(album_params[:album])
@@ -36,6 +41,7 @@ class AlbumsController < ApplicationController
 
   def create
     @album = Album.new(album_params[:album])
+    @album.update(:rank => 0)
     if @album.save
       redirect_to albums_path
     else
