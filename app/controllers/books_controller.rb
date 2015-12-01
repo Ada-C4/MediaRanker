@@ -13,10 +13,9 @@ class BooksController < ApplicationController
   end
 
   def create
-    id = params[:id]
     @book = Book.create(book_params[:book])
     if @book.save
-      redirect_to "/books/#{id}"
+      redirect_to book_path(@book)
     else
       render :new
     end

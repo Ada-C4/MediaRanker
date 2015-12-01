@@ -4,7 +4,7 @@ RSpec.describe MoviesController, type: :controller do
   describe "GET 'index'" do
     it "renders the index view" do
       get :index
-      expect(response.status).to eq 200
+      expect(subject).to render_template :index
     end
   end
 
@@ -15,7 +15,40 @@ RSpec.describe MoviesController, type: :controller do
 
     it "renders the show view" do
       get :show, id: movie.id
-      expect(response.status).to eq 200
+      expect(subject).to render_template :show
+    end
+  end
+
+  describe "GET 'new'" do
+    it "renders the new view" do
+      get :new
+      expect(subject).to render_template :new
+    end
+  end
+
+  describe "POST 'create'" do
+    let(:params) do
+      {
+        movie: {
+          name: "Test"
+        }
+      }
+    end
+
+    let(:bad_params) do
+      {
+        movie: {}
+      }
+    end
+
+    it "redirects to the index view" do
+      post :create, params
+      expect(subject).to redirect_to movie_path(1)
+    end
+
+    it "renders the new view if there is an error" do
+      post :create, bad_params
+      expect(subject).to render_template :new
     end
   end
 end
