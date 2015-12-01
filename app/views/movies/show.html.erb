@@ -1,2 +1,9 @@
 <%= @movie.name %>
-<%= @movie.rank %>
+<br>
+Directed by: <%= @movie.director %>
+<br>
+Ranked: <%= @movie.rank %>
+<br>
+Description: <%= @movie.description %>
+<%= button_to "upvote", upvote_path(@movie.id), method: :patch %>
+<%= button_to "edit", edit_movie_path(@movie.id), method: :edit %>

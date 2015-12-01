@@ -19,7 +19,6 @@ class MoviesController < ApplicationController
   end
 
   def edit
-    @url = "update"
     @movie = Movie.find(params[:id])
   end
 
