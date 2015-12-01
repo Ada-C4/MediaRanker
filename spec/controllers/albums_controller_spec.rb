@@ -50,4 +50,42 @@ RSpec.describe AlbumsController, type: :controller do
     end
   end
 
+  describe "GET 'edit'" do
+    album = Album.create(name: "Test Album", description: "Album's description", artist: "Album's artist")
+
+    it "renders edit view" do
+      get :edit, id: album.id
+      expect(subject).to render_template :edit
+    end
+  end
+
+  describe "PATCH 'update'" do
+    let (:album) do
+      Album.create(name: "Test Album", description: "Album's description", artist: "Album's artist")
+    end
+
+    let (:good_params) do
+      {
+        album: { name: "Test Album", description: "Album's description", artist: "Album's artist"
+        }
+      }
+    end
+
+    # let (:bad_params) do
+    #   {
+    #     album: { name: "", description: "Album's description", artist: "Album's artist"
+    #     }
+    #   }
+    # end
+
+    it "redirects to show page" do
+      patch :update, id: album, album: good_params
+      expect(subject).to redirect_to album_path(album)
+    end
+
+    # it "renders new template on error" do
+    #   patch :update, bad_params
+    #   expect(subject).to render_template :edit
+    # end
+  end
 end
