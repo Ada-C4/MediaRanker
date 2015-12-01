@@ -3,6 +3,9 @@
 
 <div>
 <h1>Top Movies</h1>
+<% @movies.each do |movie| %>
+  <h2><%= movie.name %><small>Upvotes: <%= movie.upvotes %></small></h2>
+<% end %>
 </div>
 
 <div>
@@ -10,9 +13,12 @@
 <% @books.each do |book| %>
   <h2><%= link_to book.name, book_path(book.id) %><small>Upvotes: <%= book.upvotes %></small></h2>
 <% end %>
-<%= link_to "View More Books", books_path %> 
+<%= link_to "View More Books", books_path %>
 </div>
 
 <div>
 <h1>Top Albums</h1>
+<% @albums.each do |album| %>
+  <h2><%= album.name %><small>Upvotes: <%= album.upvotes %></small></h2>
+<% end %>
 </div>
