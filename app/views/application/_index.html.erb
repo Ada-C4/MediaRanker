@@ -1,0 +1,24 @@
+<%= link_to "sort by ascending", polymorphic_path(Movie, :order => 'asc') %>
+<%= link_to "sort by descending", polymorphic_path(Movie, :order => 'desc') %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Votes</th>
+      <th>Title</th>
+      <th>Upvote?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @media.each do |medium| %>
+      <tr>
+        <td><%= medium.votes.present? ? medium.votes : "0" %></td>
+        <td><%= link_to medium.title, polymorphic_path(medium) %></td>
+        <td><%= link_to "Upvote!", polymorphic_path(medium, :action => :upvote), :method => :patch %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "Go Home", "/" %>
+<%= link_to "New #{@media.first.class}", new_polymorphic_path(@media.first.class) %>
