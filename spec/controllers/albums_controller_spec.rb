@@ -13,4 +13,11 @@ RSpec.describe AlbumsController, type: :controller do
       expect(response.status).to eq 200
     end
   end
+  describe "GET 'show/:id'" do
+    it "is successful" do
+      @album = Album.create(name: "hello")
+      get :show, id: 1
+      expect(response.status).to eq 200
+    end
+  end
 end

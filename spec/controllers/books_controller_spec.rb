@@ -13,4 +13,17 @@ RSpec.describe BooksController, type: :controller do
       expect(response.status).to eq 200
     end
   end
+  describe "GET 'show/:id'" do
+    it "is successful" do
+      @book = Book.create(name: "hello")
+      get :show, id: 1
+      expect(response.status).to eq 200
+    end
+  end
+  # describe "GET 'edit/:id'" do
+  #   it "is successful" do
+  #     get :edit, id: 1
+  #     expect(response.status).to eq 200
+  #   end
+  # end
 end
