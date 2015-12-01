@@ -1,0 +1,11 @@
+<%= @book.name %>
+<br>
+Written by: <%= @book.author %>
+<br>
+Ranked: <%= @book.rank %>
+<br>
+Description: <%= @book.description %>
+<%= button_to "upvote", book_upvote_path(@book.id), method: :post %>
+<%= link_to "edit #{@book.name}", edit_book_path(@book.id) %>
+<%= link_to "delete", book_path(@book.id), method: :delete, data: { :confirm => "Are you sure?" } %>
+<%= link_to "View all books", books_path %>
