@@ -6,6 +6,6 @@
 <h4>[Upvote Button]</h4>
 
 <%= link_to "Edit #{@book.name}", edit_book_path(@book.id) %>
-<span>[DELETE]</span>
+<%=link_to "DELETE", book_path(@book.id), method: :delete, data: {confirm: "Are you sure?"} %>
 <%= link_to "View All Books", books_path %>
 <%= link_to "View All Media", root_path %>
