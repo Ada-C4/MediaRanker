@@ -1,4 +1,1 @@
-<%= link_to "sort by ascending", polymorphic_path(Book, :order => 'asc') %>
-<%= link_to "sort by descending", polymorphic_path(Book, :order => 'desc') %>
-
-<%= render partial: 'index' %>
+<%= render partial: 'index', locals: { :type => "book", :type_plural => "books" } %>

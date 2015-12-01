@@ -1,4 +1,5 @@
-
+<%= link_to "sort by ascending", polymorphic_path(type_plural, :order => 'asc') %>
+<%= link_to "sort by descending", polymorphic_path(type_plural, :order => 'desc') %>
 
 <table>
   <thead>
@@ -20,4 +21,4 @@
 </table>
 
 <%= link_to "Go Home", "/" %>
-<%= link_to "New #{@type.capitalize}", new_polymorphic_path(@type) %>
+<%= link_to "New #{type.capitalize}", new_polymorphic_path(type) %>

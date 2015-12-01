@@ -7,8 +7,6 @@ class AlbumsController < ApplicationController
     @media = albums.order(votes: :asc) if params[:order] == 'asc'
     @media = albums.order(votes: :desc) if params[:order] == 'desc'
 
-    @type = "album"
-
   end
 
   def new
