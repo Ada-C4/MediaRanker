@@ -15,5 +15,5 @@
 </table>
 
 <%= button_to "View All Media", root_path, method: :get %>
-<%= button_to "Add a #{@media.first.class}", new_polymorphic_path(@media.first.class),
+<%= button_to "Add a #{class_type}", new_polymorphic_path(class_type),
   method: :get %>
