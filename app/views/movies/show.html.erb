@@ -7,3 +7,4 @@ Ranked: <%= @movie.rank %>
 Description: <%= @movie.description %>
 <%= link_to "upvote", "/movies/#{@movie.id}/upvote", method: :patch %>
 <%= link_to "edit", edit_movie_path(@movie.id) %>
+<%= link_to "delete", movie_path(@movie.id), method: :delete, data: { :confirm => "Are you sure?" } %>
