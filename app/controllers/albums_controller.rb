@@ -23,7 +23,7 @@ class AlbumsController < ApplicationController
 
   def create
     @person = :author
-    @item = Album.new(album_params)
+    @item = Album.new(album_params[:album])
     if @item.save
       redirect_to "/albums/#{@item.id}"
     else

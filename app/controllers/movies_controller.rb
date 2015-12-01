@@ -24,7 +24,7 @@ class MoviesController < ApplicationController
 
   def create
     @person = :director
-    @item = Movie.new(movie_params)
+    @item = Movie.new(movie_params[:movie])
     if @item.save
       redirect_to "/movies/#{@item.id}"
     else

@@ -22,7 +22,7 @@ class BooksController < ApplicationController
 
   def create
     @person = :author
-    @item = Book.new(book_params)
+    @item = Book.new(book_params[:book])
     if @item.save
       redirect_to "/books/#{@item.id}"
     else
