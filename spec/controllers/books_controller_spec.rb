@@ -41,13 +41,13 @@ RSpec.describe BooksController, type: :controller do
     		}
     	end
 
-    	# works properly
+    	# item created properly
     	it "redirects to index page" do
     		post :create, params
     		expect(subject).to redirect_to book_path(1)
     	end
 
-    	# error creation
+    	# error in creation
     	it "renders new template" do
     		post :create, bad_params
     		expect(subject).to render_template("new")
