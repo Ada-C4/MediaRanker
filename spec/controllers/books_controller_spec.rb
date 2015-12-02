@@ -101,5 +101,10 @@ RSpec.describe BooksController, type: :controller do
         post :upvote, id: book.id
         expect(subject).to redirect_to book_path(book.id)
       end
+      it "redirects to show page" do
+        book = Book.create(name: "Something", author: "Someone", description: "Something something something", ranking: 3)
+        post :upvote, id: book.id
+        expect(subject).to redirect_to book_path(book.id)
+      end
     end
 end

@@ -96,8 +96,13 @@ RSpec.describe MoviesController, type: :controller do
   end
 
   describe "POST 'upvote'" do
-    it "redirects to show page" do
+    it "redirects to show page when ranking is nil" do
       movie = Movie.create(name: "Something", director: "Someone", description: "Something something something")
+      post :upvote, id: movie.id
+      expect(subject).to redirect_to movie_path(movie.id)
+    end
+    it "redirects to show page when ranking is not nil" do
+      movie = Movie.create(name: "Something", director: "Someone", description: "Something something something", ranking: 3)
       post :upvote, id: movie.id
       expect(subject).to redirect_to movie_path(movie.id)
     end

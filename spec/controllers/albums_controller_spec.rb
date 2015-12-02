@@ -101,5 +101,10 @@ RSpec.describe AlbumsController, type: :controller do
         post :upvote, id: album.id
         expect(subject).to redirect_to album_path(album.id)
       end
+      it "redirects to show page" do
+        album = Album.create(name: "Something", artist: "Someone", description: "Something something something", ranking: 3)
+        post :upvote, id: album.id
+        expect(subject).to redirect_to album_path(album.id)
+      end
     end
 end
