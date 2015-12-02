@@ -5,7 +5,8 @@ RSpec.describe BooksController, type: :controller do
 	let(:create_params) do {
 			book: {
 				name: "Some book",
-				description: "It's got music!"
+				description: "It's got music!",
+				votes: 1,
 			}
 		}
 	end
@@ -90,6 +91,16 @@ RSpec.describe BooksController, type: :controller do
   		end
   	end
 
+  	describe "PATCH 'upvote'" do
+  		before(:each) do
+  		  request.env["HTTP_REFERER"] = 'back'
+  		end
+
+  		it "should redirect to same page" do
+  			patch :upvote, id: book.id
+  			expect(subject).to redirect_to 'back'
+  		end
+  	end
 
 	end
 end
