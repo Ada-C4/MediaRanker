@@ -102,5 +102,12 @@ RSpec.describe BooksController, type: :controller do
   		end
   	end
 
+  	describe "DELETE 'destroy'" do
+  		it "should redirect to books page" do
+			  delete :destroy, id: book.id
+	  		expect(subject).to redirect_to books_path
+  		end
+  	end
+
 	end
 end

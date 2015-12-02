@@ -103,6 +103,13 @@ end
 		end
 	end
 
+  	describe "DELETE 'destroy'" do
+  		it "should redirect to movies page" do
+			  delete :destroy, id: movie.id
+	  		expect(subject).to redirect_to movies_path
+  		end
+  	end
+
 
 	end
 end
