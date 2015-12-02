@@ -1,0 +1,10 @@
+<div>
+  <h1>
+    <%= media.name %>
+  </h1>
+  <h2>Ranked: <%= media.rank %></h2>
+  <%= media.description %>
+  <%= link_to "Edit #{media.name}", edit_polymorphic_path(media) %>
+  <%= button_to "Delete", polymorphic_path(media), method: :delete, data: { confirm: "Are you sure you want to delete this #{media.class}?"} %>
+  <%= link_to "View All Movies", polymorphic_path(media) %>
+</div>

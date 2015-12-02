@@ -1,0 +1,20 @@
+<div>
+  <h1>New <%= media.class %></h1>
+  <ul>
+  <% media.errors.each do |column, message| %>
+    <li><%=column.capitalize %> <%= message %></li>
+  <% end %>
+</ul>
+  <%= form_for media do |f| %>
+      <%=f.label :name %>
+      <%=f.text_field :name %>
+      <br><br>
+      <%= f.label :maker %>
+      <%= f.text_field :maker %>
+      <br><br>
+      <%= f.label :description %> <br>
+      <%= f.text_area :description, cols: 50, rows: 3 %>
+      <br><br>
+    <%= f.submit("Save") %>
+  <% end %>
+</div>
