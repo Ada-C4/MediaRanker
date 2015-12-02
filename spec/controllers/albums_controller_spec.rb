@@ -37,7 +37,12 @@ RSpec.describe AlbumsController, type: :controller do
       expect(subject).to render_template :show
     end
   end
-  #
+
+
+  describe 'upvote' do
+
+  end
+
   # describe "POST 'create'" do
   #   let(:good_params) do
   #   {
