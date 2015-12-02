@@ -4,10 +4,10 @@
 
 <%= link_to "Upvote", polymorphic_path(@media, :action => :upvote), :method => :patch %>
 
-<%= button_to "Edit #{@media.name}", edit_polymorphic_path(@media), method: :get %>
+<%= link_to "Edit #{@media.name}", edit_polymorphic_path(@media) %>
 
-<%= button_to "DELETE", polymorphic_path(@media), method: :delete, data: { confirm: "Are you sure?" } %>
+<%= link_to "DELETE", polymorphic_path(@media), method: :delete, data: { confirm: "Are you sure?" } %>
 
-<%= button_to "View All #{@media.class}s", polymorphic_path(@media.class), method: :get %>
+<%= link_to "View All #{@media.class}s", polymorphic_path(@media.class) %>
 
-<%= button_to "View All Media", root_path, method: :get %>
+<%= link_to "View All Media", root_path %>
