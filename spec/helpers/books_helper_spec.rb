@@ -1,4 +1,6 @@
 require 'rails_helper'
+require 'simplecov'
+SimpleCov.start 'rails'  
 
 # Specs in this file have access to a helper object that includes
 # the PostsHelper. For example:

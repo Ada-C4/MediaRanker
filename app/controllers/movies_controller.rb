@@ -33,8 +33,11 @@ class MoviesController < ApplicationController
       redirect_to movies_path
     else
       get_movie
-      @movie.update(movie_params[:movie])
-      redirect_to movie_path
+      if @movie.update(movie_params[:movie])
+        redirect_to movie_path
+      else
+        render "edit"
+      end
     end
   end
 

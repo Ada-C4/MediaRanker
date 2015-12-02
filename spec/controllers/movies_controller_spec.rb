@@ -57,10 +57,13 @@ RSpec.describe MoviesController, type: :controller do
   end
 
   describe "PATCH 'update'" do
-    let(:good_params) do
+    let(:movie) do
       Movie.create(name: "some name", director: "me", description: "some description")
+    end
+
+    let(:good_params) do
       {
-        id: 1,
+        id: movie.id,
         movie: {
           name: "some name",
           director: "me",
@@ -69,16 +72,27 @@ RSpec.describe MoviesController, type: :controller do
       }
     end
 
-    # let(:bad_params) do
-    #   {
-    #     movie: {}
-    #   }
-    # end
+    let(:bad_params) do
+      Movie.create(name:nil, director: nil, description: nil)
+      {
+        id: movie.id,
+        movie: {
+          name: nil,
+          director: nil,
+          description: nil
+        }
+      }
+    end
 
     it "redirect to index page" do
       patch :update,  good_params
       expect(subject).to redirect_to movie_path
     end
+    #
+    # it "render edit template on error" do
+    #   patch :update, bad_params
+    #   expect(subject).to render_template :edit
+    # end
 
   end
 
