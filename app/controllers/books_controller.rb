@@ -31,11 +31,16 @@ class BooksController < ApplicationController
     redirect_to book_path(params[:id])
   end
 
-end
+  def destroy
+    Book.destroy(params[:id])
+    redirect_to books_path
+  end
+
 
 #############PRIVATE###########
-private
+  private
 
-def book_params
-  params.require(:book).permit(:name, :author, :description)
+  def book_params
+    params.require(:book).permit(:name, :author, :description)
+  end
 end

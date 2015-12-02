@@ -3,4 +3,7 @@
 <h4>Ranked: <%= @book.rank %><h4>
 <p><%= @book.description %></p>
 
-<%= link_to "Edit #{@book.name}", edit_book_path %>
+<%= link_to "Edit #{@book.name}", edit_book_path, :class => "btn btn-default" %>
+<%= link_to "DELETE", book_path(params[:id]), method: :delete, data: { confirm: "Are you sure?" }, :class => "btn btn-danger" %>
+<%= link_to "View All Books", books_path, :class => "btn btn-default" %>
+<%= link_to "View All Media", root_path, :class => "btn btn-default" %>

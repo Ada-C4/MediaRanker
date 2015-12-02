@@ -79,7 +79,16 @@ RSpec.describe MoviesController, type: :controller do
         patch :update, { id: movie_id, movie: update_params }
         expect(subject).to redirect_to movie_path(movie_id)
     end
+  end
 
+  describe "DELETE 'destroy'" do
+    let(:movie) do
+      Movie.create(name: "Spawn")
+    end
+    it "redirects to the movies index page" do
+      delete :destroy, { id: movie.id }
+      expect(subject).to redirect_to movies_path
+    end
   end
 
 

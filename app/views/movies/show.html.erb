@@ -3,4 +3,7 @@
 <h4>Ranked: <%= @movie.rank %><h4>
 <p><%= @movie.description %></p>
 
-<%= link_to "Edit #{@movie.name}", edit_movie_path %>
+<%= link_to "Edit #{@movie.name}", edit_movie_path, :class => "btn btn-default" %>
+<%= link_to "DELETE", movie_path(params[:id]), method: :delete, data: { confirm: "Are you sure?" }, :class => "btn btn-danger" %>
+<%= link_to "View All Movies", movies_path, :class => "btn btn-default" %>
+<%= link_to "View All Media", root_path, :class => "btn btn-default" %>

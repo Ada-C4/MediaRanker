@@ -73,7 +73,16 @@ RSpec.describe BooksController, type: :controller do
         patch :update, { id: book_id, book: update_params }
         expect(subject).to redirect_to book_path(book_id)
     end
+  end
 
+  describe "DELETE 'destroy'" do
+    let(:book) do
+      Book.create(name: "Spawn")
+    end
+    it "redirects to the books index page" do
+      delete :destroy, { id: book.id }
+      expect(subject).to redirect_to books_path
+    end
   end
 
 end
