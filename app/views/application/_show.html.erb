@@ -6,10 +6,8 @@
 
 <p><%= @media.description %></p>
 
-<form>
-  <%= link_to "Upvote", polymorphic_path(@media, :action => :upvote),
-    :method => :patch, class: "btn btn-primary" %>
-</form>
+<%= button_to "Upvote", polymorphic_path(@media, :action => :upvote),
+  :method => :patch, class: "btn btn-primary" %>
 
 <%= link_to "Edit #{@media.name}", edit_polymorphic_path(@media), class: "btn btn-default" %>
 
