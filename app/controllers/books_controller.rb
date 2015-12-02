@@ -1,6 +1,5 @@
-class AlbumController < ApplicationController
+class BooksController < ApplicationController
   def index
-    @models = Albums.all
   end
 
   def show

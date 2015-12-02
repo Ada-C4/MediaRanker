@@ -1,4 +1,4 @@
-class BookController < ApplicationController
+class MoviesController < ApplicationController
   def index
   end
 
@@ -18,5 +18,5 @@ class BookController < ApplicationController
   end
 
   def destroy
-  end 
+  end
 end
