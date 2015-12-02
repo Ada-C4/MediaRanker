@@ -10,7 +10,6 @@ RSpec.describe BooksController, type: :controller do
   end
 	let(:book) { Book.create(create_params[:book]) }
 
-
   describe "GET new" do
     it "is successful" do
       get :new
@@ -44,17 +43,30 @@ RSpec.describe BooksController, type: :controller do
 
     it "redirects to show page" do
       post :create, create_params
-      expect(subject).to redirect_to book_path(10)
+      new_book = Book.last
+      expect(subject).to redirect_to book_path(new_book)
     end
 
     it "renders new template" do
       post :create, bad_params
       expect(subject).to render_template("new")
     end
-
   end
 
+  describe "PATCH 'update'" do
+    let(:book_id) { book.id }
+    let(:update_params) do
+      {
+        name: "Harry Potter",
+        description: "Harry and friends fight evil"
+      }
+    end
 
+    it "should should be successful" do
+        patch :update, { id: book_id, book: update_params }
+        expect(subject).to redirect_to book_path(book_id)
+    end
 
+  end
 
 end
