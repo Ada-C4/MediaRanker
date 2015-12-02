@@ -9,3 +9,4 @@ Description: <%= @book.description %>
 <%= link_to "edit #{@book.name}", edit_book_path(@book.id) %>
 <%= link_to "delete", book_path(@book.id), method: :delete, data: { :confirm => "Are you sure?" } %>
 <%= link_to "View all books", books_path %>
+<%= link_to "View all media", root_path %>
