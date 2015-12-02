@@ -11,10 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151202045647) do
+ActiveRecord::Schema.define(version: 20151202220248) do
 
   create_table "media", force: :cascade do |t|
-    t.string   "kind"
+    t.string   "type"
     t.string   "name"
     t.string   "creator"
     t.string   "description"

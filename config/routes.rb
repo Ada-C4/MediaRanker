@@ -1,15 +1,15 @@
 Rails.application.routes.draw do
   root 'welcome#index'
 
-  resources :books, as: "book_medium" do
+  resources :books, controller: :media, type: 'Book' do
     patch 'upvote', on: :member
   end
 
-  resources :movies, as: "movie_medium" do
+  resources :movies, controller: :media, type: 'Movie' do
     patch 'upvote', on: :member
   end
 
-  resources :albums, as: "album_medium" do
+  resources :albums, controller: :media, type: 'Album' do
     patch 'upvote', on: :member
   end
 
