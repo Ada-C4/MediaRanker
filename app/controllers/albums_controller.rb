@@ -11,6 +11,7 @@ class AlbumsController < ApplicationController
   	if @album.save
   		redirect_to album_path(@album)
   	else 
+  		@media = Album.new(album_params)
   		render 'new'
   	end
   end

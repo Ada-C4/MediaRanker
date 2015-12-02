@@ -11,6 +11,7 @@ class BooksController < ApplicationController
   	if @book.save
   		redirect_to book_path(@book)
   	else
+  		@book = Book.new(book_params)
   		render 'new'
   	end
   end
