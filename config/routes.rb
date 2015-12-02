@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'media#index'
+  root 'welcome#index'
 
   resources :books, as: "book_medium" do
     patch 'upvote', on: :member
