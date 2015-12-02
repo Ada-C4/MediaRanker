@@ -21,10 +21,10 @@
               Ranked: <%= item.votes %>
             </td>
             <td>
-              <%= link_to item.name, polymorphic_path(item) %>
+              <%= link_to item.name, polymorphic_path([item.kind, item]) %>
             </td>
             <td>
-              <%= link_to "Upvote", polymorphic_path(item) %>
+              <%= link_to "Upvote", polymorphic_path([item.kind, item]) %>
             </td>
           </tr>
         <% end %>
@@ -32,5 +32,5 @@
     </table>
   </div>
   <%= link_to "View All Media", root_path %>
-  <%= link_to "Add a #{@type}", new_polymorphic_path(@type.downcase) %>
+  <%= link_to "Add a #{@type}", polymorphic_path([:new, @type.downcase, :medium]) %>
 <% end %>

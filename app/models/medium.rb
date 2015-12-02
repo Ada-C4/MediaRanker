@@ -1,3 +1,3 @@
-class Movie < ActiveRecord::Base
+class Medium < ActiveRecord::Base
   validates :name, presence: true
 end

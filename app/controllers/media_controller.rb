@@ -1,7 +1,7 @@
 class MediaController < ApplicationController
   def index
-    @movies = Movie.order(votes: :desc).first(10)
-    @books = Book.order(votes: :desc).first(10)
-    @albums = Album.order(votes: :desc).first(10)
+    @movies = Medium.where(kind: "movie").order(votes: :desc).first(10)
+    @books = Medium.where(kind: "book").order(votes: :desc).first(10)
+    @albums = Medium.where(kind: "album").order(votes: :desc).first(10)
   end
 end

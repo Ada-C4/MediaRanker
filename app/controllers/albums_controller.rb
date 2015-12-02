@@ -1,13 +1,13 @@
 class AlbumsController < ApplicationController
   def index
-    @items = Album.order(votes: :desc)
-    @type = "Album"
+    @items = Medium.where(kind: "album").order(votes: :desc)
+    @type = "album"
 
     render "index"
   end
 
   def show
-    @item = Album.find(params[:id])
+    @item = Medium.find(params[:id])
     @type = "Albums"
     @special = "Recorded"
 
@@ -16,55 +16,62 @@ class AlbumsController < ApplicationController
   end
 
   def upvote
-    Album.find(params[:id]).increment!(:votes)
+    Medium.find(params[:id]).increment!(:votes)
 
     redirect_to :back
   end
 
   def new
-    @item = Album.new
+    @item = Medium.new(kind: "album")
     @special = "Artist"
+    @url = polymorphic_path([@item.kind, @item, :index])
 
     render "form"
   end
 
   def create
-    @item = Album.new(album_params)
+    @item = Medium.new(album_params)
+    @item.kind = "album"
 
     if @item.save
-      redirect_to album_path(@item)
+      redirect_to album_medium_path(@item)
     else
+      @url = polymorphic_path([@item.kind, @item, :index])
+
       render "form"
     end
   end
 
   def edit
-    @item = Album.find(params[:id])
+    @item = Medium.find(params[:id])
     @special = "Artist"
+    @url = polymorphic_path([@item.kind, @item])
 
     render "form"
   end
 
   def update
-    @item = Album.find(params[:id])
+    @item = Medium.find(params[:id])
     @item.attributes = album_params
 
     if @item.save
-      redirect_to album_path(@item)
+      redirect_to album_medium_path(@item)
     else
+      @url = polymorphic_path([@item.kind, @item, :index])
+
       render "form"
     end
   end
 
   def destroy
-    Album.destroy(Album.find(params[:id]))
+    Medium.destroy(Medium.find(params[:id]))
 
-    redirect_to albums_path
+    redirect_to album_medium_index_path
   end
 
   private
 
   def album_params
-    params.require(:album).permit(:name, :creator, :description)
+    params.require(:medium).permit(:name, :creator, :description)
   end
 end

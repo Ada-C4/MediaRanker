@@ -1,12 +1,13 @@
 require 'shared_controller_spec'
 
 RSpec.describe BooksController, type: :controller do
-  let(:item) { Book.create(name: "The Little Mermaid", votes: 22) }
-  let(:params) { { book: { name: "Generic Name" } } }
-  let(:bad_params) { { book: { name: nil } } }
+  let(:item) { Medium.create(name: "The Little Mermaid", votes: 22, kind: "book") }
+  let(:params) { { medium: { name: "Generic Name", kind: "book" } } }
+  let(:bad_params) { { medium: { name: nil } } }
 
   include_examples(
     "media_controller",
-    Book
+    Medium,
+    :book
   )
 end

@@ -7,30 +7,16 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-seed_movies = [
-  {name: "The Little Mermaid", creator: "Albert Einstein", description: "A fish creature wants legs, watch the epic journey.", votes: 22},
-  {name: "Generic Movie", creator: "Daphne", description: "Very Generic", votes: 10},
-  {name: "Pan's Labyrinth", creator: "Guillermo del Toro", description: "", votes: 55}
+seed_media = [
+  {name: "The Little Mermaid", creator: "Albert Einstein", description: "A fish creature wants legs, watch the epic journey.", votes: 22, kind: "movie"},
+  {name: "Generic Movie", creator: "Daphne", description: "Very Generic", votes: 10, kind: "movie"},
+  {name: "Pan's Labyrinth", creator: "Guillermo del Toro", description: "", votes: 55, kind: "movie"},
+  {name: "The Name of the Wind", creator: "Patrick Rothfuss", description: "", votes: 100, kind: "book"},
+  {name: "Generic Book", creator: "Darkwing Daphne", description: "Very Generic", votes: 15, kind: "book"},
+  {name: "Spice", creator: "Spice Girls", description: "Awesomesweetrocktacular", votes: 25, kind: "album"},
+  {name: "Generic Album", creator: "Generic Artist", description: "Very Generic", votes: 10, kind: "album"}
 ]
 
-seed_movies.each do |seed|
-  Movie.create(seed)
-end
-
-seed_books = [
-  {name: "The Name of the Wind", creator: "Patrick Rothfuss", description: "", votes: 100},
-  {name: "Generic Book", creator: "Darkwing Daphne", description: "Very Generic", votes: 15},
-]
-
-seed_books.each do |seed|
-  Book.create(seed)
-end
-
-seed_albums = [
-  {name: "Spice", creator: "Spice Girls", description: "Awesomesweetrocktacular", votes: 25},
-  {name: "Generic Album", creator: "Generic Artist", description: "Very Generic", votes: 10},
-]
-
-seed_albums.each do |seed|
-  Album.create(seed)
+seed_media.each do |seed|
+  Medium.create(seed)
 end

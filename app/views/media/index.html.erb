@@ -3,17 +3,17 @@
     <div class="col-md-4">
       <h1>Top Movies</h1>
       <%= render partial: "top", collection: @movies, as: :item %>
-      <%= link_to "View More Movies", movies_path %>
+      <%= link_to "View More Movies", movie_medium_index_path %>
     </div>
     <div class="col-md-4">
-      <h1>Top Albums</h1>
+      <h1>Top Books</h1>
       <%= render partial: "top", collection: @books, as: :item %>
-      <%= link_to "View More Books", movies_path %>
+      <%= link_to "View More Books", book_medium_index_path %>
     </div>
     <div class="col-md-4">
       <h1>Top Albums</h1>
       <%= render partial: "top", collection: @albums, as: :item %>
-      <%= link_to "View More Albums", movies_path %>
+      <%= link_to "View More Albums", album_medium_index_path %>
     </div>
   </div>
 </div>

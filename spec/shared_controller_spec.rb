@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.shared_examples "media_controller" do |subject_class|
+RSpec.shared_examples "media_controller" do |subject_class, kind|
   # :nocov:
   describe "#upvote" do
     before :each do
@@ -65,7 +65,7 @@ RSpec.shared_examples "media_controller" do |subject_class|
   describe "POST 'create'" do
     it "redirects to show page" do
       post :create, params
-      expect(subject).to redirect_to polymorphic_path(subject_class.last)
+      expect(subject).to redirect_to polymorphic_path([subject_class.last.kind, subject_class.last])
     end
     it "renders new template on error" do
       post :create, bad_params
@@ -76,7 +76,7 @@ RSpec.shared_examples "media_controller" do |subject_class|
   describe "PATCH 'update'" do
     it "redirects to show page" do
       patch :update, params.merge({id: item.id})
-      expect(subject).to redirect_to polymorphic_path(item)
+      expect(subject).to redirect_to polymorphic_path([subject_class.last.kind, subject_class.last])
     end
     it "renders new template on error" do
       patch :update, bad_params.merge({id: item.id})
@@ -87,7 +87,7 @@ RSpec.shared_examples "media_controller" do |subject_class|
   describe "DELETE 'destroy'" do
     it "redirects to index page" do
       delete :destroy, params.merge({id: item.id})
-      expect(subject).to redirect_to polymorphic_path(subject_class)
+      expect(subject).to redirect_to polymorphic_path([kind, subject_class.model_name.param_key, :index])
     end
   end
   # :nocov:

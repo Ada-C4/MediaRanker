@@ -1,12 +1,13 @@
 require 'shared_controller_spec'
 
 RSpec.describe AlbumsController, type: :controller do
-  let(:item) { Album.create(name: "The Little Mermaid", votes: 22) }
-  let(:params) { { album: { name: "Generic Name" } } }
-  let(:bad_params) { { album: { name: nil } } }
+  let(:item) { Medium.create(name: "The Little Mermaid", votes: 22, kind: "album") }
+  let(:params) { { medium: { name: "Generic Name", kind: "album" } } }
+  let(:bad_params) { { medium: { name: nil } } }
 
   include_examples(
     "media_controller",
-    Album
+    Medium,
+    :album
   )
 end
