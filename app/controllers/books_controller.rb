@@ -1,8 +1,4 @@
 class BooksController < ApplicationController
-    before_action :get_book, only: [:edit, :update, :destroy]
-    def get_book
-      @book = Book.find(params[:id])
-    end
 
   def index
     @books = Book.all

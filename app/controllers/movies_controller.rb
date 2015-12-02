@@ -1,8 +1,8 @@
 class MoviesController < ApplicationController
-  before_action :get_movie, only: [:edit, :update, :destroy]
-  def get_movie
-    @movie = Movie.find(params[:id])
-  end
+  # before_action :get_movie, only: [:edit, :update, :destroy]
+  # def get_movie
+  #   @movie = Movie.find(params[:id])
+  # end
 
   def home
     @movies = Movie.all
