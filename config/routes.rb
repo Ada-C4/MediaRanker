@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'movies#home'
   resources :movies
   post 'movies/:id/' => 'movies#upvote', as: :movie_upvote
 

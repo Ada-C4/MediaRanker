@@ -4,6 +4,12 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params[:id])
   end
 
+  def home
+    @movies = Movie.all
+    @books = Book.all
+    @albums = Album.all
+  end
+
   def index
     # @movie = Movie.find(params[:id])
     @movies = Movie.all
