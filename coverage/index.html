@@ -14,18 +14,18 @@
       <img src="./assets/0.10.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2015-12-01T15:54:12-08:00">2015-12-01T15:54:12-08:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2015-12-01T16:06:39-08:00">2015-12-01T16:06:39-08:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="red">48.85%</span></span>
+    (<span class="covered_percent"><span class="red">54.2%</span></span>
      covered at
      <span class="covered_strength">
        <span class="red">
-         0.52
+         0.58
        </span>
     </span> hits/line)
   </h2>
@@ -33,8 +33,8 @@
   <div>
     <b>13</b> files in total.
     <b>131</b> relevant lines. 
-    <span class="green"><b>64</b> lines covered</span> and
-    <span class="red"><b>67</b> lines missed </span>
+    <span class="green"><b>71</b> lines covered</span> and
+    <span class="red"><b>60</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -92,12 +92,12 @@
       
       <tr>
         <td class="strong"><a href="#789d40d8f99862ec3930fe36974ac5a763aed0ab" class="src_link" title="app/controllers/movies_controller.rb">app/controllers/movies_controller.rb</a></td>
-        <td class="red strong">78.38 %</td>
+        <td class="green strong">97.3 %</td>
         <td>66</td>
         <td>37</td>
-        <td>29</td>
-        <td>8</td>
-        <td>0.9</td>
+        <td>36</td>
+        <td>1</td>
+        <td>1.1</td>
       </tr>
       
       <tr>
@@ -189,11 +189,11 @@
           <div class="file_list_container" id="Controllers">
   <h2>
     <span class="group_name">Controllers</span>
-    (<span class="covered_percent"><span class="red">44.17%</span></span>
+    (<span class="covered_percent"><span class="red">50.0%</span></span>
      covered at
      <span class="covered_strength">
        <span class="red">
-         0.48
+         0.54
        </span>
     </span> hits/line)
   </h2>
@@ -201,8 +201,8 @@
   <div>
     <b>5</b> files in total.
     <b>120</b> relevant lines. 
-    <span class="green"><b>53</b> lines covered</span> and
-    <span class="red"><b>67</b> lines missed </span>
+    <span class="green"><b>60</b> lines covered</span> and
+    <span class="red"><b>60</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -260,12 +260,12 @@
       
       <tr>
         <td class="strong"><a href="#789d40d8f99862ec3930fe36974ac5a763aed0ab" class="src_link" title="app/controllers/movies_controller.rb">app/controllers/movies_controller.rb</a></td>
-        <td class="red strong">78.38 %</td>
+        <td class="green strong">97.3 %</td>
         <td>66</td>
         <td>37</td>
-        <td>29</td>
-        <td>8</td>
-        <td>0.9</td>
+        <td>36</td>
+        <td>1</td>
+        <td>1.1</td>
       </tr>
       
     </tbody>
@@ -1450,11 +1450,11 @@
         <div class="source_table" id="789d40d8f99862ec3930fe36974ac5a763aed0ab">
   <div class="header">
     <h3>app/controllers/movies_controller.rb</h3>
-    <h4><span class="red">78.38 %</span> covered</h4>
+    <h4><span class="green">97.3 %</span> covered</h4>
     <div>
       <b>37</b> relevant lines. 
-      <span class="green"><b>29</b> lines covered</span> and
-      <span class="red"><b>8</b> lines missed.</span>
+      <span class="green"><b>36</b> lines covered</span> and
+      <span class="red"><b>1</b> lines missed.</span>
     </div>
   </div>
   
@@ -1737,32 +1737,32 @@
           <code class="ruby">  def upvote</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="47">
-          
+        <li class="covered" data-hits="1" data-linenumber="47">
+          <span class="hits">1</span>
           
           <code class="ruby">    id = params[:id]</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="48">
-          
+        <li class="covered" data-hits="1" data-linenumber="48">
+          <span class="hits">1</span>
           
           <code class="ruby">    @movie = Movie.find(id)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="49">
-          
+        <li class="covered" data-hits="1" data-linenumber="49">
+          <span class="hits">1</span>
           
           <code class="ruby">    current_score = Movie.find(id).upvotes</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="50">
-          
+        <li class="covered" data-hits="1" data-linenumber="50">
+          <span class="hits">1</span>
           
           <code class="ruby">    if current_score.nil?</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="51">
-          
+        <li class="covered" data-hits="1" data-linenumber="51">
+          <span class="hits">1</span>
           
           <code class="ruby">      new_score = 1</code>
         </li>
@@ -1785,8 +1785,8 @@
           <code class="ruby">    end</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="55">
-          
+        <li class="covered" data-hits="1" data-linenumber="55">
+          <span class="hits">1</span>
           
           <code class="ruby">    @movie.update(</code>
         </li>
@@ -1803,8 +1803,8 @@
           <code class="ruby">    )</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="58">
-          
+        <li class="covered" data-hits="1" data-linenumber="58">
+          <span class="hits">1</span>
           
           <code class="ruby">    redirect_to movie_path(@movie)</code>
         </li>

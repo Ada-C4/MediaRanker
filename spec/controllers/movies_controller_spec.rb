@@ -92,4 +92,23 @@ RSpec.describe MoviesController, type: :controller do
       expect(subject).to redirect_to movies_path
     end
   end
+
+  describe "PATCH 'upvote'" do
+    let(:movie) do
+      Movie.create(name: "Test")
+    end
+
+    let(:update_params) do
+      {
+        movie: {
+          upvotes: 1
+        }
+      }
+    end
+
+    it "redirects to the show view" do
+      patch :upvote, { id: movie.id, movie: update_params }
+      expect(subject).to redirect_to movie_path(movie.id)
+    end
+  end
 end
