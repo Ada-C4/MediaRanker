@@ -43,7 +43,7 @@ RSpec.describe BooksController, type: :controller do
     describe "POST 'create'" do
     	let(:params) do
     		{
-    			books: 
+    			book: 
     			{
     				name: "this is a name"
     			}
@@ -52,7 +52,7 @@ RSpec.describe BooksController, type: :controller do
 
     	let(:bad_params) do
     		{
-    			books:
+    			book:
     			{
     				description: 'this'
     			}
@@ -81,12 +81,12 @@ RSpec.describe BooksController, type: :controller do
   			}
   		end
   		it "should should be successful" do
-  			patch :update, { id: book_id, books: update_params }
+  			patch :update, { id: book_id, book: update_params }
   			expect(subject).to redirect_to book_path(book_id)
   		end
 
   		it "should reload the page if not validated" do
-  			patch :update, { id: book_id, books: {name: nil}}
+  			patch :update, { id: book_id, book: {name: nil}}
   			expect(subject).to redirect_to edit_book_path(book_id)
   		end
   	end

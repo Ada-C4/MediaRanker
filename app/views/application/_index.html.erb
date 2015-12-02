@@ -8,7 +8,7 @@
   <% @media.each do |media| %>
     <tr>
       <td>Ranked: <%= media.votes %></td>
-      <td><%= link_to "#{media.name}", route %></td> 
+      <td><%= link_to "#{media.name}", polymorphic_path(media) %></td> 
       <td>
         <%= button_to 'Upvote', polymorphic_path([:upvote, media]), :method => :patch %>
       </td>
