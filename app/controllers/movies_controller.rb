@@ -35,12 +35,12 @@ class MoviesController < ApplicationController
       get_movie
       @movie.update(:rank => @movie[:rank] + 1)
     end
-    redirect_to "/movies"
+    redirect_to :back
   end
 
   def update
     @movie = Movie.update(params[:id], name: movie_params[:movie][:name], director: movie_params[:movie][:director], description: movie_params[:movie][:description], rank: movie_params[:movie][:rank])
-    redirect_to '/movies'
+    redirect_to "/movies/#{@movie.id}"
   end
 
   def destroy

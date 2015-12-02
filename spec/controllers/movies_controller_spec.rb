@@ -75,46 +75,12 @@ RSpec.describe MoviesController, type: :controller do
 
   describe "PATCH 'update'" do
     let(:movie) do
-    Movie.create(name: "Test", director: "Me", description: "boring film", rank: 7)
-    {
-      id: 1,
-      movie: {
-        name: "Test",
-        director: "Me",
-        description: "boring film",
-        rank: 7
-      }
-    }
-    end
-
-    let(:bad_movie) do
-    Movie.create(name: nil, director: "Me", description: "boring film", rank: 7)
-    {
-      id: 1,
-      movie: {
-        name: nil,
-        director: "Me",
-        description: "boring film",
-        rank: 7
-      }
-    }
-    end
-
-    it "redirects to movies index page" do
-      patch :update, movie
-      expect(subject).to redirect_to movies_path
-    end
-
-    it "redirects to movies index on error" do
-      post :create, bad_movie
-      expect(subject).to redirect_to movies_path
-    end
-  end
-
-  describe "DELETE 'destroy'" do
-    let(:movie) do
       Movie.create(name: "Test", director: "Me", description: "boring film", rank: 7)
+    end
+
+    let(:good_movie) do
       {
+        id: movie.id,
         movie: {
           name: "Test",
           director: "Me",
@@ -124,9 +90,45 @@ RSpec.describe MoviesController, type: :controller do
       }
     end
 
+    let(:bad_movie) do
+    {
+      id: movie.id,
+      movie: {
+        name: "",
+        director: "Me",
+        description: "boring film",
+        rank: 7
+      }
+    }
+    end
+
+    it "redirects to movie show page" do
+      patch :update, good_movie
+      expect(subject).to redirect_to movie_path(movie.id)
+    end
+
+    it "redirects to movies index on error" do
+      patch :update, bad_movie
+      expect(subject).to redirect_to movie_path(movie.id)
+    end
+  end
+
+  describe "DELETE 'destroy'" do
+    let(:movie) do
+      Movie.create(name: "Test", director: "Me", description: "boring film", rank: 7)
+    end
+
     it "redirects to movies index page" do
       delete :destroy, id: movie.id
       expect(subject).to redirect_to movies_path
     end
   end
+
+  # describe "PATCH" 'upvote'" do
+  #   let(:movie) do
+  #     Movie.create(name: "Test", director: "Me", description: "boring film", rank: 7)
+  #   end
+  #
+  #   it "redirects to movies index page"
+  # end
 end
