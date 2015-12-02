@@ -1,10 +1,11 @@
 class BooksController < ApplicationController
+  before_action only: [:show, :edit, :update, :upvote] { @book = Book.find(params[:id])}
+
   def index
     @books = Book.all
   end
 
   def show
-    @book = Book.find(params[:id])
   end
 
   def new
@@ -13,6 +14,7 @@ class BooksController < ApplicationController
 
   def create
     @book = Book.create(book_params[:book])
+
     if @book.save
       redirect_to book_path(@book.id)
     else
@@ -21,13 +23,15 @@ class BooksController < ApplicationController
   end
 
   def edit
-    @book = Book.find(params[:id])
   end
 
   def update
-    @book = Book.find(params[:id])
-    @book.attributes = book_params
-    redirect_to book_path(params[:id])
+    @book.update(book_params[:book])
+    if @book.save
+      redirect_to book_path(@book)
+    else
+      render "new"
+    end
   end
 
   def destroy
@@ -45,6 +49,6 @@ class BooksController < ApplicationController
   private
 
   def book_params
-    params.permit(movie: [:name, :author, :description])
+    params.permit(book: [:name, :author, :description, :rank])
   end
 end
