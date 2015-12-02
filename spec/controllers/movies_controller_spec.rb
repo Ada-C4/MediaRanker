@@ -56,7 +56,7 @@ RSpec.describe MoviesController, type: :controller do
       expect(subject).to redirect_to movies_path
     end
 
-    it "renders movies index on error" do
+    it "redirects to movies index on error" do
       post :create, bad_movie
       expect(subject).to redirect_to movies_path
     end
@@ -100,8 +100,32 @@ RSpec.describe MoviesController, type: :controller do
     }
     end
 
-    it "renders movies index on error" do
+    it "redirects to movies index page" do
       patch :update, movie
+      expect(subject).to redirect_to movies_path
+    end
+
+    it "redirects to movies index on error" do
+      post :create, bad_movie
+      expect(subject).to redirect_to movies_path
+    end
+  end
+
+  describe "DELETE 'destroy'" do
+    let(:movie) do
+      Movie.create(name: "Test", director: "Me", description: "boring film", rank: 7)
+      {
+        movie: {
+          name: "Test",
+          director: "Me",
+          description: "boring film",
+          rank: 7
+        }
+      }
+    end
+
+    it "redirects to movies index page" do
+      delete :destroy, id: movie.id
       expect(subject).to redirect_to movies_path
     end
   end

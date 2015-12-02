@@ -35,7 +35,7 @@ class MoviesController < ApplicationController
       get_movie
       @movie.update(:rank => @movie[:rank] + 1)
     end
-    redirect_to "/movies/#{@movie.id}"
+    redirect_to "/movies"
   end
 
   def update
