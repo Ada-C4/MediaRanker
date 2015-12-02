@@ -39,6 +39,7 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'rspec-rails'
   gem 'pry-rails'
+  gem 'simplecov'
 end
 
 group :development do
