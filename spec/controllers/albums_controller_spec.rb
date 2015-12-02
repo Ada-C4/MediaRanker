@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe AlbumsController, type: :controller do
+
+
   describe "GET 'index'" do
     it "is successful" do
       get :index
@@ -91,7 +93,28 @@ RSpec.describe AlbumsController, type: :controller do
       expect(subject).to render_template :edit
       expect(Album.find(album.id).name).to eq "Test Album"
     end
+  end
 
+  describe "DELETE 'destroy'" do
+    album = Album.create(name: "Test Album", description: "Album's description", artist: "Album's artist")
 
+    it "redirects to index page" do
+      delete :destroy, id: album.id
+      expect(subject).to redirect_to albums_path
+    end
+  end
+
+  describe "PATCH 'upvote'" do
+    album = Album.create(name: "Test Album", description: "Album's description", artist: "Album's artist")
+
+    it "increases ranked by 1" do
+      patch :upvote, id: album.id
+      expect(Album.find(album.id).ranked).to eq 1
+    end
+
+    it "redirects to show page" do
+      patch :upvote, id: album.id
+      expect(subject).to redirect_to album_path(album)
+    end
   end
 end
