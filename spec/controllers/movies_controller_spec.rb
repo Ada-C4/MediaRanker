@@ -43,9 +43,9 @@ RSpec.describe MoviesController, type: :controller do
     let(:bad_movie) do
       {
         movie: {
-          name: "Test",
+          name: "",
           director: "Me",
-          description: nil,
+          description: "boring film",
           rank: 7
         }
       }

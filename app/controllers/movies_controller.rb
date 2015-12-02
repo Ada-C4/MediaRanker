@@ -41,7 +41,7 @@ class MoviesController < ApplicationController
   end
 
   def update
-    @movie = Movie.update(params[:id], name: movie_params[:movie][:name], director: movie_params[:movie][:director], description: movie_params[:movie][:description], rank: movie_params[:movie][:rank])
+    @movie = Movie.update(params[:id], name: movie_params[:movie][:name])
     redirect_to "/movies/#{@movie.id}"
   end
 

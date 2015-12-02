@@ -1,17 +1,10 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/meighanrasley/ada/project_forks/MediaRanker/spec/controllers/home_controller_spec.rb": [
+      "/Users/meighanrasley/ada/project_forks/MediaRanker/spec/controllers/books_controller_spec.rb": [
         1,
         null,
         1,
-        null,
-        1,
-        1,
-        null,
-        1,
-        1,
-        null,
         null,
         null
       ],
@@ -317,12 +310,93 @@
         1,
         null
       ],
+      "/Users/meighanrasley/ada/project_forks/MediaRanker/app/helpers/books_helper.rb": [
+        1,
+        null
+      ],
       "/Users/meighanrasley/ada/project_forks/MediaRanker/app/helpers/home_helper.rb": [
         1,
         null
       ],
       "/Users/meighanrasley/ada/project_forks/MediaRanker/app/helpers/movies_helper.rb": [
         1,
+        null
+      ],
+      "/Users/meighanrasley/ada/project_forks/MediaRanker/app/controllers/books_controller.rb": [
+        1,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null,
+        1,
+        null,
+        1,
+        0,
+        null,
+        null
+      ],
+      "/Users/meighanrasley/ada/project_forks/MediaRanker/app/controllers/application_controller.rb": [
+        1,
+        null,
+        null,
+        1,
+        null
+      ],
+      "/Users/meighanrasley/ada/project_forks/MediaRanker/spec/controllers/home_controller_spec.rb": [
+        1,
+        null,
+        1,
+        null,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
         null
       ],
       "/Users/meighanrasley/ada/project_forks/MediaRanker/app/controllers/home_controller.rb": [
@@ -332,13 +406,6 @@
         1,
         null,
         null,
-        null
-      ],
-      "/Users/meighanrasley/ada/project_forks/MediaRanker/app/controllers/application_controller.rb": [
-        1,
-        null,
-        null,
-        1,
         null
       ],
       "/Users/meighanrasley/ada/project_forks/MediaRanker/spec/controllers/movies_controller_spec.rb": [
@@ -541,8 +608,18 @@
         1,
         null,
         1,
-        10,
+        4,
         null,
+        null
+      ],
+      "/Users/meighanrasley/ada/project_forks/MediaRanker/spec/models/book_spec.rb": [
+        1,
+        null,
+        1,
+        null
+      ],
+      "/Users/meighanrasley/ada/project_forks/MediaRanker/app/models/book.rb": [
+        1,
         null
       ],
       "/Users/meighanrasley/ada/project_forks/MediaRanker/spec/models/movie_spec.rb": [
@@ -554,16 +631,16 @@
         1,
         null,
         null,
-        1,
-        1,
         null,
         null,
-        1,
-        1,
         null,
         null,
-        1,
-        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
         null,
         null,
         null
@@ -574,6 +651,6 @@
         null
       ]
     },
-    "timestamp": 1449095461
+    "timestamp": 1449097485
   }
 }
