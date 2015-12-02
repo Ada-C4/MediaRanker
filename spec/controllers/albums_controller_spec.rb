@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'pry'
 
 RSpec.describe AlbumsController, type: :controller do
   describe "GET 'index'" do
@@ -39,7 +40,7 @@ RSpec.describe AlbumsController, type: :controller do
   end
 
 
-  describe 'upvote' do
+  describe "PATCH 'upvote'" do
     let(:upvote_album) do
       Album.create!(title:"a", artist: "b", description: "c", ranking: 0 )
     end
@@ -54,11 +55,12 @@ RSpec.describe AlbumsController, type: :controller do
    end
   end
 
-  describe 'create' do
+
+  describe "POST 'create'" do
     let(:good_params) do
     {
       album: {
-        title: "a title"
+        title: "a title",
         ranking: 0
       }
     }
@@ -67,21 +69,19 @@ RSpec.describe AlbumsController, type: :controller do
     let (:bad_params) do
       {
         album: {
-          description: "a description"
+          description: "a description",
           ranking: 0
         }
       }
     end
 
-    it "redirects to index page" do
+    it "redirects to show page for created album" do
       post :create, good_params
-
-      # Success case to index page
-      expect(subject).to redirect_to posts_path
+      new_album = Album.last
+      expect(subject).to redirect_to album_path(new_album.id)
     end
 
     it "renders new template on error" do
-      # Error case to show errors on form
       post :create, bad_params
       expect(subject).to render_template :new
     end
