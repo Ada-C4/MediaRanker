@@ -18,6 +18,16 @@ seed_books = [
 seed_books.each do |seed|
   Book.create(seed)
 end
+
+seed_albums = [
+  { name: "Blue", artist: "Joni Mitchell", description: "Moody Acoustic Awesomeness", rank: 0 },
+  { name: "Clouds", artist: "Joni Mitchell", description: "Beautiful, lilting vocals", rank: 0 },
+  { name: "Mingus", artist: "Joni Mitchell", description: "Jazzy", rank: 0 },
+  { name: "Both Sides Now", artist: "Joni Mitchell", description: "Classic", rank: 0 }
+]
+seed_albums.each do |seed|
+  Album.create(seed)
+end
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #

@@ -1,0 +1,6 @@
+<ul>
+  <% @albums.each do |album| %>
+    <li><%= album.rank %> <%= link_to "#{album.name}", album_path(album.id) %> <%= button_to "upvote", album_upvote_path(album.id), method: :post %></li>
+  <% end %>
+</ul>
+<%= link_to "new", new_album_path %>
