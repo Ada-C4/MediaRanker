@@ -20,7 +20,7 @@ class BooksController < ApplicationController
   end
 
   def create
-    @book = Book.create(movie_params[:book])
+    @book = Book.create(book_params[:book])
     redirect_to "/books"
   end
 
@@ -37,7 +37,7 @@ class BooksController < ApplicationController
   end
 
   def update
-    @book = Book.update(params[:id], name: book_params[:movie][:name])
+    @book = Book.update(params[:id], name: book_params[:book][:name])
     redirect_to "/books/#{@book.id}"
   end
 

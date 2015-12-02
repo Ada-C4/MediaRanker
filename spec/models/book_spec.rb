@@ -5,4 +5,5 @@ RSpec.describe Book, type: :model do
     it "must have a name" do
       expect(Book.new(name: nil)).to_not be_valid
     end
+  end
 end

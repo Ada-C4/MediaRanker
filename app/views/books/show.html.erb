@@ -3,7 +3,7 @@ Ranked: <%= @book.rank %><br>
 <%= @book.description %>
 
 <%= button_to "Upvote", { action: "upvote", id: @book.id, class: "vote" }, method: "patch" %>
-<%= button_to "Edit", edit_movie_path(@book.id), method: :get %>
+<%= button_to "Edit", edit_book_path(@book.id), method: :get %>
 <%= button_to "Delete", "/books/#{@book.id}", method: :delete %>
 <%= button_to "View All Books", books_path, method: :get %>
 <%= button_to "View All Media", root_path, method: :get %>

@@ -29,7 +29,7 @@ RSpec.describe BooksController, type: :controller do
   describe "POST 'create'" do
     let(:book) do
       {
-        movie: {
+        book: {
           name: "Test",
           author: "Me",
           description: "boring book",
@@ -40,7 +40,7 @@ RSpec.describe BooksController, type: :controller do
 
     let(:bad_book) do
       {
-        movie: {
+        book: {
           name: "",
           author: "Me",
           description: "boring book",
@@ -79,7 +79,7 @@ RSpec.describe BooksController, type: :controller do
     let(:good_book) do
       {
         id: book.id,
-        movie: {
+        book: {
           name: "Test",
           author: "Me",
           description: "boring book",
@@ -91,7 +91,7 @@ RSpec.describe BooksController, type: :controller do
     let(:bad_book) do
     {
       id: book.id,
-      movie: {
+      book: {
         name: "",
         author: "Me",
         description: "boring book",
@@ -132,7 +132,7 @@ RSpec.describe BooksController, type: :controller do
     end
     it "increments :rank" do
       patch :upvote, id: book.id
-      movie.reload
+      book.reload
       expect(book.rank).to eq 8
       expect(subject).to redirect_to "from_whence_we_came"
     end
