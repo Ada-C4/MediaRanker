@@ -1,7 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe AlbumsController, type: :controller do
-
+  let (:album) do
+    Album.create(name: "Test Album", description: "Album's description", artist: "Album's artist")
+  end
 
   describe "GET 'index'" do
     it "is successful" do
@@ -11,8 +13,6 @@ RSpec.describe AlbumsController, type: :controller do
   end
 
   describe "GET 'show'" do
-    album = Album.create(name: "Test Album", description: "Album's description", artist: "Album's artist")
-
     it "renders the show view" do
       get :show, id: album.id
       expect(subject).to render_template :show
@@ -53,8 +53,6 @@ RSpec.describe AlbumsController, type: :controller do
   end
 
   describe "GET 'edit'" do
-    album = Album.create(name: "Test Album", description: "Album's description", artist: "Album's artist")
-
     it "renders edit view" do
       get :edit, id: album.id
       expect(subject).to render_template :edit
@@ -62,10 +60,6 @@ RSpec.describe AlbumsController, type: :controller do
   end
 
   describe "PATCH 'update'" do
-    let (:album) do
-      Album.create(name: "Test Album", description: "Album's description", artist: "Album's artist")
-    end
-
     let (:good_params) do
       {
         id: album.id,
@@ -96,8 +90,6 @@ RSpec.describe AlbumsController, type: :controller do
   end
 
   describe "DELETE 'destroy'" do
-    album = Album.create(name: "Test Album", description: "Album's description", artist: "Album's artist")
-
     it "redirects to index page" do
       delete :destroy, id: album.id
       expect(subject).to redirect_to albums_path
@@ -105,8 +97,6 @@ RSpec.describe AlbumsController, type: :controller do
   end
 
   describe "PATCH 'upvote'" do
-    album = Album.create(name: "Test Album", description: "Album's description", artist: "Album's artist")
-
     it "increases ranked by 1" do
       patch :upvote, id: album.id
       expect(Album.find(album.id).ranked).to eq 1
