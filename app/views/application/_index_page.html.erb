@@ -1,4 +1,4 @@
-<table>
+<table class="table table-hover">
   <tr>
     <th>Ranking</th>
     <th>Name</th>
@@ -13,11 +13,11 @@
       <%= link_to item.name, polymorphic_path(item) %>
     </td>
     <td>
-      <%= button_to "Upvote", polymorphic_path([:upvote, item]) %>
+      <%= button_to "Upvote", polymorphic_path([:upvote, item]), class: "btn btn-default" %>
     </td>
   </tr>
   <% end %>
 </table>
 
-<%= link_to "View All Media", "/" %>
-<%= link_to "Add a #{items.first.class}", new_polymorphic_path(items.first.class) %>
+<%= link_to "View All Media", "/" , class: "btn btn-default"%>
+<%= link_to "Add a #{items.first.class}", new_polymorphic_path(items.first.class), class: "btn btn-default" %>
