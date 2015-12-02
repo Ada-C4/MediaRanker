@@ -7,13 +7,21 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <header>
-    <%= image_tag("black-cat.png", size: "75x107") %>
-    <%= link_to "Media Ranker", root_path %>
-  </header>
+  <div class="container">
+    <div class="row">
+      <div class="page-header">
+        <h1>
+          <%= link_to "Media Ranker", root_path %>
+          <small>
+            Ranking the Best of Everything
+          </small>
+        </h1>
+      </div>
+    </div>
 
 
-<%= yield %>
+    <%= yield %>
 
+  </div>
 </body>
 </html>
