@@ -1,10 +1,11 @@
 class AlbumsController < ApplicationController
+  before_action only: [:show, :edit, :update, :upvote] { @album = Album.find(params[:id]) }
+
   def index
     @albums = Album.all
   end
 
   def show
-    @album = Album.find(params[:id])
   end
 
   def new
@@ -21,12 +22,10 @@ class AlbumsController < ApplicationController
   end
 
   def edit
-    @album = Album.find(params[:id])
   end
 
   def update
-    @album = Album.find(params[:id])
-    @album.attributes = album_params
+    @album.update(album_params[:album])
     if @album.save
       render "show"
     else
@@ -40,7 +39,6 @@ class AlbumsController < ApplicationController
   end
 
   def upvote
-    @album = Album.find(params[:id])
     @album.rank += 1
     @album.save
     redirect_to album_path(@album.id)
@@ -49,6 +47,6 @@ class AlbumsController < ApplicationController
   private
 
   def album_params
-    params.permit(movie: [:name, :artist, :description])
+    params.permit(album: [:name, :artist, :description, :rank])
   end
 end

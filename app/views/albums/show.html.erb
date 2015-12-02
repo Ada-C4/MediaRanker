@@ -1,5 +1,9 @@
 <%= render partial: "application/show",
   locals: {
-    media: @album
-  }
+    media: @album,
+    title: "Album",
+    singular_name: "album",
+    plur_name: "albums",
+    maker: @album.artist,
+    created_by: "Recorded by:",  }
 %>
