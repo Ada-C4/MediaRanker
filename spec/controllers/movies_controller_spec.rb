@@ -96,4 +96,22 @@ describe "DELETE 'destroy'" do
   end
 end
 
+describe "PATCH 'upvote'" do
+  start_rank = Movie.find(1).rank
+
+  let(:upvote_params) do {
+      id: 1
+    }
+  end
+
+    it "redirects to show page" do
+      patch :upvote, upvote_params
+      expect(subject).to redirect_to movie_path(1)
+    end
+    it "increases the rank value by 1" do
+      patch :upvote, upvote_params
+      expect(Movie.find(1).rank).to eq (start_rank + 1)
+    end
+  end
+
 end
