@@ -44,9 +44,10 @@ RSpec.describe AlbumsController, type: :controller do
       it "redirects to index page" do
 
         post :create, good_params
+        new_album = Album.last
 
         # Success case to index page
-        expect(subject).to redirect_to albums_path
+        expect(subject).to redirect_to album_path(new_album.id)
       end
 
       it "renders new template on error" do
@@ -91,6 +92,14 @@ RSpec.describe AlbumsController, type: :controller do
       it "redirects to index page" do
         delete :destroy, id: album.id
         expect(subject).to redirect_to albums_path
+      end
+    end
+
+    describe "POST 'upvote'" do
+      it "redirects to show page" do
+        album = Album.create(name: "Something", artist: "Someone", description: "Something something something")
+        post :upvote, id: album.id
+        expect(subject).to redirect_to album_path(album.id)
       end
     end
 end

@@ -44,9 +44,10 @@ RSpec.describe MoviesController, type: :controller do
     it "redirects to index page" do
 
       post :create, good_params
+      new_movie = Movie.last
 
       # Success case to index page
-      expect(subject).to redirect_to movies_path
+      expect(subject).to redirect_to movie_path(new_movie.id)
     end
 
     it "renders new template on error" do

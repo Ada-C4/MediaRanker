@@ -44,9 +44,10 @@ RSpec.describe BooksController, type: :controller do
       it "redirects to index page" do
 
         post :create, good_params
+        new_book = Book.last
 
         # Success case to index page
-        expect(subject).to redirect_to books_path
+        expect(subject).to redirect_to book_path(new_book.id)
       end
 
       it "renders new template on error" do
@@ -91,6 +92,14 @@ RSpec.describe BooksController, type: :controller do
       it "redirects to index page" do
         delete :destroy, id: book.id
         expect(subject).to redirect_to books_path
+      end
+    end
+
+    describe "POST 'upvote'" do
+      it "redirects to show page" do
+        book = Book.create(name: "Something", author: "Someone", description: "Something something something")
+        post :upvote, id: book.id
+        expect(subject).to redirect_to book_path(book.id)
       end
     end
 end
