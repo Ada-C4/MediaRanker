@@ -46,7 +46,7 @@ Each data model needs to have standard RESTful (index, show, edit, update, new, 
 
 #### Wave 2
 
-Testing will come in Wave 2!
+Your rails application must have 90% code coverage across models and controllers. Use TDD practices to develop new functionality, and add tests for functionality that has already been added in Wave 1.
 
 #### Wave 3
 
