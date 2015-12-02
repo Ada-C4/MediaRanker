@@ -24,6 +24,20 @@ RSpec.describe AlbumsController, type: :controller do
     end
   end
 
+  describe "GET 'new'" do
+    it "is successful" do
+      get :new
+      expect(response.status).to eq 200
+    end
+  end
+
+  # describe "GET 'edit'" do
+  #   it "is successful" do
+  #     get :edit
+  #     expect(response.status).to eq 200
+  #   end
+  # end
+
   describe "POST 'create'" do
     let(:good_params) do
       {
@@ -75,6 +89,17 @@ RSpec.describe AlbumsController, type: :controller do
     #   patch :update, bad_params
     #   expect(subject).to render_template :edit
     # end
+  end
+
+  describe "DELETE 'destroy'" do
+    let(:album) do
+      Album.create(name: "Some Title")
+    end
+
+    it "redirects to album index page" do
+      delete :destroy, id: album.id
+      expect(subject).to redirect_to(albums_path)
+    end
   end
 
 end
