@@ -1,49 +1,63 @@
 <%= render partial: 'header' %>
-<div>
-  <h1>Top Movies</h1>
-  <% @movies.each do |movie| %>
-    <p>
-      <a href="/movies/<%= movie.id %>"><%= movie.name %></a> Ranked:
-      <% if movie.upvotes.nil? %>
-        0
-      <% else %>
-        <%= movie.upvotes %>
-      <% end %>
-    </p>
-  <% end %>
-  <p>
-    <a href="/movies/">View More Movies</a>
-  </p>
-</div>
-<div>
-  <h1>Top Books</h1>
-  <% @books.each do |book| %>
-    <p>
-      <a href="/books/<%= book.id %>"><%= book.name %></a> Ranked:
-      <% if book.upvotes.nil? %>
-        0
-      <% else %>
-        <%= book.upvotes %>
-      <% end %>
-    </p>
-  <% end %>
-  <p>
-    <a href="/books/">View More Books</a>
-  </p>
-</div>
-<div>
-  <h1>Top Albums</h1>
-  <% @albums.each do |album| %>
-    <p>
-      <a href="/albums/<%= album.id %>"><%= album.name %></a> Ranked:
-      <% if album.upvotes.nil? %>
-        0
-      <% else %>
-        <%= album.upvotes %>
-      <% end %>
-    </p>
-  <% end %>
-  <p>
-    <a href="/albums/">View More Albums</a>
-  </p>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="row">
+      <div class="col-md-4">
+        <h1>Top Movies</h1>
+        <% @movies.each do |movie| %>
+          <h2>
+            <a href="/movies/<%= movie.id %>"><%= movie.name %></a>
+            <small>Ranked:
+            <% if movie.upvotes.nil? %>
+              0
+            <% else %>
+              <%= movie.upvotes %>
+            <% end %>
+            </small>
+          </h2>
+        <% end %>
+        <p>
+          <a href="/movies/">View More Movies</a>
+        </p>
+      </div>
+      <div class="col-md-4">
+        <h1>Top Books</h1>
+        <% @books.each do |book| %>
+          <h2>
+            <a href="/books/<%= book.id %>"><%= book.name %></a>
+            <small>
+            Ranked:
+            <% if book.upvotes.nil? %>
+              0
+            <% else %>
+              <%= book.upvotes %>
+            <% end %>
+            </small>
+          </h2>
+        <% end %>
+        <p>
+          <a href="/books/">View More Books</a>
+        </p>
+      </div>
+      <div class="col-md-4">
+        <h1>Top Albums</h1>
+        <% @albums.each do |album| %>
+          <h2>
+            <a href="/albums/<%= album.id %>"><%= album.name %></a>
+            <small>
+            Ranked:
+            <% if album.upvotes.nil? %>
+              0
+            <% else %>
+              <%= album.upvotes %>
+            <% end %>
+            </small>
+          </h2>
+        <% end %>
+        <p>
+          <a href="/albums/">View More Albums</a>
+        </p>
+      </div>
+    </div>
+  </div>
 </div>
