@@ -10,3 +10,29 @@
 </table>
 
 <%= link_to "All Movies", movies_path %>
+
+<h1>Top Books</h1>
+
+<table>
+  <% @books.each do |book| %>
+    <tr>
+      <td><%= book.title %></td>
+      <td><%= book.votes %> votes</td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to "All Books", books_path %>
+
+<h1>Top Albums</h1>
+
+<table>
+  <% @albums.each do |album| %>
+    <tr>
+      <td><%= album.title %></td>
+      <td><%= album.votes %> votes</td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to "All Albums", albums_path %>
