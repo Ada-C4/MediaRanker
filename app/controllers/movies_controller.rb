@@ -34,7 +34,7 @@ class MoviesController < ApplicationController
     if @item.save
       redirect_to movies_path
     else
-      render "new"
+      render "form"
     end
   end
 
@@ -42,7 +42,7 @@ class MoviesController < ApplicationController
     @item = Movie.find(params[:id])
     @special = "Director"
 
-    render "new"
+    render "form"
   end
 
   def update
@@ -52,7 +52,7 @@ class MoviesController < ApplicationController
     if @item.save
       redirect_to movies_path
     else
-      render "new"
+      render "form"
     end
   end
 

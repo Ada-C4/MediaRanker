@@ -34,7 +34,7 @@ class BooksController < ApplicationController
     if @item.save
       redirect_to books_path
     else
-      render "new"
+      render "form"
     end
   end
 
@@ -42,7 +42,7 @@ class BooksController < ApplicationController
     @item = Book.find(params[:id])
     @special = "Author"
 
-    render "new"
+    render "form"
   end
 
   def update
@@ -52,7 +52,7 @@ class BooksController < ApplicationController
     if @item.save
       redirect_to books_path
     else
-      render "new"
+      render "form"
     end
   end
 

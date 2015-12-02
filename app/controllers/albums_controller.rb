@@ -34,7 +34,7 @@ class AlbumsController < ApplicationController
     if @item.save
       redirect_to albums_path
     else
-      render "new"
+      render "form"
     end
   end
 
@@ -42,7 +42,7 @@ class AlbumsController < ApplicationController
     @item = Album.find(params[:id])
     @special = "Artist"
 
-    render "new"
+    render "form"
   end
 
   def update
@@ -52,7 +52,7 @@ class AlbumsController < ApplicationController
     if @item.save
       redirect_to albums_path
     else
-      render "new"
+      render "form"
     end
   end
 
