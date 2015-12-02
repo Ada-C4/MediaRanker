@@ -11,6 +11,15 @@ class AlbumsController < ApplicationController
     @album = Album.find(params[:id])
   end
 
+  def new
+    @album = Album.new
+  end
+
+  def create
+    @album = Album.create(album_params)
+    redirect_to album_path
+  end
+
   def update
     id = params[:id]
     album = Album.find(id)

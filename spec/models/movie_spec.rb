@@ -10,9 +10,5 @@ RSpec.describe Movie, type: :model do
       Movie.create(name: "a")
       expect(Movie.new(name: "a")).to_not be_valid
     end
-
-    it "can't have a 301 char description" do
-      expect(Movie.new(description: "a" * 301)).to_not be_valid
-    end
   end
 end
