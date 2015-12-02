@@ -5,6 +5,10 @@ RSpec.describe Book, type: :model do
     it "must have a name" do
       expect(Book.new(name: nil)).to_not be_valid
     end
+
+    it "can't have 201 characters" do
+      expect(Album.new(description: "a" * 201)).to be_invalid
+    end
   end
 
   #   it "can't have 141 characters" do
