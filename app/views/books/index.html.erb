@@ -1,0 +1,15 @@
+<table>
+  <tbody>
+    <tr>
+      <th>Ranking</th>
+      <th>Name</th>
+      <th>Upvote</th>
+    </tr>
+    <tr>
+      <% @books.each do |book| %>
+        <td><%= link_to book.name, book_path(book.id) %>
+          <!-- not quite working completely as planned!! -->
+      <% end %>
+    </tr>
+  </tbody>
+</table>
