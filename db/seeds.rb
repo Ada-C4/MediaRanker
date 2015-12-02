@@ -24,7 +24,7 @@ end
 albums = [
   {name: "Cupid", artist: "112", description: "Doesn't lie", rank: 0},
   {name: "Adie's Night", artist: "Annalee Herrera", description: "this is adie's night", rank:0},
-  {name: "Quit Playing Games With My Heart", author: "N'Sync", description: "I should have known", rank: 0},
+  {name: "Quit Playing Games With My Heart", artist: "N'Sync", description: "I should have known", rank: 0},
   {name: "Why you always Lion", artist: "Scar", description: "You're a cheetah.", rank: 0}
 ]
 

@@ -2,8 +2,10 @@ Rails.application.routes.draw do
   # root 'movies#home'
   resources :movies
   resources :books
+  resources :albums
   post 'movies/:id' => 'movies#upvote', as: :upvote
   post 'books/:id' => 'books#upvote', as: :book_upvote
+  post 'albums/:id' => 'albums#upvote', as: :album_upvote
 end
 
 
