@@ -1,9 +1,14 @@
-<h1><%= item.name %></h1>
-<h2><%= create_verb %> by: <%= created_by %></h2>
-<h3>Ranked: <%= item.ranking %></h3>
-<p><%= item.description %></p>
-<%= button_to "Upvote", polymorphic_path([:upvote, item]) %>
-<%= link_to "Edit #{item.name}", edit_polymorphic_path(item, id: params[:id]) %>
-<%= link_to "DELETE", polymorphic_path(item, id: params[:id]), method: :delete %>
-<%= link_to "View All #{name.capitalize}", polymorphic_path(name) %>
-<%= link_to "View All Media", "/" %>
+<div class="row">
+  <div class="col-lg-12">
+    <h1><%= item.name %> <small><%= create_verb %> by: <%= created_by %></small></h1>
+    <h4>Ranked: <%= item.ranking %></h4>
+    <p><%= item.description %></p>
+    <form>
+      <%= button_to "Upvote", polymorphic_path([:upvote, item]), class: "btn btn-primary" %>
+    </form>
+    <%= link_to "Edit #{item.name}", edit_polymorphic_path(item, id: params[:id]), class: "btn btn-default" %>
+    <%= link_to "DELETE", polymorphic_path(item, id: params[:id]), method: :delete, class: "btn btn-danger" %>
+    <%= link_to "View All #{name.capitalize}", polymorphic_path(name), class: "btn btn-default" %>
+    <%= link_to "View All Media", "/", class: "btn btn-default" %>
+  </div>
+</div>

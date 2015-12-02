@@ -6,29 +6,23 @@
   <% end %>
 </ul>
 
-<%= form_for item do |f| %>
-  <div class="form-group">
-    <%= f.label :name, class: "col-md-5 control-label text-right" %>
-    <div class="col-md-7">
-      <%= f.text_field :name, class: "user-field" %>
-    </div>
-  </div>
+<div class="row">
+  <div class="col-lg-12">
+    <%= form_for item do |f| %>
+      <div class="form-group">
+        <%= f.label :name, class: "" %>
+        <%= f.text_field :name, class: "form-control" %>
 
-  <div class="form-group">
-    <%= f.label person, class: "col-md-5 control-label text-right"%>
-    <div class="col-md-7">
-        <%= f.text_field person, class: "user-field" %>
-    </div>
-  </div>
+        <%= f.label person, class: ""%>
+        <%= f.text_field person, class: "form-control" %>
 
-  <div class="form-group">
-    <%= f.label :description, class: "col-md-5 control-label text-right"%>
-    <div class="col-md-7">
-        <%= f.text_field :description, class: "user-field" %>
-    </div>
-  </div>
+        <%= f.label :description, class: ""%>
+        <%= f.text_area :description, class: "form-control" %>
+      </div>
 
-  <div class="form-actions">
-      <%= f.submit "Save", class: "submit-button" %>
+      <div class="form-actions">
+        <%= f.submit "Save", class: "btn btn-default" %>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>
