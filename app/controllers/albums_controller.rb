@@ -10,6 +10,7 @@ class AlbumsController < ApplicationController
 
   def new
     @url = "create"
+    @legend = "New Album"
     @album = Album.new
   end
 
