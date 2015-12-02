@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe MoviesController, type: :controller do
+  
   describe "GET 'index'" do
     it "is successful" do
       get :index
