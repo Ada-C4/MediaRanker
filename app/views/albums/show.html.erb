@@ -1,0 +1,11 @@
+<%= @album.name %>
+<br>
+Recorded by: <%= @album.artist %>
+<br>
+Ranked: <%= @album.rank %>
+<br>
+Description: <%= @album.description %>
+<%= button_to "upvote", album_upvote_path(@album.id), method: :post %>
+<%= link_to "edit #{@album.name}", edit_album_path(@album.id) %>
+<%= link_to "delete", album_path(@album.id), method: :delete, data: { :confirm => "Are you sure?" } %>
+<%= link_to "View all albums", albums_path %>
