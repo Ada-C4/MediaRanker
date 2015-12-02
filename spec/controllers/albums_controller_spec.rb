@@ -44,7 +44,8 @@ RSpec.describe AlbumsController, type: :controller do
     it "redirects to show page" do
       post :create, good_params
       #Success case to show page
-      expect(subject).to redirect_to album_path(1)
+      new_album = Album.last
+      expect(subject).to redirect_to album_path(new_album.id)
     end
   end
 end
