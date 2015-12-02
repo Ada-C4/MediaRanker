@@ -67,10 +67,19 @@ RSpec.describe BooksController, type: :controller do
         description: "It has no chapters"
       }
     end
+    let(:bad_update_params) do {
+      name: nil
+    }
+    end
 
     it "should be successful" do
       patch :update, { id: book_id, book: update_params }
       expect(subject).to redirect_to book_path(book_id)
+    end
+
+    it "renders the new template on error" do
+      patch :update, { id: book_id, book: bad_update_params}
+      expect(subject).to render_template :new
     end
   end
 

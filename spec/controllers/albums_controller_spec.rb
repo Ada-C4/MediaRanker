@@ -12,6 +12,12 @@ RSpec.describe AlbumsController, type: :controller do
   }
   end
 
+  let(:bad_params) do
+    {
+      album: {}
+    }
+  end
+
   let(:album) { Album.create(create_params[:album])}
 
 
@@ -44,12 +50,6 @@ RSpec.describe AlbumsController, type: :controller do
   end
 
   describe "POST 'create'" do
-    let(:bad_params) do
-      {
-        album: {}
-      }
-    end
-
     it "redirects to the show page" do
       post :create, create_params
       expect(subject).to redirect_to album_path(1)
@@ -68,10 +68,19 @@ RSpec.describe AlbumsController, type: :controller do
         description: "It has no songs"
       }
     end
+    let(:bad_update_params) do {
+      name: nil
+    }
+    end
 
     it "should be successful" do
       patch :update, { id: album_id, album: update_params }
       expect(subject).to redirect_to album_path(album_id)
+    end
+
+    it "renders the new template on error" do
+      patch :update, { id: album_id, album: bad_update_params}
+      expect(subject).to render_template :new
     end
   end
 
