@@ -1,7 +1,7 @@
 class MoviesController < ApplicationController
   before_action only: [:show, :edit, :update, :upvote] { @movie = Movie.find(params[:id]) }
   def index
-    @movies = Movie.all
+    @movies = Movie.order(rank: :desc)
   end
 
   def show
@@ -14,7 +14,7 @@ class MoviesController < ApplicationController
   def create
     @movie = Movie.create(movie_params[:movie])
     if @movie.save
-      redirect_to movie_path(@movie.id)
+      redirect_to "show"
     else
       render "new"
     end
@@ -26,7 +26,7 @@ class MoviesController < ApplicationController
   def update
     @movie.update(movie_params[:movie])
     if @movie.save
-      redirect_to movie_path(@movie)
+      redirect_to "show"
     else
       render "new"
     end

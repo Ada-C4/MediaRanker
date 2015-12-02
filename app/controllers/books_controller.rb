@@ -16,7 +16,7 @@ class BooksController < ApplicationController
     @book = Book.create(book_params[:book])
 
     if @book.save
-      redirect_to book_path(@book.id)
+      redirect_to "show"
     else
       render "new"
     end
@@ -28,7 +28,7 @@ class BooksController < ApplicationController
   def update
     @book.update(book_params[:book])
     if @book.save
-      redirect_to book_path(@book)
+      redirect_to "show"
     else
       render "new"
     end
@@ -43,7 +43,7 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     @book.rank += 1
     @book.save
-    redirect_to book_path(@book.id)
+    redirect_to "show"
   end
 
   private

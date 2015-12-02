@@ -2,7 +2,7 @@ class AlbumsController < ApplicationController
   before_action only: [:show, :edit, :update, :upvote] { @album = Album.find(params[:id]) }
 
   def index
-    @albums = Album.all
+    @albums = Album.order(rank: :desc)
   end
 
   def show
@@ -15,7 +15,7 @@ class AlbumsController < ApplicationController
   def create
     @album = Album.create(album_params[:album])
     if @album.save
-      redirect_to album_path(@album.id)
+      redirect_to "show"
     else
       render "new"
     end
