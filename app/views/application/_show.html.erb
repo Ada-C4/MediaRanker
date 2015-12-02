@@ -8,7 +8,7 @@
   <%= @content.description %>
 </div>
 
-<%= button_to "Upvote", @item_path + "#{@content.id}/upvote", method: :patch %>
+<%= button_to "Upvote", polymorphic_path([:upvote, @content]), method: :patch %>
 <br>
 <%= button_to "Edit #{@content.name}", edit_polymorphic_path(@content), method: :get %>
 <%= button_to "Delete", polymorphic_path(@content), onclick: "return confirm('Are you sure?')", method: :delete %>

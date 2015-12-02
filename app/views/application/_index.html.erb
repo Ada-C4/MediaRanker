@@ -10,7 +10,7 @@
     <td>Ranked: <%= item.votes %></td>
     <td><%= link_to item.name, polymorphic_path(item) %></td>
     <td>
-      <%= button_to "Upvote", @item_path + "#{item.id}/upvote", method: :patch %>
+      <%= button_to "Upvote", polymorphic_path([:upvote, item]), method: :patch %>
     </td>
   </tr>
   <% end %>
