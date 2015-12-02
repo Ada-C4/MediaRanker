@@ -45,18 +45,17 @@ class AlbumsController < ApplicationController
 
   def update
     id = params[:id]
-    album = Album.find(id)
-    album.update(
+    @album = Album.find(id)
+    @album.attributes = {
     name: album_params[:album][:name],
     artist: album_params[:album][:artist],
     description: album_params[:album][:description],
-    )
-    # if album.save
-    #   redirect_to album_path(album.id)
-    # else
-    #   render "edit"
-    # end
-    redirect_to album_path(album.id)
+    }
+    if @album.save
+      redirect_to album_path(@album.id)
+    else
+      render "edit"
+    end
   end
 
 

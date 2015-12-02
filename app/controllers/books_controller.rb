@@ -45,13 +45,17 @@ class BooksController < ApplicationController
 
   def update
     id = params[:id]
-    book = Book.find(id)
-    book.update(
+    @book = Book.find(id)
+    @book.attributes = {
     name: book_params[:book][:name],
     author: book_params[:book][:author],
     description: book_params[:book][:description],
-    )
-    redirect_to book_path(book.id)
+    }
+    if @book.save
+      redirect_to book_path(@book.id)
+    else
+      render "edit"
+    end
   end
 
 
