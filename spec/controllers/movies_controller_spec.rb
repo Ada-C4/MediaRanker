@@ -8,6 +8,17 @@ RSpec.describe MoviesController, type: :controller do
     end
   end
 
+  describe "GET 'new'" do
+    let(:movie) do
+      Movie.create(name: "Some movie")
+    end
+
+    it "renders the new view" do
+      get :new, id: movie.id
+      expect(subject).to render_template :new
+    end
+  end
+
   describe "GET 'show'" do
     let(:movie) do
       Movie.create(name: "Some movie")

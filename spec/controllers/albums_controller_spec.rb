@@ -8,6 +8,17 @@ RSpec.describe AlbumsController, type: :controller do
     end
   end
 
+  describe "GET 'new'" do
+    let(:album) do
+      Album.create(name: "Some album")
+    end
+
+    it "renders the new view" do
+      get :new, id: album.id
+      expect(subject).to render_template :new
+    end
+  end
+
   describe "GET 'show'" do
     let(:album) do
       Album.create(name: "Some album")

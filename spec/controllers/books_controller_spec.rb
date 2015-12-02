@@ -8,6 +8,17 @@ RSpec.describe BooksController, type: :controller do
     end
   end
 
+  describe "GET 'new'" do
+    let(:book) do
+      Book.create(name: "Some book")
+    end
+
+    it "renders the new view" do
+      get :new, id: book.id
+      expect(subject).to render_template :new
+    end
+  end
+
   describe "GET 'show'" do
     let(:book) do
       Book.create(name: "Some book")
