@@ -1,24 +1,51 @@
-<h1>Top Movies</h1>
-<% @top_movies.each do |movie| %>
-  <li>
-    <h2><%= link_to "#{movie.name}", movie_path(movie) %></h2>Ranked: <%= movie.votes %>
-  </li>
-<% end %>
-<%= link_to 'view more movies', movies_path %>
+<div class='row'>
+  <div class='col-lg-12'>
+    <div class='col-md-4'</div>
+      <table class='table'>
+        <tr>
+          <thead><h1>Top Movies</h1></thead>
+        </tr>
+        <tr>
+          <td>
+            <% @top_movies.each do |movie| %>
+                <h2><%= link_to "#{movie.name}", movie_path(movie) %></h2>Ranked: <%= movie.votes %>
+            <% end %>
+          </td>
+        </tr>
+      </table>
+      <%= link_to 'view more movies', movies_path %>
+    </div>
 
-<h1>Top Books</h1>
-<% @top_books.each do |book| %>
-  <li>
-    <h2><%= link_to "#{book.name}", book_path(book) %></h2> Ranked: <%= book.votes %>
-  </li>
-<% end %>
-<%= link_to 'view more books', books_path %>
+    <div class='col-md-4'</div>
+      <table class='table'>
+        <tr>
+          <thead><h1>Top Books</h1></thead>
+        </tr>
+        <tr>
+          <td>
+            <% @top_books.each do |book| %>
+                <h2><%= link_to "#{book.name}", book_path(book) %></h2> <small>Ranked: <%= book.votes %></small>
+            <% end %>
+          </td>
+        </tr>
+      </table>
+      <%= link_to 'view more books', books_path %>
+    </div>
 
-
-<h1>Top Albums</h1>
-<% @top_albums.each do |album| %>
-  <li>
-    <h2><%= link_to "#{album.name}", album_path(album) %></h2>Ranked: <%= album.votes %>
-  </li>
-<% end %>
-<%= link_to 'view more albums', albums_path %>
+    <div class='col-md-4'</div>
+      <table class='table'>
+        <tr>
+          <thead><h1>Top Albums</h1></thead>
+        </tr>
+        <tr>
+          <td>
+            <% @top_albums.each do |album| %>
+                <h2><%= link_to "#{album.name}", album_path(album) %></h2>Ranked: <%= album.votes %>
+            <% end %>
+          </td>
+        </tr>
+      </table>
+      <%= link_to 'view more albums', albums_path %>
+    </div>
+  </div>
+</div>

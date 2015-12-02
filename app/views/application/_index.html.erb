@@ -1,5 +1,5 @@
 
-<table>
+<table class='table'>
   <tr>
     <th>Ranking</th>
     <th>Name</th>
@@ -10,7 +10,7 @@
       <td>Ranked: <%= media.votes %></td>
       <td><%= link_to "#{media.name}", polymorphic_path(media) %></td> 
       <td>
-        <%= button_to 'Upvote', polymorphic_path([:upvote, media]), :method => :patch %>
+        <%= button_to 'Upvote', polymorphic_path([:upvote, media]), :method => :patch, class: 'btn btn-info' %>
       </td>
     </tr>
   <% end %>
