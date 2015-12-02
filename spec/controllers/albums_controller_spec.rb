@@ -47,5 +47,9 @@ RSpec.describe AlbumsController, type: :controller do
       new_album = Album.last
       expect(subject).to redirect_to album_path(new_album.id)
     end
+
+    it "renders new template on error" do
+      
+    end
   end
 end
