@@ -1,8 +1,10 @@
 <%= render partial: "application/edit",
   locals: {
-    singular_name: "movie",
     media: @movie,
-    maker: "director"
-
+    title: "Movie",
+    singular_name: "movie",
+    plur_name: "movies",
+    maker: @movie.director,
+    created_by: "Directed by:",
   }
 %>

@@ -1,3 +1,4 @@
+<h2><%= title %></h2>
 <div>
   <table class="table table-hover">
     <tr >
@@ -13,5 +14,6 @@
     </tr>
     <% end %>
   </table>
-  <%= link_to "Add a #{singular_name.class}", new_polymorphic_path(singular_name) %>
+  <%= link_to "View All Media", root_path %>
+  <%= link_to "Add a #{singular_name.capitalize}", new_polymorphic_path(singular_name) %>
 </div>

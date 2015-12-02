@@ -1,6 +1,9 @@
 <%= render partial: "application/index",
   locals: {
+    media: @movies,
+    title: "Movie",
     singular_name: "movie",
-    media: @movies
+    plur_name: "movies",
+    created_by: "Directed by:",
   }
 %>
