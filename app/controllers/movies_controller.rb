@@ -21,7 +21,6 @@ class MoviesController < ApplicationController
     else
       render :new
     end
-
   end
 
   def show
