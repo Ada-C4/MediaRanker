@@ -1,13 +1,21 @@
+<div class="col-lg-12">
+
 <h1><%= @media.name %> <small><%= header %>: <%= name %></small></h1>
 
 <h4>Ranked: <%= @media.ranking %></h4>
 
-<%= link_to "Upvote", polymorphic_path(@media, :action => :upvote), :method => :patch %>
+<p><%= @media.description %></p>
 
-<%= link_to "Edit #{@media.name}", edit_polymorphic_path(@media) %>
+<form>
+  <%= link_to "Upvote", polymorphic_path(@media, :action => :upvote),
+    :method => :patch, class: "btn btn-primary" %>
+</form>
 
-<%= link_to "DELETE", polymorphic_path(@media), method: :delete, data: { confirm: "Are you sure?" } %>
+<%= link_to "Edit #{@media.name}", edit_polymorphic_path(@media), class: "btn btn-default" %>
 
-<%= link_to "View All #{@media.class}s", polymorphic_path(@media.class) %>
+<%= link_to "DELETE", polymorphic_path(@media), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
 
-<%= link_to "View All Media", root_path %>
+<%= link_to "View All #{@media.class}s", polymorphic_path(@media.class), class: "btn btn-default" %>
+
+<%= link_to "View All Media", root_path, class: "btn btn-default" %>
+</div
