@@ -4,28 +4,28 @@ class BooksController < ApplicationController
   end
 
   def show
-    @books = Book.find(params[:id])
+    @book = Book.find(params[:id])
   end
 
   def new
-    @books = Book.new
+    @book = Book.new
   end
 
   def create
-    @books = Book.create(book_params[:book])
-    if @books.save
-      redirect_to book_path(@books.id)
+    @book = Book.create(book_params[:book])
+    if @book.save
+      redirect_to book_path(@book.id)
     else
       render "new"
     end
   end
 
   def edit
-    @books = Book.find(params[:id])
+    @book = Book.find(params[:id])
   end
 
   def update
-    @books = Book.find(params[:id])
+    @book = Book.find(params[:id])
     book.update(params[:id], book_params[:book])
     redirect_to book_path(params[:id])
   end
@@ -36,10 +36,10 @@ class BooksController < ApplicationController
   end
 
   def upvote
-    @books = Book.find(params[:id])
-    @books.rank += 1
-    @books.save
-    redirect_to book_path(@books.id)
+    @book = Book.find(params[:id])
+    @book.rank += 1
+    @book.save
+    redirect_to book_path(@book.id)
   end
 
   private

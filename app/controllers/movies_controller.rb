@@ -4,29 +4,29 @@ class MoviesController < ApplicationController
   end
 
   def show
-    @movies = Movie.find(params[:id])
+    @movie = Movie.find(params[:id])
     @creater = "Directed by:"
   end
 
   def new
-    @movies = Movie.new
+    @movie = Movie.new
   end
 
   def create
-    @movies = Movie.create(movie_params[:movie])
-    if @movies.save
-      redirect_to movie_path(@movies.id)
+    @movie = Movie.create(movie_params[:movie])
+    if @movie.save
+      redirect_to movie_path(@movie.id)
     else
       render "new"
     end
   end
 
   def edit
-    @movies = Movie.find(params[:id])
+    @movie = Movie.find(params[:id])
   end
 
   def update
-    @movies = Movie.find(params[:id])
+    @movie = Movie.find(params[:id])
     Movie.update(params[:id], movie_params[:movie])
     redirect_to movie_path(params[:id])
   end
@@ -37,10 +37,10 @@ class MoviesController < ApplicationController
   end
 
   def upvote
-    @movies = Movie.find(params[:id])
-    @movies.rank += 1
-    @movies.save
-    redirect_to movie_path(@movies.id)
+    @movie = Movie.find(params[:id])
+    @movie.rank += 1
+    @movie.save
+    redirect_to movie_path(@movie.id)
   end
 
   private

@@ -4,28 +4,28 @@ class AlbumsController < ApplicationController
   end
 
   def show
-    @albums = Album.find(params[:id])
+    @album = Album.find(params[:id])
   end
 
   def new
-    @albums = Album.new
+    @album = Album.new
   end
 
   def create
-    @albums = Album.create(album_params[:album])
-    if @albums.save
-      redirect_to album_path(@albums.id)
+    @album = Album.create(album_params[:album])
+    if @album.save
+      redirect_to album_path(@album.id)
     else
       render "new"
     end
   end
 
   def edit
-    @albums = Album.find(params[:id])
+    @album = Album.find(params[:id])
   end
 
   def update
-    @albums = Album.find(params[:id])
+    @album = Album.find(params[:id])
     album.update(params[:id], album_params[:album])
     redirect_to album_path(params[:id])
   end
@@ -36,10 +36,10 @@ class AlbumsController < ApplicationController
   end
 
   def upvote
-    @albums = Album.find(params[:id])
-    @albums.rank += 1
-    @albums.save
-    redirect_to album_path(@albums.id)
+    @album = Album.find(params[:id])
+    @album.rank += 1
+    @album.save
+    redirect_to album_path(@album.id)
   end
 
   private
