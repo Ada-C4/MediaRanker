@@ -6,9 +6,9 @@
     <form>
       <%= button_to "Upvote", polymorphic_path([:upvote, item]), class: "btn btn-primary" %>
     </form>
-    <%= link_to "Edit #{item.name}", edit_polymorphic_path(item, id: params[:id]), class: "btn btn-default" %>
-    <%= link_to "DELETE", polymorphic_path(item, id: params[:id]), method: :delete, class: "btn btn-danger" %>
-    <%= link_to "View All #{name.capitalize}", polymorphic_path(name), class: "btn btn-default" %>
-    <%= link_to "View All Media", "/", class: "btn btn-default" %>
+      <%= link_to "Edit #{item.name}", edit_polymorphic_path(item, id: params[:id]), class: "btn btn-default" %>
+      <%= link_to "DELETE", polymorphic_path(item, id: params[:id]), method: :delete, class: "btn btn-danger" %>
+      <%= link_to "View All #{name.capitalize}", polymorphic_path(name), class: "btn btn-default" %>
+      <%= link_to "View All Media", "/", class: "btn btn-default" %>
   </div>
 </div>

@@ -8,15 +8,9 @@
       </tr>
       <% items.each do |item| %>
       <tr>
-        <td>
-          Ranked: <%= item.ranking %>
-        </td>
-        <td>
-          <%= link_to item.name, polymorphic_path(item) %>
-        </td>
-        <td>
-          <%= button_to "Upvote", polymorphic_path([:upvote, item]), class: "btn btn-default" %>
-        </td>
+        <td>Ranked: <%= item.ranking %></td>
+        <td><%= link_to item.name, polymorphic_path(item) %></td>
+        <td><%= button_to "Upvote", polymorphic_path([:upvote, item]), class: "btn btn-default" %></td>
       </tr>
       <% end %>
     </table>
