@@ -31,10 +31,12 @@ class MoviesController < ApplicationController
   end
 
   def upvote
-    if params[:class] == "vote"
-      get_movie
-      @movie.update(:rank => @movie[:rank] + 1)
-    end
+    @movie = Movie.find(params[:id])
+    @movie.increment!(:rank)
+    # if params[:class] == "vote"
+    #   get_movie
+    #   @movie.update(:rank => @movie[:rank] + 1)
+    # end
     redirect_to :back
   end
 
