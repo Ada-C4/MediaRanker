@@ -10,10 +10,10 @@
     <tr >
       <td>Ranked: <%= m.rank %></td>
       <td><%= link_to "#{m.name}", polymorphic_path(m) %></td>
-      <td><%= link_to "Upvote", polymorphic_path([:upvote, m]), method: :patch %></td>
+      <td><%= link_to "Upvote", polymorphic_path([:upvote, m]), method: :patch, class: "btn btn-default" %></td>
     </tr>
     <% end %>
   </table>
-  <%= link_to "View All Media", root_path %>
-  <%= link_to "Add a #{singular_name.capitalize}", new_polymorphic_path(singular_name) %>
+  <%= link_to "View All Media", root_path, class: "btn btn-default" %>
+  <%= link_to "Add a #{singular_name.capitalize}", new_polymorphic_path(singular_name), class: "btn btn-default" %>
 </div>

@@ -1,15 +1,24 @@
 <div>
-  <h1>Edit <%= media.class %></h1>
+  <h2>Edit <%= media.class %></h2>
+  <ul>
+  <% media.errors.each do |column, message| %>
+    <li><%=column.capitalize %> <%= message %></li>
+  <% end %>
+</ul>
+
   <%= form_for media do |f| %>
+    <div class="form-group">
       <%=f.label :name %>
-      <%=f.text_field :name %>
-      <br><br>
+      <%=f.text_field :name, class: "form-control" %>
+    </div>
+    <div class="form-group">
       <%= f.label maker %>
-      <%= f.text_field maker %>
-      <br><br>
-      <%= f.label :description %> <br>
-      <%= f.text_area :description, cols: 50, rows: 3 %>
-      <br><br>
-    <%= f.submit("Save") %>
+      <%= f.text_field maker, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :description %>
+      <%= f.text_area :description, class: "form-control"  %>
+    </div>
+    <%= f.submit "Save", :class => "btn btn-default" %>
   <% end %>
 </div>
