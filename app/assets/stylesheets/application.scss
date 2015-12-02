@@ -2,6 +2,10 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+form .btn-primary {
+  margin-bottom: 10px;
+}
+
 .page-header {
   background: url("bookowl.jpg");
   background-repeat: no-repeat;
