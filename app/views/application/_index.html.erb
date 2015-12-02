@@ -10,11 +10,9 @@
       <td>Ranked: <%= media.votes %></td>
       <td><%= link_to "#{media.name}", route %></td> 
       <td>
-        <%= render 'upvote' %>
+        <%= button_to 'Upvote', polymorphic_path([:upvote, media]), :method => :patch %>
       </td>
     </tr>
   <% end %>
 </table>
-
-
 

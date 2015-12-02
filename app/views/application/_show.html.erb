@@ -4,7 +4,7 @@
 <h3>Ranked: <%= @media.votes %></h3>
 <p><%= @media.description %></p>
 
-<%= render partial: 'upvote', locals:{media: media} %>
+<%= button_to 'Upvote', polymorphic_path([:upvote, media]), method: :patch %>
 <br>
 
 <%= link_to "View All #{medias}".titleize, polymorphic_path(medias) %>

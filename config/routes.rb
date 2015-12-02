@@ -6,8 +6,8 @@ Rails.application.routes.draw do
 	resources :albums
 	resources :books
 
-	post 'movies/:id' => 'movies#upvote', as: :movie_upvote
-	post 'album/:id' => 'album#upvote', as: :album_upvote
-	post 'books/:id' => 'books#upvote', as: :book_upvote
+	patch 'movies/:id/upvote' => 'movies#upvote', as: :upvote_movie
+	patch 'album/:id/upvote' => 'album#upvote', as: :upvote_album
+	patch 'books/:id/upvote' => 'books#upvote', as: :upvote_book
 
 end
