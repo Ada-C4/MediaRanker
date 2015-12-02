@@ -233,6 +233,20 @@
         null,
         null
       ],
+      "/Users/jennanichols/Ada/ProjectForks/MediaRanker/app/controllers/welcome_controller.rb": [
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null
+      ],
       "/Users/jennanichols/Ada/ProjectForks/MediaRanker/app/models/album.rb": [
         1,
         1,
@@ -265,22 +279,8 @@
         null,
         1,
         null
-      ],
-      "/Users/jennanichols/Ada/ProjectForks/MediaRanker/app/controllers/welcome_controller.rb": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
       ]
     },
-    "timestamp": 1449017167
+    "timestamp": 1449017282
   }
 }
