@@ -7,5 +7,6 @@
 <%= button_to 'Upvote', polymorphic_path([:upvote, media]), method: :patch %>
 <br>
 
+<%= link_to "Edit #{media}".titleize, edit_polymorphic_path(media) %>
 <%= link_to "View All #{medias}".titleize, polymorphic_path(medias) %>
 <%= link_to 'View All Media', home_path %>
