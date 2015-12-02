@@ -41,4 +41,31 @@ RSpec.describe AlbumsController, type: :controller do
     end
   end
 
+  describe "POST 'create'" do
+    let(:params) do
+      {
+        album:{
+          name: "Something something something"
+        }
+      }
+    end
+
+    let(:bad_params) do
+      {
+        album:{
+          name: nil
+        }
+      }
+    end
+
+    it "redirects to albums index page" do
+      post :create, params
+      # Success case to index page
+      expect(subject).to redirect_to albums_path
+      # Error case to
+      post :create, bad_params
+      expect(subject).to render_template :new
+    end
+  end
+
 end
