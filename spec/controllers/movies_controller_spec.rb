@@ -56,7 +56,7 @@ RSpec.describe MoviesController, type: :controller do
       expect(subject).to redirect_to movies_path
     end
 
-    it "renders new template on error" do
+    it "renders movies index on error" do
       post :create, bad_movie
       expect(subject).to redirect_to movies_path
     end
@@ -73,5 +73,36 @@ RSpec.describe MoviesController, type: :controller do
     end
   end
 
-  
+  describe "PATCH 'update'" do
+    let(:movie) do
+    Movie.create(name: "Test", director: "Me", description: "boring film", rank: 7)
+    {
+      id: 1,
+      movie: {
+        name: "Test",
+        director: "Me",
+        description: "boring film",
+        rank: 7
+      }
+    }
+    end
+
+    let(:bad_movie) do
+    Movie.create(name: nil, director: "Me", description: "boring film", rank: 7)
+    {
+      id: 1,
+      movie: {
+        name: nil,
+        director: "Me",
+        description: "boring film",
+        rank: 7
+      }
+    }
+    end
+
+    it "renders movies index on error" do
+      patch :update, movie
+      expect(subject).to redirect_to movies_path
+    end
+  end
 end
