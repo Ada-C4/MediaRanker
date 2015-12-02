@@ -1,10 +1,4 @@
 class MoviesController < ApplicationController
-  def home
-    @books = Book.order(ranking: :desc).limit(10)
-    @albums = Album.order(ranking: :desc).limit(10)
-    @movies = Movie.order(ranking: :desc).limit(10)
-  end
-
   def index
     @movies = Movie.order(ranking: :desc)
   end

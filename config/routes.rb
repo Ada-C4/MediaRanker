@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'movies#home'
+  root 'homepage#home'
 
   post 'movies/:id/upvote' => 'movies#upvote', as: :upvote_movie
   post 'books/:id/upvote' => 'books#upvote', as: :upvote_book
