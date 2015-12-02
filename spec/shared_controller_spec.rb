@@ -1,7 +1,6 @@
 require 'rails_helper'
 
-RSpec.shared_examples "media_controller" do |param1, param2, param3, param4|
-  let(:item) { param1 }
+RSpec.shared_examples "media_controller" do |subject_class|
 
   describe "#upvote" do
     before :each do
@@ -64,17 +63,31 @@ RSpec.shared_examples "media_controller" do |param1, param2, param3, param4|
   end
 
   describe "POST 'create'" do
-    let(:params) { param2 }
-
-    let(:bad_params) { param3 }
-
-    it "redirects to index page" do
+    it "redirects to show page" do
       post :create, params
-      expect(subject).to redirect_to param4
+      expect(subject).to redirect_to polymorphic_path(subject_class.last)
     end
     it "renders new template on error" do
       post :create, bad_params
       expect(subject).to render_template :form
+    end
+  end
+
+  describe "PATCH 'update'" do
+    it "redirects to show page" do
+      patch :update, params.merge({id: item.id})
+      expect(subject).to redirect_to polymorphic_path(item)
+    end
+    it "renders new template on error" do
+      patch :update, bad_params.merge({id: item.id})
+      expect(subject).to render_template :form
+    end
+  end
+
+  describe "DELETE 'destroy'" do
+    it "redirects to index page" do
+      delete :destroy, params.merge({id: item.id})
+      expect(subject).to redirect_to polymorphic_path(subject_class)
     end
   end
 end

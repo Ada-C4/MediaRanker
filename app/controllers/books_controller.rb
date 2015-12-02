@@ -32,7 +32,7 @@ class BooksController < ApplicationController
     @item = Book.new(book_params)
 
     if @item.save
-      redirect_to books_path
+      redirect_to book_path(@item)
     else
       render "form"
     end
@@ -50,7 +50,7 @@ class BooksController < ApplicationController
     @item.attributes = book_params
 
     if @item.save
-      redirect_to books_path
+      redirect_to book_path(@item)
     else
       render "form"
     end

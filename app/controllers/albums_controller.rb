@@ -32,7 +32,7 @@ class AlbumsController < ApplicationController
     @item = Album.new(album_params)
 
     if @item.save
-      redirect_to albums_path
+      redirect_to album_path(@item)
     else
       render "form"
     end
@@ -50,7 +50,7 @@ class AlbumsController < ApplicationController
     @item.attributes = album_params
 
     if @item.save
-      redirect_to albums_path
+      redirect_to album_path(@item)
     else
       render "form"
     end

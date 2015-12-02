@@ -32,7 +32,7 @@ class MoviesController < ApplicationController
     @item = Movie.new(movie_params)
 
     if @item.save
-      redirect_to movies_path
+      redirect_to movie_path(@item)
     else
       render "form"
     end
@@ -50,7 +50,7 @@ class MoviesController < ApplicationController
     @item.attributes = movie_params
 
     if @item.save
-      redirect_to movies_path
+      redirect_to movie_path(@item)
     else
       render "form"
     end
