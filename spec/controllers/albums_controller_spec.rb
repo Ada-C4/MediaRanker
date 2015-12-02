@@ -5,7 +5,8 @@ RSpec.describe AlbumsController, type: :controller do
 	let(:create_params) do {
 		album: {
 			name: "Some Album",
-			description: "It's got music!"
+			description: "It's got music!",
+			votes: 1
 		}
 	}
 end
@@ -74,6 +75,17 @@ end
 		it "should reload the page if not validated" do
 			patch :update, { id: album_id, album: {name: nil}}
 			expect(subject).to redirect_to edit_album_path(album_id)
+		end
+	end
+
+	describe "PATCH 'upvote'" do
+		before(:each) do
+		  request.env["HTTP_REFERER"] = 'back'
+		end
+
+		it "should redirect to same page" do
+			patch :upvote, id: album.id
+			expect(subject).to redirect_to 'back'
 		end
 	end
 

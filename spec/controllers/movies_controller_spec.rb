@@ -5,7 +5,8 @@ RSpec.describe MoviesController, type: :controller do
 	let(:create_params) do {
 		movie: {
 			name: "Some movie",
-			description: "It's got music!"
+			description: "It's got music!",
+			votes: 1
 		}
 	}
 end
@@ -88,6 +89,17 @@ end
 		it "should reload the page if not validated" do
 			patch :update, { id: movie_id, movie: {name: nil}}
 			expect(subject).to redirect_to edit_movie_path(movie_id)
+		end
+	end
+
+	describe "PATCH 'upvote'" do
+		before(:each) do
+		  request.env["HTTP_REFERER"] = 'back'
+		end
+
+		it "should redirect to same page" do
+			patch :upvote, id: movie.id
+			expect(subject).to redirect_to 'back'
 		end
 	end
 
