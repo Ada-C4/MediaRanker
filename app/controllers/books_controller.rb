@@ -34,13 +34,13 @@ class BooksController < ApplicationController
     author: book_params[:book][:author],
     description: book_params[:book][:description]
     )
-    redirect_to "/books/#{id}"
+    redirect_to book_path(@book)
   end
 
   def destroy
     id = params[:id]
     Book.destroy(id)
-    redirect_to "/books/"
+    redirect_to books_path
   end
 
   def upvote
@@ -55,7 +55,7 @@ class BooksController < ApplicationController
     @book.update(
     upvotes: new_score
     )
-    redirect_to "/books/#{id}"
+    redirect_to book_path(@book)
   end
 
   private
