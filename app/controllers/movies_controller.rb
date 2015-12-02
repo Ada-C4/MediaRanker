@@ -47,7 +47,6 @@ class MoviesController < ApplicationController
   def edit
     id = params[:id]
     @movie = Movie.find(id)
-    session[:return_to] = request.referer
   end
 
   def update
@@ -58,13 +57,7 @@ class MoviesController < ApplicationController
     director: movie_params[:movie][:director],
     description: movie_params[:movie][:description],
     )
-    movie.save
-    if session[:return_to].nil?
-      redirect_to "/"
-    else
-      redirect_to session[:return_to]
-    end
-    session[:return_to] = nil
+    redirect_to movie_path(movie.id)
   end
 
 

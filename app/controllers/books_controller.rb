@@ -34,14 +34,13 @@ class BooksController < ApplicationController
 
   def destroy
     id = params[:id]
-    Booke.delete(id)
+    Book.delete(id)
     redirect_to books_path
   end
 
   def edit
     id = params[:id]
     @book = Book.find(id)
-    session[:return_to] = request.referer
   end
 
   def update
@@ -52,13 +51,7 @@ class BooksController < ApplicationController
     author: book_params[:book][:author],
     description: book_params[:book][:description],
     )
-    book.save
-    if session[:return_to].nil?
-      redirect_to "/"
-    else
-      redirect_to session[:return_to]
-    end
-    session[:return_to] = nil
+    redirect_to book_path(book.id)
   end
 
 
