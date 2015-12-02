@@ -99,6 +99,20 @@ RSpec.describe BooksController, type: :controller do
       }
     end
 
+    let(:upvote_i_params) do
+      Book.create(name: "some name", author: "me", description: "some description", rank: 0)
+      {
+        id: 1,
+        class: "upvote_i",
+        album: {
+          name: "some name",
+          artist: "me",
+          description: "some description",
+          rank: 0
+        }
+      }
+    end
+
     it "redirect to index page" do
       patch :update,  good_params
       expect(subject).to redirect_to book_path
@@ -107,6 +121,11 @@ RSpec.describe BooksController, type: :controller do
     it "Upvote in show- render to show" do
       patch :update, upvote_params
       expect(subject).to render_template :show
+    end
+
+    it "Upvote in index - redirect to index" do
+      patch :update, upvote_i_params
+      expect(subject).to redirect_to books_path
     end
     #
     # it "render edit template on error" do
