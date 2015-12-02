@@ -7,11 +7,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <img src="http://vignette3.wikia.nocookie.net/everymanhybrid/images/9/98/Skull_illustration_by_yungtyrant.jpg/revision/latest?cb=20130409004754">
-  <%= link_to "Media Ranker", "/" %>
-  <h2>Ranking the Best of Everything</h2>
-  <hr>
-<%= yield %>
-
+  <div class="container">
+    <div class="row">
+      <div class="page-header">
+        <!-- <img src="http://vignette3.wikia.nocookie.net/everymanhybrid/images/9/98/Skull_illustration_by_yungtyrant.jpg/revision/latest?cb=20130409004754"> -->
+        <h1><%= link_to "Media Ranker", "/" %> <small>Ranking the Best of Everything</small></h1>
+      </div>
+    </div>
+  <%= yield %>
+  </div>
 </body>
 </html>

@@ -14,3 +14,11 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+.page-header {
+  background: url(http://vignette3.wikia.nocookie.net/everymanhybrid/images/9/98/Skull_illustration_by_yungtyrant.jpg/revision/latest?cb=20130409004754);
+  background-repeat: no-repeat;
+}
+.page-header h1 {
+    margin-left: 150px;
+}
