@@ -111,7 +111,7 @@ RSpec.describe BooksController, type: :controller do
     end
   end
 
-  describe "POST 'upvote'" do
+  describe "PATCH 'upvote'" do
     let(:params) do
       {
         id: 1,
@@ -124,7 +124,7 @@ RSpec.describe BooksController, type: :controller do
 
     it "renders show view" do
       Book.create(params[:book])
-      post :upvote, params
+      patch :upvote, params
       expect(response.status).to eq 200
     end
   end

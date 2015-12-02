@@ -13,6 +13,7 @@ class BooksController < ApplicationController
 
   def create
     @media = Book.new(strong_params)
+    @media.ranking = 0
     if @media.save
       redirect_to book_path(@media.id)
     else

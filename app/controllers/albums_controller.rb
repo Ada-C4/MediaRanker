@@ -13,6 +13,7 @@ class AlbumsController < ApplicationController
 
   def create
     @media = Album.new(strong_params)
+    @media.ranking = 0
     if @media.save
       redirect_to album_path(@media.id)
     else

@@ -111,7 +111,7 @@ RSpec.describe AlbumsController, type: :controller do
     end
   end
 
-  describe "POST 'upvote'" do
+  describe "PATCH 'upvote'" do
     let(:params) do
       {
         id: 1,
@@ -124,7 +124,7 @@ RSpec.describe AlbumsController, type: :controller do
 
     it "renders show view" do
       Album.create(params[:album])
-      post :upvote, params
+      patch :upvote, params
       expect(response.status).to eq 200
     end
   end

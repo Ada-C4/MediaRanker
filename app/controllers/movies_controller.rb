@@ -13,6 +13,7 @@ class MoviesController < ApplicationController
 
   def create
     @media = Movie.new(strong_params)
+    @media.ranking = 0
     if @media.save
       redirect_to movie_path(@media.id)
     else

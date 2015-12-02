@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
   root 'application#index'
 
+  patch 'movies/:id/upvote' => 'movies#upvote', as: :upvote_movie
+  patch 'books/:id/upvote' => 'books#upvote', as: :upvote_book
+  patch 'albums/:id/upvote' => 'albums#upvote', as: :upvote_album
+
   resources :albums
   resources :books
   resources :movies
-
-  post 'movies/:id' => 'movies#upvote', as: :upvote_movie
-  post 'books/:id' => 'books#upvote', as: :upvote_book
-  post 'albums/:id' => 'albums#upvote', as: :upvote_album
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
