@@ -86,4 +86,41 @@ RSpec.describe AlbumsController, type: :controller do
       expect(subject).to render_template :new
     end
   end
+
+  describe "POST 'update'" do
+    let(:update_album) do
+      Album.create!(title:"a", artist: "b", description: "c", ranking: 0 )
+    end
+
+    let(:good_update_params) do
+    {
+      id: update_album.id,
+      album: {
+        title: "a title",
+        ranking: 0
+      }
+    }
+    end
+
+    let (:bad_update_params) do
+      {
+        id: update_album.id,
+        album: {
+          title: nil,
+          description: "a description",
+          ranking: 0
+        }
+      }
+    end
+
+    it "redirects to show page for edited album" do
+      post :update, good_update_params
+      expect(subject).to redirect_to album_path(update_album.id)
+    end
+
+    it "renders edit form on error" do
+      post :update, bad_update_params
+      expect(subject).to render_template "edit"
+    end
+  end
 end
