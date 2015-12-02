@@ -130,10 +130,24 @@ RSpec.describe AlbumsController, type: :controller do
       expect(subject).to redirect_to albums_path
     end
 
-    # it "render edit template on error" do
-    #   patch :update, bad_params
-    #   expect(subject).to render_template :edit
-    # end
+    it "render edit template on error" do
+      patch :update, bad_params
+      expect(subject).to redirect_to album_path
+    end
 
   end
+
+  describe "DELETE 'destroy'" do
+    let(:album) do
+      Album.create(name: "some name", artist: "me", description: "some description")
+    end
+
+    it "redirect to index after deleting" do
+      delete :destroy, id: album.id
+      expect(subject).to redirect_to albums_path
+    end
+
+  end
+
+
 end

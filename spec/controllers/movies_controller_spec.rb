@@ -134,4 +134,16 @@ RSpec.describe MoviesController, type: :controller do
 
   end
 
+  describe "DELETE 'destroy'" do
+    let(:movie) do
+      Movie.create(name: "some name", director: "me", description: "some description")
+    end
+
+    it "redirect to index after deleting" do
+      delete :destroy, id: movie.id
+      expect(subject).to redirect_to movies_path
+    end
+
+  end
+
 end

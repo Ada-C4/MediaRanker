@@ -90,9 +90,9 @@ RSpec.describe BooksController, type: :controller do
       {
         id: 1,
         class: "upvote",
-        album: {
+        book: {
           name: "some name",
-          artist: "me",
+          author: "me",
           description: "some description",
           rank: 0
         }
@@ -104,9 +104,9 @@ RSpec.describe BooksController, type: :controller do
       {
         id: 1,
         class: "upvote_i",
-        album: {
+        book: {
           name: "some name",
-          artist: "me",
+          author: "me",
           description: "some description",
           rank: 0
         }
@@ -132,6 +132,18 @@ RSpec.describe BooksController, type: :controller do
     #   patch :update, bad_params
     #   expect(subject).to render_template :edit
     # end
+
+  end
+
+  describe "DELETE 'destroy'" do
+    let(:book) do
+      Book.create(name: "some name", author: "me", description: "some description")
+    end
+
+    it "redirect to index after deleting" do
+      delete :destroy, id: book.id
+      expect(subject).to redirect_to books_path
+    end
 
   end
 end
