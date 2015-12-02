@@ -126,6 +126,7 @@ RSpec.describe AlbumsController, type: :controller do
       Album.create(params[:album])
       patch :upvote, params
       expect(response.status).to eq 200
+      expect(subject).to render_template :show
     end
   end
 

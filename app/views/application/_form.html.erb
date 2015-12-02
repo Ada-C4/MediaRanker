@@ -1,3 +1,9 @@
+<ul>
+  <% @media.errors.each do |column, message| %>
+    <li><strong><%= column.capitalize %></strong>: <%= message %></li>
+  <% end %>
+</ul>
+
 <%= form_for @media do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>

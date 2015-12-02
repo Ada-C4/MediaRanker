@@ -126,6 +126,7 @@ RSpec.describe MoviesController, type: :controller do
       Movie.create(params[:movie])
       patch :upvote, params
       expect(response.status).to eq 200
+      expect(subject).to render_template :show
     end
   end
 end

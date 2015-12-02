@@ -126,6 +126,7 @@ RSpec.describe BooksController, type: :controller do
       Book.create(params[:book])
       patch :upvote, params
       expect(response.status).to eq 200
+      expect(subject).to render_template :show
     end
   end
 
