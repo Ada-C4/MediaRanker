@@ -13,3 +13,20 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+.page_header {
+  background: url(http://media-ranker.herokuapp.com/assets/owl-5e51d9e0d49c787f2ebd143e32cbf41c.jpg);
+  background-repeat: no-repeat;
+  padding-bottom: 9px;
+  margin: 40px 0px 20px;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.page_header h1 {
+  margin-left: 150px;
+}
+
+a {
+    color: #428bca;
+    text-decoration: none;
+}
