@@ -26,7 +26,7 @@ class BooksController < ApplicationController
 
   def update
     @book = Book.find(params[:id])
-    book.update(params[:id], book_params[:book])
+    @book.attributes = book_params
     redirect_to book_path(params[:id])
   end
 

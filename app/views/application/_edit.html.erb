@@ -1,0 +1,15 @@
+<div>
+  <h1>Edit <%= media.class %></h1>
+  <%= form_for media do |f| %>
+      <%=f.label :name %>
+      <%=f.text_field :name %>
+      <br><br>
+      <%= f.label maker %>
+      <%= f.text_field maker %>
+      <br><br>
+      <%= f.label :description %> <br>
+      <%= f.text_area :description, cols: 50, rows: 3 %>
+      <br><br>
+    <%= f.submit("Save") %>
+  <% end %>
+</div>

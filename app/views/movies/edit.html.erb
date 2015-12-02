@@ -1,15 +1,8 @@
-<div>
-  <h1>Edit Movie</h1>
-  <%= form_for @movie do |f| %>
-      <%=f.label :name %>
-      <%=f.text_field :name %>
-      <br><br>
-      <%= f.label :director %>
-      <%= f.text_field :director %>
-      <br><br>
-      <%= f.label :description %> <br>
-      <%= f.text_area :description, cols: 50, rows: 3 %>
-      <br><br>
-    <%= f.submit("Save") %>
-  <% end %>
-</div>
+<%= render partial: "application/edit",
+  locals: {
+    singular_name: "movie",
+    media: @movie,
+    maker: "director"
+
+  }
+%>
