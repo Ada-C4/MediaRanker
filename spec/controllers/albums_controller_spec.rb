@@ -123,4 +123,14 @@ RSpec.describe AlbumsController, type: :controller do
       expect(subject).to render_template "edit"
     end
   end
+
+  describe "DELETE 'destroy'" do
+    let(:delete_album) do
+      Album.create!(title:"a", artist: "b", description: "c", ranking: 0 )
+    end
+    it "redirects to albums index" do
+      delete :destroy, {id: delete_album.id }
+      expect(subject).to redirect_to albums_path
+    end
+  end
 end
