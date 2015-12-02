@@ -1,36 +1,26 @@
-<fieldset>
-  <%= form_for movie, url:{action: action} do |f| %>
-    <legend>
-      <h2><%= title %></h2>
-    </legend>
-    <%= f.label :name %><br>
-    <%= f.text_field :name %><br>
-    <%= f.label :director %><br>
-    <%= f.text_field :director %><br>
-    <%= f.label :description %><br>
-    <%= f.text_area :description %><br>
-    <%= f.hidden_field :rank, :value => rank_value %>
-    <%= f.submit "Save" %>
-  <% end %>
+<div class="row">
+  <div class="col-lg-12">
+    <fieldset>
+      <%= form_for movie, url:{action: action}, :html => {:class => "form" } do |f| %>
+        <legend>
+          <h2><%= title %></h2>
+        </legend>
+        <div class="form-group">
+          <%= f.label :name %>
+          <%= f.text_field :name, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :director %>
+          <%= f.text_field :director, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :description %><br>
+          <%= f.text_area :description, class: "form-control" %><br>
+        </div>
+        <%= f.hidden_field :rank, :value => rank_value %>
+        <%= f.submit "Save", class: "btn btn-default" %>
+      <% end %>
 
-</fieldset>
-
-
-
-
-<!-- <fieldset>
-  <%= form_for movie, url:{action: action} do |f| %>
-    <legend>
-      <h2><%= title %></h2>
-    </legend>
-    <%= f.label :name %><br>
-    <%= f.text_field :name %><br>
-    <%= f.label :director %><br>
-    <%= f.text_field :director %><br>
-    <%= f.label :description %><br>
-    <%= f.text_area :description %><br>
-    <%= f.hidden_field :rank, :value => rank_value %>
-    <%= f.submit "Save" %>
-  <% end %>
-
-</fieldset> -->
+    </fieldset>
+  </div>
+</div>
