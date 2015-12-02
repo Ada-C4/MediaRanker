@@ -61,7 +61,8 @@ class MoviesController < ApplicationController
   end
 
   def destroy
-    Medium.destroy(Medium.find(params[:id]))
+    item = Medium.find(params[:id])
+    Medium.destroy(item.id)
 
     redirect_to movie_medium_index_path
   end
