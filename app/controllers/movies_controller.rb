@@ -22,7 +22,11 @@ class MoviesController < ApplicationController
                  description: movie_params[:movie][:description],
                  director: movie_params[:movie][:director],
                  ranking: 0)
-    redirect_to movie_path(@movie.id)
+    if @movie.save
+      redirect_to movie_path(@movie.id)
+    else
+      render "new"
+    end
   end
 
   def edit

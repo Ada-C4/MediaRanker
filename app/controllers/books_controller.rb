@@ -22,7 +22,11 @@ class BooksController < ApplicationController
                  description: book_params[:book][:description],
                  author: book_params[:book][:author],
                  ranking: 0)
-    redirect_to book_path(@book.id)
+    if @book.save
+      redirect_to book_path(@book.id)
+    else
+      render "new"
+    end
   end
 
   def edit
