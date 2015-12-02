@@ -1,26 +1,29 @@
-<div id="movies">
-  <h2>Top Movies</h2>
-  <% @movies.each do |movie| %>
-    <li> <%= link_to movie.name, movie_path(movie.id)%> Ranked: <%= movie.rank %> </li>
-  <% end %>
-  <br>
-  <%= link_to "View more albums", movies_path %>
-</div>
 
-<div id="books">
-  <h2>Top Books</h2>
-  <% @books.each do |book| %>
-    <li><%= link_to book.name, book_path(book.id) %> Ranked: <%= book.rank %></li>
-  <% end %>
-  <br>
-  <%= link_to "View more books", books_path %>
-</div>
+  <div class="row">
+    <div class="col-sm-4">
+      <h2>Top Movies</h2>
+      <% @movies.each do |movie| %>
+        <li> <%= link_to movie.name, movie_path(movie.id)%> Ranked: <%= movie.rank %> </li>
+      <% end %>
+      <br>
+      <%= link_to "View more albums", movies_path %>
+    </div>
 
-<div id="albums">
-  <h2>Top Albums</h2>
-  <% @albums.each do |album| %>
-  <li>  <%= link_to album.name, album_path(album.id) %> Ranked: <%= album.rank %> </li>
-  <% end %>
-  <br>
-  <%= link_to "View more albums", albums_path %>
+  <div class="col-sm-4">
+    <h2>Top Books</h2>
+    <% @books.each do |book| %>
+      <li><%= link_to book.name, book_path(book.id) %> Ranked: <%= book.rank %></li>
+    <% end %>
+    <br>
+    <%= link_to "View more books", books_path %>
+  </div>
+
+  <div class="col-sm-4">
+    <h2>Top Albums</h2>
+    <% @albums.each do |album| %>
+    <li>  <%= link_to album.name, album_path(album.id) %> Ranked: <%= album.rank %> </li>
+    <% end %>
+    <br>
+    <%= link_to "View more albums", albums_path %>
+  </div>
 </div>
