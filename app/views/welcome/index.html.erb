@@ -2,27 +2,24 @@
   <div class="col-md-4">
     <h1>Top Movies</h1>
     <% @movies.each do |movie| %>
-      <%= link_to movie.name, movie_path(movie) %>
-      Ranked: <%= movie.ranked %>
-      <br>
+      <h2><%= link_to movie.name, movie_path(movie) %>
+      <small>Ranked: <%= movie.ranked %></h2></small>
     <% end %>
     <%= link_to "View More Movies", movies_path %>
   </div>
   <div class="col-md-4">
     <h1>Top Books</h1>
     <% @books.each do |book| %>
-    <%= link_to book.name, book_path(book) %>
-    Ranked: <%= book.ranked %>
-    <br>
+      <h2><%= link_to book.name, book_path(book) %>
+      <small>Ranked: <%= book.ranked %></h2></small>
     <% end %>
     <%= link_to "View More Books", books_path %>
   </div>
   <div class="col-md-4">
     <h1>Top Albums</h1>
     <% @albums.each do |album| %>
-    <%= link_to album.name, album_path(album) %>
-    Ranked: <%= album.ranked %>
-    <br>
+      <h2><%= link_to album.name, album_path(album) %>
+      <small>Ranked: <%= album.ranked %></h2></small>
     <% end %>
     <%= link_to "View More Albums", albums_path %>
   </div>
