@@ -1,25 +1,27 @@
 class MoviesController < ApplicationController
   def index
+    @model = Movie.all
+    @path = new_movie_path
+    @add_button = "Add New Movie"
+    render "albums/index"
   end
 
   def show
   end
 
   def new
+    @model = Movie.new
+    @action = "create"
+    @method = :post
+    @title = "New Movie"
+    @artist_type = "Directed By"
+    render "albums/new"
   end
 
   def create
+    Movie.create(movie_params)
+    redirect_to movies_path
   end
-
-  def edit
-  end
-
-  def update
-  end
-
-  def destroy
-  end
-end
 
 private
   def movie_params
