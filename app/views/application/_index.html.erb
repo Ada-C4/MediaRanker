@@ -1,24 +1,21 @@
-<%= link_to "sort by ascending", polymorphic_path(type_plural, :order => 'asc') %>
-<%= link_to "sort by descending", polymorphic_path(type_plural, :order => 'desc') %>
-
-<table>
-  <thead>
-    <tr>
-      <th>Votes</th>
-      <th>Title</th>
-      <th>Upvote?</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @media.each do |medium| %>
+<div class="row">
+  <div class="col-lg-12">
+    <table class="table table-hover">
       <tr>
-        <td><%= medium.votes.present? ? medium.votes : "0" %></td>
-        <td><%= link_to medium.title, polymorphic_path(medium) %></td>
-        <td><%= link_to "Upvote!", polymorphic_path(medium, :action => :upvote), :method => :patch %></td>
+        <th>Votes</th>
+        <th>Title</th>
+        <th>Upvote?</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+      <% @media.each do |medium| %>
+        <tr>
+          <td><%= medium.votes.present? ? medium.votes : "0" %></td>
+          <td><%= link_to medium.title, polymorphic_path(medium) %></td>
+          <td><%= link_to "Upvote!", polymorphic_path(medium, :action => :upvote), :method => :patch, :class => "btn btn-default" %></td>
+        </tr>
+      <% end %>
+    </table>
 
-<%= link_to "Go Home", "/" %>
-<%= link_to "New #{type.capitalize}", new_polymorphic_path(type) %>
+    <%= link_to "View All Media", "/", class: "btn btn-default" %>
+    <%= link_to "Add a #{type.capitalize}", new_polymorphic_path(type), class: "btn btn-default" %>
+  </div>  
+</div>

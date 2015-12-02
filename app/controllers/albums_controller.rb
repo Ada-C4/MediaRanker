@@ -2,11 +2,7 @@ class AlbumsController < ApplicationController
   def index
     albums = Album.all
 
-    @media = albums.order(votes: :desc) if params[:order].nil?
-
-    @media = albums.order(votes: :asc) if params[:order] == 'asc'
-    @media = albums.order(votes: :desc) if params[:order] == 'desc'
-
+    @media = albums.order(votes: :desc) 
   end
 
   def new

@@ -2,11 +2,7 @@ class MoviesController < ApplicationController
   def index
     movies = Movie.all
 
-    @media = movies.order(votes: :desc) if params[:order].nil?
-
-    @media = movies.order(votes: :asc) if params[:order] == 'asc'
-    @media = movies.order(votes: :desc) if params[:order] == 'desc'
-
+    @media = movies.order(votes: :desc)
   end
 
   def new
