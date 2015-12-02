@@ -10,6 +10,13 @@ RSpec.describe MoviesController, type: :controller do
   end
 	let(:movie) { Movie.create(create_params[:movie]) }
 
+  describe "GET index" do
+    it "is successful" do
+      get :index
+      expect(response.status).to eq 200
+    end
+  end
+
   describe "GET new" do
     it "is successful" do
       get :new
