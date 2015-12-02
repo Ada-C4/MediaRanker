@@ -46,11 +46,13 @@ RSpec.describe MoviesController, type: :controller do
 
     it "successful create redirects to show page" do
       post :create, good_params
+      expect(response.status).to eq 302
       expect(subject).to redirect_to movie_path(1)
     end
 
     it "unsuccessful create renders new page" do
       post :create, bad_params
+      expect(response.status).to eq 200
       expect(subject).to render_template :new
     end
   end
@@ -73,6 +75,7 @@ RSpec.describe MoviesController, type: :controller do
 
     it "redirects to show view" do
       delete :destroy, id: movie.id
+      expect(response.status).to eq 302
       expect(subject).to redirect_to movies_path
     end
   end
@@ -107,6 +110,7 @@ RSpec.describe MoviesController, type: :controller do
     it "unsuccessful update renders new view" do
       Movie.create(good_params[:movie])
       patch :update, bad_params
+      expect(response.status).to eq 200
       expect(subject).to render_template :edit
     end
   end
