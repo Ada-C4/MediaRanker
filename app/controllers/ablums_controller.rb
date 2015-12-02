@@ -1,0 +1,2 @@
+class AblumsController < ApplicationController
+end
