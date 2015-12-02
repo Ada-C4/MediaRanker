@@ -9,3 +9,10 @@
 
 <h1> Top Albums </h1>
 <h4> display first 10 albums with title as show link, and rank next to it and not a link </h4>
+<ul><% @albums.each do |model| %>
+
+    <li><%= "placeholder ranking method" %>
+    <%= link_to model.title, model %>
+    <%="placeholder for upvote button" %></li>
+    <% end %>
+</ul>
