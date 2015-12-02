@@ -34,13 +34,13 @@ class AlbumsController < ApplicationController
     artist: album_params[:album][:artist],
     description: album_params[:album][:description]
     )
-    redirect_to "/albums/#{id}"
+    redirect_to album_path(@album)
   end
 
   def destroy
     id = params[:id]
     Album.destroy(id)
-    redirect_to "/albums/"
+    redirect_to albums_path
   end
 
   def upvote
@@ -55,7 +55,7 @@ class AlbumsController < ApplicationController
     @album.update(
     upvotes: new_score
     )
-    redirect_to "/albums/#{id}"
+    redirect_to album_path(@album)
   end
 
   private

@@ -5,7 +5,7 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <script src='./assets/0.10.0/application.js' type='text/javascript'></script>    
     <link href='./assets/0.10.0/application.css' media='screen, projection, print' rel='stylesheet' type='text/css'>
-    <link rel="shortcut icon" type="image/png" href="./assets/0.10.0/favicon_red.png" />
+    <link rel="shortcut icon" type="image/png" href="./assets/0.10.0/favicon_green.png" />
     <link rel="icon" type="image/png" href="./assets/0.10.0/favicon.png" />
   </head>
   
@@ -14,18 +14,18 @@
       <img src="./assets/0.10.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2015-12-01T16:19:58-08:00">2015-12-01T16:19:58-08:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2015-12-01T16:22:41-08:00">2015-12-01T16:22:41-08:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="red">73.28%</span></span>
+    (<span class="covered_percent"><span class="green">92.37%</span></span>
      covered at
      <span class="covered_strength">
-       <span class="red">
-         0.81
+       <span class="green">
+         1.03
        </span>
     </span> hits/line)
   </h2>
@@ -33,8 +33,8 @@
   <div>
     <b>13</b> files in total.
     <b>131</b> relevant lines. 
-    <span class="green"><b>96</b> lines covered</span> and
-    <span class="red"><b>35</b> lines missed </span>
+    <span class="green"><b>121</b> lines covered</span> and
+    <span class="red"><b>10</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -52,12 +52,12 @@
       
       <tr>
         <td class="strong"><a href="#e95c6a9b0a381f8b871343941b9d4e4235b5524c" class="src_link" title="app/controllers/albums_controller.rb">app/controllers/albums_controller.rb</a></td>
-        <td class="red strong">29.73 %</td>
+        <td class="green strong">97.3 %</td>
         <td>66</td>
         <td>37</td>
-        <td>11</td>
-        <td>26</td>
-        <td>0.3</td>
+        <td>36</td>
+        <td>1</td>
+        <td>1.1</td>
       </tr>
       
       <tr>
@@ -189,11 +189,11 @@
           <div class="file_list_container" id="Controllers">
   <h2>
     <span class="group_name">Controllers</span>
-    (<span class="covered_percent"><span class="red">70.83%</span></span>
+    (<span class="covered_percent"><span class="green">91.67%</span></span>
      covered at
      <span class="covered_strength">
-       <span class="red">
-         0.79
+       <span class="green">
+         1.03
        </span>
     </span> hits/line)
   </h2>
@@ -201,8 +201,8 @@
   <div>
     <b>5</b> files in total.
     <b>120</b> relevant lines. 
-    <span class="green"><b>85</b> lines covered</span> and
-    <span class="red"><b>35</b> lines missed </span>
+    <span class="green"><b>110</b> lines covered</span> and
+    <span class="red"><b>10</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -220,12 +220,12 @@
       
       <tr>
         <td class="strong"><a href="#e95c6a9b0a381f8b871343941b9d4e4235b5524c" class="src_link" title="app/controllers/albums_controller.rb">app/controllers/albums_controller.rb</a></td>
-        <td class="red strong">29.73 %</td>
+        <td class="green strong">97.3 %</td>
         <td>66</td>
         <td>37</td>
-        <td>11</td>
-        <td>26</td>
-        <td>0.3</td>
+        <td>36</td>
+        <td>1</td>
+        <td>1.1</td>
       </tr>
       
       <tr>
@@ -514,11 +514,11 @@
         <div class="source_table" id="e95c6a9b0a381f8b871343941b9d4e4235b5524c">
   <div class="header">
     <h3>app/controllers/albums_controller.rb</h3>
-    <h4><span class="red">29.73 %</span> covered</h4>
+    <h4><span class="green">97.3 %</span> covered</h4>
     <div>
       <b>37</b> relevant lines. 
-      <span class="green"><b>11</b> lines covered</span> and
-      <span class="red"><b>26</b> lines missed.</span>
+      <span class="green"><b>36</b> lines covered</span> and
+      <span class="red"><b>1</b> lines missed.</span>
     </div>
   </div>
   
@@ -537,8 +537,8 @@
           <code class="ruby">  def index</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="3">
-          
+        <li class="covered" data-hits="1" data-linenumber="3">
+          <span class="hits">1</span>
           
           <code class="ruby">    @albums = Album.order(upvotes: :desc)</code>
         </li>
@@ -561,14 +561,14 @@
           <code class="ruby">  def show</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="7">
-          
+        <li class="covered" data-hits="1" data-linenumber="7">
+          <span class="hits">1</span>
           
           <code class="ruby">    id = params[:id]</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="8">
-          
+        <li class="covered" data-hits="1" data-linenumber="8">
+          <span class="hits">1</span>
           
           <code class="ruby">    @album = Album.find(id)</code>
         </li>
@@ -591,8 +591,8 @@
           <code class="ruby">  def new</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="12">
-          
+        <li class="covered" data-hits="1" data-linenumber="12">
+          <span class="hits">1</span>
           
           <code class="ruby">    @album = Album.new</code>
         </li>
@@ -615,20 +615,20 @@
           <code class="ruby">  def create</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="16">
-          
+        <li class="covered" data-hits="2" data-linenumber="16">
+          <span class="hits">2</span>
           
           <code class="ruby">    @album = Album.create(album_params[:album])</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="17">
-          
+        <li class="covered" data-hits="2" data-linenumber="17">
+          <span class="hits">2</span>
           
           <code class="ruby">    if @album.save</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="18">
-          
+        <li class="covered" data-hits="1" data-linenumber="18">
+          <span class="hits">1</span>
           
           <code class="ruby">      redirect_to album_path(@album)</code>
         </li>
@@ -639,8 +639,8 @@
           <code class="ruby">    else</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="20">
-          
+        <li class="covered" data-hits="1" data-linenumber="20">
+          <span class="hits">1</span>
           
           <code class="ruby">      render :new</code>
         </li>
@@ -669,14 +669,14 @@
           <code class="ruby">  def edit</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="25">
-          
+        <li class="covered" data-hits="1" data-linenumber="25">
+          <span class="hits">1</span>
           
           <code class="ruby">    id = params[:id]</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="26">
-          
+        <li class="covered" data-hits="1" data-linenumber="26">
+          <span class="hits">1</span>
           
           <code class="ruby">    @album = Album.find(id)</code>
         </li>
@@ -699,20 +699,20 @@
           <code class="ruby">  def update</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="30">
-          
+        <li class="covered" data-hits="1" data-linenumber="30">
+          <span class="hits">1</span>
           
           <code class="ruby">    id = params[:id]</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="31">
-          
+        <li class="covered" data-hits="1" data-linenumber="31">
+          <span class="hits">1</span>
           
           <code class="ruby">    @album = Album.find(id)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="32">
-          
+        <li class="covered" data-hits="1" data-linenumber="32">
+          <span class="hits">1</span>
           
           <code class="ruby">    @album.update(</code>
         </li>
@@ -741,10 +741,10 @@
           <code class="ruby">    )</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="37">
+        <li class="covered" data-hits="1" data-linenumber="37">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">    redirect_to &quot;/albums/#{id}&quot;</code>
+          <code class="ruby">    redirect_to album_path(@album)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="38">
@@ -765,22 +765,22 @@
           <code class="ruby">  def destroy</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="41">
-          
+        <li class="covered" data-hits="1" data-linenumber="41">
+          <span class="hits">1</span>
           
           <code class="ruby">    id = params[:id]</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="42">
-          
+        <li class="covered" data-hits="1" data-linenumber="42">
+          <span class="hits">1</span>
           
           <code class="ruby">    Album.destroy(id)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="43">
+        <li class="covered" data-hits="1" data-linenumber="43">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">    redirect_to &quot;/albums/&quot;</code>
+          <code class="ruby">    redirect_to albums_path</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="44">
@@ -801,32 +801,32 @@
           <code class="ruby">  def upvote</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="47">
-          
+        <li class="covered" data-hits="1" data-linenumber="47">
+          <span class="hits">1</span>
           
           <code class="ruby">    id = params[:id]</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="48">
-          
+        <li class="covered" data-hits="1" data-linenumber="48">
+          <span class="hits">1</span>
           
           <code class="ruby">    @album = Album.find(id)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="49">
-          
+        <li class="covered" data-hits="1" data-linenumber="49">
+          <span class="hits">1</span>
           
           <code class="ruby">    current_score = Album.find(id).upvotes</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="50">
-          
+        <li class="covered" data-hits="1" data-linenumber="50">
+          <span class="hits">1</span>
           
           <code class="ruby">    if current_score.nil?</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="51">
-          
+        <li class="covered" data-hits="1" data-linenumber="51">
+          <span class="hits">1</span>
           
           <code class="ruby">      new_score = 1</code>
         </li>
@@ -849,8 +849,8 @@
           <code class="ruby">    end</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="55">
-          
+        <li class="covered" data-hits="1" data-linenumber="55">
+          <span class="hits">1</span>
           
           <code class="ruby">    @album.update(</code>
         </li>
@@ -867,10 +867,10 @@
           <code class="ruby">    )</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="58">
+        <li class="covered" data-hits="1" data-linenumber="58">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">    redirect_to &quot;/albums/#{id}&quot;</code>
+          <code class="ruby">    redirect_to album_path(@album)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="59">
@@ -903,8 +903,8 @@
           <code class="ruby">  def album_params</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="64">
-          
+        <li class="covered" data-hits="5" data-linenumber="64">
+          <span class="hits">5</span>
           
           <code class="ruby">    params.permit(album:[:name, :artist, :description, :upvotes])</code>
         </li>
