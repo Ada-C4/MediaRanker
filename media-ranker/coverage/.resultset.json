@@ -1,0 +1,23 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/lr.granger21/Documents/ADA/ProgjectMasters/MediaRanker/media-ranker/app/helpers/application_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/lr.granger21/Documents/ADA/ProgjectMasters/MediaRanker/media-ranker/app/models/book.rb": [
+        1,
+        1,
+        null
+      ],
+      "/Users/lr.granger21/Documents/ADA/ProgjectMasters/MediaRanker/media-ranker/app/controllers/application_controller.rb": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "timestamp": 1449099511
+  }
+}
