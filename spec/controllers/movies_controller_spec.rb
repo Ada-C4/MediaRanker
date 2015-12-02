@@ -1,6 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe MoviesController, type: :controller do
+  describe "GET 'home'" do
+    it "is successful" do
+      get :home
+      expect(response.status).to eq 200
+    end
+  end
+
+  
   describe "GET 'index'" do
     it "is successful" do
       get :index

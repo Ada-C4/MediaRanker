@@ -28,6 +28,7 @@ class AlbumsController < ApplicationController
   end
 
   def edit
+    @album = Album.find(params[:id])
     @legend = "Edit Album"
   end
 

@@ -32,7 +32,7 @@ RSpec.describe BooksController, type: :controller do
 
   describe "GET 'edit'" do
     let(:book) do
-      Movie.create(name: "Some book")
+      Book.create(name: "Some book")
     end
 
     it "renders the edit view" do
@@ -67,4 +67,5 @@ RSpec.describe BooksController, type: :controller do
       expect(subject).to render_template :new
     end
   end
+
 end
