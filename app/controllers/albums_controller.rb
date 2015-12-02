@@ -51,6 +51,11 @@ class AlbumsController < ApplicationController
     artist: album_params[:album][:artist],
     description: album_params[:album][:description],
     )
+    # if album.save
+    #   redirect_to album_path(album.id)
+    # else
+    #   render "edit"
+    # end
     redirect_to album_path(album.id)
   end
 
