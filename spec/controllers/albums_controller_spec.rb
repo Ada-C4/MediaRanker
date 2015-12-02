@@ -102,4 +102,17 @@ RSpec.describe AlbumsController, type: :controller do
     end
   end
 
+  describe "POST 'upvote'" do
+    let(:album) do
+      Album.create(name: "Some Title", upvotes: 0)
+    end
+
+    it "incremements album upvotes by 1" do
+      post :upvote, id: album.id
+      album.reload
+      expect(album.upvotes).to eq 1
+    end
+
+  end
+
 end
