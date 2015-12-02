@@ -1,16 +1,30 @@
-<span class="content-name"><%= @content.name %></span>
-<%= @correct_string %> <%= @person %>
+<div class="row">
+  <div class="col-lg-12">
+    <h1>
+      <%= @content.name %>
+      <small><%= @correct_string %> <%= @person %></small>
+    </h1>
+    <h4>Ranked: <%= @content.votes %></h4>
+    <p><%= @content.description %></p>
+
+    <%= button_to "Upvote", polymorphic_path([:upvote, @content]), method: :patch, class:"btn btn-primary" %>
+
+    <%= link_to "Edit #{@content.name}", edit_polymorphic_path(@content), method: :get, class:"btn btn-default" %>
+    <%= link_to "DELETE", polymorphic_path(@content), onclick: "return confirm('Are you sure?')", method: :delete, class:"btn btn-danger" %>
+    <%= link_to "View All #{@content.class}s", polymorphic_path(@content.class), class:"btn btn-default" %>
+    <%= link_to "View All Media", root_path, class:"btn btn-default" %>
+  </div>
+</div>
+
+
+
 
 <div>
-  Ranked: <%= @content.votes %>
+
 </div>
 <div>
-  <%= @content.description %>
+
 </div>
 
-<%= button_to "Upvote", polymorphic_path([:upvote, @content]), method: :patch %>
+
 <br>
-<%= button_to "Edit #{@content.name}", edit_polymorphic_path(@content), method: :get %>
-<%= button_to "Delete", polymorphic_path(@content), onclick: "return confirm('Are you sure?')", method: :delete %>
-<%= link_to "View All #{@content.class}s", polymorphic_path(@content.class) %>
-<%= link_to "View All Media", root_path %>
