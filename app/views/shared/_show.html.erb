@@ -1,0 +1,16 @@
+<span class="content-name"><%= @content.name %></span>
+<%= @correct_string %> <%= @person %>
+
+<div>
+  Ranked: <%= @content.votes %>
+</div>
+<div>
+  <%= @content.description %>
+</div>
+
+<%= button_to "Upvote", @item_path + "#{@content.id}/upvote", method: :patch %>
+<br>
+<%= button_to "Edit #{@content.name}", @edit_path, method: :get %>
+<%= button_to("Delete", @item_path + @content.id.to_s, onclick: "return confirm('Are you sure?')", method: :delete, title: "Delete") %>
+<%= link_to "View All #{@content_type}s", @content_path %>
+<%= link_to "View All Media", "/" %>
