@@ -43,4 +43,28 @@ RSpec.shared_examples "a medium controller" do
     end
   end
 
+  describe "DELETE 'destroy'" do
+    it "redirects to show view" do
+      delete :destroy, id: medium.id
+      expect(response.status).to eq 302
+      expect(subject).to redirect_to polymorphic_path(model)
+    end
+  end
+
+  describe "PATCH 'update'" do
+    it "successful update renders show view" do
+      model.create(good_params[:"#{model_name}"])
+      patch :update, good_params
+      expect(response.status).to eq 200
+      expect(subject).to render_template :show
+    end
+
+    it "unsuccessful update renders new view" do
+      model.create(good_params[:"#{model_name}"])
+      patch :update, bad_params
+      expect(response.status).to eq 200
+      expect(subject).to render_template :edit
+    end
+  end
+
 end

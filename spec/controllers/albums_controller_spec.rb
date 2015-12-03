@@ -5,11 +5,15 @@ RSpec.describe AlbumsController, type: :controller do
     let(:model) do
       Album
     end
+    let(:model_name) do
+      "album"
+    end
     let(:medium) do
       Album.create(name: "hello")
     end
     let(:good_params) do
       {
+        id: 1,
         album: {
           name: "something something"
         }
@@ -17,57 +21,12 @@ RSpec.describe AlbumsController, type: :controller do
     end
     let(:bad_params) do
       {
-        album: {
-          description: "something"
-        }
-      }
-    end
-  end
-
-  describe "DELETE 'destroy'" do
-    let(:album) do
-      Album.create(name: "hello")
-    end
-
-    it "redirects to show view" do
-      delete :destroy, id: album.id
-      expect(response.status).to eq 302
-      expect(subject).to redirect_to albums_path
-    end
-  end
-
-  describe "PATCH 'update'" do
-    let(:good_params) do
-      {
-        id: 1,
-        album: {
-          name: "hello"
-        }
-      }
-    end
-
-    let(:bad_params) do
-      {
         id: 1,
         album: {
           name: nil,
-          description: "world"
+          description: "something"
         }
       }
-    end
-
-    it "successful update renders show view" do
-      Album.create(good_params[:album])
-      patch :update, good_params
-      expect(response.status).to eq 200
-      expect(subject).to render_template :show
-    end
-
-    it "unsuccessful update renders new view" do
-      Album.create(good_params[:album])
-      patch :update, bad_params
-      expect(response.status).to eq 200
-      expect(subject).to render_template :edit
     end
   end
 
