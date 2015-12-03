@@ -10,11 +10,17 @@
       </div>
       <div class="col-md-4">
         <h1>Top Books</h1>
+        <% @books_ten.each do |book|%>
+          <h2><%= link_to book.name, book_path(book) %><small> Ranked: <%= book.rank %></small></h2>
+        <% end %>
         <%= link_to "View all books", books_path %>
       </div>
       <div class="col-md-4">
         <h1>Top Albums</h1>
-          <%= link_to "View all albums", albums_path %>
+        <% @albums_ten.each do |album|%>
+          <h2><%= link_to album.name, album_path(album) %><small> Ranked: <%= album.rank %></small></h2>
+        <% end %>
+        <%= link_to "View all albums", albums_path %>
       </div>
     </div>
   </div>
