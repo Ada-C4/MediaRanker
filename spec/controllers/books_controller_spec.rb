@@ -15,7 +15,8 @@ RSpec.describe BooksController, type: :controller do
       {
         id: 1,
         book: {
-          name: "something something"
+          name: "something something",
+          ranking: 0
         }
       }
     end
@@ -29,24 +30,4 @@ RSpec.describe BooksController, type: :controller do
       }
     end
   end
-
-  describe "PATCH 'upvote'" do
-    let(:params) do
-      {
-        id: 1,
-        book: {
-          name: "hello",
-          ranking: 0
-        }
-      }
-    end
-
-    it "renders show view" do
-      Book.create(params[:book])
-      patch :upvote, params
-      expect(response.status).to eq 200
-      expect(subject).to render_template :show
-    end
-  end
-
 end

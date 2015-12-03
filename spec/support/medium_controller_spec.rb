@@ -67,4 +67,13 @@ RSpec.shared_examples "a medium controller" do
     end
   end
 
+  describe "PATCH 'upvote'" do
+    it "renders show view" do
+      model.create(good_params[:"#{model_name}"])
+      patch :upvote, good_params
+      expect(response.status).to eq 200
+      expect(subject).to render_template :show
+    end
+  end
+
 end

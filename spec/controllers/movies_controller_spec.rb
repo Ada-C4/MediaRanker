@@ -15,7 +15,8 @@ RSpec.describe MoviesController, type: :controller do
       {
         id: 1,
         movie: {
-          name: "something something"
+          name: "something something",
+          ranking: 0
         }
       }
     end
@@ -27,25 +28,6 @@ RSpec.describe MoviesController, type: :controller do
           description: "something"
         }
       }
-    end
-  end
-
-  describe "PATCH 'upvote'" do
-    let(:params) do
-      {
-        id: 1,
-        movie: {
-          name: "hello",
-          ranking: 0
-        }
-      }
-    end
-
-    it "renders show view" do
-      Movie.create(params[:movie])
-      patch :upvote, params
-      expect(response.status).to eq 200
-      expect(subject).to render_template :show
     end
   end
 end

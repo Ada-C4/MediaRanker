@@ -15,7 +15,8 @@ RSpec.describe AlbumsController, type: :controller do
       {
         id: 1,
         album: {
-          name: "something something"
+          name: "something something",
+          ranking: 0
         }
       }
     end
@@ -29,24 +30,4 @@ RSpec.describe AlbumsController, type: :controller do
       }
     end
   end
-
-  describe "PATCH 'upvote'" do
-    let(:params) do
-      {
-        id: 1,
-        album: {
-          name: "hello",
-          ranking: 0
-        }
-      }
-    end
-
-    it "renders show view" do
-      Album.create(params[:album])
-      patch :upvote, params
-      expect(response.status).to eq 200
-      expect(subject).to render_template :show
-    end
-  end
-
 end
