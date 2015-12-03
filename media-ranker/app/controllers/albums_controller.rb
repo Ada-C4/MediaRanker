@@ -5,10 +5,13 @@ class AlbumsController < ApplicationController
   end
 
   def create
-    redirect_to movies_path
+    album = Album.create(album_params)
+    album.update_attribute(:rank, 1)
+    redirect_to albums_path
   end
 
   def new
+    @album = Album.new
   end
 
   def edit
@@ -24,5 +27,11 @@ class AlbumsController < ApplicationController
   def destroy
     redirect_to movies_path
   end
+  
+private
+
+  def album_params
+    params.require(:album).permit(:title, :artist, :description)
+    end
 
 end
