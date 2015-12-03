@@ -115,6 +115,25 @@ RSpec.describe BooksController, type: :controller do
     end
   end
 
+  describe "PATCH 'upvote'" do
+    let(:params) do
+      {
+        book:{
+          name: "Something something something",
+          rank: 0
+        },
+        id: book.id
+      }
+    end
+
+    it "increments the rank of a book by 1" do
+      before_upvote = book.attributes
+      patch :upvote, params
+      book.reload
+      expect(book.attributes).to_not eq before_upvote
+    end
+  end
+
   describe "DELETE 'destroy'" do
     let(:params) do
       {

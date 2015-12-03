@@ -45,7 +45,7 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     @book.rank += 1
     @book.save
-    render "show"
+    render :show
   end
 
 private

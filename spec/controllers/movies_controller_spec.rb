@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe MoviesController, type: :controller do
   let(:movie) do
-    Movie.create(name: "Some movie")
+    Movie.create(name: "Some movie", rank: 0)
   end
 
   describe "GET 'home'" do
@@ -123,6 +123,25 @@ RSpec.describe MoviesController, type: :controller do
     end
   end
 
+  describe "PATCH 'upvote'" do
+    let(:params) do
+      {
+        movie:{
+          name: "Something something something",
+          rank: 0
+        },
+        id: movie.id
+      }
+    end
+
+    it "increments the rank of a movie by 1" do
+      before_upvote = movie.attributes
+      patch :upvote, params
+      movie.reload
+      expect(movie.attributes).to_not eq before_upvote
+    end
+  end
+
   describe "DELETE 'destroy'" do
     let(:params) do
       {
@@ -131,7 +150,7 @@ RSpec.describe MoviesController, type: :controller do
     end
 
     it "deletes a movie" do
-      expect(Movie.all). to include(movie)
+      expect(Movie.all).to include(movie)
       delete :destroy, params
       expect(Movie.all).to_not include(movie)
     end
@@ -141,4 +160,5 @@ RSpec.describe MoviesController, type: :controller do
       expect(subject).to render_template :index
     end
   end
+
 end
