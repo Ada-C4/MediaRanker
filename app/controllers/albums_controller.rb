@@ -16,8 +16,12 @@ class AlbumsController < ApplicationController
   end
 
   def create
-    @album = Album.create(album_params)
-    redirect_to album_path
+    @album = Album.new(album_params)
+    if @album.save
+      redirect_to albums_path
+    else
+      render :new
+    end
   end
 
   def update
@@ -35,6 +39,9 @@ class AlbumsController < ApplicationController
   def upvote
     id = params[:id]
     @album = Album.find(id)
+    if @album.rank.nil?
+      @album.rank = 0
+    end
     @album.rank += 1
     @album.save
     render "show"
@@ -43,6 +50,6 @@ class AlbumsController < ApplicationController
   private
 
   def album_params
-    params.require(:album).permit(:name, :artist, :description, :rank)
+    params.require(:album).permit(:name, :director, :description, :rank)
   end
 end

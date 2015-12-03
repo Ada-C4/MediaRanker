@@ -16,8 +16,12 @@ class BooksController < ApplicationController
   end
 
   def create
-    @book = Book.create(book_params)
-    redirect_to book_path
+    @book = Book.new(book_params)
+    if @book.save
+      redirect_to books_path
+    else
+      render :new
+    end
   end
 
   def update
@@ -35,6 +39,9 @@ class BooksController < ApplicationController
   def upvote
     id = params[:id]
     @book = Book.find(id)
+    if @book.rank.nil?
+      @book.rank = 0
+    end
     @book.rank += 1
     @book.save
     render "show"
@@ -43,6 +50,6 @@ class BooksController < ApplicationController
   private
 
   def book_params
-    params.require(:book).permit(:name, :author, :description, :rank)
+    params.require(:book).permit(:name, :director, :description, :rank)
   end
 end
