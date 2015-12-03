@@ -34,6 +34,7 @@ RSpec.shared_examples "a medium controller" do
     it "redirects to the show page" do
       post :create, create_params
       expect(subject).to redirect_to show_path_1
+
     end
 
     it "renders the new template on error" do
