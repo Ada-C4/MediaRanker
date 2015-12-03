@@ -38,6 +38,8 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'better_errors'
+  gem 'rspec-rails' #for testing
+  gem 'simplecov', require: false
 end
 
 group :development do
