@@ -4,7 +4,6 @@ RSpec.describe BooksController, type: :controller do
 
   let(:create_params) do
     {
-      id: 1,
       book: {
         name: "Peter Pan",
         author: "J.M. Barrie",
@@ -55,7 +54,8 @@ RSpec.describe BooksController, type: :controller do
   describe "POST 'create'" do
        it "redirects to show page" do
        post :create, create_params
-       expect(subject).to redirect_to book_path(book.id)
+       b = Book.last
+       expect(subject).to redirect_to book_path(b.id)
      end
 
      it "renders new template on create error" do
@@ -83,8 +83,8 @@ RSpec.describe BooksController, type: :controller do
 
     it "successful update renders show view" do
         patch :update, update_params
-        expect(response.status).to eq 200
-        expect(subject).to render_template :show
+        expect(response.status).to eq 302
+        expect(subject).to redirect_to book_path(book.id)
       end
 
       it "unsuccessful update renders edit form" do
@@ -93,18 +93,19 @@ RSpec.describe BooksController, type: :controller do
       end
     end
 
-    describe "PATCH 'upvote'" do
+  describe "PATCH 'upvote'" do
 
-      it "renders show view" do
-        patch :upvote, create_params
-        expect(response.status).to eq 200
-        expect(subject).to redirect_to book_path(book.id)
-      end
+    it "renders show view" do
+      patch :upvote, id: book.id
+      book.reload
+      expect(response.status).to eq 302
+      expect(subject).to redirect_to book_path(book.id)
+    end
 
-      it "increments votes" do
-        patch :upvote, id: book.id
-        book.reload
-        expect(book.rank).to eq 1
-      end
+    it "increments votes" do
+      patch :upvote, id: book.id
+      book.reload
+      expect(book.rank).to eq 1
     end
   end
+end

@@ -2,7 +2,7 @@ class BooksController < ApplicationController
   before_action only: [:show, :edit, :update, :upvote] { @book = Book.find(params[:id])}
 
   def index
-    @books = Book.all
+    @books = Book.order(rank: :desc)
   end
 
   def show
@@ -30,7 +30,7 @@ class BooksController < ApplicationController
     if @book.save
       redirect_to book_path(@book)
     else
-      render "new"
+      render "edit"
     end
   end
 
