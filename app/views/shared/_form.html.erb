@@ -2,9 +2,7 @@
   <div class="col-lg-12">
     <fieldset>
       <%= form_for medium, url:{action: action}, :html => {:class => "form" } do |f| %>
-        <legend>
-          <h2><%= title %></h2>
-        </legend>
+        <h2><%= title %></h2>
         <div class="form-group">
           <%= f.label :name %>
           <%= f.text_field :name, class: "form-control" %>
