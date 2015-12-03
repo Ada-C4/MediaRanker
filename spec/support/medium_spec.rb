@@ -1,4 +1,4 @@
-RSpec.shared_examples "a medium model" do
+RSpec.shared_examples "a medium" do
   describe "model validations" do
     it "requires a name" do
       medium = described_class.new(name: nil)
