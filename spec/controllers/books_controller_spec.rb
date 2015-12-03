@@ -54,6 +54,7 @@ RSpec.describe BooksController, type: :controller do
         }
       }
     end
+    
     it "redirects to show page" do
       post :create, good_params
       #Success case to show page
