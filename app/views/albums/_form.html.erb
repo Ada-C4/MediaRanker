@@ -5,16 +5,20 @@
     </li>
   <% end %>
 </ul>
+    <%= form_for @album do |f| %>
+    <div class="form-group">
+      <%= f.label :Name %>:
+      <%= f.text_field :name, :required => true, class:"form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :Artist %>:
+      <%= f.text_field :artist, :required => true, class:"form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :Description %>:
+      <%= f.text_field :description, class:"form-control" %>
+    </div>
 
-<%= form_for @album do |f| %>
-  <%= f.label :Name %>:
-  <%= f.text_field :name, :required => true %>
-	<br>
-  <%= f.label :Artist %>:
-  <%= f.text_field :artist, :required => true %>
-  <br>
-  <%= f.label :Description %>:
-  <%= f.text_field :description %>
-  <br>
-  <%= @album.persisted? ? (f.submit value: "Update album", id: 'special-button') : (f.submit value: "Add album", id: 'special-button') %>
-<% end %>
+    <%= @album.persisted? ? (f.submit value: "Save", class:"btn btn-default") : (f.submit value: "Save", class:"btn btn-default") %>
+  <% end %>
+  </div>
