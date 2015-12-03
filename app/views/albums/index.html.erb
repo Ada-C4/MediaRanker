@@ -6,9 +6,9 @@
     <tr>
       <td>Ranked: <%= album.rank %> </td>
       <td> <%= link_to album.name, album_path(album.id) %> </td>
-      <td> <%= button_to "Upvote", { action: "update" , class: "upvote_i", id: album.id}, method: "patch" %> </td>
+      <td> <%= button_to "Upvote", { action: "update" , class: "upvote_i", id: album.id}, method: "patch", class:"btn btn-default" %> </td>
     </tr>
   <% end %>
 </table>
-<%= button_to "Add an album", new_album_path, method: :get %>
-<%= button_to "View all media", root_path, method: :get %>
+<%= button_to "Add an album", new_album_path, method: :get, class:"btn btn-default" %>
+<%= button_to "View all media", root_path, method: :get, class:"btn btn-default" %>
