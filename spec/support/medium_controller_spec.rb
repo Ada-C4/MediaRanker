@@ -37,7 +37,7 @@ RSpec.shared_examples "a medium controller" do
       new_medium = model.last
 
       # Success case to index page
-      expect(subject).to redirect_to book_path(new_medium.id) #FIX PATH
+      expect(subject).to redirect_to polymorphic_path(new_medium)
     end
 
     it "renders new template on error" do
@@ -57,25 +57,25 @@ RSpec.shared_examples "a medium controller" do
   describe "PATCH 'update'" do
     it "redirects to show page" do
       patch :update, update_params
-      expect(subject).to redirect_to book_path(medium.id) #FIX PATH!!
+      expect(subject).to redirect_to polymorphic_path(medium)
     end
   end
 
   describe "DELETE 'destroy'" do
     it "redirects to index page" do
       delete :destroy, id: medium.id
-      expect(subject).to redirect_to books_path #FIX PATH!!!
+      expect(subject).to redirect_to polymorphic_path(model.name.downcase.pluralize)
     end
   end
 
   describe "POST 'upvote'" do
     it "redirects to show page" do
       post :upvote, id: medium.id
-      expect(subject).to redirect_to book_path(medium.id) #FIX PATH!
+      expect(subject).to redirect_to polymorphic_path(medium)
     end
     it "redirects to show page" do
       post :upvote, id: medium2.id
-      expect(subject).to redirect_to book_path(medium2.id) #FIX PATH
+      expect(subject).to redirect_to polymorphic_path(medium2)
     end
   end
 

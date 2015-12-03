@@ -98,21 +98,21 @@ RSpec.describe BooksController, type: :controller do
   #   end
   # end
 
-  describe "PATCH 'update'" do
-    it "redirects to show page" do
-      book = Book.create(name: "Something", author: "Someone", description: "Something something something")
-      params =   {
-        book: {
-          name: "Something",
-          author: "Someone",
-          description: "Something something something"
-        },
-        id: book.id
-      }
-      patch :update, params
-      expect(subject).to redirect_to book_path(book.id)
-    end
-  end
+  # describe "PATCH 'update'" do
+  #   it "redirects to show page" do
+  #     book = Book.create(name: "Something", author: "Someone", description: "Something something something")
+  #     params =   {
+  #       book: {
+  #         name: "Something",
+  #         author: "Someone",
+  #         description: "Something something something"
+  #       },
+  #       id: book.id
+  #     }
+  #     patch :update, params
+  #     expect(subject).to redirect_to book_path(book.id)
+  #   end
+  # end
 
   # describe "DELETE 'destroy'" do
   #   let(:book) do
