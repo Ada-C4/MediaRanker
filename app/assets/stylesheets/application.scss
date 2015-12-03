@@ -14,3 +14,13 @@
 
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+.button_to {
+  display: inline-block;
+}
+
+#upvote {
+  display: block;
+  margin-right: 1000px;
+margin-bottom: 20px;
+}
