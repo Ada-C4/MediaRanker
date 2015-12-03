@@ -1,1 +1,16 @@
-SHOW ALL THE MOVIES!!
+<table>
+  <thead>
+    <th>Ranking</th>
+    <th>Name</th>
+    <th>Upvote</th>
+  </thead>
+  <tbody>
+    <% @movies.each do |movie| %>
+      <tr>
+        <td>Ranked: <%= movie.rank%></td>
+        <td><%= link_to movie.title, movie_path(movie.id) %></td>
+        <td><%= button_to 'Upvote', upvote_movie_path(movie.id) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
