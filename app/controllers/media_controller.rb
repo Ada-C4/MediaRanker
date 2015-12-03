@@ -1,5 +1,6 @@
 class MediaController < ApplicationController
   before_action :set_type
+  before_action :creator, only: [:new, :edit]
 
   def index
     @items = type_class.order(votes: :desc)
@@ -30,12 +31,6 @@ class MediaController < ApplicationController
   def new
     @item = type_class.new
 
-    case @type
-    when "Book" then @special = "Author"
-    when "Movie" then @special = "Director"
-    when "Album" then @special = "Artist"
-    end
-
     render "form"
   end
 
@@ -51,12 +46,6 @@ class MediaController < ApplicationController
 
   def edit
     @item = type_class.find(params[:id])
-    
-    case @type
-    when "Book" then @special = "Author"
-    when "Movie" then @special = "Director"
-    when "Album" then @special = "Artist"
-    end
 
     render "form"
   end
@@ -86,11 +75,23 @@ class MediaController < ApplicationController
   end
 
   def type
-    Medium.types.include?(params[:type]) ? params[:type] : "Medium"
+    if Medium.types.include?(params[:type])
+      params[:type]
+    else
+       "Medium"
+    end
   end
 
   def type_class
     type.constantize
+  end
+
+  def creator
+    case @type
+    when "Book" then @special = "Author"
+    when "Movie" then @special = "Director"
+    when "Album" then @special = "Artist"
+    end
   end
 
   def type_params
