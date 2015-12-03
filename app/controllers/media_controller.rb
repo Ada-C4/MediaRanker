@@ -23,9 +23,10 @@ class MediaController < ApplicationController
   end
 
   def upvote
-    type_class.find(params[:id]).increment!(:votes)
+    upvoted = type_class.find(params[:id])
+    upvoted.increment!(:votes)
 
-    redirect_to :back
+    redirect_to polymorphic_path(upvoted)
   end
 
   def new
@@ -79,11 +80,7 @@ class MediaController < ApplicationController
   end
 
   def type
-    if Medium.types.include?(params[:type])
-      params[:type]
-    else
-       "Medium"
-    end
+    params[:type]
   end
 
   def type_class

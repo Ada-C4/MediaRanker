@@ -9,7 +9,7 @@ RSpec.shared_examples "a controller" do |subject_class|
       patch :upvote, type: subject_class.to_s, id: item.id
       item.reload
       expect(item.votes).to eq 23
-      expect(subject).to redirect_to "from_whence_we_came"
+      expect(subject).to redirect_to polymorphic_path(item)
     end
   end
 

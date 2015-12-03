@@ -21,7 +21,7 @@
               <%= link_to item.name, polymorphic_path(item) %>
             </td>
             <td>
-              <%= link_to "Upvote", polymorphic_path(item), class: "btn btn-default" %>
+              <%= link_to "Upvote", polymorphic_path([:upvote, item]), method: :patch, class: "btn btn-default" %>
             </td>
           </tr>
         <% end %>
