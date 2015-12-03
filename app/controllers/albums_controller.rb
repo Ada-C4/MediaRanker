@@ -11,4 +11,23 @@ class AlbumsController < ApplicationController
     redirect_to album_path(a)
   end
 
+  def new
+    @album = Album.new
+  end
+
+  def create
+    @album = Album.new(album_params[:album])
+    if @album.save
+      redirect_to album_path(@album)
+    else
+      render "new"
+    end
+  end
+
+  private
+
+  def album_params
+    params.permit(album:[:name, :artist, :description, :rank])
+  end
+
 end

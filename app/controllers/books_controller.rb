@@ -15,4 +15,13 @@ class BooksController < ApplicationController
     @book = Book.new
   end
 
+  def create
+    @book = Book.new(book_params[:book])
+    if @book.save
+      redirect_to album_path(@book)
+    else
+      render "new"
+    end
+  end
+
 end

@@ -1,2 +1,2 @@
-<%= render partial:'form',
-  locals:{media: @books, action: :create, title: "New Book", rank_value: 0, creator: :author} %>
+<%= render partial:'shared/form',
+  locals:{ medium: @book, action: :create, title: "New Book", creator: :author, rank_value: 0} %>
