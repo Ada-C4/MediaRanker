@@ -27,9 +27,9 @@ class AlbumsController < ApplicationController
   def update
     @album.update(album_params[:album])
     if @album.save
-      render "show"
+      redirect_to album_path(@album)
     else
-      render "new"
+      render "edit"
     end
   end
 
