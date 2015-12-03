@@ -42,4 +42,22 @@ RSpec.shared_examples "a medium controller" do
     end
   end
 
+  describe "PATCH 'update'" do
+    let (:medium) do
+      model.create(name: "Test")
+    end
+
+    it "redirects to show page" do
+      patch :update, good_params.merge({id: medium.id})
+      expect(subject).to redirect_to polymorphic_path(medium)
+      expect(model.all.last.name).to eq "zzzTest"
+    end
+
+    it "renders edit template on error" do
+      patch :update, bad_params.merge({id: medium.id})
+      expect(subject).to render_template :edit
+      expect(model.all.last.name).to eq "Test"
+    end
+  end
+
 end

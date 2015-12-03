@@ -5,14 +5,14 @@ RSpec.describe BooksController, type: :controller do
     let(:model) { Book }
     let (:good_params) do
       {
-        book: { name: "Test Book", description: "Book's description", author: "Book's author"
+        book: { name: "zzzTest", description: "Book's description", author: "Book's author"
         }
       }
     end
 
     let (:bad_params) do
       {
-        book: { description: "Book's description", author: "Book's author"
+        book: { name: "", description: "Book's description", author: "Book's author"
         }
       }
     end
@@ -22,37 +22,6 @@ RSpec.describe BooksController, type: :controller do
   #   Book.create(name: "Test Book", description: "Book's description", author: "Book's author")
   # end
 
-
-
-  # describe "PATCH 'update'" do
-  #   let (:good_params) do
-  #     {
-  #       id: book.id,
-  #       book: { name: "zzzTest Book", description: "zzzzBook's description", author: "zzzBook's author"
-  #       }
-  #     }
-  #   end
-  #
-  #   let (:bad_params) do
-  #     {
-  #       id: book.id,
-  #       book: { name: "", description: "Book's description", author: "Book's author"
-  #       }
-  #     }
-  #   end
-  #
-  #   it "redirects to show page" do
-  #     patch :update, good_params
-  #     expect(subject).to redirect_to book_path(book)
-  #     expect(Book.find(book.id).name).to eq "zzzTest Book"
-  #   end
-  #
-  #   it "renders edit template on error" do
-  #     patch :update, bad_params
-  #     expect(subject).to render_template :edit
-  #     expect(Book.find(book.id).name).to eq "Test Book"
-  #   end
-  # end
   #
   # describe "DELETE 'destroy'" do
   #   it "redirects to index page" do
