@@ -28,7 +28,7 @@ class MoviesController < ApplicationController
     if @movie.save
       redirect_to movie_path(@movie)
     else
-      render "new"
+      render "edit"
     end
   end
 
