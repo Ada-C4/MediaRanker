@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe MoviesController, type: :controller do
+  let(:movie) do
+    Movie.create(name: "Some movie")
+  end
+
   describe "GET 'home'" do
     it "is successful" do
       get :home
@@ -8,7 +12,7 @@ RSpec.describe MoviesController, type: :controller do
     end
   end
 
-  
+
   describe "GET 'index'" do
     it "is successful" do
       get :index
@@ -17,10 +21,6 @@ RSpec.describe MoviesController, type: :controller do
   end
 
   describe "GET 'new'" do
-    let(:movie) do
-      Movie.create(name: "Some movie")
-    end
-
     it "renders the new view" do
       get :new, id: movie.id
       expect(subject).to render_template :new
@@ -28,10 +28,6 @@ RSpec.describe MoviesController, type: :controller do
   end
 
   describe "GET 'show'" do
-    let(:movie) do
-      Movie.create(name: "Some movie")
-    end
-
     it "renders the show view" do
       get :show, id: movie.id
       expect(subject).to render_template :show
@@ -39,10 +35,6 @@ RSpec.describe MoviesController, type: :controller do
   end
 
   describe "GET 'edit'" do
-    let(:movie) do
-      Movie.create(name: "Some movie")
-    end
-
     it "renders the edit view" do
       get :edit, id: movie.id
       expect(subject).to render_template :edit
@@ -73,6 +65,25 @@ RSpec.describe MoviesController, type: :controller do
       # Error case to
       post :create, bad_params
       expect(subject).to render_template :new
+    end
+  end
+
+  describe "DELETE 'destroy'" do
+    let(:params) do
+      {
+        id: movie.id
+      }
+    end
+
+    it "deletes a movie" do
+      expect(Movie.all). to include(movie)
+      delete :destroy, params
+      expect(Movie.all).to_not include(movie)
+    end
+
+    it "renders the all movies view" do
+      get :index
+      expect(subject).to render_template :index
     end
   end
 end
