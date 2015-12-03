@@ -1,7 +1,6 @@
 require 'rails_helper'
 
-RSpec.shared_examples "controller" do |subject_class|
-  # :nocov:
+RSpec.shared_examples "a controller" do |subject_class|
   describe "#upvote" do
     before :each do
       request.env["HTTP_REFERER"] = "from_whence_we_came"
@@ -86,9 +85,10 @@ RSpec.shared_examples "controller" do |subject_class|
 
   describe "DELETE 'destroy'" do
     it "redirects to index page" do
+      expect(subject_class.all).to include(item)
       delete :destroy, params.merge({id: item.id, type: subject_class.to_s})
       expect(subject).to redirect_to polymorphic_path(subject_class)
+      expect(subject_class.all).to_not include(item)
     end
   end
-  # :nocov:
 end
