@@ -1,6 +1,6 @@
 class MediaController < ApplicationController
   before_action :set_type
-  before_action :creator, only: [:new, :edit]
+  before_action :creator, only: [:new, :edit, :create, :update]
 
   def index
     @items = type_class.order(votes: :desc)
@@ -30,6 +30,7 @@ class MediaController < ApplicationController
 
   def new
     @item = type_class.new
+    @what = "New"
 
     render "form"
   end
@@ -40,12 +41,14 @@ class MediaController < ApplicationController
     if @item.save
       redirect_to polymorphic_path(@item)
     else
+      @what = "New"
       render "form"
     end
   end
 
   def edit
     @item = type_class.find(params[:id])
+    @what = "Edit"
 
     render "form"
   end
@@ -57,6 +60,7 @@ class MediaController < ApplicationController
     if @item.save
       redirect_to polymorphic_path(@item)
     else
+      @what = "New"
       render "form"
     end
   end

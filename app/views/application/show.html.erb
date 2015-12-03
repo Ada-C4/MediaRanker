@@ -1,12 +1,10 @@
-<h1><%= @item.name %></h1>
-<%= "#{@special} by: #{@item.creator}" %>
-<br>
-Ranked: <%= @item.votes %>
-<br>
-<%= @item.description %>
-<br>
-<%= link_to "Upvote", polymorphic_path([:upvote, @item]), method: :patch %>
-<%= link_to "Edit #{@item.name}", edit_polymorphic_path(@item) %>
-<%= button_to "Delete", polymorphic_path(@item), method: :delete, onclick: "return confirm('Are you sure?')", title: "Delete", class: "btn btn-primary btn-block" %>
-<%= link_to "View All #{@type}", polymorphic_path(@type.downcase) %>
-<%= link_to "View All Media", root_path %>
+<div class="col-lg-12">
+  <h1><%= @item.name %> <small><%= "#{@special} by: #{@item.creator}" %></small></h1>
+  <h4>Ranked: <%= @item.votes %></h4>
+  <p><%= @item.description %></p>
+  <%= button_to "Upvote", polymorphic_path([:upvote, @item]), method: :patch, class: "btn btn-primary" %>
+  <%= link_to "Edit #{@item.name}", edit_polymorphic_path(@item), class: "btn btn-default" %>
+  <%= link_to "DELETE", polymorphic_path(@item), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+  <%= link_to "View All #{@type}", polymorphic_path(@type.downcase), class: "btn btn-default" %>
+  <%= link_to "View All Media", root_path, class: "btn btn-default" %>
+</div>
