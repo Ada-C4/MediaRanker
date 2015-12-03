@@ -24,13 +24,6 @@ RSpec.describe AlbumsController, type: :controller do
 
 
   #
-  # describe "DELETE 'destroy'" do
-  #   it "redirects to index page" do
-  #     delete :destroy, id: album.id
-  #     expect(subject).to redirect_to albums_path
-  #   end
-  # end
-  #
   # describe "PATCH 'upvote'" do
   #   it "increases ranked by 1" do
   #     patch :upvote, id: album.id

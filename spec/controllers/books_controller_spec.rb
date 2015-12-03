@@ -22,13 +22,7 @@ RSpec.describe BooksController, type: :controller do
   #   Book.create(name: "Test Book", description: "Book's description", author: "Book's author")
   # end
 
-  #
-  # describe "DELETE 'destroy'" do
-  #   it "redirects to index page" do
-  #     delete :destroy, id: book.id
-  #     expect(subject).to redirect_to books_path
-  #   end
-  # end
+
   #
   # describe "PATCH 'upvote'" do
   #   it "increases ranked by 1" do

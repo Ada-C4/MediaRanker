@@ -22,14 +22,7 @@ RSpec.describe MoviesController, type: :controller do
   #   Movie.create(name: "Test Movie", description: "Movie's description", director: "Movie's director")
   # end
 
-  #
-  # describe "DELETE 'destroy'" do
-  #   it "redirects to index page" do
-  #     delete :destroy, id: movie.id
-  #     expect(subject).to redirect_to movies_path
-  #   end
-  # end
-  #
+
   # describe "PATCH 'upvote'" do
   #   it "increases ranked by 1" do
   #     patch :upvote, id: movie.id

@@ -60,4 +60,12 @@ RSpec.shared_examples "a medium controller" do
     end
   end
 
+  describe "DELETE 'destroy'" do
+    it "redirects to index page" do
+      medium = model.create(name: "Test")
+      delete :destroy, id: medium.id
+      expect(subject).to redirect_to polymorphic_path(model.name.downcase.pluralize)
+    end
+  end
+
 end
