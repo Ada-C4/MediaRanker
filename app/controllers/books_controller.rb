@@ -3,13 +3,11 @@ class BooksController < ApplicationController
     @model = Book.all
     @path = new_book_path
     @add_button = "Add New Book"
-    render "albums/index"
   end
 
   def show
     @media = Book.find(params[:id])
     @path = upvote_book_path(@media)
-    render "albums/show"
   end
 
   def new
@@ -18,7 +16,6 @@ class BooksController < ApplicationController
     @method = :post
     @title = "New Book"
     @artist_type = "Author"
-    render "albums/new"
   end
 
   def create

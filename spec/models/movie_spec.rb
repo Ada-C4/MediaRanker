@@ -1,5 +1,10 @@
 require 'rails_helper'
+require 'simplecov'
 
 RSpec.describe Movie, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
-end
+  it_behaves_like "a medium" do
+    let :described_class do
+      Movie
+    end
+  end # Ends it_behaves_like
+end # End describe

@@ -1,7 +1,8 @@
 require 'rails_helper'
+require 'simplecov'
 
 RSpec.describe BooksController, type: :controller do
-  it_behaves_like "a medium" do
+  it_behaves_like "a controller" do
     let(:params) do
       {
         book: {

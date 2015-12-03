@@ -1,21 +1,19 @@
 <h1> Top Movies </h1>
-<ul><% @movies.each do |model| %>
-    <li><%= link_to model.title, model %> Ranking: <%= model.votes %></l1>
+<% @movies.each do |model| %>
+    <h2><%= link_to model.title, model %> <small>Ranked: <%= model.votes %></small></h2>
     <% end %>
-    <li><%= link_to "View More Movies", movies_path %> </li>
-</ul>
+    <%= link_to "View More Movies", movies_path %>
+
 
 <h1> Top Books </h1>
-<ul><% @books.each do |model| %>
-  <li><%= link_to model.title, model %> Ranking: <%= model.votes %></li>
+<% @books.each do |model| %>
+  <h2><%= link_to model.title, model %> <small>Ranked: <%= model.votes %></small></h2>
   <% end %>
-  <li><%= link_to "View More Books", books_path %> </li>
-</ul>
+  <%= link_to "View More Books", books_path %>
+
 
 <h1> Top Albums </h1>
-<ul><% @albums.each do |model| %>
-  <li><%= link_to model.title, model %> Ranking: <%= model.votes %></li>
+<% @albums.each do |model| %>
+  <h2><%= link_to model.title, model %> <small>Ranked: <%= model.votes %></small></h2>
   <% end %>
-  <li><%= link_to "View More Albums", albums_path %> </li>
-
-</ul>
+  <%= link_to "View More Albums", albums_path %>

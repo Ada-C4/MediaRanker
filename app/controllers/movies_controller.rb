@@ -3,13 +3,11 @@ class MoviesController < ApplicationController
     @model = Movie.all
     @path = new_movie_path
     @add_button = "Add New Movie"
-    render "albums/index"
   end
 
   def show
     @media = Movie.find(params[:id])
     @path = upvote_movie_path(@media)
-    render "albums/show"
   end
 
   def new
@@ -18,7 +16,6 @@ class MoviesController < ApplicationController
     @method = :post
     @title = "New Movie"
     @artist_type = "Directed By"
-    render "albums/new"
   end
 
   def create
