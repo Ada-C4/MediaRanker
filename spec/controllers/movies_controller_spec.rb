@@ -1,51 +1,54 @@
 require 'rails_helper'
 
 RSpec.describe MoviesController, type: :controller do
-  it_behaves_like "media"
+  # it_behaves_like "media" do
+  #   let(:good_params) do
+  #     {
+  #       movie: {
+  #         title: "Title",
+  #         director: "Director",
+  #         description: "Description"
+  #       }
+  #     }
+  #   end
+  #
+  #   let(:bad_params) do
+  #     {
+  #       movie: {
+  #       }
+  #     }
+  #   end
+  # end
 
-  describe "GET 'index'" do
-    it "is successful" do
-      get :index
-      expect(response.status).to eq 200
-    end
-  end
-
-  describe "GET 'new'" do
-    it "renders new view" do
-      get :new
-      expect(subject).to render_template :new
-    end
-  end
-
-  describe "POST 'create'" do
-    let(:good_params) do
-      {
-        movie: {
-          title: "Title",
-          director: "Director",
-          description: "Description"
-        }
-      }
-    end
-
-    let(:bad_params) do
-      {
-        movie: {
-        }
-      }
-    end
-
-    it "redirects to show view" do
-      post :create, good_params
-      new_movie = Movie.last
-      expect(subject).to redirect_to movie_path(id: new_movie.id)
-    end
-
-    it "renders new template on error" do
-      post :create, bad_params
-      expect(subject).to render_template :new
-    end
-  end
+  # describe "POST 'create'" do
+  #   let(:good_params) do
+  #     {
+  #       movie: {
+  #         title: "Title",
+  #         director: "Director",
+  #         description: "Description"
+  #       }
+  #     }
+  #   end
+  #
+  #   let(:bad_params) do
+  #     {
+  #       movie: {
+  #       }
+  #     }
+  #   end
+  #
+  #   it "redirects to show view" do
+  #     post :create, good_params
+  #     new_movie = Movie.last
+  #     expect(subject).to redirect_to movie_path(id: new_movie.id)
+  #   end
+  #
+  #   it "renders new template on error" do
+  #     post :create, bad_params
+  #     expect(subject).to render_template :new
+  #   end
+  # end
 
   describe "GET 'show'" do
     let(:movie) do

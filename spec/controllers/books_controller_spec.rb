@@ -1,44 +1,54 @@
 require 'rails_helper'
 
 RSpec.describe BooksController, type: :controller do
-  it_behaves_like "media"
+  # it_behaves_like "media" do
+  #   let(:good_params) do
+  #     {
+  #       book: {
+  #         title: "Title",
+  #         author: "Author",
+  #         description: "Description"
+  #       }
+  #     }
+  #   end
+  #
+  #   let(:bad_params) do
+  #     {
+  #       book: {
+  #       }
+  #     }
+  #   end
+  # end
 
-  describe "GET 'new'" do
-    it "renders new view" do
-      get :new
-      expect(subject).to render_template :new
-    end
-  end
-
-  describe "POST 'create'" do
-    let(:good_params) do
-      {
-        book: {
-          title: "Title",
-          author: "Author",
-          description: "Description"
-        }
-      }
-    end
-
-    let(:bad_params) do
-      {
-        book: {
-        }
-      }
-    end
-
-    it "redirects to show view" do
-      post :create, good_params
-      new_book = Book.last
-      expect(subject).to redirect_to book_path(id: new_book.id)
-    end
-
-    it "renders new template on error" do
-      post :create, bad_params
-      expect(subject).to render_template :new
-    end
-  end
+  # describe "POST 'create'" do
+  #   let(:good_params) do
+  #     {
+  #       book: {
+  #         title: "Title",
+  #         author: "Author",
+  #         description: "Description"
+  #       }
+  #     }
+  #   end
+  #
+  #   let(:bad_params) do
+  #     {
+  #       book: {
+  #       }
+  #     }
+  #   end
+  #
+  #   it "redirects to show view" do
+  #     post :create, good_params
+  #     new_book = Book.last
+  #     expect(subject).to redirect_to book_path(id: new_book.id)
+  #   end
+  #
+  #   it "renders new template on error" do
+  #     post :create, bad_params
+  #     expect(subject).to render_template :new
+  #   end
+  # end
 
   describe "GET 'show'" do
     let(:book) do
