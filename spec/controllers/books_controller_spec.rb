@@ -92,6 +92,15 @@ RSpec.describe BooksController, type: :controller do
       book.reload
       expect(book.attributes).to eq before_update
     end
+
+    it "redirects to the book's show page after a successful update" do
+      patch :update, params
+      # Success case to index page
+      expect(subject).to redirect_to book_path
+      # Error case to
+      patch :update, bad_params
+      expect(subject).to render_template :edit
+    end
   end
 
   describe "DELETE 'destroy'" do
