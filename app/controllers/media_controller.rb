@@ -4,6 +4,7 @@ class MediaController < ApplicationController
 
   def index
     @media = Medium.where("type = '#{params[:type]}'")
+    @medium = params[:type]
   end
 
   def show
