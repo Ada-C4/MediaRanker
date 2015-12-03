@@ -26,8 +26,12 @@ class MoviesController < ApplicationController
  end
 
  def update
-   Movie.update(params[:id], movie_params)
-   redirect_to movie_path(params[:id])
+   @movie = Movie.update(params[:id], movie_params)
+   if @movie.save
+     redirect_to movie_path(@movie.id)
+   else
+     render :edit
+   end
  end
 
  def destroy
