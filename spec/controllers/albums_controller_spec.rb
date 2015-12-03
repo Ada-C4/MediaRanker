@@ -31,12 +31,16 @@ RSpec.describe AlbumsController, type: :controller do
     end
   end
 
-  # describe "GET 'edit'" do
-  #   it "is successful" do
-  #     get :edit
-  #     expect(response.status).to eq 200
-  #   end
-  # end
+  describe "GET 'edit'" do
+    let(:album) do
+      Album.create(name: "Album Name", artist:"Album artist")
+    end
+
+    it "is successful" do
+      get :edit, id: album.id
+      expect(response.status).to eq 200
+    end
+  end
 
   describe "POST 'create'" do
     let(:good_params) do
