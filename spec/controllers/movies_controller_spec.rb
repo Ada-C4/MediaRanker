@@ -13,18 +13,12 @@ RSpec.describe MoviesController, type: :controller do
     end
 
     let(:media) { Movie.create(create_params[:movie])}
-    let(:media_id) { media.id }
 
     let(:bad_params) do
       {
         movie: {}
       }
     end
-
-    let(:all_path) { movies_path }
-    let(:show_path_1) { movie_path(1) }
-    let(:show_path_id) { movie_path(media_id) }
-    let(:type) { "movie" }
 
     let(:update_params) do {
         name: "This is a Movie!",
@@ -36,5 +30,8 @@ RSpec.describe MoviesController, type: :controller do
       name: nil
     }
     end
+
+    let(:show_path_1) { movie_path(1) }
+
   end
 end

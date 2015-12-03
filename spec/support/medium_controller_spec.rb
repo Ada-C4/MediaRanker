@@ -1,3 +1,5 @@
+include Rails.application.routes.url_helpers
+
 RSpec.shared_examples "a medium controller" do
   describe "GET 'index'" do
     it "is successful" do
@@ -43,25 +45,25 @@ RSpec.shared_examples "a medium controller" do
   describe "PATCH 'update'" do
 
     it "should be successful" do
-      case type
-        when "book"
-          patch :update, { id: media_id, book: update_params }
-        when "movie"
-          patch :update, { id: media_id, movie: update_params }
-        when "album"
-          patch :update, { id: media_id, album: update_params }
+      case media.class.to_s
+        when "Book"
+          patch :update, { id: media.id, book: update_params }
+        when "Movie"
+          patch :update, { id: media.id, movie: update_params }
+        when "Album"
+          patch :update, { id: media.id, album: update_params }
       end
-      expect(subject).to redirect_to show_path_id
+      expect(subject).to redirect_to polymorphic_path(media)
     end
 
     it "renders the new template on error" do
-      case type
-        when "book"
-          patch :update, { id: media_id, book: bad_update_params }
-        when "movie"
-          patch :update, { id: media_id, movie: bad_update_params }
-        when "album"
-          patch :update, { id: media_id, album: bad_update_params }
+      case media.class.to_s
+        when "Book"
+          patch :update, { id: media.id, book: bad_update_params }
+        when "Movie"
+          patch :update, { id: media.id, movie: bad_update_params }
+        when "Album"
+          patch :update, { id: media.id, album: bad_update_params }
       end
       expect(subject).to render_template :new
     end
@@ -70,14 +72,14 @@ RSpec.shared_examples "a medium controller" do
   describe "PATCH 'upvote'" do
     it "should be successful" do
       patch :upvote, { id: media.id }
-      expect(subject).to redirect_to show_path_id
+      expect(subject).to redirect_to polymorphic_path(media)
     end
   end
 
   describe "DELETE 'destroy'" do
     it "should be successful" do
       delete :destroy, { id: media.id }
-      expect(subject).to redirect_to all_path
+      expect(subject).to redirect_to polymorphic_path(media.class)
     end
   end
 end
