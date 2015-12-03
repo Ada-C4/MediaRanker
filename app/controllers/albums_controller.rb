@@ -26,8 +26,12 @@ class AlbumsController < ApplicationController
   end
 
   def update
-    Album.update(params[:id], album_params)
-    redirect_to album_path(params[:id])
+    @album = Album.update(params[:id], album_params)
+    if @album.save
+      redirect_to album_path(@album.id)
+    else
+      render :edit
+    end
   end
 
   def destroy
