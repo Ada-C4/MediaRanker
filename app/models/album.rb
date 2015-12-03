@@ -1,5 +1,4 @@
 class Album < ActiveRecord::Base
-  def self.upvote
-    #self.increment!(:votes)
-  end
+  validates :title, presence: true    
+
 end

@@ -7,6 +7,9 @@ class MoviesController < ApplicationController
   end
 
   def show
+    @media = Movie.find(params[:id])
+    @path = upvote_movie_path(@media)
+    render "albums/show"
   end
 
   def new
@@ -21,6 +24,12 @@ class MoviesController < ApplicationController
   def create
     Movie.create(movie_params)
     redirect_to movies_path
+  end
+
+  def upvote
+    @media = Movie.find(params[:id])
+    @media.increment!(:votes)
+    redirect_to movie_path(@media)
   end
 
 private

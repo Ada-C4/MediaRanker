@@ -7,6 +7,9 @@ class BooksController < ApplicationController
   end
 
   def show
+    @media = Book.find(params[:id])
+    @path = upvote_book_path(@media)
+    render "albums/show"
   end
 
   def new
@@ -32,6 +35,11 @@ class BooksController < ApplicationController
   def destroy
   end
 
+  def upvote
+    @media = Book.find(params[:id])
+    @media.increment!(:votes)
+    redirect_to book_path(@media)
+  end
 
 private
   def book_params

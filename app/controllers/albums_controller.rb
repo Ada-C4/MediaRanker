@@ -7,6 +7,7 @@ class AlbumsController < ApplicationController
 
   def show
     @media = Album.find(params[:id])
+    @path = upvote_album_path(@media)
   end
 
   def new

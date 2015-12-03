@@ -7,11 +7,13 @@
   </tr>
 </thead>
   <tbody>
+
     <% @model.each do |model| %>
       <tr>
-        <td> <%= "placeholder ranking method" %></td>
+        <td> <%= model.votes %></td>
         <td> <%= link_to model.title, model %></td>
-        <td> <%="placeholder for upvote button" %></td>
+        <td> <%= button_to 'Upvote', polymorphic_path([:upvote, model]), method: :post, class:"btn btn-default", role:"button"%>
+</td>
       </tr>
     <% end %>
   </tbody>

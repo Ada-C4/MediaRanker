@@ -1,6 +1,5 @@
 <h1> <%= @media.title %> </h1>
 <h4> <%= @media.artist %></h4>
-<h4> Ranked: NEED TO ADD RANKING METHOD</h4>
+<h4> Ranked: <%= @media.votes %> </h4>
 <h4> <%= @media.description %></h4>
-<h4><%= button_to 'Upvote', upvote_album_path(@media), method: :post, class:"btn btn-default", role:"button"%></h4>
-<h4> Votes: <%= @media.votes %>
+<h4><%= button_to 'Upvote', @path, method: :post, class:"btn btn-default", role:"button"%></h4>
