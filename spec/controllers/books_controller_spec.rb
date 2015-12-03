@@ -40,7 +40,7 @@ RSpec.describe BooksController, type: :controller do
     let(:good_params) do
       {
         book: {
-          name: "Some Album Name",
+          name: "name",
           description: "description"
         }
       }
@@ -68,7 +68,65 @@ RSpec.describe BooksController, type: :controller do
     end
   end
 
+  describe "PATCH 'update'" do
+    let(:book) do
+      Book.create(name: "Book", author:"Author", description:"Description")
+    end
 
+    let(:good_params) do
+      {
+          book:{
+            name: "book1",
+            author: "auth1",
+            description:"desc1"
+          },
+          id: book.id
+      }
+    end
 
+    let(:bad_params) do
+      {
+          book:{
+            name: nil,
+            author: "auth2",
+            description:"desc2"
+          },
+          id: book.id
+      }
+    end
+
+    it "redirects to show page" do
+      patch :update, good_params
+      expect(subject).to redirect_to book_path(book.id)
+    end
+
+    it "renders edit template on error" do
+      patch :update, bad_params
+      expect(subject).to render_template :edit
+    end
+  end
+
+  describe "DELETE 'destroy'" do
+    let(:book) do
+      Book.create(name: "name")
+    end
+
+    it "redirects to index page" do
+      delete :destroy, id: book.id
+      expect(subject).to redirect_to(books_path)
+    end
+  end
+
+  describe "POST 'upvote'" do
+    let(:book) do
+      Book.create(name: "Some Title", upvotes: 0)
+    end
+
+    it "incremements book upvotes by 1" do
+      post :upvote, id: book.id
+      book.reload
+      expect(book.upvotes).to eq 1
+    end
+  end
 
 end
