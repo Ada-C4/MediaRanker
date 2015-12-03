@@ -21,4 +21,17 @@ RSpec.shared_examples "a medium controller" do
     end
   end
 
+  describe "POST 'create'" do
+
+    it "redirects to show page" do
+      post :create, good_params
+      expect(subject).to redirect_to polymorphic_path(model.all.last)
+    end
+
+    it "renders new template on error" do
+      post :create, bad_params
+      expect(subject).to render_template :new
+    end
+  end
+
 end

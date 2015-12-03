@@ -3,37 +3,26 @@ require 'rails_helper'
 RSpec.describe BooksController, type: :controller do
   it_behaves_like "a medium controller" do
     let(:model) { Book }
+    let (:good_params) do
+      {
+        book: { name: "Test Book", description: "Book's description", author: "Book's author"
+        }
+      }
+    end
+
+    let (:bad_params) do
+      {
+        book: { description: "Book's description", author: "Book's author"
+        }
+      }
+    end
   end
 
   # let (:book) do
   #   Book.create(name: "Test Book", description: "Book's description", author: "Book's author")
   # end
 
-  # describe "POST 'create'" do
-  #   let (:good_params) do
-  #     {
-  #       book: { name: "Test Book", description: "Book's description", author: "Book's author"
-  #       }
-  #     }
-  #   end
-  #
-  #   let (:bad_params) do
-  #     {
-  #       book: { description: "Book's description", author: "Book's author"
-  #       }
-  #     }
-  #   end
-  #
-  #   it "redirects to show page" do
-  #     post :create, good_params
-  #     expect(subject).to redirect_to book_path(assigns(:book).id)
-  #   end
-  #
-  #   it "renders new template on error" do
-  #     post :create, bad_params
-  #     expect(subject).to render_template :new
-  #   end
-  # end
+
   #
   # describe "GET 'edit'" do
   #   it "renders edit view" do

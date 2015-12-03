@@ -3,44 +3,26 @@ require 'rails_helper'
 RSpec.describe MoviesController, type: :controller do
   it_behaves_like "a medium controller" do
     let(:model) { Movie }
+    let (:good_params) do
+      {
+        movie: { name: "Test Movie", description: "Movie's description", director: "Movie's director"
+        }
+      }
+    end
+
+    let (:bad_params) do
+      {
+        movie: { description: "Movie's description", director: "Movie's director"
+        }
+      }
+    end
   end
 
   # let (:movie) do
   #   Movie.create(name: "Test Movie", description: "Movie's description", director: "Movie's director")
   # end
 
-  # describe "GET 'new'" do
-  #   it "renders new view" do
-  #     get :new
-  #     expect(subject).to render_template :new
-  #   end
-  # end
-  #
-  # describe "POST 'create'" do
-  #   let (:good_params) do
-  #     {
-  #       movie: { name: "Test Movie", description: "Movie's description", director: "Movie's director"
-  #       }
-  #     }
-  #   end
-  #
-  #   let (:bad_params) do
-  #     {
-  #       movie: { description: "Movie's description", director: "Movie's director"
-  #       }
-  #     }
-  #   end
-  #
-  #   it "redirects to show page" do
-  #     post :create, good_params
-  #     expect(subject).to redirect_to movie_path(assigns(:movie).id)
-  #   end
-  #
-  #   it "renders new template on error" do
-  #     post :create, bad_params
-  #     expect(subject).to render_template :new
-  #   end
-  # end
+
   #
   # describe "GET 'edit'" do
   #   it "renders edit view" do
