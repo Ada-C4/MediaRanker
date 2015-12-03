@@ -1,15 +1,12 @@
-<%= form_for @movie do |f| %>
-  <%= f.label :name %>
-  <br>
-  <%= f.text_field :name %>
-  <br>
-  <%= f.label :director %>
-  <br>
-  <%= f.text_field :director %>
-  <br>
-  <%= f.label :description %>
-  <br>
-  <%= f.text_area :description %>
-  <br>
-  <%= f.submit "Save" %>
-<% end %>
+<div class="form-group">
+  <%= form_for @movie do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control" %>
+    <%= f.label :director %>
+    <%= f.text_field :director, class: "form-control" %>
+    <%= f.label :description %>
+    <%= f.text_area :description, class: "form-control" %>
+    <br>
+    <%= f.submit "Save", class: "btn btn-default" %>
+  <% end %>
+</div>
