@@ -109,7 +109,7 @@ RSpec.describe MoviesController, type: :controller do
 
     it "redirects to movie show page on error" do
       patch :update, bad_movie
-      expect(subject).to redirect_to movie_path(movie.id)
+      expect(subject).to render_template :edit
     end
   end
 
