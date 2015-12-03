@@ -1,15 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe MoviesController, type: :controller do
+  it_behaves_like "a medium controller"
+
   let (:movie) do
     Movie.create(name: "Test Movie", description: "Movie's description", director: "Movie's director")
-  end
-
-  describe "GET 'index'" do
-    it "is successful" do
-      get :index
-      expect(response.status).to eq 200
-    end
   end
 
   describe "GET 'show'" do

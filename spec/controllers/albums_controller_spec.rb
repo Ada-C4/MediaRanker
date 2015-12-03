@@ -1,15 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe AlbumsController, type: :controller do
+  it_behaves_like "a medium controller"
+
   let (:album) do
     Album.create(name: "Test Album", description: "Album's description", artist: "Album's artist")
-  end
-
-  describe "GET 'index'" do
-    it "is successful" do
-      get :index
-      expect(response.status).to eq 200
-    end
   end
 
   describe "GET 'show'" do

@@ -1,15 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe BooksController, type: :controller do
+  it_behaves_like "a medium controller"
+
   let (:book) do
     Book.create(name: "Test Book", description: "Book's description", author: "Book's author")
-  end
-
-  describe "GET 'index'" do
-    it "is successful" do
-      get :index
-      expect(response.status).to eq 200
-    end
   end
 
   describe "GET 'show'" do
