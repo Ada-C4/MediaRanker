@@ -1,10 +1,9 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/claireschechter/Ada/project-forks/MediaRanker/app/controllers/albums_controller.rb": [
+      "/Users/claireschechter/Ada/project-forks/MediaRanker/app/controllers/movies_controller.rb": [
         1,
         7,
-        null,
         1,
         1,
         null,
@@ -63,12 +62,12 @@
         null,
         null
       ],
-      "/Users/claireschechter/Ada/project-forks/MediaRanker/app/models/album.rb": [
+      "/Users/claireschechter/Ada/project-forks/MediaRanker/app/models/movie.rb": [
         1,
         1,
         null
       ]
     },
-    "timestamp": 1449180879
+    "timestamp": 1449183263
   }
 }

@@ -91,7 +91,7 @@ RSpec.describe BooksController, type: :controller do
         patch :update, bad_params
         expect(subject).to render_template :edit
       end
-    end
+  end
 
   describe "PATCH 'upvote'" do
 
