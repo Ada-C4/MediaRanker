@@ -18,6 +18,6 @@
     </tbody>
   </table>
 
-  <%= link_to "View All Media", "/", class: "btn btn-default" %>
+  <%= link_to "View All Media", root_path, class: "btn btn-default" %>
   <%= link_to "Add a #{media_type.capitalize}", new_polymorphic_path(media_type), class: "btn btn-default" %>
 </div>
