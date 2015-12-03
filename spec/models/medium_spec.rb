@@ -9,10 +9,12 @@ RSpec.describe Medium, type: :model do
 
     it "must have a name" do
       expect(no_name).to_not be_valid
+      expect(no_name.errors.keys).to include(:name)
     end
 
     it "must have a type" do
       expect(no_type).to_not be_valid
+      expect(no_type.errors.keys).to include(:type)
     end
   end
 end

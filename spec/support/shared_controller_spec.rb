@@ -20,7 +20,7 @@ RSpec.shared_examples "a controller" do |subject_class|
     it "is successful" do
       expect(response.status).to eq 200
     end
-    it "renders :form" do
+    it "renders :index" do
       expect(subject).to render_template :index
     end
   end
@@ -32,7 +32,7 @@ RSpec.shared_examples "a controller" do |subject_class|
     it "is successful" do
       expect(response.status).to eq 200
     end
-    it "renders :form" do
+    it "renders :show" do
       expect(subject).to render_template :show
     end
   end

@@ -8,8 +8,9 @@ require 'rspec/rails'
 require 'pry'
 require 'simplecov'
 
-SimpleCov.start do
+SimpleCov.start('rails') do
   add_filter "/support/"
+  add_filter "/helpers/"
   add_group "Models", "app/models"
   add_group "Controllers", "app/controllers"
 end
