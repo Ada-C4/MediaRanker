@@ -1,11 +1,8 @@
-<h1><%= @movie.name %></h1> <h2>Directed by: <%= @movie.director%></h2>
-<br>
-<h3>Ranked: <%= @movie.ranked %></h3>
-<br>
+<h1><%= @movie.name %> <small>Directed by: <%= @movie.director%></small></h1>
+<h4>Ranked: <%= @movie.ranked %></h4>
 <p>
   <%= @movie.description %>
 </p>
-<br>
 <%= button_to "Upvote", movie_upvote_path(@movie), method: :patch, class: "btn btn-primary" %>
 <%= link_to "Edit #{@movie.name}", edit_movie_path(@movie), method: :get, class: "btn btn-default" %>
 <%= link_to "DELETE", "/movies/#{@movie.id}", method: "delete",  data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
