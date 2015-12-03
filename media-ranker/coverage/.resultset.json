@@ -48,9 +48,11 @@
       ],
       "/Users/lr.granger21/Documents/ADA/ProgjectMasters/MediaRanker/media-ranker/app/controllers/application_controller.rb": [
         1,
-        null,
+        1,
         null,
         1,
+        null,
+        null,
         null
       ],
       "/Users/lr.granger21/Documents/ADA/ProgjectMasters/MediaRanker/media-ranker/app/controllers/books_controller.rb": [
@@ -133,6 +135,6 @@
         null
       ]
     },
-    "timestamp": 1449173302
+    "timestamp": 1449177774
   }
 }
