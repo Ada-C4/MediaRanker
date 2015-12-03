@@ -42,14 +42,14 @@ RSpec.describe MoviesController, type: :controller do
  end
 
   describe "PUT 'update'" do
-   it "is successful" do
+   it "successfuly redirects" do
      put :update, id: @movie.id
      expect(response.status).to eq 302
    end
  end
 
   describe "DELETE 'destroy'" do
-   it "is successful" do
+   it "successfuly redirects" do
      delete :destroy, id: @movie.id
      expect(response.status).to eq 302
    end

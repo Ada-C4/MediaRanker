@@ -42,14 +42,14 @@ RSpec.describe BooksController, type: :controller do
  end
 
   describe "PUT 'update'" do
-   it "is successful" do
+   it "successfuly redirects" do
      put :update, id: @book.id
      expect(response.status).to eq 302
    end
  end
 
   describe "DELETE 'destroy'" do
-   it "is successful" do
+   it "successfuly redirects" do
      delete :destroy, id: @book.id
      expect(response.status).to eq 302
    end
