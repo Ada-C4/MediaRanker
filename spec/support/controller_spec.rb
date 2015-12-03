@@ -26,4 +26,16 @@ RSpec.shared_examples "a controller" do
       expect(subject).to render_template :new
     end
   end
+
+  describe "GET 'show'" do
+    before :each do
+      get :show
+    end
+    it "is successful" do
+      expect(response.status).to eq 200
+    end
+    it "renders :show" do
+      expect(subject).to render_template :show
+    end
+  end
 end

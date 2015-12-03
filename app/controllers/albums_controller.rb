@@ -3,12 +3,13 @@ class AlbumsController < ApplicationController
     @model = Album.all
     @path = new_album_path
     @add_button = "Add New Album"
-  
+
   end
 
   def show
     @media = Album.find(params[:id])
     @path = upvote_album_path(@media)
+    @edit_path = edit_album_path(@media)
   end
 
   def new
@@ -25,9 +26,16 @@ class AlbumsController < ApplicationController
   end
 
   def edit
+    id = params[:id]
+    @action = "update"
+    @method = :patch
+    @model = Album.find(id)
+    render "new"
   end
 
   def update
+    Album.update(params[:id], album_params)
+    redirect_to album_path(params[:id])
   end
 
   def destroy
