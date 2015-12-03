@@ -9,7 +9,7 @@
       <tr>
         <td>Ranked: <%= media.upvotes %></td>
         <td><%= link_to media.name, polymorphic_path(media) %></td>
-        <td><%= button_to "Upvote",  send(upvote, media.id), method: :post, class: "btn btn-default" %></td>
+        <td><%= button_to "Upvote",  send(upvote, media.id), class: "btn btn-default" %></td>
       </tr>
     <% end %>
   </tbody>
