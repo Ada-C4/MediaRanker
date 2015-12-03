@@ -1,9 +1,12 @@
-<%= form_for @movie do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :director %>
-  <%= f.text_field :director %>
-  <%= f.label :description %>
-  <%= f.text_field :description %>
-  <%= f.submit value: "Save", class: "new_button"%>
+<%= form_for @movie, :html => { :class => "form" } do |f| %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control" %>
+    <%= f.label :director %>
+    <%= f.text_field :director, class: "form-control" %>
+    <%= f.label :description %>
+    <%= f.text_field :description, class: "form-control" %>
+    <br />
+    <%= f.submit value: "Save", class: "btn btn-default"%>
+  </div>
 <% end %>
