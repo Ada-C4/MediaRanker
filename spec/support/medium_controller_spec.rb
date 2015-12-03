@@ -34,4 +34,12 @@ RSpec.shared_examples "a medium controller" do
     end
   end
 
+  describe "GET 'edit'" do
+    it "renders edit view" do
+      medium = model.create(name: "Test")
+      get :edit, id: medium.id
+      expect(subject).to render_template :edit
+    end
+  end
+
 end

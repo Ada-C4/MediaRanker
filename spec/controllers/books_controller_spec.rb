@@ -23,14 +23,7 @@ RSpec.describe BooksController, type: :controller do
   # end
 
 
-  #
-  # describe "GET 'edit'" do
-  #   it "renders edit view" do
-  #     get :edit, id: book.id
-  #     expect(subject).to render_template :edit
-  #   end
-  # end
-  #
+
   # describe "PATCH 'update'" do
   #   let (:good_params) do
   #     {
