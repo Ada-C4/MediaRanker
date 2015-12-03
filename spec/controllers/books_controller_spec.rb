@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe BooksController, type: :controller do
+  # it_behaves_like "a medium controller"
+
   describe "GET 'index'" do
       it "is successful" do
         get :index
