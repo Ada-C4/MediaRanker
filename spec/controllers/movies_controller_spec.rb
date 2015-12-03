@@ -58,6 +58,18 @@ RSpec.describe MoviesController, type: :controller do
       }
     end
 
+    it "creates a movie" do
+      last_movie = Movie.last
+      post :create, params
+      expect(Movie.last).to_not eq last_movie
+    end
+
+    it "does not create a movie when bad params are used" do
+      last_movie = Movie.last
+      post :create, bad_params
+      expect(Movie.all.last).to eq last_movie
+    end
+
     it "redirects to movies index page" do
       post :create, params
       # Success case to index page
@@ -65,6 +77,40 @@ RSpec.describe MoviesController, type: :controller do
       # Error case to
       post :create, bad_params
       expect(subject).to render_template :new
+    end
+  end
+
+  describe "PATCH 'update'" do
+    let(:params) do
+      {
+        movie:{
+          name: "Something something something"
+        },
+        id: movie.id
+      }
+    end
+
+    let(:bad_params) do
+      {
+        movie:{
+          name: nil
+        },
+        id: movie.id
+      }
+    end
+
+    it "updates the movie with good params" do
+      before_update = movie.attributes
+      patch :update, params
+      movie.reload
+      expect(movie.attributes).to_not eq before_update
+    end
+
+    it "does not update the movie with bad params" do
+      before_update = movie.attributes
+      patch :update, bad_params
+      movie.reload
+      expect(movie.attributes).to eq before_update
     end
   end
 
