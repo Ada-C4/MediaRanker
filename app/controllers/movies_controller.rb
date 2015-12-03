@@ -8,6 +8,7 @@ class MoviesController < ApplicationController
   def show
     @media = Movie.find(params[:id])
     @path = upvote_movie_path(@media)
+    @edit_path = edit_movie_path(@media)
   end
 
   def new
@@ -21,6 +22,22 @@ class MoviesController < ApplicationController
   def create
     Movie.create(movie_params)
     redirect_to movies_path
+  end
+
+  def edit
+    id = params[:id]
+    @action = "update"
+    @method = :patch
+    @model = Movie.find(id)
+    render "new"
+  end
+
+  def update
+    Movie.update(params[:id], movie_params)
+    redirect_to movie_path(params[:id])
+  end
+
+  def destroy
   end
 
   def upvote

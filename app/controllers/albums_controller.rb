@@ -3,7 +3,6 @@ class AlbumsController < ApplicationController
     @model = Album.all
     @path = new_album_path
     @add_button = "Add New Album"
-
   end
 
   def show

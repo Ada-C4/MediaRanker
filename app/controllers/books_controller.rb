@@ -8,6 +8,7 @@ class BooksController < ApplicationController
   def show
     @media = Book.find(params[:id])
     @path = upvote_book_path(@media)
+    @edit_path = edit_book_path(@media)
   end
 
   def new
@@ -24,10 +25,18 @@ class BooksController < ApplicationController
   end
 
   def edit
+    id = params[:id]
+    @action = "update"
+    @method = :patch
+    @model = Book.find(id)
+    render "new"
   end
 
   def update
+    Book.update(params[:id], book_params)
+    redirect_to book_path(params[:id])
   end
+
 
   def destroy
   end
