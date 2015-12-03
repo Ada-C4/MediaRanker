@@ -1,12 +1,18 @@
-<div>
+<div class="col-lg-12">
   <h1>
     <%= media.name %> <small><%= created_by %> <%= maker %></small>
   </h1>
   <h4>Ranked: <%= media.rank %></h4>
+
   <%= media.description %>
-  <%= button_to "Upvote", polymorphic_path([:upvote, media]), method: :patch, class: "btn btn-info" %>
+
+  <%= button_to "Upvote", polymorphic_path([:upvote, media]), method: :patch, class: "btn btn-primary" %>
+
   <%= link_to "Edit #{media.name}", edit_polymorphic_path(media), class:"btn btn-default" %>
-  <%= button_to "Delete", polymorphic_path(media), method: :delete, data: { confirm: "Are you sure you want to delete this #{media.class}?"}, class:"btn btn-danger" %>
+
+  <%= link_to "DELETE", polymorphic_path(media), method: :delete, data: { confirm: "Are you sure you want to delete this #{media.class}?"}, class:"btn btn-danger" %>
+
   <%= link_to "View All #{plur_name.capitalize}", polymorphic_path(plur_name), class: "btn btn-default" %>
-  <%= button_to "View All Media", root_path, method: :get, class: "btn btn-default" %>
+
+  <%= link_to "View All Media", root_path, method: :get, class: "btn btn-default" %>
 </div>
