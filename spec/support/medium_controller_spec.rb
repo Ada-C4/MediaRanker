@@ -25,14 +25,6 @@ RSpec.shared_examples "a medium controller" do
   end
 
   describe "POST 'create'" do
-    # let(:good_params) do
-    # {
-    #   medium: {
-    #     name: "Something something something"
-    #   }
-    # }
-    # end
-
     let (:bad_params) do
       {
         medium: {}
@@ -62,22 +54,29 @@ RSpec.shared_examples "a medium controller" do
     end
   end
 
-  # describe "PATCH 'update'" do
-  #   it "redirects to show page" do
-  #     # book = Book.create(name: "Something", author: "Someone", description: "Something something something")
-  #     # params =   {
-  #     #   book: {
-  #     #     name: "Something",
-  #     #     author: "Someone",
-  #     #     description: "Something something something"
-  #     #   },
-  #     #   id: book.id
-  #     # }
-  #
-  #     patch :update, params
-  #     binding.pry
-  #     expect(subject).to redirect_to book_path(medium.id)
-  #   end
-  # end
+  describe "PATCH 'update'" do
+    it "redirects to show page" do
+      patch :update, update_params
+      expect(subject).to redirect_to book_path(medium.id) #FIX PATH!!
+    end
+  end
+
+  describe "DELETE 'destroy'" do
+    it "redirects to index page" do
+      delete :destroy, id: medium.id
+      expect(subject).to redirect_to books_path #FIX PATH!!!
+    end
+  end
+
+  describe "POST 'upvote'" do
+    it "redirects to show page" do
+      post :upvote, id: medium.id
+      expect(subject).to redirect_to book_path(medium.id) #FIX PATH!
+    end
+    it "redirects to show page" do
+      post :upvote, id: medium2.id
+      expect(subject).to redirect_to book_path(medium2.id) #FIX PATH
+    end
+  end
 
 end

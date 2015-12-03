@@ -6,6 +6,9 @@ RSpec.describe BooksController, type: :controller do
     let(:medium) do
       Book.create(name: "Something", author: "Someone", description: "Something something something")
     end
+    let(:medium2) do
+      Book.create(name: "Something", author: "Someone", description: "Something something something", ranking: 3)
+    end
     let(:model) do
       "Book".constantize
     end
@@ -16,9 +19,9 @@ RSpec.describe BooksController, type: :controller do
       }
     }
     end
-    let(:params) do
+    let(:update_params) do
     {
-      medium: {
+      book: {
         name: "Something",
         author: "Someone",
         description: "Something something something"
@@ -111,27 +114,27 @@ RSpec.describe BooksController, type: :controller do
     end
   end
 
-  describe "DELETE 'destroy'" do
-    let(:book) do
-      Book.create(name: "Test")
-    end
-
-    it "redirects to index page" do
-      delete :destroy, id: book.id
-      expect(subject).to redirect_to books_path
-    end
-  end
-
-  describe "POST 'upvote'" do
-    it "redirects to show page" do
-      book = Book.create(name: "Something", author: "Someone", description: "Something something something")
-      post :upvote, id: book.id
-      expect(subject).to redirect_to book_path(book.id)
-    end
-    it "redirects to show page" do
-      book = Book.create(name: "Something", author: "Someone", description: "Something something something", ranking: 3)
-      post :upvote, id: book.id
-      expect(subject).to redirect_to book_path(book.id)
-    end
-  end
+  # describe "DELETE 'destroy'" do
+  #   let(:book) do
+  #     Book.create(name: "Test")
+  #   end
+  #
+  #   it "redirects to index page" do
+  #     delete :destroy, id: book.id
+  #     expect(subject).to redirect_to books_path
+  #   end
+  # end
+  #
+  # describe "POST 'upvote'" do
+  #   it "redirects to show page" do
+  #     book = Book.create(name: "Something", author: "Someone", description: "Something something something")
+  #     post :upvote, id: book.id
+  #     expect(subject).to redirect_to book_path(book.id)
+  #   end
+  #   it "redirects to show page" do
+  #     book = Book.create(name: "Something", author: "Someone", description: "Something something something", ranking: 3)
+  #     post :upvote, id: book.id
+  #     expect(subject).to redirect_to book_path(book.id)
+  #   end
+  # end
 end
