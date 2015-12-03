@@ -31,6 +31,12 @@ class AlbumsController < ApplicationController
   def destroy
   end
 
+  def upvote
+    @media = Album.find(params[:id])
+    @media.increment!(:votes)
+    redirect_to album_path(@media)
+  end
+
 private
   def album_params
     #this makes strong params
