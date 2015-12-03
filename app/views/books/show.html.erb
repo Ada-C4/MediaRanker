@@ -1,11 +1,10 @@
-<h1><%= @book.name %></h1>
-<small>Written by: <%= @book.author %></small>
-<h4>Upvotes: <%= @book.upvotes %></h4>
-<p><%= @book.description %></p>
-
-<%= button_to "Upvote", upvote_book_path %>
-<br>
-<%= link_to "Edit #{@book.name}", edit_book_path(@book.id) %>
-<%=link_to "DELETE", book_path(@book.id), method: :delete, data: {confirm: "Are you sure?"} %>
-<%= link_to "View All Books", books_path %>
-<%= link_to "View All Media", root_path %>
+<%= render partial: "shared/show", locals: {
+   media: @book,
+   type: "Books",
+   creator: @book.author,
+   creator_action: "Written",
+   upvote: "upvote_book_path",
+   edit_media: "edit_book_path",
+   media_path: "book_path",
+   medias_path: "books_path"
+   } %>
