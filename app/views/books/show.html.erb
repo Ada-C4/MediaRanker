@@ -1,11 +1,10 @@
-<h1><%= @book.name %></h1> <h2>Written by: <%= @book.author%></h2>
-<br>
-<h3>Ranked: <%= @book.ranked %></h3>
-<br>
+<h1><%= @book.name %> <small>Written by: <%= @book.author%></small></h1>
+<h4>Ranked: <%= @book.ranked %></h4>
 <p>
   <%= @book.description %>
 </p>
-<br>
-<%= button_to "Upvote", book_upvote_path(@book), method: :patch %>
-<br>
-<%= button_to "Edit #{@book.name}", edit_book_path(@book), method: :get %> <%= button_to "DELETE", "/books/#{@book.id}", method: "delete",  data: { confirm: "Are you sure?" } %> <%= button_to "View All Books", books_path, method: :get %> <%= button_to "View All Media", root_path, method: :get %>
+<%= button_to "Upvote", book_upvote_path(@book), method: :patch, class: "btn btn-primary" %>
+<%= link_to "Edit #{@book.name}", edit_book_path(@book), method: :get, class: "btn btn-default" %>
+<%= link_to "DELETE", "/books/#{@book.id}", method: "delete",  data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+<%= link_to "View All Books", books_path, method: :get, class: "btn btn-default" %>
+<%= link_to "View All Media", root_path, method: :get, class: "btn btn-default" %>

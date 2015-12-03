@@ -1,4 +1,4 @@
-<table>
+<table class="table table-hover">
   <tr>
     <th>
       Ranking
@@ -19,9 +19,10 @@
         <%= link_to book.name, book_path(book) %>
       </td>
       <td>
-        <%= button_to "Upvote", book_upvote_path(book), method: :patch %>
+        <%= button_to "Upvote", book_upvote_path(book), method: :patch, class: "btn btn-default" %>
       </td>
     </tr>
   <% end %>
 </table>
-<%= button_to "View All Media", root_path, method: :get %> <%= button_to "Add a Book", new_book_path, method: :get %>
+<%= link_to "View All Media", root_path, method: :get, class: "btn btn-default" %>
+<%= link_to "Add a Book", new_book_path, method: :get, class: "btn btn-default" %>
