@@ -101,15 +101,6 @@ RSpec.describe AlbumsController, type: :controller do
     end
 
     it "redirects to show page" do
-      # album = Album.create(name: "Album", artist:"Artist", description:"Description")
-      # params = {
-      #   album:{
-      #     name: "something else",
-      #     artist: "someone",
-      #     description:"blablabla"
-      #   },
-      #   id: album.id
-      # }
       patch :update, good_params
       expect(subject).to redirect_to album_path(album.id)
     end
