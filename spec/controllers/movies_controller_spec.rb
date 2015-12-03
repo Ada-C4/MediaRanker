@@ -58,7 +58,7 @@ RSpec.describe MoviesController, type: :controller do
 
     it "redirects to movies index on error" do
       post :create, bad_movie
-      expect(subject).to redirect_to movies_path
+      expect(subject).to render_template :new
     end
   end
 

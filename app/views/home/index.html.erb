@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-md-4">
         <h1>Top Movies</h1>
-        <% @movies.each do |movie|%>
+        <% @movies_sort.each do |movie|%>
           <h2><%= link_to movie.name, movie_path(movie) %><small> Ranked: <%= movie.rank %></small></h2>
         <% end %>
         <%= link_to "View all movies", movies_path %>

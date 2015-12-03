@@ -7,6 +7,7 @@ class MoviesController < ApplicationController
 
   def index
     @movies = Movie.all
+    @movies_sort = @movies.sort_by{ |movie| movie[:rank] }.reverse
   end
 
   def show
@@ -21,7 +22,12 @@ class MoviesController < ApplicationController
 
   def create
     @movie = Movie.create(movie_params[:movie])
-    redirect_to "/movies"
+    @movie.update(:rank => 0)
+    if @movie.save
+      redirect_to "/movies"
+    else
+      render "/movies/new"
+    end
   end
 
   def edit
