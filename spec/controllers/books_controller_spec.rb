@@ -28,7 +28,7 @@ RSpec.describe BooksController, type: :controller do
 
   describe "GET 'edit'" do
     let(:book) do
-      Book.create(name: "Book Name", author:"author", description:"description")
+      Book.create(name: "Book Name")
     end
     it "is successful" do
       get :edit, id: book.id
@@ -40,8 +40,7 @@ RSpec.describe BooksController, type: :controller do
     let(:good_params) do
       {
         book: {
-          name: "name",
-          description: "description"
+          name: "name"
         }
       }
     end
@@ -49,16 +48,16 @@ RSpec.describe BooksController, type: :controller do
     let(:bad_params) do
       {
         book: {
-          name: nil,
-          description: "something"
+          name: nil
         }
       }
     end
-    
+
     it "redirects to show page" do
       post :create, good_params
       #Success case to show page
       new_book = Book.last
+      expect(new_book).to be_a Book
       expect(subject).to redirect_to book_path(new_book.id)
     end
 
@@ -71,15 +70,13 @@ RSpec.describe BooksController, type: :controller do
 
   describe "PATCH 'update'" do
     let(:book) do
-      Book.create(name: "Book", author:"Author", description:"Description")
+      Book.create(name: "Book")
     end
 
     let(:good_params) do
       {
           book:{
-            name: "book1",
-            author: "auth1",
-            description:"desc1"
+            name: "book1"
           },
           id: book.id
       }
@@ -88,9 +85,7 @@ RSpec.describe BooksController, type: :controller do
     let(:bad_params) do
       {
           book:{
-            name: nil,
-            author: "auth2",
-            description:"desc2"
+            name: nil
           },
           id: book.id
       }
