@@ -68,4 +68,19 @@ RSpec.shared_examples "a medium controller" do
     end
   end
 
+  describe "PATCH 'upvote'" do
+    let (:medium) do
+      model.create(name: "Test")
+    end
+
+    it "increases ranked by 1" do
+      patch :upvote, id: medium.id
+      expect(model.all.last.ranked).to eq 1
+    end
+
+    it "redirects to show page" do
+      patch :upvote, id: medium.id
+      expect(subject).to redirect_to polymorphic_path(medium)
+    end
+  end
 end

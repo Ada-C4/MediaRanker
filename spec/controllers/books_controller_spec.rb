@@ -17,22 +17,4 @@ RSpec.describe BooksController, type: :controller do
       }
     end
   end
-
-  # let (:book) do
-  #   Book.create(name: "Test Book", description: "Book's description", author: "Book's author")
-  # end
-
-
-  #
-  # describe "PATCH 'upvote'" do
-  #   it "increases ranked by 1" do
-  #     patch :upvote, id: book.id
-  #     expect(Book.find(book.id).ranked).to eq 1
-  #   end
-  #
-  #   it "redirects to show page" do
-  #     patch :upvote, id: book.id
-  #     expect(subject).to redirect_to book_path(book)
-  #   end
-  # end
 end
