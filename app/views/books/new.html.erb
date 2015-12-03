@@ -1,0 +1,15 @@
+<h2> New Book </h2>
+  <%= form_for @book, action: 'create', method: :post do |f| %>
+<fieldset>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <br>
+    <%= f.label :author %>
+    <%= f.text_field :author %>
+    <br>
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+    <br>
+  </fieldset>
+  <%= f.submit("Save") %>
+  <% end %>
