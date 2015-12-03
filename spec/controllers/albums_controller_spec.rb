@@ -10,8 +10,6 @@ RSpec.describe AlbumsController, type: :controller do
 			}
 		end
 
-	let(:media) { Album.create(create_params[:album]) }
-
 	let(:bad_params) do
 		{ 
 			id: media.id,
@@ -31,6 +29,12 @@ RSpec.describe AlbumsController, type: :controller do
 			}
 		}
 	end
+
+	let(:media) { Album.create(create_params[:album]) }
+
+	let(:medias) {"albums"}
+
+	let(:model) {Album}
 
 	it_behaves_like "a media controller"
 

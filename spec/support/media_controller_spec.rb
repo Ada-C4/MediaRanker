@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.shared_examples "a media controller" do
-	include Rails.application.routes.url_helpers
+
 	
   describe "GET 'index'" do
 
@@ -29,7 +29,7 @@ RSpec.shared_examples "a media controller" do
   	# item created properly
   	it "redirects to show page" do
 			post :create, create_params
-  		expect(subject).to redirect_to polymorphic_path(media)
+  		expect(subject).to redirect_to polymorphic_path(model.all.last)
   	end
 
   	# error in creation
@@ -64,7 +64,7 @@ RSpec.shared_examples "a media controller" do
 	describe "DELETE 'destroy'" do
 		it "should redirect to media show page" do
 		  delete :destroy, id: media.id
-  		expect(subject).to redirect_to albums_path
+  		expect(subject).to redirect_to "/#{medias}"
 		end
 	end
 end
