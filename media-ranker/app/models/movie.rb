@@ -1,5 +1,5 @@
-class Book < ActiveRecord::Base
+class Movie < ActiveRecord::Base
   validates :title, presence: true;
-  validates :author, presence: true;
+  validates :director, presence: true;
   validates :description, presence: true;
 end

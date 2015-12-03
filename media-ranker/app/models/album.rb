@@ -1,5 +1,5 @@
-class Book < ActiveRecord::Base
+class Album < ActiveRecord::Base
   validates :title, presence: true;
-  validates :author, presence: true;
+  validates :artist, presence: true;
   validates :description, presence: true;
 end
