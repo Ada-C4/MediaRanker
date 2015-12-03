@@ -21,7 +21,12 @@ class BooksController < ApplicationController
 
   def create
     @book = Book.create(book_params[:book])
-    redirect_to "/books"
+    @book.update(:rank => 0)
+    if @book.save
+      redirect_to "/books"
+    else
+      render "/books/new"
+    end
   end
 
   def edit
@@ -38,7 +43,11 @@ class BooksController < ApplicationController
 
   def update
     @book = Book.update(params[:id], name: book_params[:book][:name])
-    redirect_to "/books/#{@book.id}"
+    if @book.save
+      redirect_to "/books/#{@book.id}"
+    else
+      render :edit
+    end
   end
 
   def destroy

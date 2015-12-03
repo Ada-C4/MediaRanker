@@ -56,7 +56,7 @@ RSpec.describe BooksController, type: :controller do
 
     it "redirects to books index on error" do
       post :create, bad_book
-      expect(subject).to redirect_to books_path
+      expect(subject).to render_template :new
     end
   end
 
@@ -107,7 +107,7 @@ RSpec.describe BooksController, type: :controller do
 
     it "redirects to book show page on error" do
       patch :update, bad_book
-      expect(subject).to redirect_to book_path(book.id)
+      expect(subject).to render_template :edit
     end
   end
 
