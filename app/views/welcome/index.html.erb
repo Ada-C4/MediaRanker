@@ -1,27 +1,37 @@
-<h1>Top Movies</h1>
-<% count = 0 %>
-  <% @movies.each do |movie| %>
-    <% if count < 10 %>
-      <h2><%= movie.name %></h2>
-      <% count += 1 %>
+<div class="row">
+  <div class="col-md-4">
+    <h1>Top Movies</h1>
+    <% count = 0 %>
+      <% @movies.each do |movie| %>
+        <% if count < 10 %>
+          <h2><%= link_to movie.name, movie_path(movie.id) %> <small>Ranked: <%= movie.rank %></small></h2>
+          <% count += 1 %>
+        <% end %>
+      <% end %>
+      <%= link_to "View More Movies", movies_path %>
+    </div>
+
+  <div class="col-md-4">
+    <h1>Top Books</h1>
+    <% count = 0 %>
+      <% @books.each do |book| %>
+        <% if count < 10 %>
+          <h2><%= link_to book.name, book_path(book.id) %> <small>Ranked: <%= book.rank %></small></h2>
+        <% count =+ 1%>
+      <% end %>
     <% end %>
-  <% end %>
+    <%= link_to "View More Books", books_path %>
+  </div>
 
-<h1>Top Books</h1>
-<% count = 0 %>
-  <% @books.each do |book| %>
-    <% if count < 10 %>
-      <h2><%= book.name %></h2>
-    <% count =+ 1%>
-  <% end %>
-<% end %>
-
-
-<h1>Top Albums</h1>
-<% count = 0 %>
-  <% @albums.each do |album| %>
-    <% if count < 10 %>
-      <h2><%= album.name %></h2>
-    <% count =+ 1%>
-  <% end %>
-<% end %>
+  <div class="col-md-4">
+    <h1>Top Albums</h1>
+    <% count = 0 %>
+      <% @albums.each do |album| %>
+        <% if count < 10 %>
+          <h2><%= link_to album.name, album_path(album.id) %> <small>Ranked: <%= album.rank %></small></h2>
+        <% count =+ 1%>
+      <% end %>
+    <% end %>
+    <%= link_to "View More Albums", albums_path %>
+  </div>
+</div>
