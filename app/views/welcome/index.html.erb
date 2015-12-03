@@ -1,10 +1,27 @@
-<h3>Top Movies</h3>
-  <ul>
-    <% @movies.each do |movie| %>
-    <%= movie.name %>
+<h1>Top Movies</h1>
+<% count = 0 %>
+  <% @movies.each do |movie| %>
+    <% if count < 10 %>
+      <h2><%= movie.name %></h2>
+      <% count += 1 %>
     <% end %>
-  </ul>
+  <% end %>
 
-<h3>Top Books</h3>
+<h1>Top Books</h1>
+<% count = 0 %>
+  <% @books.each do |book| %>
+    <% if count < 10 %>
+      <h2><%= book.name %></h2>
+    <% count =+ 1%>
+  <% end %>
+<% end %>
 
-<h3>Top Albums</h3>
+
+<h1>Top Albums</h1>
+<% count = 0 %>
+  <% @albums.each do |album| %>
+    <% if count < 10 %>
+      <h2><%= album.name %></h2>
+    <% count =+ 1%>
+  <% end %>
+<% end %>
