@@ -27,7 +27,7 @@ RSpec.describe MoviesController, type: :controller do
     end
       let(:good_update_params) do
         {
-          id: 1,
+          id: test_medium.id,
           movie:{
             name: "Hello", director: "You", description: "A Good Movie", rank: 0
           }
@@ -36,7 +36,7 @@ RSpec.describe MoviesController, type: :controller do
 
       let(:bad_update_params) do
         {
-          id: 1,
+          id: test_medium.id,
           movie: { name: nil, director: "You", description: "A Good Movie", rank: 0 }
       }
       end

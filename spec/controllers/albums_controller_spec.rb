@@ -27,7 +27,7 @@ RSpec.describe AlbumsController, type: :controller do
     end
       let(:good_update_params) do
         {
-          id: 1,
+          id: test_medium.id,
           album:{
             name: "Songs", artist: "You", description: "SONGS", rank: 0
           }
@@ -36,7 +36,7 @@ RSpec.describe AlbumsController, type: :controller do
 
       let(:bad_update_params) do
         {
-          id: 1,
+          id: test_medium.id,
           album: { name: nil, artist: "You", description: "A Good Album", rank: 0 }
       }
       end

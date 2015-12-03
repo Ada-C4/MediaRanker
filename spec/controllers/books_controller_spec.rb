@@ -27,7 +27,7 @@ RSpec.describe BooksController, type: :controller do
     end
       let(:good_update_params) do
         {
-          id: 1,
+          id: test_medium.id,
           book:{
             name: "A Book", author: "You", description: "A Good Book", rank: 0
           }
@@ -36,8 +36,8 @@ RSpec.describe BooksController, type: :controller do
 
       let(:bad_update_params) do
         {
-          id: 1,
-          movie: { name: nil, author: "You", description: "A Good Book", rank: 0 }
+          id: test_medium.id,
+          book: { name: nil, author: "You", description: "A Good Book", rank: 0 }
       }
       end
   end

@@ -13,7 +13,7 @@
 
     <%= link_to "Edit #{medium.name}", edit_polymorphic_path(medium), class: "btn btn-default" %>
     <%= link_to "DELETE", polymorphic_path(medium), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
-    <%= link_to "View All Movies", polymorphic_path(media_type), class: "btn btn-default"  %>
+    <%= link_to "View All " + media_type.to_s.capitalize, polymorphic_path(media_type), class: "btn btn-default"  %>
     <%= link_to "View All Media", root_path, class: "btn btn-default" %>
   </div>
 </div>
