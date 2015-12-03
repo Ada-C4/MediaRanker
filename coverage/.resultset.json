@@ -1,9 +1,10 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/claireschechter/Ada/project-forks/MediaRanker/app/controllers/movies_controller.rb": [
+      "/Users/claireschechter/Ada/project-forks/MediaRanker/app/controllers/books_controller.rb": [
         1,
         7,
+        null,
         1,
         1,
         null,
@@ -17,6 +18,7 @@
         null,
         1,
         2,
+        null,
         2,
         1,
         null,
@@ -42,6 +44,7 @@
         null,
         null,
         1,
+        2,
         2,
         2,
         2,
@@ -62,12 +65,12 @@
         null,
         null
       ],
-      "/Users/claireschechter/Ada/project-forks/MediaRanker/app/models/movie.rb": [
+      "/Users/claireschechter/Ada/project-forks/MediaRanker/app/models/book.rb": [
         1,
         1,
         null
       ]
     },
-    "timestamp": 1449183263
+    "timestamp": 1449183559
   }
 }
