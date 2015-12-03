@@ -67,7 +67,7 @@ RSpec.describe MoviesController, type: :controller do
     it "does not create a movie when bad params are used" do
       last_movie = Movie.last
       post :create, bad_params
-      expect(Movie.all.last).to eq last_movie
+      expect(Movie.last).to eq last_movie
     end
 
     it "redirects to movies index page" do
@@ -111,6 +111,15 @@ RSpec.describe MoviesController, type: :controller do
       patch :update, bad_params
       movie.reload
       expect(movie.attributes).to eq before_update
+    end
+
+    it "redirects to the movie's show page after a successful update" do
+      patch :update, params
+      # Success case to index page
+      expect(subject).to redirect_to movie_path
+      # Error case to
+      patch :update, bad_params
+      expect(subject).to render_template :edit
     end
   end
 

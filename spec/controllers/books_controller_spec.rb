@@ -50,6 +50,18 @@ RSpec.describe BooksController, type: :controller do
       }
     end
 
+    it "creates a book" do
+      last_book = Book.last
+      post :create, params
+      expect(Book.last).to_not eq last_book
+    end
+
+    it "does not create a book when bad params are used" do
+      last_book = Book.last
+      post :create, bad_params
+      expect(Book.last).to eq last_book
+    end
+
     it "redirects to books index page" do
       post :create, params
       # Success case to index page
