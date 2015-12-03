@@ -1,9 +1,9 @@
-<h1> <strong><<%= @book.name %></strong> Recorded By: <%= @book.author %> </h1>
-<h3>Ranked: <%= @book.rank %> </h3>
-<h4> <%= @book.description %> </h4>
+  <h1> <%= @book.name %> <small> Written By: <%= @book.author %> </small></h1>
+<h4>Ranked: <%= @book.rank %> </h4>
+<p> <%= @book.description %> </p>
 
-<%= button_to "Upvote", { action: "update" , class: "upvote"}, method: "patch"%>
-<%= button_to "Edit", { action: "edit", id: @book.id },  method: :get %>
-<%= button_to "Delete", { action: "destroy", id: @book.id}, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %>
-<%= button_to "View all books", books_path, method: :get%>
-<%= button_to "View all media", root_path, method: :get %>
+<%= button_to "Upvote", { action: "update" , class: "upvote"}, method: "patch", class:"btn btn-primary", id:"upvote"%>
+<%= button_to "Edit", { action: "edit", id: @book.id },  method: :get, class:"btn btn-default" %>
+<%= button_to "DELETE", { action: "destroy", id: @book.id}, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %>
+<%= button_to "View all books", books_path, method: :get, class:"btn btn-default"%>
+<%= button_to "View all media", root_path, method: :get, class:"btn btn-default" %>
