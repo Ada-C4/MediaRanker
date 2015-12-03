@@ -1,5 +1,9 @@
 class MediaController < ApplicationController
+  before_action only: [:show, :edit, :update, :destroy, :vote] { @medium = Medium.find(params[:id]) }
+  before_action only: [ :edit, :destroy, :vote] { @type = @medium.type.pluralize }
+
   def index
+    @media = Medium.where("type = '#{params[:type]}'")
   end
 
   def show
@@ -22,4 +26,5 @@ class MediaController < ApplicationController
 
   def upvote
   end
+
 end
