@@ -10,6 +10,7 @@ class AlbumsController < ApplicationController
 
   def create
     @album = Album.create(album_params)
+    @album.update(:rank => 0)
     if @album.save
       redirect_to album_path(@album.id)
     else
@@ -36,6 +37,15 @@ class AlbumsController < ApplicationController
     Album.destroy(params[:id])
     redirect_to albums_path
   end
+
+  def upvote
+    album = Album.find(params[:id])
+    rank = album.rank
+    rank += 1
+    album.update(rank: rank)
+    redirect_to :back
+  end
+
 
 
   ###########PRIVATE############

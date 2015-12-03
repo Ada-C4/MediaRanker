@@ -85,4 +85,17 @@ RSpec.describe BooksController, type: :controller do
     end
   end
 
+  describe "PATCH 'upvote'" do
+    let(:book) do
+      Book.create(name: "Spawn")
+    end
+    it "refreshes to the same page" do
+      patch :update, id: book.id
+      expect(subject).to redirect_to book_path(book.id)
+    end
+  end
+
+
+
+
 end

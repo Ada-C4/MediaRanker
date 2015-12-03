@@ -10,6 +10,7 @@ class MoviesController < ApplicationController
 
   def create
     @movie = Movie.create(movie_params)
+    @movie.update(:rank => 0)
     if @movie.save
       redirect_to movie_path(@movie.id)
     else
@@ -36,6 +37,15 @@ class MoviesController < ApplicationController
     Movie.destroy(params[:id])
     redirect_to movies_path
   end
+
+  def upvote
+    movie = Movie.find(params[:id])
+    rank = movie.rank
+    rank += 1
+    movie.update(rank: rank)
+    redirect_to :back
+  end
+
 
 
 ###########PRIVATE############

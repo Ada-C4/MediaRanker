@@ -10,6 +10,7 @@ class BooksController < ApplicationController
 
   def create
     @book = Book.create(book_params)
+    @book.update(:rank => 0)
     if @book.save
       redirect_to book_path(@book.id)
     else
@@ -34,6 +35,14 @@ class BooksController < ApplicationController
   def destroy
     Book.destroy(params[:id])
     redirect_to books_path
+  end
+
+  def upvote
+    book = Book.find(params[:id])
+    rank = book.rank
+    rank += 1
+    book.update(rank: rank)
+    redirect_to :back
   end
 
 
