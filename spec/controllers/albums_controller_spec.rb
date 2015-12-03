@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe AblumsController, type: :controller do
+RSpec.describe AlbumsController, type: :controller do
   describe "GET 'index'" do
     it "is successful" do
       get :index
@@ -17,7 +17,7 @@ RSpec.describe AblumsController, type: :controller do
 
   describe "GET 'show'" do
     let(:album) do
-      album.create(name: "Test", artist: "Me", description: "boring album", rank: 7)
+      Album.create(name: "Test", artist: "Me", description: "boring album", rank: 7)
     end
 
     it "renders the show view" do
@@ -62,7 +62,7 @@ RSpec.describe AblumsController, type: :controller do
 
   describe "GET 'edit'" do
     let(:album) do
-      album.create(name: "Test", artist: "Me", description: "boring album", rank: 7)
+      Album.create(name: "Test", artist: "Me", description: "boring album", rank: 7)
     end
 
     it "renders edit view" do
@@ -73,7 +73,7 @@ RSpec.describe AblumsController, type: :controller do
 
   describe "PATCH 'update'" do
     let(:album) do
-      album.create(name: "Test", artist: "Me", description: "boring album", rank: 7)
+      Album.create(name: "Test", artist: "Me", description: "boring album", rank: 7)
     end
 
     let(:good_album) do
@@ -113,7 +113,7 @@ RSpec.describe AblumsController, type: :controller do
 
   describe "DELETE 'destroy'" do
     let(:album) do
-      album.create(name: "Test", artist: "Me", description: "boring album", rank: 7)
+      Album.create(name: "Test", artist: "Me", description: "boring album", rank: 7)
     end
 
     it "redirects to albums index page" do
@@ -124,7 +124,7 @@ RSpec.describe AblumsController, type: :controller do
 
   describe "PATCH 'upvote'" do
     let(:album) do
-      album.create(name: "Test", artist: "Me", description: "boring album", rank: 7)
+      Album.create(name: "Test", artist: "Me", description: "boring album", rank: 7)
     end
 
     before :each do
