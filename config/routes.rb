@@ -2,20 +2,20 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
-  resources :movies do
+  resources :movies, controller: 'media', type: 'Movie' do
     member do
       patch '/upvote' => 'movies#upvote'
     end
   end
 
 
-  resources :books do
+  resources :books, controller: 'media', type: 'Book' do
     member do
       patch '/upvote' => 'books#upvote'
     end
   end
 
-  resources :albums do
+  resources :albums, controller: 'media', type: 'Album' do
     member do
       patch '/upvote' => 'albums#upvote'
     end
