@@ -1,10 +1,21 @@
-<h1>Top Movies</h1>
-<%= link_to "View all movies", movies_path %>
-
-<h1>Top Books</h1>
-<%= link_to "View all books", books_path %>
-
-<h1>Top Albums</h1>
-<p>
-  <%= link_to "View all albums", albums_path %>
-</p>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="row">
+      <div class="col-md-4">
+        <h1>Top Movies</h1>
+        <% @movies.each do |movie|%>
+          <h2><%= link_to movie.name, movie_path(movie) %><small> Ranked: <%= movie.rank %></small></h2>
+        <% end %>
+        <%= link_to "View all movies", movies_path %>
+      </div>
+      <div class="col-md-4">
+        <h1>Top Books</h1>
+        <%= link_to "View all books", books_path %>
+      </div>
+      <div class="col-md-4">
+        <h1>Top Albums</h1>
+          <%= link_to "View all albums", albums_path %>
+      </div>
+    </div>
+  </div>
+</div>
