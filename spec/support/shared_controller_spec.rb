@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.shared_examples "a controller" do |subject_class|
   describe "#upvote" do
-    before :each do
-      request.env["HTTP_REFERER"] = "from_whence_we_came"
-    end
+    # before :each do
+    #   request.env["HTTP_REFERER"] = "from_whence_we_came"
+    # end
     it "increments :votes" do
       patch :upvote, type: subject_class.to_s, id: item.id
       item.reload
