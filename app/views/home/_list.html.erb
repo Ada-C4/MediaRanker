@@ -1,0 +1,11 @@
+<div class="col-md-4">
+  <h1>Top <%= media_type.capitalize %></h1>
+    <% media.each do |item| %>
+    <h2>
+      <%= link_to item.name, polymorphic_path(item) %>
+      <small> Ranked: <%= item.rank %> </small>
+    </h2>
+    <% end %>
+
+    <%= link_to "View More Movies", polymorphic_path(media_type) %>
+  </div>
