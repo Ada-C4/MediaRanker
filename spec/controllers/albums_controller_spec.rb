@@ -74,25 +74,50 @@ RSpec.describe AlbumsController, type: :controller do
   end
 
   describe "PATCH 'update'" do
+    let(:album) do
+      Album.create(name: "Album", artist:"Artist", description:"Description")
+    end
+
+    let(:good_params) do
+      {
+          album:{
+            name: "something else",
+            artist: "someone",
+            description:"blablabla"
+          },
+          id: album.id
+      }
+    end
+
+    let(:bad_params) do
+      {
+          album:{
+            name: nil,
+            artist: "someone",
+            description:"blablabla"
+          },
+          id: album.id
+      }
+    end
 
     it "redirects to show page" do
-      album = Album.create(name: "Album", artist:"Artist", description:"Description")
-      params = {
-        album:{
-          name: "something else",
-          artist: "someone",
-          description:"blablabla"
-        },
-        id: album.id
-      }
-      patch :update, params
+      # album = Album.create(name: "Album", artist:"Artist", description:"Description")
+      # params = {
+      #   album:{
+      #     name: "something else",
+      #     artist: "someone",
+      #     description:"blablabla"
+      #   },
+      #   id: album.id
+      # }
+      patch :update, good_params
       expect(subject).to redirect_to album_path(album.id)
     end
 
-    # it "renders edit template on error" do
-    #   patch :update, bad_params
-    #   expect(subject).to render_template :edit
-    # end
+    it "renders edit template on error" do
+      patch :update, bad_params
+      expect(subject).to render_template :edit
+    end
   end
 
   describe "DELETE 'destroy'" do
