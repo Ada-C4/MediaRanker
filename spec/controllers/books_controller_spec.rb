@@ -2,6 +2,42 @@ require 'rails_helper'
 
 RSpec.describe BooksController, type: :controller do
 
+  let(:create_params) do
+    {
+      id: 1,
+      book: {
+        name: "Peter Pan",
+        author: "J.M. Barrie",
+        rank: 0
+      }
+    }
+  end
+
+  let(:bad_params) do
+    {
+      id: book.id,
+      book: {
+        name: ""
+      }
+    }
+  end
+
+  let(:update_params) do
+    {
+      id: book.id,
+      book: {
+        name: "Peter",
+        author: "Wendy",
+        rank: 0
+      }
+    }
+
+  end
+
+  let(:book) do
+    Book.create(create_params[:book])
+  end
+
   describe "GET 'index'" do
     it "is successful" do
       get :index
@@ -10,10 +46,6 @@ RSpec.describe BooksController, type: :controller do
   end
 
   describe "GET 'show'" do
-    let(:book) do
-      Book.create(name: "Peter Pan")
-    end
-
     it "renders the show view for a move" do
       get :show, id: book.id
       expect(subject).to render_template :show
@@ -21,24 +53,8 @@ RSpec.describe BooksController, type: :controller do
   end
 
   describe "POST 'create'" do
-     let(:good_params) do
-       {
-         book: {
-           name: "Peter Pan",
-           rank: 0
-         }
-       }
-     end
-
-     let(:bad_params) do
-       {
-         book: {}
-       }
-     end
-
-     it "redirects to show page" do
-       post :create, good_params
-       book = Book.last
+       it "redirects to show page" do
+       post :create, create_params
        expect(subject).to redirect_to book_path(book.id)
      end
 
@@ -49,9 +65,6 @@ RSpec.describe BooksController, type: :controller do
   end
 
   describe "GET 'edit'" do
-    let(:book) do
-      book = Book.create(name: "Peter Pan")
-    end
 
     it "renders edit view" do
       get :edit, id: book.id
@@ -60,10 +73,6 @@ RSpec.describe BooksController, type: :controller do
   end
 
   describe "DELETE 'destroy'" do
-    let(:book) do
-      book = Book.create(name: "Captain Hook")
-    end
-
     it "redirects to index view" do
     delete :destroy, id: book.id
     expect(subject).to redirect_to books_path
@@ -71,55 +80,31 @@ RSpec.describe BooksController, type: :controller do
   end
 
   describe "PATCH 'update'" do
-    let(:good_params) do
-      {
-        id: 1,
-        book: {
-          name: "Peter Pan",
-        }
-      }
-    end
-
-    let(:bad_params) do
-      {
-        id: 1,
-        book: {
-          name: nil,
-          description: "Following the leader, the leader, the leader"
-        }
-      }
-    end
 
     it "successful update renders show view" do
-      book = Book.create(good_params[:book])
-        patch :update, good_params
+        patch :update, update_params
         expect(response.status).to eq 200
         expect(subject).to render_template :show
       end
 
       it "unsuccessful update renders edit form" do
-        book = Book.create(bad_params[:book])
         patch :update, bad_params
         expect(subject).to render_template :edit
       end
     end
 
     describe "PATCH 'upvote'" do
-      let(:good_params) do
-        {
-          id: 1,
-          book: {
-            name: "Peter Pan",
-            rank: 0
-          }
-        }
-      end
 
       it "renders show view" do
-        Book.create(good_params[:book])
-        patch :upvote, good_params
+        patch :upvote, create_params
         expect(response.status).to eq 200
-        expect(subject).to redirect_to book_path(1)
+        expect(subject).to redirect_to book_path(book.id)
+      end
+
+      it "increments votes" do
+        patch :upvote, id: book.id
+        book.reload
+        expect(book.rank).to eq 1
       end
     end
   end
