@@ -4,7 +4,8 @@ RSpec.describe MoviesController, type: :controller do
   let(:create_params) do {
 		movie: {
 			name: "Harry Potter",
-			description: "Magic"
+			description: "Magic",
+      rank: 3
 		}
 	}
   end
@@ -88,6 +89,19 @@ RSpec.describe MoviesController, type: :controller do
     it "redirects to the movies index page" do
       delete :destroy, { id: movie.id }
       expect(subject).to redirect_to movies_path
+    end
+  end
+
+  describe "POST 'delete'" do
+    before :each do
+      @request.env['HTTP_REFERER'] = "/movies/:id"
+    end
+    let(:movie) do
+      Movie.create(create_params[:movie])
+    end
+    it "refreshes to the same page" do
+      post :upvote, { id: movie.id }
+      expect(subject).to redirect_to "/movies/:id"
     end
   end
 

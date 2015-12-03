@@ -4,7 +4,8 @@ RSpec.describe BooksController, type: :controller do
   let(:create_params) do {
 		book: {
 			name: "Harry Potter",
-			description: "Magic"
+			description: "Magic",
+      rank: 0
 		}
 	}
   end
@@ -85,13 +86,16 @@ RSpec.describe BooksController, type: :controller do
     end
   end
 
-  describe "PATCH 'upvote'" do
+  describe "POST 'upvote'" do
+    before :each do
+      @request.env['HTTP_REFERER'] = "/books/:id"
+    end
     let(:book) do
-      Book.create(name: "Spawn")
+      Book.create(create_params[:book])
     end
     it "refreshes to the same page" do
-      patch :update, id: book.id
-      expect(subject).to redirect_to book_path(book.id)
+      post :upvote, id: book.id
+      expect(subject).to redirect_to "/books/:id"
     end
   end
 

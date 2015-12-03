@@ -5,7 +5,8 @@ RSpec.describe AlbumsController, type: :controller do
   let(:create_params) do {
 		album: {
 			name: "Harry Potter",
-			description: "Magic"
+			description: "Magic",
+      rank: 0
 		}
 	}
   end
@@ -92,6 +93,18 @@ RSpec.describe AlbumsController, type: :controller do
     end
   end
 
+  describe "POST 'upvote'" do
+    before :each do
+      @request.env['HTTP_REFERER'] = "/albums/:id"
+    end
+    let(:album) do
+      Album.create(create_params[:album])
+    end
+    it "refreshes to the same page" do
+      post :upvote, id: album.id
+      expect(subject).to redirect_to "/albums/:id"
+    end
+  end
 
 
 end
