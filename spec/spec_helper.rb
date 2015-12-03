@@ -21,6 +21,7 @@ SimpleCov.start 'rails'
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
+  # Dir["./spec/support/**/*.rb"].sort.each { |f| require f}
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
   config.expect_with :rspec do |expectations|

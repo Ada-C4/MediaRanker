@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Movie, type: :model do
+	it_behaves_like "media"
 		describe ".validates" do
 		it "must have a name" do
 			movie = Movie.new(name: nil)
