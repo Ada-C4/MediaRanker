@@ -60,6 +60,40 @@ RSpec.describe BooksController, type: :controller do
     end
   end
 
+  describe "PATCH 'update'" do
+    let(:params) do
+      {
+        book:{
+          name: "Something something something"
+        },
+        id: book.id
+      }
+    end
+
+    let(:bad_params) do
+      {
+        book:{
+          name: nil
+        },
+        id: book.id
+      }
+    end
+
+    it "updates the book with good params" do
+      before_update = book.attributes
+      patch :update, params
+      book.reload
+      expect(book.attributes).to_not eq before_update
+    end
+
+    it "does not update the book with bad params" do
+      before_update = book.attributes
+      patch :update, bad_params
+      book.reload
+      expect(book.attributes).to eq before_update
+    end
+  end
+
   describe "DELETE 'destroy'" do
     let(:params) do
       {

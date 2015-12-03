@@ -29,7 +29,7 @@ class BooksController < ApplicationController
 
   def update
     Book.update(params[:id], book_params[:book])
-    redirect_to "/books/#{@book.id}"
+    redirect_to book_path(params[:id])
   end
 
   def destroy

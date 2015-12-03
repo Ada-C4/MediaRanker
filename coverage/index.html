@@ -14,18 +14,18 @@
       <img src="./assets/0.10.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2015-12-03T12:02:21-08:00">2015-12-03T12:02:21-08:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2015-12-03T12:19:17-08:00">2015-12-03T12:19:17-08:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="yellow">85.45%</span></span>
+    (<span class="covered_percent"><span class="yellow">87.27%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.1
+         1.15
        </span>
     </span> hits/line)
   </h2>
@@ -33,8 +33,8 @@
   <div>
     <b>11</b> files in total.
     <b>110</b> relevant lines. 
-    <span class="green"><b>94</b> lines covered</span> and
-    <span class="red"><b>16</b> lines missed </span>
+    <span class="green"><b>96</b> lines covered</span> and
+    <span class="red"><b>14</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -72,12 +72,12 @@
       
       <tr>
         <td class="strong"><a href="#8b90650adb6d1759315d139f745511f47077f0f4" class="src_link" title="app/controllers/books_controller.rb">app/controllers/books_controller.rb</a></td>
-        <td class="red strong">80.0 %</td>
+        <td class="yellow strong">86.67 %</td>
         <td>53</td>
         <td>30</td>
-        <td>24</td>
-        <td>6</td>
-        <td>0.9</td>
+        <td>26</td>
+        <td>4</td>
+        <td>1.1</td>
       </tr>
       
       <tr>
@@ -169,11 +169,11 @@
           <div class="file_list_container" id="Controllers">
   <h2>
     <span class="group_name">Controllers</span>
-    (<span class="covered_percent"><span class="yellow">84.0%</span></span>
+    (<span class="covered_percent"><span class="yellow">86.0%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.11
+         1.17
        </span>
     </span> hits/line)
   </h2>
@@ -181,8 +181,8 @@
   <div>
     <b>4</b> files in total.
     <b>100</b> relevant lines. 
-    <span class="green"><b>84</b> lines covered</span> and
-    <span class="red"><b>16</b> lines missed </span>
+    <span class="green"><b>86</b> lines covered</span> and
+    <span class="red"><b>14</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -220,12 +220,12 @@
       
       <tr>
         <td class="strong"><a href="#8b90650adb6d1759315d139f745511f47077f0f4" class="src_link" title="app/controllers/books_controller.rb">app/controllers/books_controller.rb</a></td>
-        <td class="red strong">80.0 %</td>
+        <td class="yellow strong">86.67 %</td>
         <td>53</td>
         <td>30</td>
-        <td>24</td>
-        <td>6</td>
-        <td>0.9</td>
+        <td>26</td>
+        <td>4</td>
+        <td>1.1</td>
       </tr>
       
       <tr>
@@ -888,11 +888,11 @@
         <div class="source_table" id="8b90650adb6d1759315d139f745511f47077f0f4">
   <div class="header">
     <h3>app/controllers/books_controller.rb</h3>
-    <h4><span class="red">80.0 %</span> covered</h4>
+    <h4><span class="yellow">86.67 %</span> covered</h4>
     <div>
       <b>30</b> relevant lines. 
-      <span class="green"><b>24</b> lines covered</span> and
-      <span class="red"><b>6</b> lines missed.</span>
+      <span class="green"><b>26</b> lines covered</span> and
+      <span class="red"><b>4</b> lines missed.</span>
     </div>
   </div>
   
@@ -1079,16 +1079,16 @@
           <code class="ruby">  def update</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="31">
-          
+        <li class="covered" data-hits="2" data-linenumber="31">
+          <span class="hits">2</span>
           
           <code class="ruby">    Book.update(params[:id], book_params[:book])</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="32">
+        <li class="covered" data-hits="2" data-linenumber="32">
+          <span class="hits">2</span>
           
-          
-          <code class="ruby">    redirect_to &quot;/books/#{@book.id}&quot;</code>
+          <code class="ruby">    redirect_to book_path(params[:id])</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="33">
@@ -1193,8 +1193,8 @@
           <code class="ruby">  def book_params</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="50">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="4" data-linenumber="50">
+          <span class="hits">4</span>
           
           <code class="ruby">    params.permit(book: [:name, :author, :description, :rank])</code>
         </li>
