@@ -21,6 +21,7 @@ require 'simplecov'
 SimpleCov.start 'rails'
 
 RSpec.configure do |config|
+  Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
