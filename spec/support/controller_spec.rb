@@ -73,7 +73,7 @@ RSpec.shared_examples "a controller" do
 
   describe "POST 'create'" do
     before :each do
-      post :create, id: medium.id
+      post :create, params: medium
     end
     it "is successful" do
       expect(response.status).to eq 302
