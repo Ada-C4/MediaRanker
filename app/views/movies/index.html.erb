@@ -11,13 +11,13 @@
         <tr>
           <td><%= movie.rank %></td>
           <td><%= link_to "#{movie.name}", movie_path(movie.id) %></td>
-          <td><%= button_to "upvote", movie_upvote_path(movie.id), method: :post %></td>
+          <td><%= link_to "upvote", movie_upvote_path(movie.id), method: :post, class: "btn btn-default" %></td>
           <% end %>
         </tr>
       </tbody>
     </table>
-    <%= button_to "View All Media", root_path %>
-    <%= button_to "Add a Movie", new_movie_path %>
+    <%= link_to "View All Media", root_path, class: "btn btn-default" %>
+    <%= link_to "Add a Movie", new_movie_path, class: "btn btn-default" %>
     </div>
   </div>
 </div>
