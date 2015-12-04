@@ -6,14 +6,16 @@
       <fieldset>
         <legend><%= @legend %></legend>
         <%= f.label :name %>
-        <%= f.text_field :name %>
+        <%= f.text_field :name, {class: "form-control"} %>
         <%= f.label :director %>
-        <%= f.text_field :director %>
+        <%= f.text_field :director, {class: "form-control"} %>
         <%= f.label :description %>
-        <%= f.text_field :description %>
+        <%= f.text_field :description, {:class => "form-control"} %>
       </fieldset>
+      <br>
       <%= f.submit("Save") %>
       <% end %>
+      </div>
     </div>
   </div>
 </div>
