@@ -3,6 +3,9 @@ require 'simplecov'
 
 RSpec.describe BooksController, type: :controller do
   it_behaves_like "a controller" do
+    let(:medium) do
+      Book.create(title: "dumb")
+    end
     let(:params) do
       {
         book: {

@@ -3,6 +3,9 @@ require 'simplecov'
 
 RSpec.describe MoviesController, type: :controller do
   it_behaves_like "a controller" do
+    let(:medium) do
+      Movie.create(title: "dumb")
+    end
     let(:params) do
       {
         movie: {

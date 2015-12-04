@@ -3,6 +3,9 @@ require 'simplecov'
 
 RSpec.describe AlbumsController, type: :controller do
   it_behaves_like "a controller" do
+    let(:medium) do
+      Album.create(title: "dumb")
+    end
     let(:params) do
       {
           album: {
