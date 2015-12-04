@@ -23,15 +23,15 @@
           <% end %>
         </td>
         <td>
-          <a href="/media/<%= medium.id %>"><%= medium.name %></a>
+          <%= link_to medium.name, media_path(medium.type, medium) %>
         </td>
         <td>
-          <%= button_to "Upvote", "/media/#{medium.id}/upvote", method: :patch, class: 'btn btn-default' %>
+          <%= button_to "Upvote", media_path(medium.type, medium, :upvote), method: :patch, class: 'btn btn-default' %>
         </td>
       </tr>
     <% end %>
     </table>
     <a class="btn btn-default" href="/">View All Media</a>
-    <a class="btn btn-default" href="/media/new">Add a <%= @medium %></a>
+    <a class="btn btn-default" href=/new">Add a </a>
   </div>
 </div>
