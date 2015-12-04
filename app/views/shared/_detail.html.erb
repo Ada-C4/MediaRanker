@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-lg-12">
+    <h1><%= medium.name %> <small> <%= byline %><%= creator %></small></h1>
+    <h4>
+      Ranked: <%= medium.rank %>
+    </h4>
+    <p>
+      <%= medium.description %>
+    </p>
+    <form>
+      <%= link_to "Upvote", polymorphic_path(medium, action: :upvote ),  method: :patch, class: "btn btn-primary" %>
+    </form>
+
+    <%= link_to "Edit #{medium.name}", edit_polymorphic_path(medium), class: "btn btn-default" %>
+    <%= link_to "DELETE", polymorphic_path(medium), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+    <%= link_to "View All " + media_type.to_s.capitalize, polymorphic_path(media_type), class: "btn btn-default"  %>
+    <%= link_to "View All Media", root_path, class: "btn btn-default" %>
+  </div>
+</div>
