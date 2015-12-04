@@ -1,6 +1,6 @@
-<h2><%= @movie.name %></h2>
-<h3>Directed by: <%= @movie.director %></h3>
-<h4>Ranked: <%= @movie.rank %><h4>
+<h1><%= @movie.name %>
+<small>Directed by: <%= @movie.director %></small></h1>
+<h4>Ranked: <%= @movie.rank %></h4>
 <p><%= @movie.description %></p>
 
 <%= button_to "Upvote", upvote_movies_path, :class => "btn btn-primary" %>

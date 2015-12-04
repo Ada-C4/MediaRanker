@@ -1,15 +1,19 @@
-<h3>New Movie</h3>
+<div class="row">
+  <div class="col-lg-12">
+    <h3>New Movie</h3>
 
-<%= form_for @movie, url: {action: "create"}, html: {class: "new-movie"} do |f| %>
+    <%= form_for @movie, url: {action: "create"}, html: {class: "form-group"} do |f| %>
 
-<%= f.label :name, "Name" %>
-<%= f.text_field :name %>
+    <%= f.label :name, "Name" %>
+    <%= f.text_field :name, class: "form-control" %>
 
-<%= f.label :director, "Director" %>
-<%= f.text_field :director %>
+    <%= f.label :director, "Director" %>
+    <%= f.text_field :director, class: "form-control" %>
 
-<%= f.label :description, "Description" %>
-<%= f.text_area :description %>
+    <%= f.label :description, "Description" %>
+    <%= f.text_area :description, class: "form-control" %>
 
-<%= f.submit "Save" %>
-<% end %>
+    <%= f.submit "Save", class: "btn btn-default" %>
+    <% end %>
+  </div>
+</div>

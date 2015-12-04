@@ -1,6 +1,6 @@
-<h2><%= @book.name %></h2>
-<h3>Written by: <%= @book.author %></h3>
-<h4>Ranked: <%= @book.rank %><h4>
+<h1><%= @book.name %>
+<small>Written by: <%= @book.author %></small></h1>
+<h4>Ranked: <%= @book.rank %></h4>
 <p><%= @book.description %></p>
 
 <%= button_to "Upvote", upvote_books_path, :class => "btn btn-primary" %>
