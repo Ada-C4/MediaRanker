@@ -56,7 +56,7 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params[:id])
     @movie.rank += 1
     @movie.save
-    render "show"
+    render :show
   end
 
 private

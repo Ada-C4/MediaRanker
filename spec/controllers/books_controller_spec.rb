@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe BooksController, type: :controller do
   let(:book) do
-    Book.create(name: "Some book")
+    Book.create(name: "Some book", rank: 0)
   end
 
   describe "GET 'index'" do
@@ -118,10 +118,6 @@ RSpec.describe BooksController, type: :controller do
   describe "PATCH 'upvote'" do
     let(:params) do
       {
-        book:{
-          name: "Something something something",
-          rank: 0
-        },
         id: book.id
       }
     end
