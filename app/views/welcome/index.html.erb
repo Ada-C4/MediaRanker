@@ -1,25 +1,23 @@
-<div class="row">
-  <div class="col-lg-12">
-    <div class="col-md-4">
-      <h1> Top Movies </h1>
-      <% @movies.each do |model| %>
-      <h2><%= link_to model.title, model %> <small>Ranked: <%= model.votes %></small></h2>
-      <% end %>
-      <%= link_to "View More Movies", movies_path %>
-    </div>
-    <div class="col-md-4">
-      <h1> Top Books </h1>
-      <% @books.each do |model| %>
-      <h2><%= link_to model.title, model %> <small>Ranked: <%= model.votes %></small></h2>
-      <% end %>
-      <%= link_to "View More Books", books_path %>
-    </div>
-    <div class="col-md-4">
-      <h1> Top Albums </h1>
-      <% @albums.each do |model| %>
-      <h2><%= link_to model.title, model %> <small>Ranked: <%= model.votes %></small></h2>
-      <% end %>
-      <%= link_to "View More Albums", albums_path %>
-    </div>
+<div class="col-lg-12">
+  <div class="col-md-4">
+    <h1> Top Movies </h1>
+    <% @movies.each do |model| %>
+    <h2><%= link_to model.title, model %> <small>Ranked: <%= model.votes %></small></h2>
+    <% end %>
+    <%= link_to "View More Movies", movies_path %>
+  </div>
+  <div class="col-md-4">
+    <h1> Top Books </h1>
+    <% @books.each do |model| %>
+    <h2><%= link_to model.title, model %> <small>Ranked: <%= model.votes %></small></h2>
+    <% end %>
+    <%= link_to "View More Books", books_path %>
+  </div>
+  <div class="col-md-4">
+    <h1> Top Albums </h1>
+    <% @albums.each do |model| %>
+    <h2><%= link_to model.title, model %> <small>Ranked: <%= model.votes %></small></h2>
+    <% end %>
+    <%= link_to "View More Albums", albums_path %>
   </div>
 </div>
