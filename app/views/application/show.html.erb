@@ -1,7 +1,10 @@
-<h1> <%= @media.title %> </h1>
-<h4> <%= @media.artist %></h4>
+<h1> <%= @media.title %>
+<small> Artist: <%= @media.artist %> </small>
+</h1>
 <h4> Ranked: <%= @media.votes %> </h4>
-<h4> <%= @media.description %></h4>
-<h4><%= button_to 'Upvote', @path, method: :post, class:"btn btn-default", role:"button"%></h4>
-<h4><%= link_to "Edit", @edit_path, class:"btn btn-default", role:"button" %></h4>
-<h4><%= link_to "DESTROY", @media, method: :delete, onclick: "return confirm('Are you sure?')",class:"btn btn-default", role:"button" %>
+<p> <%= @media.description %></p>
+<h4><%= button_to 'Upvote', @path, method: :post, class:"btn btn-primary", role:"button"%></h4>
+<%= link_to "Edit", @edit_path, class:"btn btn-default", role:"button" %>
+<%= link_to "DESTROY", @media, method: :delete, onclick: "return confirm('Are you sure?')",class:"btn btn-danger", role:"button" %>
+<%= link_to @index_button, @index_path, class:"btn btn-default", role:"button" %>
+<%= link_to "View All Media", root_path, class:"btn btn-default", role:"button" %>

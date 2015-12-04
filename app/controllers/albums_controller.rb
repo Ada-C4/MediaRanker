@@ -9,6 +9,8 @@ class AlbumsController < ApplicationController
     @media = Album.find(params[:id])
     @path = upvote_album_path(@media)
     @edit_path = edit_album_path(@media)
+    @index_button = "View all Albums"
+    @index_path = albums_path
   end
 
   def new
