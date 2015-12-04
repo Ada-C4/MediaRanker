@@ -1,10 +1,1 @@
-<h1><%= @movie.name %> <small>Directed by: <%= @movie.director%></small></h1>
-<h4>Ranked: <%= @movie.ranked %></h4>
-<p>
-  <%= @movie.description %>
-</p>
-<%= button_to "Upvote", movie_upvote_path(@movie), method: :patch, class: "btn btn-primary" %>
-<%= link_to "Edit #{@movie.name}", edit_movie_path(@movie), method: :get, class: "btn btn-default" %>
-<%= link_to "DELETE", "/movies/#{@movie.id}", method: "delete",  data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
-<%= link_to "View All Movies", movies_path, method: :get, class: "btn btn-default" %>
-<%= link_to "View All Media", root_path, method: :get, class: "btn btn-default" %>
+<%= render partial: 'shared/show', locals: { medium: @movie, name: "movie", creator: @movie.director, create_type: "Directed" } %>
