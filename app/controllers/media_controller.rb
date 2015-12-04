@@ -25,6 +25,7 @@ class MediaController < ApplicationController
   end
 
   def edit
+    @type = @medium.type
   end
 
   def update
