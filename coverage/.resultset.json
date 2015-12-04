@@ -1,6 +1,15 @@
 {
   "RSpec": {
     "coverage": {
+      "/Users/meighanrasley/ada/project_forks/MediaRanker/spec/support/medium_spec.rb": [
+        1,
+        0,
+        0,
+        0,
+        null,
+        null,
+        null
+      ],
       "/Users/meighanrasley/ada/project_forks/MediaRanker/spec/controllers/albums_controller_spec.rb": [
         1,
         null,
@@ -166,7 +175,7 @@
         null,
         null,
         null,
-        1,
+        2,
         null,
         null,
         null,
@@ -1028,6 +1037,10 @@
         null,
         1,
         1,
+        null,
+        null,
+        1,
+        1,
         1,
         1,
         null,
@@ -1052,6 +1065,6 @@
         null
       ]
     },
-    "timestamp": 1449204865
+    "timestamp": 1449249236
   }
 }
