@@ -1,0 +1,19 @@
+<div class="form-group">
+  <form>
+  <h2> Edit Movie </h2>
+    <%= form_for @movie, action: 'update', method: :patch do |f| %>
+    <fieldset>
+      <%= f.label :name %>
+      <%= f.text_field :name, class: "form-control" %>
+      <br>
+      <%= f.label :director %>
+      <%= f.text_field :director, class: "form-control"  %>
+      <br>
+      <%= f.label :description %>
+      <%= f.text_area :description, class: "form-control"  %>
+      <br>
+    </fieldset>
+    <%= f.submit "Save", class: "btn btn-default" %>
+    <% end %>
+  </form>
+</div>
