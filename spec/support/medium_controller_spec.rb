@@ -96,25 +96,27 @@ RSpec.shared_examples "a medium controller" do
     end
   end
 
+  describe "DELETE 'destroy'" do
+    let(:medium) do
+      model.create(name: "name")
+    end
+
+    it "redirects to index page" do
+      delete :destroy, id: medium.id
+      expect(subject).to redirect_to("/#{model.name.downcase}s")
+    end
+  end
+
+  describe "POST 'upvote'" do
+    let(:medium) do
+      model.create(name: "name", upvotes: 0)
+    end
+
+    it "incremements book upvotes by 1" do
+      post :upvote, id: medium.id
+      medium.reload
+      expect(medium.upvotes).to eq 1
+    end
+  end
+
 end
-
-
-
-
-
-
-
-
-# RSpec.describe MoviesController, type: :controller do
-#   it_behaves_like "a medium controller" do
-#     let(:params) do
-#       {
-#         movie: {
-#           title: "a title",
-#           director: "a director",
-#           description: "a description"
-#         }
-#       }
-#     end
-#   end
-# end
