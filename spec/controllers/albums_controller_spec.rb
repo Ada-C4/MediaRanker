@@ -33,7 +33,7 @@ RSpec.describe AlbumsController, type: :controller do
 
   describe "GET 'edit'" do
     let(:album) do
-      Album.create(name: "Album Name", artist:"Album artist")
+      Album.create(name: "Album Name")
     end
 
     it "is successful" do
@@ -54,7 +54,7 @@ RSpec.describe AlbumsController, type: :controller do
     let(:bad_params) do
       {
         album: {
-          description: "nameless album"
+          name: nil
         }
       }
     end
@@ -81,9 +81,7 @@ RSpec.describe AlbumsController, type: :controller do
     let(:good_params) do
       {
           album:{
-            name: "something else",
-            artist: "someone",
-            description:"blablabla"
+            name: "something else"
           },
           id: album.id
       }
@@ -92,9 +90,7 @@ RSpec.describe AlbumsController, type: :controller do
     let(:bad_params) do
       {
           album:{
-            name: nil,
-            artist: "someone",
-            description:"blablabla"
+            name: nil
           },
           id: album.id
       }
