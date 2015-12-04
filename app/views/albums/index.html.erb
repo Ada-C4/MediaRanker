@@ -1,4 +1,4 @@
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
       <th>
@@ -15,15 +15,15 @@
   <tbody>
     <% @albums_sort.each do |album| %>
     <tr>
-      <td><%= album.rank %></td>
+      <td>Ranked: <%= album.rank %></td>
       <td><%= link_to album.name, album_path(album)%></td>
       <td>
-        <%= button_to "Upvote", { action: "upvote", id: album.id, class: "vote" }, method: "patch" %>
+        <%= button_to "Upvote", { action: "upvote", id: album.id }, method: "patch", class: "btn btn-default" %>
       </td>
     </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= button_to "View All Media", root_path, method: :get %>
-<%= button_to "Add a album", new_album_path, method: :get %>
+<%= button_to "View All Media", root_path, method: :get, class: "btn btn-default" %>
+<%= button_to "Add a album", new_album_path, method: :get, class: "btn btn-default" %>

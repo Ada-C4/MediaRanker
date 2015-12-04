@@ -18,7 +18,7 @@
       <td>Ranked: <%= book.rank %></td>
       <td><%= link_to book.name, book_path(book)%></td>
       <td>
-        <%= button_to "Upvote", { action: "upvote", id: book.id, class: "vote" }, method: "patch", class: "btn btn-default" %>
+        <%= button_to "Upvote", { action: "upvote", id: book.id }, method: "patch", class: "btn btn-default" %>
       </td>
     </tr>
     <% end %>
