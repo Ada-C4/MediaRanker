@@ -15,6 +15,17 @@ RSpec.describe BooksController, type: :controller do
     end
   end
 
+  describe "GET 'edit'" do
+      let(:book) do
+        Book.create(name: "Test", author: "Me", description: "boring film", rank: 7)
+      end
+
+      it "renders edit view" do
+        get :edit, id: book.id
+        expect(subject).to render_template :edit
+      end
+    end
+
   describe "GET 'show'" do
     let(:post_something) do
       Book.create(name: "Test", author: "Me", description: "Test")

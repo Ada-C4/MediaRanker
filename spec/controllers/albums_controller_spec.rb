@@ -1,5 +1,11 @@
 require 'rails_helper'
 
+# RSpec.describe album, type: :model do
+#   it_behaves_like "a medium"
+#
+#   # Any remaining movie-specific tests
+# end
+
 RSpec.describe AlbumsController, type: :controller do
   describe "GET 'index'" do
     it "is successful" do
@@ -14,6 +20,17 @@ RSpec.describe AlbumsController, type: :controller do
       expect(subject).to render_template :new
     end
   end
+
+  describe "GET 'edit'" do
+      let(:album) do
+        Album.create(name: "Test", artist: "Me", description: "boring film", rank: 7)
+      end
+
+      it "renders edit view" do
+        get :edit, id: album.id
+        expect(subject).to render_template :edit
+      end
+    end
 
   describe "GET 'show'" do
     let(:post_something) do
