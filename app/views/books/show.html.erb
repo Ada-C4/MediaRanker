@@ -1,10 +1,10 @@
-<h1> <%= @book.name %> </h1> <h2>Written by: <%= @book.author %> </h2>
-<h3>Ranked: <%= @book.rank %> </h3>
-<h4><%= @book.description %> </h4>
-<%= button_to 'Upvote', book_upvote_path(@book.id) %>
+<h1> <%= @book.name %><small>Written by: <%= @book.author %> </small></h1>
+<h4>Ranked: <%= @book.rank %> </h4>
+<h5><%= @book.description %> </h5>
+<%= button_to 'Upvote', book_upvote_path(@book.id), class: "btn btn-primary" %>
 
 
 
-<%= link_to 'EDIT', edit_book_path %>
-<%= link_to 'DELETE',  { action: :destroy, id: @book.id }, method: :delete, data: { confirm: 'Delete Book, For Real?' } %>
+<%= link_to 'EDIT', edit_book_path, class: "btn btn-default" %>
+<%= link_to 'DELETE',  { action: :destroy, id: @book.id }, method: :delete, data: { confirm: 'Delete Book, For Real?' }, class: "btn btn-danger" %>
 <%= link_to 'View All Books', books_path %>
