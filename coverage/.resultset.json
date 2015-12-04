@@ -1,26 +1,6 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/desireepoland/Ada/project-forks/MediaRanker/app/helpers/albums_helper.rb": [
-        1,
-        null
-      ],
-      "/Users/desireepoland/Ada/project-forks/MediaRanker/app/helpers/application_helper.rb": [
-        1,
-        null
-      ],
-      "/Users/desireepoland/Ada/project-forks/MediaRanker/app/helpers/books_helper.rb": [
-        1,
-        null
-      ],
-      "/Users/desireepoland/Ada/project-forks/MediaRanker/app/helpers/media_helper.rb": [
-        1,
-        null
-      ],
-      "/Users/desireepoland/Ada/project-forks/MediaRanker/app/helpers/movies_helper.rb": [
-        1,
-        null
-      ],
       "/Users/desireepoland/Ada/project-forks/MediaRanker/app/controllers/albums_controller.rb": [
         1,
         null,
@@ -223,6 +203,6 @@
         null
       ]
     },
-    "timestamp": 1449188150
+    "timestamp": 1449189757
   }
 }
