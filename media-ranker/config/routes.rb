@@ -2,9 +2,9 @@ Rails.application.routes.draw do
 
   root 'application#index'
 
-  patch 'movies/:id/upvote' => 'movies#upvote', as: :upvote_movie
-  patch 'books/:id/upvote' => 'books#upvote', as: :upvote_book
-  patch 'albums/:id/upvote' => 'albums#upvote', as: :upvote_album
+  post 'movies/:id/upvote' => 'movies#upvote', as: :upvote_movie
+  post 'books/:id/upvote' => 'books#upvote', as: :upvote_book
+  post 'albums/:id/upvote' => 'albums#upvote', as: :upvote_album
 
   resources :movies
   resources :books
