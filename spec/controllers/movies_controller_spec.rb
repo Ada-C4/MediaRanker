@@ -4,7 +4,6 @@ RSpec.describe MoviesController, type: :controller do
   it_behaves_like "a medium controller"
   let(:model){Movie}
 
-
   # RSpec.describe MoviesController, type: :controller do
   #   it_behaves_like "a medium controller" do
   #     let(:params) do
