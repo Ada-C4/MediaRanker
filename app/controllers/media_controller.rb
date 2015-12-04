@@ -37,6 +37,17 @@ class MediaController < ApplicationController
   end
 
   def destroy
+    type = @medium.type
+    @medium.destroy
+    if type == "Movie"
+      redirect_to movies_path
+    elsif type == "Book"
+      redirect_to books_path
+    elsif type == "Album"
+      redirect_to albums_path
+    else
+      redirect_to root
+    end
   end
 
   def upvote
