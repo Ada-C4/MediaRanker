@@ -1,1 +1,12 @@
-ALL THE DEETS ON <% @book.title %>
+<div>
+  <h1><%= @book.title %> <small>Written by: <%= @book.author %></small></h1>
+  <h4>Ranked: <%= @book.rank %></h4>
+  <p>
+    <%= @book.description %>
+  </p>
+  <%= button_to 'Upvote', upvote_book_path(@book.id) %>
+</div>
+  <%= button_to "Edit #{@book.title}", edit_book_path(@book.id) , :method => :get  %>
+  <%= button_to 'Delete', book_path, :method => :delete %>
+  <%= button_to 'View All Books', books_path, :method => :get  %>
+  <%= button_to 'View All Media', root_path, :method => :get  %>
