@@ -20,7 +20,13 @@ class AlbumsController < ApplicationController
 
   def create
     @album = Album.create(album_params[:album])
-    redirect_to "/albums"
+    @album.update(:rank => 0)
+    if @album.save
+      redirect_to "/albums"
+    else
+      render "/albums/new"
+    end
+
   end
 
   def edit
@@ -37,7 +43,11 @@ class AlbumsController < ApplicationController
 
   def update
     @album = Album.update(params[:id], name: album_params[:album][:name])
-    redirect_to "/albums/#{@album.id}"
+    if @album.save
+      redirect_to "/albums/#{@album.id}"
+    else
+      render :edit
+    end
   end
 
   def destroy

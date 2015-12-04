@@ -56,7 +56,7 @@ RSpec.describe AlbumsController, type: :controller do
 
     it "redirects to albums index on error" do
       post :create, bad_album
-      expect(subject).to redirect_to albums_path
+      expect(subject).to render_template :new
     end
   end
 
@@ -107,7 +107,7 @@ RSpec.describe AlbumsController, type: :controller do
 
     it "redirects to album show page on error" do
       patch :update, bad_album
-      expect(subject).to redirect_to album_path(album.id)
+      expect(subject).to render_template :edit
     end
   end
 
