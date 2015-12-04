@@ -3,6 +3,11 @@ class HomeController < ApplicationController
   before_action :get_books
   before_action :get_albums
 
+  def index
+  end
+
+  private
+
   def get_movies
     @movies = Movie.all
   end
@@ -13,8 +18,5 @@ class HomeController < ApplicationController
 
   def get_albums
     @albums = Album.all
-  end
-
-  def index
   end
 end

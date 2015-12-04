@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-md-4">
         <h1>Top Movies</h1>
-        <% @movies.top_ten.each do |movie| %>
+        <% @movies.by_ranking.first(10).each do |movie| %>
         <h2><%= link_to "#{movie.title}", movie_path(movie.id), action: :show %>
             <small>Ranked:<%=movie.ranking %></small>
         </h2>
@@ -12,7 +12,7 @@
       </div>
       <div class="col-md-4">
         <h1>Top Books</h1>
-        <% @books.top_ten.each do |book| %>
+        <% @books.by_ranking.first(10).each do |book| %>
         <h2><%= link_to "#{book.title}", book_path(book.id), action: :show %>
             <small>Ranked:<%=book.ranking %></small>
         </h2>
@@ -21,7 +21,7 @@
       </div>
       <div class="col-md-4">
         <h1>Top Albums</h1>
-        <% @albums.top_ten.each do |album| %>
+        <% @albums.by_ranking.first(10).each do |album| %>
         <h2><%= link_to "#{album.title}", album_path(album.id), action: :show %>
             <small>Ranked:<%=album.ranking %></small>
         </h2>

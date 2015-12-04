@@ -44,9 +44,6 @@ class BooksController < ApplicationController
     end
   end
 
-
-
-
   def destroy
     id = params[:id]
     Book.destroy(id)

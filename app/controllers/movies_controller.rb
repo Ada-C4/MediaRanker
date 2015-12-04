@@ -44,7 +44,6 @@ class MoviesController < ApplicationController
     end
   end
 
-
   def destroy
     id = params[:id]
     Movie.destroy(id)
