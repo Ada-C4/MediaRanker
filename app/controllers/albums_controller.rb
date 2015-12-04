@@ -6,7 +6,7 @@ class AlbumsController < ApplicationController
 
   def index
     @albums = Album.all
-    @albums_sort = @albums.sort_by{ |album| book[:rank] }.reverse
+    @albums_sort = @albums.sort_by{ |album| album[:rank] }.reverse
   end
 
   def show

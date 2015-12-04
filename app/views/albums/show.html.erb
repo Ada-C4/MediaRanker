@@ -3,7 +3,7 @@
 <p><%= @album.description %></p>
 
 <%= button_to "Upvote", { action: "upvote", id: @album.id }, class: "btn btn-primary", method: "patch", id: "upvote" %>
-<%= button_to "Edit #{@album.name}", edit_album_path(@album.id), method: :get %>
+<%= button_to "Edit #{@album.name}", edit_album_path(@album.id), method: :get, class: "btn btn-default" %>
 <%= button_to "Delete", "/albums/#{@album.id}", method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
-<%= button_to "View All albums", albums_path, method: :get, class: "btn btn-default" %>
+<%= button_to "View All Albums", albums_path, method: :get, class: "btn btn-default" %>
 <%= button_to "View All Media", root_path, method: :get, class: "btn btn-default" %>
