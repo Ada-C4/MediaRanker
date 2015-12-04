@@ -1,0 +1,23 @@
+<div class=row>
+  <div class="col-md-4">
+    <h1>Top Movies</h1>
+    <% @movies.each do |movie| %>
+      <h2><%= link_to movie.title, movie_path(movie) %><small> Upvotes: <%= movie.upvotes %></small></%></h2>
+    <% end %>
+    <p><%= link_to "View More Movies", movies_path %></p>
+  </div>
+  <div class="col-md-4">
+    <h1>Top Books</h1>
+    <% @books.each do |book| %>
+      <h2><%= link_to book.title, book_path(book) %><small> Upvotes: <%= book.upvotes %></small></%></h2>
+    <% end %>
+    <p><%= link_to "View More Books", books_path %></p>
+  </div>
+  <div class="col-md-4">
+    <h1>Top Albums</h1>
+    <% @albums.each do |album| %>
+      <h2><%= link_to album.title, album_path(album) %><small> Upvotes: <%= album.upvotes %></small></%></h2>
+    <% end %>
+    <p><%= link_to "View More Albums", albums_path %></p>
+  </div>
+</div>
