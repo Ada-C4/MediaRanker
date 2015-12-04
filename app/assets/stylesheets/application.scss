@@ -10,6 +10,20 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
- *= require_self
+
  */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.page-header {
+    background: url(http://media-ranker.herokuapp.com/assets/owl-5e51d9e0d49c787f2ebd143e32cbf41c.jpg);
+    background-repeat: no-repeat;
+  }
+
+.page-header h1 {
+    margin-left: 150px;
+}
+
+.h3 .small {
+    font-size: 65%;
+}

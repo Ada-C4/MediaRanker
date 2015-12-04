@@ -1,3 +1,5 @@
+
+
 <ul>
   <% @movies.each do |movie| %>
     <li><%= movie.rank %> <%= link_to "#{movie.name}", movie_path(movie.id) %> <%= button_to "upvote", movie_upvote_path(movie.id), method: :post %></li>
