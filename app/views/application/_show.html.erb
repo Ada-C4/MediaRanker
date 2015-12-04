@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col-lg-12">
+    <h1>
+      <%= @art.title %>
+      <small>
+        <% if @art_attribute.present? %>
+          <%= "#{art_verb} by: #{@art_attribute}" %>
+        <% end %>
+      </small>
+    </h1>
+    <h4><%= @art.votes.present? ? "#{@art.votes} votes" : "0 votes" %></h4>
+    <p>
+      <%= @art.description %>
+    </p>
+
+    <div class="form">
+      <%= button_to "Upvote!", polymorphic_path(@art, :action => :upvote), :method => :patch, :class => "btn btn-primary" %>      
+    </div>
+
+    <%= link_to "Edit #{@art.title}", edit_polymorphic_path(@art), method: :get, class: "btn btn-default" %>
+
+
+    <%= link_to "Delete", polymorphic_path(@art), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+
+
+    <%= link_to "All #{type_plural.capitalize}", polymorphic_path(type_plural), method: :get, class: "btn btn-default" %>
+
+    <%= link_to "View All Media", root_path, method: :get, class: "btn btn-default" %>
+
+  </div>
+
+</div>

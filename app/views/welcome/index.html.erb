@@ -1,0 +1,54 @@
+<div class="row">
+  <div class="col-lg-12">
+    <div class="row">
+      <div class="col-md-4">
+        <h1>Top Movies</h1>
+          <% @movies.each do |movie| %>
+            <h2>
+              <%= link_to movie.title, movie_path(movie) %>
+              <small>
+                <% if movie.votes.nil? %>
+                  0 votes
+                <% else %>
+                  <%= movie.votes %> vote<%= "s" if movie.votes != 1 %>
+                <% end %>
+              </small>
+            </h2>
+          <% end %>
+        <%= link_to "View More Movies", movies_path %>
+      </div>
+      <div class="col-md-4">
+        <h1>Top Books</h1>
+        <% @books.each do |book| %>
+          <h2>
+            <%= link_to book.title, book_path(book) %>
+            <small>
+              <% if book.votes.nil? %>
+                0 votes
+              <% else %>
+                <%= book.votes %> vote<%= "s" if book.votes != 1 %>
+              <% end %>
+            </small>
+          </h2>
+        <% end %>
+        <%= link_to "View More Books", books_path %>
+      </div>
+      <div class="col-md-4">
+        <h1>Top Albums</h1>
+        <% @albums.each do |album| %>
+          <h2>
+            <%= link_to album.title, album_path(album) %>
+            <small>
+              <% if album.votes.nil? %>
+                0 votes
+              <% else %>
+                <%= album.votes %> vote<%= "s" if album.votes != 1 %>
+              <% end %>
+            </small>
+          </h2>
+        <% end %>
+        <%= link_to "View More Albums", albums_path %>
+      </div>
+    </div>
+  </div>
+</div>
