@@ -28,7 +28,7 @@ RSpec.describe MoviesController, type: :controller do
 
   describe "GET 'edit'" do
     let(:movie) do
-      Movie.create(name: "name", director:"someone", description:"desc")
+      Movie.create(name: "name")
     end
     it "is successful" do
       get :edit, id: movie.id
@@ -40,8 +40,7 @@ RSpec.describe MoviesController, type: :controller do
     let(:good_params) do
       {
         movie: {
-          name: "name",
-          description: "description"
+          name: "name"
         }
       }
     end
@@ -49,8 +48,7 @@ RSpec.describe MoviesController, type: :controller do
     let(:bad_params) do
       {
         movie: {
-          name: nil,
-          description: "something"
+          name: nil
         }
       }
     end
@@ -71,15 +69,13 @@ RSpec.describe MoviesController, type: :controller do
 
   describe "PATCH 'update'" do
     let(:movie) do
-      Movie.create(name: "movie", director:"name", description:"Description")
+      Movie.create(name: "movie")
     end
 
     let(:good_params) do
       {
           movie:{
-            name: "movie1",
-            director: "name1",
-            description:"desc1"
+            name: "movie1"
           },
           id: movie.id
       }
@@ -88,9 +84,7 @@ RSpec.describe MoviesController, type: :controller do
     let(:bad_params) do
       {
           movie:{
-            name: nil,
-            director: "name2",
-            description:"desc2"
+            name: nil
           },
           id: movie.id
       }
