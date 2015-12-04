@@ -1,10 +1,10 @@
-<h1> <%= @movie.name %> </h1> <h2>Directed by: <%= @movie.director %> </h2>
-<h3>Ranked: <%= @movie.rank %> </h3>
-<h4><%= @movie.description %> </h4>
-<%= button_to 'Upvote', upvote_path(@movie.id) %>
+<h1> <%= @movie.name %> <small> Directed by: <%= @movie.director %> </small> </h1>
+<h4>Ranked: <%= @movie.rank %> </h4>
+<h5><%= @movie.description %> </h5>
+<%= button_to 'Upvote', upvote_path(@movie.id), class: "btn btn-primary" %>
 
 
 
-<%= link_to 'EDIT', edit_movie_path %>
-<%= link_to 'DELETE',  { action: :destroy, id: @movie.id }, method: :delete, data: { confirm: 'Delete Movie, For Real?' } %>
-<%= link_to 'View All Movies', movies_path %>
+<%= link_to "Edit #{@movie.name}", edit_movie_path, class: "btn btn-default" %>
+<%= link_to 'DELETE',  { action: :destroy, id: @movie.id }, method: :delete, data: { confirm: 'Delete Movie, For Real?' }, class: "btn btn-danger" %>
+<u><%= link_to 'View All Movies', movies_path %></u>

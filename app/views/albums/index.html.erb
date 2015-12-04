@@ -1,6 +1,5 @@
-<h1> All Albums </h1>
 
-<table>
+<table class = "table table-hover">
   <tr>
     <th> Ranking </th>
     <th> Name </th>
@@ -11,8 +10,9 @@
   <tr>
     <td><%= album.rank %></td>
     <td><%= link_to album.name, album_path(album.id)%></td>
-    <td><%= button_to 'Upvote', album_upvote_path(album.id), method: :post %></td>
+    <td><%= button_to 'Upvote', album_upvote_path(album.id), method: :post, class: "btn btn-default" %></td>
   </tr>
   <% end %>
 </table>
-s
+<%= link_to 'View All Media', root_path, class: "btn btn-default" %>
+<%= link_to 'Add a new Album', new_album_path, class: "btn btn-default" %>
