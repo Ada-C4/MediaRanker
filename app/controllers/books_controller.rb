@@ -7,6 +7,7 @@ class BooksController < ApplicationController
 
   def index
     @books = Book.all
+    @books_sort = @books.sort_by{ |book| book[:rank] }.reverse
   end
 
   def show

@@ -13,7 +13,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @books.each do |book| %>
+    <% @books_sort.each do |book| %>
     <tr>
       <td><%= book.rank %></td>
       <td><%= link_to book.name, book_path(book)%></td>
