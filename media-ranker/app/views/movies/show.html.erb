@@ -1,1 +1,12 @@
-ALL THE DEETS ON <% @show.title %>
+<div>
+  <h1><%= @movie.title %> <small>Recorded by: <%= @movie.director %></small></h1>
+  <h4>Ranked: <%= @movie.rank %></h4>
+  <p>
+    <%= @movie.description %>
+  </p>
+  <%= button_to 'Upvote', upvote_movie_path(@movie.id) %>
+</div>
+  <%= button_to "Edit #{@movie.title}", edit_movie_path(@movie.id) , :method => :get  %>
+  <%= button_to 'Delete', movie_path, :method => :delete %>
+  <%= button_to 'View All Movies', movies_path, :method => :get  %>
+  <%= button_to 'View All Media', root_path, :method => :get  %>
