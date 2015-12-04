@@ -1,9 +1,9 @@
 class MediaController < ApplicationController
   before_action only: [:show, :edit, :update, :destroy, :vote] { @medium = Medium.find(params[:id]) }
-  before_action only: [:edit, :destroy, :vote] { @type = @medium.type.pluralize }
+  before_action :set_type
 
   def index
-    @media = Medium.where("type = '#{params[:type]}'")
+    @media = type_class.all
     @type = Medium.find(1).type
   end
 
@@ -11,10 +11,17 @@ class MediaController < ApplicationController
   end
 
   def new
-    @medium = params[:type].constantize.new
+    @medium = type_class.new
+    @type = @medium.type
   end
 
   def create
+    @medium = Medium.new(medium_params)
+      if @medium.save
+        redirect_to @medium
+      else
+        render :new
+      end
   end
 
   def edit
@@ -27,6 +34,24 @@ class MediaController < ApplicationController
   end
 
   def upvote
+  end
+
+  private
+
+  def set_type
+    @type = type
+  end
+
+  def type
+    Medium.types.include?(params[:type]) ? params[:type] : "Medium"
+  end
+
+  def type_class
+    type.constantize
+  end
+
+  def medium_params
+    params.permit(medium:[:name, :type, :creator, :description, :upvotes])
   end
 
 end

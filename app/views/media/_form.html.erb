@@ -1,5 +1,6 @@
 <%= form_for @medium, :html => { :class => "form" } do |f| %>
   <div class="form-group">
+    <%= f.hidden_field :type, value: @type %>
     <%= f.label :name %>
     <%= f.text_field :name, class: "form-control" %>
     <%= f.label :creator %>

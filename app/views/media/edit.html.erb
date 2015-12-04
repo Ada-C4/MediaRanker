@@ -1,21 +1,6 @@
 <div class="row">
   <div class="col-lg-12">
-    <h1><%= @medium.name %> <small>Directed by: <%= @medium.director %></small></h1>
-    <h4>Ranked:
-      <% if @medium.upvotes.nil? %>
-        0
-      <% else %>
-        <%= @medium.upvotes %>
-      <% end %>
-    </h4>
-    <p>
-      <%= @medium.description %>
-    </p>
-    <%= button_to "Upvote", upvote_medium_path,  method: :patch, class: 'btn btn-primary' %>
-    <br />
-    <%= link_to "Edit #{@medium.name}", edit_medium_path , class: "btn btn-default" %>
-    <%= link_to "DELETE", medium_path(@medium), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
-    <%= link_to "View All #{medium.type}", medium_path,  method: :get, class: 'btn btn-default' %>
-    <%= link_to "View All Media", "/",  method: :get, class: 'btn btn-default' %>
+    <h2>Edit <%= @medium.type %></h2>
+    <%= render partial: 'form' %>
   </div>
 </div>
