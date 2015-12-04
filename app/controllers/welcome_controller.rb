@@ -5,4 +5,3 @@ class WelcomeController < ApplicationController
     @books= Book.all
   end
 end
-  

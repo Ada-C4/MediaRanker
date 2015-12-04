@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'application#home'
+  root 'welcome#home'
   resources :movies
   resources :books
   resources :albums

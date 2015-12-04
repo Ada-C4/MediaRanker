@@ -83,6 +83,7 @@
         null,
         null,
         1,
+        null,
         null
       ],
       "/Users/annaleeherrera/class-exs/project-forks/MediaRanker/app/controllers/books_controller.rb": [
@@ -206,7 +207,6 @@
         0,
         0,
         null,
-        null,
         null
       ],
       "/Users/annaleeherrera/class-exs/project-forks/MediaRanker/app/models/album.rb": [
@@ -228,6 +228,6 @@
         null
       ]
     },
-    "timestamp": 1449179651
+    "timestamp": 1449183713
   }
 }
