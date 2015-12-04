@@ -4,7 +4,7 @@ class MediaController < ApplicationController
 
   def index
     @media = type_class.all
-    @type = Medium.find(1).type
+    @type = params[:type]
   end
 
   def show
