@@ -1,4 +1,19 @@
 Rails.application.routes.draw do
+
+  root 'welcome#index'
+  post '/books/:id/upvote' => 'books#upvote', as: :upvote_books
+  post '/movies/:id/upvote' => 'movies#upvote', as: :upvote_movies
+  post '/albums/:id/upvote' => 'albums#upvote', as: :upvote_albums
+
+  resources :movies do
+  end
+
+  resources :books do
+  end
+
+  resources :albums do
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
