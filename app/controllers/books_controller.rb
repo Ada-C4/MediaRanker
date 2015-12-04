@@ -37,8 +37,10 @@ class BooksController < ApplicationController
     redirect_to book_path(params[:id])
   end
 
-
   def destroy
+    id = params[:id]
+    Book.find(id).destroy
+    redirect_to books_path
   end
 
   def upvote

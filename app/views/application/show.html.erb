@@ -4,3 +4,4 @@
 <h4> <%= @media.description %></h4>
 <h4><%= button_to 'Upvote', @path, method: :post, class:"btn btn-default", role:"button"%></h4>
 <h4><%= link_to "Edit", @edit_path, class:"btn btn-default", role:"button" %></h4>
+<h4><%= link_to "DESTROY", @media, method: :delete, onclick: "return confirm('Are you sure?')",class:"btn btn-default", role:"button" %>
