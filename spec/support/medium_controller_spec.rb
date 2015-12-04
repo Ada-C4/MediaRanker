@@ -65,11 +65,18 @@ RSpec.shared_examples "a medium controller" do
       patch :update, bad_update_params
       expect(subject).to render_template :edit
     end
+
+    it "does not change the item if params are bad" do
+      patch :update, bad_update_params
+      expect(test_medium.name).not_to eql("New name")
+    end
   end
 
   describe "DELETE 'destroy'" do
-    it "redirects to the index view" do
+    before :each do
       delete :destroy, id: test_medium.id
+    end
+    it "redirects to the index view" do
       expect(subject).to redirect_to polymorphic_path(media_type_plural)
     end
   end
