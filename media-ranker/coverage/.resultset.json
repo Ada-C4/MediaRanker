@@ -1,0 +1,141 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/lr.granger21/Documents/ADA/ProgjectMasters/MediaRanker/media-ranker/app/helpers/albums_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/lr.granger21/Documents/ADA/ProgjectMasters/MediaRanker/media-ranker/app/helpers/application_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/lr.granger21/Documents/ADA/ProgjectMasters/MediaRanker/media-ranker/app/helpers/books_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/lr.granger21/Documents/ADA/ProgjectMasters/MediaRanker/media-ranker/app/helpers/movies_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/lr.granger21/Documents/ADA/ProgjectMasters/MediaRanker/media-ranker/app/controllers/albums_controller.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        null
+      ],
+      "/Users/lr.granger21/Documents/ADA/ProgjectMasters/MediaRanker/media-ranker/app/controllers/application_controller.rb": [
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        null
+      ],
+      "/Users/lr.granger21/Documents/ADA/ProgjectMasters/MediaRanker/media-ranker/app/controllers/books_controller.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        null
+      ],
+      "/Users/lr.granger21/Documents/ADA/ProgjectMasters/MediaRanker/media-ranker/app/controllers/movies_controller.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        null
+      ],
+      "/Users/lr.granger21/Documents/ADA/ProgjectMasters/MediaRanker/media-ranker/app/models/album.rb": [
+        1,
+        1,
+        1,
+        1,
+        null
+      ],
+      "/Users/lr.granger21/Documents/ADA/ProgjectMasters/MediaRanker/media-ranker/app/models/book.rb": [
+        1,
+        1,
+        1,
+        1,
+        null
+      ],
+      "/Users/lr.granger21/Documents/ADA/ProgjectMasters/MediaRanker/media-ranker/app/models/movie.rb": [
+        1,
+        1,
+        1,
+        1,
+        null
+      ]
+    },
+    "timestamp": 1449179910
+  }
+}

@@ -1,5 +1,10 @@
 class ApplicationController < ActionController::Base
-  # Prevent CSRF attacks by raising an exception.
-  # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
+
+  def index
+    @books = Book.order(rank: :desc).limit(3)
+    @albums = Album.order(rank: :desc).limit(3)
+    @movies = Movie.order(rank: :desc).limit(3)
+  end
+
 end
