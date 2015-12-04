@@ -52,7 +52,7 @@ RSpec.shared_examples "a medium controller" do
     it "redirects to show page" do
       post :create, good_params
       #Success case to show page
-      expect(subject).to redirect_to( "/#{model.name.downcase}s/1")
+      expect(subject).to redirect_to("/#{model.name.downcase}s/1")
     end
 
     it "renders new template on error" do
@@ -62,7 +62,39 @@ RSpec.shared_examples "a medium controller" do
     end
   end
 
+  describe "PATCH 'update'" do
+    before :each do
+      model.create(name: "name")
+    end
 
+    let(:good_params) do
+      {
+        model.name.downcase.to_sym => {
+            name: "name"
+          },
+          id: model.last.id
+      }
+    end
+
+    let(:bad_params) do
+      {
+          model.name.downcase.to_sym => {
+            name: nil
+          },
+          id: model.last.id
+      }
+    end
+
+    it "redirects to show page" do
+      patch :update, good_params
+      expect(subject).to redirect_to("/#{model.name.downcase}s/#{model.last.id}")
+    end
+
+    it "renders edit template on error" do
+      patch :update, bad_params
+      expect(subject).to render_template :edit
+    end
+  end
 
 end
 
