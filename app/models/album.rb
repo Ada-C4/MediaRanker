@@ -6,5 +6,4 @@ class Album < ActiveRecord::Base
   def self.by_ranking
     Album.order("ranking DESC")
   end
-
 end

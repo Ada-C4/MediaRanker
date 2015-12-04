@@ -9,15 +9,15 @@
         </tr>
         <% @books.by_ranking.each do |book| %>
           <tr>
-          <td>
-            Ranked: <%=book.ranking %>
-          </td>
-          <td>
-            <%= link_to "#{book.title}", book_path(book.id), action: :show %>
-          </td>
-          <td>
-            <%= button_to "Upvote", book_upvote_path(book.id), method: :post, class: "btn btn-default" %>
-          </td>
+            <td>
+              Ranked: <%=book.ranking %>
+            </td>
+            <td>
+              <%= link_to "#{book.title}", book_path(book.id), action: :show %>
+            </td>
+            <td>
+              <%= button_to "Upvote", book_upvote_path(book.id), method: :post, class: "btn btn-default" %>
+            </td>
           </tr>
         <% end %>
       </tbody>

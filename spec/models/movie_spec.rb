@@ -1,5 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Movie, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it_behaves_like "a medium"
+  let(:model) { Movie }
 end

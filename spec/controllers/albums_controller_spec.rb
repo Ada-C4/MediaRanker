@@ -2,10 +2,9 @@ require 'rails_helper'
 require 'pry'
 
 RSpec.describe AlbumsController, type: :controller do
-  it_behaves_like "a medium"
+  it_behaves_like "media"
   let(:model) { Album }
   let(:item) { Album.create!(title: "an album", ranking: 0) }
-
 
   let(:good_params) do
   {
@@ -34,7 +33,6 @@ RSpec.describe AlbumsController, type: :controller do
     }
   }
   end
-
 
   let (:bad_update_params) do
     {

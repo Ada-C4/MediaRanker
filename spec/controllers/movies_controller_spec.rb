@@ -2,10 +2,9 @@ require 'rails_helper'
 require 'pry'
 
 RSpec.describe MoviesController, type: :controller do
-  it_behaves_like "a medium"
+  it_behaves_like "media"
   let(:model) { Movie }
   let(:item) { Movie.create!(title: "an movie", ranking: 0) }
-
 
   let(:good_params) do
   {
@@ -34,7 +33,6 @@ RSpec.describe MoviesController, type: :controller do
     }
   }
   end
-
 
   let (:bad_update_params) do
     {

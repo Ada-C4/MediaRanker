@@ -6,5 +6,4 @@ class Book < ActiveRecord::Base
   def self.by_ranking
     Book.order("ranking DESC")
   end
-
 end

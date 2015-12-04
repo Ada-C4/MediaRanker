@@ -6,5 +6,4 @@ class Movie < ActiveRecord::Base
   def self.by_ranking
     Movie.order("ranking DESC")
   end
-
 end

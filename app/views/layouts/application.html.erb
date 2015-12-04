@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>MediaRanker</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <div class= "container">
-    <div class= "row">
-      <div class="page-header">
-        <h1><%= link_to "Media Ranker", "/", :class => "header_title" %>
-        <small>Ranking the Best of Everything</small>
-        </h1>
+  <head>
+    <title>MediaRanker</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class= "container">
+      <div class= "row">
+        <div class="page-header">
+          <h1><%= link_to "Media Ranker", "/", :class => "header_title" %>
+          <small>Ranking the Best of Everything</small>
+          </h1>
+        </div>
       </div>
+        <%= yield %>
     </div>
-      <%= yield %>
-  </div>
-</body>
+  </body>
 </html>

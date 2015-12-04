@@ -142,7 +142,6 @@
         1,
         null,
         null,
-        null,
         1,
         null,
         1,
@@ -157,17 +156,19 @@
         1,
         null,
         1,
-        0,
         null,
         null,
         1,
-        0,
+        null,
+        1,
+        1,
         null,
         null,
         1,
-        0,
+        1,
         null,
         null,
+        1,
         1,
         null,
         null
@@ -225,7 +226,6 @@
         1,
         null,
         null,
-        null,
         1,
         null,
         1,
@@ -242,7 +242,6 @@
         1,
         0,
         null,
-        null,
         null
       ],
       "/Users/Audrey/Google Drive/Ada/project_forks/MediaRanker/app/models/book.rb": [
@@ -253,7 +252,6 @@
         null,
         1,
         0,
-        null,
         null,
         null
       ],
@@ -266,10 +264,9 @@
         1,
         0,
         null,
-        null,
         null
       ]
     },
-    "timestamp": 1449249860
+    "timestamp": 1449251973
   }
 }

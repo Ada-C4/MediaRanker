@@ -9,15 +9,15 @@
         </tr>
         <% @movies.by_ranking.each do |movie| %>
           <tr>
-          <td>
-            Ranked: <%=movie.ranking %>
-          </td>
-          <td>
-            <%= link_to "#{movie.title}", movie_path(movie.id), action: :show %>
-          </td>
-          <td>
-            <%= button_to "Upvote", movie_upvote_path(movie.id), method: :post, class: "btn btn-default" %>
-          </td>
+            <td>
+              Ranked: <%=movie.ranking %>
+            </td>
+            <td>
+              <%= link_to "#{movie.title}", movie_path(movie.id), action: :show %>
+            </td>
+            <td>
+              <%= button_to "Upvote", movie_upvote_path(movie.id), method: :post, class: "btn btn-default" %>
+            </td>
           </tr>
         <% end %>
       </tbody>
