@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-lg-12">
+    <table class="table table-hover">
+      <tbody>
+        <tr>
+          <th>Ranking</th>
+          <th>Name</th>
+          <th>Upvote</th>
+        </tr>
+
+      <% @content_list.each do |item| %>
+      <tr>
+        <td>Ranked: <%= item.votes %></td>
+        <td><%= link_to item.name, polymorphic_path(item) %></td>
+        <td>
+          <%= button_to "Upvote", polymorphic_path([:upvote, item]), method: :patch, class:"btn btn-default" %>
+        </td>
+      </tr>
+      <% end %>
+      </tbody>
+    </table>
+
+    <%= link_to "View All Media", root_path, class:"btn btn-default" %>
+    <%= link_to "Add a #{item_type}", new_polymorphic_path(item_type), class:"btn btn-default" %>
+
+  </div>
+</div>

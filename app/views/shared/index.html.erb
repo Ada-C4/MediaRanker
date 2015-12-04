@@ -1,0 +1,37 @@
+
+
+<h3>Top Movies</h3>
+<ul>
+  <% @movies.each do |movie| %>
+  <li>
+    <span class="content-name"><%= link_to movie.name, movie_path(movie.id) %></span>
+    Ranked: <%= movie.votes %>
+  </li>
+  <% end %>
+</ul>
+
+<%= link_to "View More Movies", movies_path %>
+
+<h3>Top Books</h3>
+<ul>
+  <% @books.each do |book| %>
+  <li>
+    <span class="content-name"><%= link_to book.name, book_path(book.id) %></span>
+    Ranked: <%= book.votes %>
+  </li>
+  <% end %>
+</ul>
+
+<%= link_to "View More Books", books_path %>
+
+<h3>Top Albums</h3>
+<ul>
+  <% @albums.each do |album| %>
+  <li>
+    <span class="content-name"><%= link_to album.name, album_path(album.id) %></span>
+    Ranked: <%= album.votes %>
+  </li>
+  <% end %>
+</ul>
+
+<%= link_to "View More Albums", albums_path %>
