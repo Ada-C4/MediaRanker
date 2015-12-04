@@ -1,0 +1,11 @@
+<div class="col-lg-12">
+<h1><%= media.name %> <small><%= "#{creator_action} by: #{creator}" %></small></h1>
+<h4>Upvotes: <%= media.upvotes %></h4>
+<p><%= media.description %></p>
+
+<%= button_to "Upvote", send(upvote, media.id), class: "btn btn-primary" %>
+<%= link_to "Edit #{media.name}", send(edit_media, media.id), class: "btn btn-default"  %>
+<%=link_to "DELETE", send(media_path, media.id), method: :delete, data: {confirm: "Are you sure?"},  class: "btn btn-danger" %>
+<%= link_to "View All #{type}", send(medias_path), class: "btn btn-default" %>
+<%= link_to "View All Media", root_path, class: "btn btn-default" %>
+</div>

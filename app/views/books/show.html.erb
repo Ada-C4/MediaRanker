@@ -1,0 +1,10 @@
+<%= render partial: "shared/show", locals: {
+   media: @book,
+   type: "Books",
+   creator: @book.author,
+   creator_action: "Written",
+   upvote: "upvote_book_path",
+   edit_media: "edit_book_path",
+   media_path: "book_path",
+   medias_path: "books_path"
+   } %>
