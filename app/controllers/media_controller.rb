@@ -28,6 +28,11 @@ class MediaController < ApplicationController
   end
 
   def update
+    if @medium.update(medium_params)
+      redirect_to @medium
+    else
+      render action: 'edit'
+    end
   end
 
   def destroy
