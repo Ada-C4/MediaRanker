@@ -5,12 +5,15 @@ RSpec.describe MoviesController, type: :controller do
     let(:medium) do
       Movie.create(name: "Something", director: "Someone", description: "Something something something")
     end
+
     let(:medium2) do
       Movie.create(name: "Something", director: "Someone", description: "Something something something", ranking: 3)
     end
+
     let(:model) do
       "Movie".constantize
     end
+
     let(:good_params) do
     {
       movie: {
@@ -18,6 +21,7 @@ RSpec.describe MoviesController, type: :controller do
       }
     }
     end
+    
     let(:update_params) do
     {
       movie: {

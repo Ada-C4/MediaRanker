@@ -5,12 +5,15 @@ RSpec.describe AlbumsController, type: :controller do
     let(:medium) do
       Album.create(name: "Something", artist: "Someone", description: "Something something something")
     end
+
     let(:medium2) do
       Album.create(name: "Something", artist: "Someone", description: "Something something something", ranking: 3)
     end
+
     let(:model) do
       "Album".constantize
     end
+
     let(:good_params) do
     {
       album: {
@@ -18,6 +21,7 @@ RSpec.describe AlbumsController, type: :controller do
       }
     }
     end
+    
     let(:update_params) do
     {
       album: {

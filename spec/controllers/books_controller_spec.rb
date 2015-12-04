@@ -6,12 +6,15 @@ RSpec.describe BooksController, type: :controller do
     let(:medium) do
       Book.create(name: "Something", author: "Someone", description: "Something something something")
     end
+
     let(:medium2) do
       Book.create(name: "Something", author: "Someone", description: "Something something something", ranking: 3)
     end
+
     let(:model) do
       "Book".constantize
     end
+
     let(:good_params) do
     {
       book: {
@@ -19,6 +22,7 @@ RSpec.describe BooksController, type: :controller do
       }
     }
     end
+    
     let(:update_params) do
     {
       book: {
