@@ -1,12 +1,19 @@
-<%= form_for @movie do |f| %>
-  <fieldset>
-    <legend><%= @legend %></legend>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-    <%= f.label :director %>
-    <%= f.text_field :director %>
-    <%= f.label :description %>
-    <%= f.text_field :description %>
-  </fieldset>
-  <%= f.submit("Save") %>
-<% end %>
+<div class="row">
+  <div class="col-lg-12">
+    <h2>New Movie </h2>
+      <div class="form-group">
+      <%= form_for @movie do |f| %>
+      <fieldset>
+        <legend><%= @legend %></legend>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+        <%= f.label :director %>
+        <%= f.text_field :director %>
+        <%= f.label :description %>
+        <%= f.text_field :description %>
+      </fieldset>
+      <%= f.submit("Save") %>
+      <% end %>
+    </div>
+  </div>
+</div>

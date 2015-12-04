@@ -1,12 +1,13 @@
-<%= @movie.name %>
-<br>
-Directed by: <%= @movie.director %>
-<br>
-Ranked: <%= @movie.rank %>
-<br>
-Description: <%= @movie.description %>
-<%= button_to "upvote", movie_upvote_path(@movie.id), method: :post %>
-<%= link_to "edit #{@movie.name}", edit_movie_path(@movie.id) %>
-<%= link_to "delete", movie_path(@movie.id), method: :delete, data: { :confirm => "Are you sure?" } %>
-<%= link_to "View all movies", movies_path %>
-<%= link_to "View all media", root_path %>
+<div class="row">
+  <div class="col-lg-12">
+    <h1><%= @movie.name %></h1>
+    <small>Directed by: <%= @movie.director %></small>
+    <h4>Ranked: <%= @movie.rank %></h4>
+    <p><%= @movie.description %></p>
+    <%= button_to "upvote", movie_upvote_path(@movie.id), method: :post %>
+    <%= button_to "edit #{@movie.name}", edit_movie_path(@movie.id) %>
+    <%= button_to "DELETE", movie_path(@movie.id), method: :delete, data: { :confirm => "Are you sure?" } %>
+    <%= button_to "View All Movies", movies_path %>
+    <%= button_to "View All Media", root_path %>
+  </div>
+</div>
