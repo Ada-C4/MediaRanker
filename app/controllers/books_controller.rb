@@ -9,6 +9,8 @@ class BooksController < ApplicationController
     @media = Book.find(params[:id])
     @path = upvote_book_path(@media)
     @edit_path = edit_book_path(@media)
+    @index_button = "View all Books"
+    @index_path = books_path
   end
 
   def new

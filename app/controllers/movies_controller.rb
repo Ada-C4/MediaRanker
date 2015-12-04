@@ -9,7 +9,10 @@ class MoviesController < ApplicationController
     @media = Movie.find(params[:id])
     @path = upvote_movie_path(@media)
     @edit_path = edit_movie_path(@media)
+    @index_button = "View all Movies"
+    @index_path = movies_path
   end
+
 
   def new
     @model = Movie.new
