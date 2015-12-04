@@ -1,2 +1,2 @@
 <h2>New Book</h2>
-<%= render 'form' %>
+<%= render partial: 'shared/form', locals: { medium: @book, creator_field: :author } %>

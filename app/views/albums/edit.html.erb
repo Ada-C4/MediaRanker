@@ -1,2 +1,2 @@
 <h2>Edit Album</h2>
-<%= render 'form' %>
+<%= render partial: 'shared/form', locals: { medium: @album, creator_field: :artist } %>

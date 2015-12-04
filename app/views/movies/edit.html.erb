@@ -1,2 +1,2 @@
 <h2>Edit Movie</h2>
-<%= render 'form' %>
+<%= render partial: 'shared/form', locals: { medium: @movie, creator_field: :director } %>
