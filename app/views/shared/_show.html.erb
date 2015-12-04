@@ -4,7 +4,7 @@
   <%= medium.description %>
 </p>
 <%= button_to "Upvote", polymorphic_path([medium, :upvote]), method: :patch, class: "btn btn-primary" %>
-<%= link_to "Edit #{medium.name}", new_polymorphic_path(name), method: :get, class: "btn btn-default" %>
+<%= link_to "Edit #{medium.name}", edit_polymorphic_path(name), method: :get, class: "btn btn-default" %>
 <%= link_to "DELETE", "/#{name.pluralize}/#{medium.id}", method: "delete",  data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
 <%= link_to "View All Movies", polymorphic_path(name.pluralize), method: :get, class: "btn btn-default" %>
 <%= link_to "View All Media", root_path, method: :get, class: "btn btn-default" %>
