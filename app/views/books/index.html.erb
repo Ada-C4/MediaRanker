@@ -10,7 +10,7 @@
         <% @books.by_ranking.each do |book| %>
           <tr>
           <td>
-            Ranked:<%=book.ranking %>
+            Ranked: <%=book.ranking %>
           </td>
           <td>
             <%= link_to "#{book.title}", book_path(book.id), action: :show %>
