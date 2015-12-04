@@ -1,12 +1,14 @@
-<div>
+<div class="col-lg-12">
   <h2>New Movie</h2>
   <%= form_for @movie do |f| %>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-    <%= f.label :director %>
-    <%= f.text_field :director %>
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-    <%= f.submit "Save" %>
+    <div class="form-group">
+      <%= f.label :title %>
+      <%= f.text_field :title, class: "form-control" %>
+      <%= f.label :director %>
+      <%= f.text_field :director, class: "form-control" %>
+      <%= f.label :description %>
+      <%= f.text_area :description, class: "form-control" %>
+    </div>
+    <%= f.submit "Save", class: "btn btn-default" %>
   <% end %>
 </div>
