@@ -1,0 +1,10 @@
+<%= render partial: "application/show",
+  locals: {
+    media: @movie,
+    title: "Movie",
+    singular_name: "movie",
+    plur_name: "movies",
+    maker: @movie.director,
+    created_by: "Directed by:",
+    }
+%>

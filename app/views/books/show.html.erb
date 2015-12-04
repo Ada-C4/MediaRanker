@@ -1,0 +1,10 @@
+<%= render partial: "application/show",
+  locals: {
+    media: @book,
+    title: "Book",
+    singular_name: "book",
+    plur_name: "books",
+    maker: @book.author,
+    created_by: "Written by:",
+  }
+%>
