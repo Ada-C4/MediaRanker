@@ -20,7 +20,7 @@ class MediaController < ApplicationController
       if @medium.save
         redirect_to @medium
       else
-        render :new
+        render action: 'new'
       end
   end
 
@@ -51,7 +51,7 @@ class MediaController < ApplicationController
   end
 
   def medium_params
-    params.permit(medium:[:name, :type, :creator, :description, :upvotes])
+    params.require(type.underscore.to_sym).permit(:name, :type, :creator, :description, :upvotes)
   end
 
 end
