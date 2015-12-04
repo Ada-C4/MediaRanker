@@ -16,7 +16,7 @@
               <%= link_to "#{album.title}", album_path(album.id), action: :show %>
             </td>
             <td>
-              <%= button_to "Upvote", album_upvote_path(album.id), method: :post, class: "btn btn-default" %>
+              <%= button_to "Upvote", album_upvote_path(album.id), method: :patch, class: "btn btn-default" %>
             </td>
           </tr>
         <% end %>

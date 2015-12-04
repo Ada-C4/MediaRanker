@@ -16,7 +16,7 @@
               <%= link_to "#{book.title}", book_path(book.id), action: :show %>
             </td>
             <td>
-              <%= button_to "Upvote", book_upvote_path(book.id), method: :post, class: "btn btn-default" %>
+              <%= button_to "Upvote", book_upvote_path(book.id), method: :patch, class: "btn btn-default" %>
             </td>
           </tr>
         <% end %>
