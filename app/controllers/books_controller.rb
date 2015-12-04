@@ -28,6 +28,7 @@ class BooksController < ApplicationController
 
   def edit
     id = params[:id]
+    @title = "Edit Book"
     @action = "update"
     @method = :patch
     @model = Book.find(id)

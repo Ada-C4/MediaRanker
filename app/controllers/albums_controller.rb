@@ -28,6 +28,7 @@ class AlbumsController < ApplicationController
 
   def edit
     id = params[:id]
+    @title = "New Album"
     @action = "update"
     @method = :patch
     @model = Album.find(id)
