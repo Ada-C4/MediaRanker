@@ -1,5 +1,5 @@
 class MediaController < ApplicationController
-  before_action only: [:show, :edit, :update, :destroy, :vote] { @medium = Medium.find(params[:id]) }
+  before_action only: [:show, :edit, :update, :destroy, :upvote] { @medium = Medium.find(params[:id]) }
   before_action :set_type
 
   def index
@@ -51,6 +51,16 @@ class MediaController < ApplicationController
   end
 
   def upvote
+    current_score = @medium.upvotes
+    if current_score.nil?
+      new_score = 1
+    else
+      new_score = current_score + 1
+    end
+    @medium.update(
+    upvotes: new_score
+    )
+    redirect_to @medium
   end
 
   private

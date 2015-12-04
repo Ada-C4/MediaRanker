@@ -4,20 +4,20 @@ Rails.application.routes.draw do
 
   resources :movies, controller: 'media', type: 'Movie' do
     member do
-      patch '/upvote' => 'movies#upvote'
+      patch '/upvote' => 'media#upvote'
     end
   end
 
 
   resources :books, controller: 'media', type: 'Book' do
     member do
-      patch '/upvote' => 'books#upvote'
+      patch '/upvote' => 'media#upvote'
     end
   end
 
   resources :albums, controller: 'media', type: 'Album' do
     member do
-      patch '/upvote' => 'albums#upvote'
+      patch '/upvote' => 'media#upvote'
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.
