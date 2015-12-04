@@ -5,10 +5,10 @@ class AlbumsController < ApplicationController
   end
 
   def upvote
-    a = Album.find(params[:id])
-    a.rank += 1
-    a.save
-    redirect_to album_path(a)
+    album = Album.find(params[:id])
+    album.rank += 1
+    album.save
+    redirect_to album_path(album)
   end
 
   def new

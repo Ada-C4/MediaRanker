@@ -29,7 +29,7 @@ RSpec.describe BooksController, type: :controller do
         {
           id: test_medium.id,
           book:{
-            name: "A Book", author: "You", description: "A Good Book", rank: 0
+            name: "New name", author: "You", description: "A Good Book", rank: 0
           }
         }
       end

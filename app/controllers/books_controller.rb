@@ -5,10 +5,10 @@ class BooksController < ApplicationController
   end
 
   def upvote
-    b = Book.find(params[:id])
-    b.rank += 1
-    b.save
-    redirect_to book_path(b)
+    book = Book.find(params[:id])
+    book.rank += 1
+    book.save
+    redirect_to book_path(book)
   end
 
   def new
@@ -16,7 +16,7 @@ class BooksController < ApplicationController
   end
 
   def create
-    @book = Book.new(book_params[:book])
+    @book = Book.new(book_params)
     if @book.save
       redirect_to book_path(@book)
     else
@@ -34,7 +34,7 @@ class BooksController < ApplicationController
 
   def update
     @book = Book.find(params[:id])
-    @book.update( book_params[:book])
+    @book.update( book_params )
     if @book.save
       redirect_to book_path(@book)
     else
@@ -50,7 +50,7 @@ class BooksController < ApplicationController
   private
 
   def book_params
-    params.permit(book:[:name, :author, :description, :rank])
+    params.require(:book).permit(:name, :author, :description, :rank)
   end
 
 

@@ -19,11 +19,14 @@ RSpec.shared_examples "a medium controller" do
   end
 
   describe "POST 'create'" do
+    before :each do
+      post :create, good_params
+    end
 
     it "redirects to show page" do
-      post :create, good_params
       expect(subject).to redirect_to polymorphic_path(assigns(media_type))
     end
+
     it "renders new template on error" do
       post :create, bad_params
       expect(subject).to render_template :new
@@ -45,11 +48,19 @@ RSpec.shared_examples "a medium controller" do
   end
 
   describe "PATCH 'update'" do
+    before :each do
+      patch :update, good_update_params
+    end
 
     it "redirects to show page" do
-      patch :update, good_update_params
       expect(subject).to redirect_to polymorphic_path(assigns(media_type))
     end
+
+    it "updates the item" do
+      test_medium.reload
+      expect(test_medium.name).to eq("New name")
+    end
+
     it "renders edit template on error" do
       patch :update, bad_update_params
       expect(subject).to render_template :edit
@@ -70,13 +81,15 @@ RSpec.shared_examples "a medium controller" do
       }
     end
 
-    it "redirects to show page" do
+    before :each do
       patch :upvote, upvote_params
+    end
+
+    it "redirects to show page" do
       expect(subject).to redirect_to polymorphic_path(test_medium)
     end
 
     it "increases the rank value by 1" do
-      patch :upvote, upvote_params
       test_medium.reload
       expect(test_medium.rank).to eq 1
     end

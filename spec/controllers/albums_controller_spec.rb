@@ -29,7 +29,7 @@ RSpec.describe AlbumsController, type: :controller do
         {
           id: test_medium.id,
           album:{
-            name: "Songs", artist: "You", description: "SONGS", rank: 0
+            name: "New name", artist: "You", description: "SONGS", rank: 0
           }
         }
       end

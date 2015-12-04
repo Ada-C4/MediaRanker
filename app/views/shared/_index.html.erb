@@ -8,11 +8,11 @@
       </tr>
     </thead>
     <tbody>
-      <% media.each do |m| %>
+      <% media.each do |medium| %>
         <tr>
-          <td>Ranked: <%= m.rank %></td>
-          <td><%= link_to m.name, polymorphic_path(m) %></td>
-          <td><%= link_to "Upvote", polymorphic_path(m, action: :upvote ),  method: :patch, class: "btn btn-default" %></td>
+          <td>Ranked: <%= medium.rank %></td>
+          <td><%= link_to medium.name, polymorphic_path(medium) %></td>
+          <td><%= link_to "Upvote", polymorphic_path(medium, action: :upvote ),  method: :patch, class: "btn btn-default" %></td>
         </tr>
       <% end %>
     </tbody>

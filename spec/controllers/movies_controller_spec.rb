@@ -29,7 +29,7 @@ RSpec.describe MoviesController, type: :controller do
         {
           id: test_medium.id,
           movie:{
-            name: "Hello", director: "You", description: "A Good Movie", rank: 0
+            name: "New name", director: "new director", description: "A very Good Movie", rank: 0
           }
         }
       end
