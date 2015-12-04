@@ -1,0 +1,29 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>
+        Ranking
+      </th>
+      <th>
+        Name
+      </th>
+      <th>
+        Upvote
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @albums_sort.each do |album| %>
+    <tr>
+      <td>Ranked: <%= album.rank %></td>
+      <td><%= link_to album.name, album_path(album)%></td>
+      <td>
+        <%= button_to "Upvote", { action: "upvote", id: album.id }, method: "patch", class: "btn btn-default" %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= button_to "View All Media", root_path, method: :get, class: "btn btn-default" %>
+<%= button_to "Add an Album", new_album_path, method: :get, class: "btn btn-default" %>
