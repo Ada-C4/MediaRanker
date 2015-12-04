@@ -1,21 +1,21 @@
 <div class="row">
   <div class="col-lg-12">
-    <h1><%= @movie.name %> <small>Directed by: <%= @movie.director %></small></h1>
+    <h1><%= @medium.name %> <small>Directed by: <%= @medium.creator %></small></h1>
     <h4>Ranked:
-      <% if @movie.upvotes.nil? %>
+      <% if @medium.upvotes.nil? %>
         0
       <% else %>
-        <%= @movie.upvotes %>
+        <%= @medium.upvotes %>
       <% end %>
     </h4>
     <p>
-      <%= @movie.description %>
+      <%= @medium.description %>
     </p>
-    <%= button_to "Upvote", upvote_movie_path,  method: :patch, class: 'btn btn-primary' %>
+    <%= button_to "Upvote", media_path(@medium.type, @medium, :upvote),  method: :patch, class: 'btn btn-primary' %>
     <br />
-    <%= link_to "Edit #{@movie.name}", edit_movie_path , class: "btn btn-default" %>
-    <%= link_to "DELETE", movie_path(@movie), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
-    <%= link_to "View All Movies", movies_path,  method: :get, class: 'btn btn-default' %>
+    <%= link_to "Edit #{@medium.name}", edit_movie_path , class: "btn btn-default" %>
+    <%= link_to "DELETE", media_path(@medium.type, @medium), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+    <%= link_to "View All #{@medium.name}", media_path(@medium.type, @medium),  method: :get, class: 'btn btn-default' %>
     <%= link_to "View All Media", "/",  method: :get, class: 'btn btn-default' %>
   </div>
 </div>
