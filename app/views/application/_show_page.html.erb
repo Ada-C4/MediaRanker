@@ -3,9 +3,7 @@
     <h1><%= item.name %> <small><%= create_verb %> by: <%= created_by %></small></h1>
     <h4>Ranked: <%= item.ranking %></h4>
     <p><%= item.description %></p>
-    <form>
       <%= button_to "Upvote", polymorphic_path([:upvote, item]), class: "btn btn-primary" %>
-    </form>
       <%= link_to "Edit #{item.name}", edit_polymorphic_path(item, id: params[:id]), class: "btn btn-default" %>
       <%= link_to "DELETE", polymorphic_path(item, id: params[:id]), method: :delete, class: "btn btn-danger",
       data: { confirm: "Are you sure?"} %>

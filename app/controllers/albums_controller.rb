@@ -47,9 +47,9 @@ class AlbumsController < ApplicationController
     id = params[:id]
     @album = Album.find(id)
     @album.attributes = {
-    name: album_params[:album][:name],
-    artist: album_params[:album][:artist],
-    description: album_params[:album][:description],
+      name: album_params[:album][:name],
+      artist: album_params[:album][:artist],
+      description: album_params[:album][:description],
     }
     if @album.save
       redirect_to album_path(@album.id)
