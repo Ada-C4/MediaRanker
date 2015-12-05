@@ -1,0 +1,5 @@
+<!-- 
+       <%= form_for media,url: polymorphic_path([:upvote, :media]) do |f| %>
+        <%= f.hidden_field :upvote, value: 'upvote' %>
+        <%= f.submit 'Upvote' %>
+        <% end %> -->
