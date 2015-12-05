@@ -28,6 +28,7 @@ class BooksController < ApplicationController
 
   def edit
     id = params[:id]
+    @artist_type = "Author"
     @title = "Edit Book"
     @action = "update"
     @method = :patch

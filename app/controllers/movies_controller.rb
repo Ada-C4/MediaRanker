@@ -30,6 +30,7 @@ class MoviesController < ApplicationController
   def edit
     id = params[:id]
     @title = "Edit Movie"
+    @artist_type = "Director"
     @action = "update"
     @method = :patch
     @model = Movie.find(id)
