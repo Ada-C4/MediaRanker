@@ -1,0 +1,15 @@
+<div class="col-lg-12">
+  <h2><%=@title%></h2>
+    <%= form_for @model, url: { action: @action}, method: @method do |f| %>
+      <fieldset class="form-group">
+        <%= f.label :title %>
+        <%= f.text_field :title, class: "form-control"%>
+        <%= f.label @artist_type%>
+        <%= f.text_field :artist, class: "form-control" %>
+        <%= f.label :description%>
+        <%= f.text_area :description, class: "form-control" %>
+      </fieldset>
+      <input class = "btn btn-default"
+      <%= f.submit "Save" %>
+      <% end %>
+</div>

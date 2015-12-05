@@ -1,0 +1,12 @@
+<div class="col-lg-12">
+  <h1> <%= @media.title %>
+    <small> Artist: <%= @media.artist %> </small>
+  </h1>
+  <h4> Ranked: <%= @media.votes %> </h4>
+  <p> <%= @media.description %></p>
+  <h4><%= button_to 'Upvote', @path, method: :post, class:"btn btn-primary", role:"button"%></h4>
+  <%= link_to "Edit " + @media.title, @edit_path, class:"btn btn-default", role:"button" %>
+  <%= link_to "DESTROY", @media, method: :delete, onclick: "return confirm('Are you sure?')",class:"btn btn-danger", role:"button" %>
+  <%= link_to @index_button, @index_path, class:"btn btn-default", role:"button" %>
+  <%= link_to "View All Media", root_path, class:"btn btn-default", role:"button" %>
+</div>
