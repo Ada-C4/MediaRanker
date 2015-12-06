@@ -96,14 +96,35 @@ RSpec.describe MediaController, type: :controller do
   end
 
   describe "DELETE 'destroy'" do
+    let(:book) do
+      Medium.create(name: "Test", type: "Book")
+    end
 
-    it "redirects to the index view" do
+    let(:album) do
+      Medium.create(name: "Test", type: "Album")
+    end
+
+    it "redirects to the index view for movies" do
       delete :destroy, { id: movie.id, type: "Movie" }
       expect(subject).to redirect_to movies_path
+    end
+
+    it "redirects to the index view for books" do
+      delete :destroy, { id: book.id, type: "Book" }
+      expect(subject).to redirect_to books_path
+    end
+
+    it "redirects to the index view for albums" do
+      delete :destroy, { id: album.id, type: "Album" }
+      expect(subject).to redirect_to albums_path
     end
   end
 
   describe "PATCH 'upvote'" do
+    let(:movie_with_votes) do
+      Medium.create(name: "Test", type: "Movie", upvotes: 5)
+    end
+
     let(:update_params) do
       {
         movie: {
@@ -112,8 +133,21 @@ RSpec.describe MediaController, type: :controller do
       }
     end
 
+    let(:update_params_with_votes) do
+      {
+        movie: {
+          upvotes: 6
+        }
+      }
+    end
+
     it "redirects to the show view" do
       patch :upvote, { id: movie.id, movie: update_params, type: "Movie" }
+      expect(subject).to redirect_to polymorphic_path(Movie.all.last)
+    end
+
+    it "also redirects to the show view when the medium already has votes" do
+      patch :upvote, { id: movie_with_votes.id, movie: update_params_with_votes, type: "Movie" }
       expect(subject).to redirect_to polymorphic_path(Movie.all.last)
     end
   end
