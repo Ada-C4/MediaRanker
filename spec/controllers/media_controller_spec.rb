@@ -2,6 +2,10 @@ require 'rails_helper'
 
 RSpec.describe MediaController, type: :controller do
 
+  let(:movie) do
+    Medium.create(name: "Test", type: "Movie")
+  end
+
   describe "GET #index" do
     it "renders the index view" do
       get :index, type: "Movie"
@@ -17,9 +21,6 @@ RSpec.describe MediaController, type: :controller do
   end
 
   describe "GET #show" do
-    let(:movie) do
-      Medium.create(name: "Test", type: "Movie")
-    end
 
     it "renders the show view" do
       get :show, type: "Movie", id: movie.id
@@ -54,6 +55,13 @@ RSpec.describe MediaController, type: :controller do
     it "renders the new view if there is an error" do
       post :create, bad_params.merge(type: "Movie")
       expect(subject).to render_template :new
+    end
+  end
+
+  describe "GET 'edit'" do
+    it "renders the edit view" do
+      get :edit, type: "Movie", id: movie.id
+      expect(subject).to render_template :edit
     end
   end
 
