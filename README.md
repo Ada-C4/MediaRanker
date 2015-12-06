@@ -28,7 +28,7 @@ Once you've explored the existing Media Ranker site, this project:
 - requires you to create a Rails application
   - conform to Rails conventions on naming and inflection
   - by using `rails new .` you will create a new rails app _inside_ of the fork folder instead of creating a _new_ folder for your rails app
-  
+
 **You shall submit a pull request _with a meaningful pull request description_ once you are done with the baseline which shall be merged before moving onto implementing the requirements. _Do not push any additional code until your baseline PR has been merged_**
 
 ### Requirements
@@ -45,7 +45,8 @@ Each data model needs to have standard RESTful (index, show, edit, update, new, 
 
 #### Wave 2
 
-Testing will come in Wave 2!
+Your rails application must have 90% code coverage across models and controllers. Use TDD practices to develop new functionality, and add tests for functionality that has already been added in Wave 1.
+
 
 #### Wave 3
 
