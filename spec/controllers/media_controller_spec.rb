@@ -65,4 +65,20 @@ RSpec.describe MediaController, type: :controller do
     end
   end
 
+  describe "PATCH 'update'" do
+    let(:update_params) do
+      {
+        movie: {
+          name: "Updated Test",
+          type: "Movie"
+        }
+      }
+    end
+
+    it "redirects to the show view" do
+      patch :update, { id: movie.id, movie: update_params, type: "Movie" }
+      expect(subject).to redirect_to polymorphic_path(Movie.all.last)
+    end
+  end
+
 end
