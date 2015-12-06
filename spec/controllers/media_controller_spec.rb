@@ -38,21 +38,23 @@ RSpec.describe MediaController, type: :controller do
       }
     end
 
-    # let(:bad_params) do
-    #   {
-    #     medium: {}
-    #   }
-    # end
+    let(:bad_params) do
+      {
+        movie: {
+          description: "Test"
+        }
+      }
+    end
 
     it "redirects to the show view" do
       post :create, params.merge(type: "Movie")
       expect(subject).to redirect_to polymorphic_path(Movie.all.last)
     end
 
-    # it "renders the new view if there is an error" do
-    #   post :create, bad_params, type: "Movie"
-    #   expect(subject).to render_template :new
-    # end
+    it "renders the new view if there is an error" do
+      post :create, bad_params.merge(type: "Movie")
+      expect(subject).to render_template :new
+    end
   end
 
 end
