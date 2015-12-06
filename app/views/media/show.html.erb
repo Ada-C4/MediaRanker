@@ -13,7 +13,7 @@
     </p>
     <%= button_to "Upvote", media_path(@medium.type, @medium, :upvote),  method: :patch, class: 'btn btn-primary' %>
     <br />
-    <%= link_to "Edit #{@medium.name}", edit_movie_path , class: "btn btn-default" %>
+    <%= link_to "Edit #{@medium.name}", media_path(@medium.type, @medium, :edit) , class: "btn btn-default" %>
     <%= link_to "DELETE", media_path(@medium.type, @medium), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
     <%= link_to "View All #{@medium.type.pluralize}", media_path(@medium.type),  method: :get, class: 'btn btn-default' %>
     <%= link_to "View All Media", "/",  method: :get, class: 'btn btn-default' %>

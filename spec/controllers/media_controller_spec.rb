@@ -75,8 +75,45 @@ RSpec.describe MediaController, type: :controller do
       }
     end
 
+    let(:bad_update_params) do
+      {
+        movie: {
+          name: "",
+          description: "Test"
+        }
+      }
+    end
+
     it "redirects to the show view" do
       patch :update, { id: movie.id, movie: update_params, type: "Movie" }
+      expect(subject).to redirect_to polymorphic_path(Movie.all.last)
+    end
+
+    it "redirects to the edit view if there is an error" do
+      patch :update, { id: movie.id, movie: bad_update_params, type: "Movie" }
+      expect(subject).to redirect_to polymorphic_path(Movie.find(1))
+    end
+  end
+
+  describe "DELETE 'destroy'" do
+
+    it "redirects to the index view" do
+      delete :destroy, { id: movie.id, type: "Movie" }
+      expect(subject).to redirect_to movies_path
+    end
+  end
+
+  describe "PATCH 'upvote'" do
+    let(:update_params) do
+      {
+        movie: {
+          upvotes: 1
+        }
+      }
+    end
+
+    it "redirects to the show view" do
+      patch :upvote, { id: movie.id, movie: update_params, type: "Movie" }
       expect(subject).to redirect_to polymorphic_path(Movie.all.last)
     end
   end

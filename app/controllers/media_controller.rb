@@ -32,7 +32,7 @@ class MediaController < ApplicationController
     if @medium.update(medium_params)
       redirect_to @medium
     else
-      render action: 'edit'
+      redirect_to media_path(@medium.type, @medium, :edit)
     end
   end
 
