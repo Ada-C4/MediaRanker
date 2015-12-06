@@ -1,3 +1,2 @@
-class Album < ActiveRecord::Base
-  validates :name, presence: true
+class Album < Medium
 end

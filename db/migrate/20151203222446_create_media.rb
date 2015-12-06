@@ -1,8 +1,9 @@
-class CreateMovies < ActiveRecord::Migration
+class CreateMedia < ActiveRecord::Migration
   def change
-    create_table :movies do |t|
+    create_table :media do |t|
+      t.string :type
       t.string :name
-      t.string :director
+      t.string :creator
       t.string :description
       t.integer :upvotes
 

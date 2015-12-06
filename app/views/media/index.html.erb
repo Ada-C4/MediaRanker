@@ -12,26 +12,26 @@
           Upvote
         </th>
       </tr>
-    <% @movies.each do |movie| %>
+    <% @media.each do |medium| %>
       <tr>
         <td>
           Ranked:
-          <% if movie.upvotes.nil? %>
+          <% if medium.upvotes.nil? %>
             0
           <% else %>
-            <%= movie.upvotes %>
+            <%= medium.upvotes %>
           <% end %>
         </td>
         <td>
-          <a href="/movies/<%= movie.id %>"><%= movie.name %></a>
+          <%= link_to medium.name, media_path(medium.type, medium) %>
         </td>
         <td>
-          <%= button_to "Upvote", "/movies/#{movie.id}/upvote", method: :patch, class: 'btn btn-default' %>
+          <%= button_to "Upvote", media_path(medium.type, medium, :upvote), method: :patch, class: 'btn btn-default' %>
         </td>
       </tr>
     <% end %>
     </table>
     <a class="btn btn-default" href="/">View All Media</a>
-    <a class="btn btn-default" href="/movies/new">Add a Movie</a>
+    <%= link_to "Add a #{@type}", media_path(@type, nil, :new), class: "btn btn-default" %>
   </div>
 </div>
