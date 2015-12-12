@@ -1,10 +1,11 @@
 class AlbumsController < ApplicationController
+  before_action :find_media, except: [:index, :new, :create]
+
   def index
     @media = Album.order(ranking: :desc)
   end
 
   def show
-    @media = Album.find(params[:id])
   end
 
   def new
@@ -15,18 +16,16 @@ class AlbumsController < ApplicationController
     @media = Album.new(strong_params)
     @media.ranking = 0
     if @media.save
-      redirect_to album_path(@media.id)
+      render "show"
     else
       render "new"
     end
   end
 
   def edit
-    @media = Album.find(params[:id])
   end
 
   def update
-    @media = Album.find(params[:id])
     @media.attributes = strong_params
     if @media.save
       render "show"
@@ -36,13 +35,11 @@ class AlbumsController < ApplicationController
   end
 
   def destroy
-    album = Album.find(params[:id])
-    album.destroy
+    @media.destroy
     redirect_to albums_path
   end
 
   def upvote
-    @media = Album.find(params[:id])
     @media.ranking += 1
     @media.save
     render "show"
@@ -52,5 +49,9 @@ class AlbumsController < ApplicationController
 
   def strong_params
     params.require(:album).permit(:name, :artist, :description, :ranking)
+  end
+
+  def find_media
+    @media = Album.find(params[:id])
   end
 end

@@ -1,10 +1,11 @@
 class MoviesController < ApplicationController
+  before_action :find_media, except: [:index, :new, :create]
+
   def index
     @media = Movie.order(ranking: :desc)
   end
 
   def show
-    @media = Movie.find(params[:id])
   end
 
   def new
@@ -15,18 +16,16 @@ class MoviesController < ApplicationController
     @media = Movie.new(strong_params)
     @media.ranking = 0
     if @media.save
-      redirect_to movie_path(@media.id)
+      render "show"
     else
       render "new"
     end
   end
 
   def edit
-    @media = Movie.find(params[:id])
   end
 
   def update
-    @media = Movie.find(params[:id])
     @media.attributes = strong_params
     if @media.save
       render "show"
@@ -36,13 +35,11 @@ class MoviesController < ApplicationController
   end
 
   def destroy
-    movie = Movie.find(params[:id])
-    movie.destroy
+    @media.destroy
     redirect_to movies_path
   end
 
   def upvote
-    @media = Movie.find(params[:id])
     @media.ranking += 1
     @media.save
     render "show"
@@ -52,5 +49,9 @@ class MoviesController < ApplicationController
 
   def strong_params
     params.require(:movie).permit(:name, :director, :description, :ranking)
+  end
+
+  def find_media
+    @media = Movie.find(params[:id])
   end
 end

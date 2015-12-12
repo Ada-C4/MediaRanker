@@ -1,10 +1,11 @@
 class BooksController < ApplicationController
+  before_action :find_media, except: [:index, :new, :create]
+
   def index
     @media = Book.order(ranking: :desc)
   end
 
   def show
-    @media = Book.find(params[:id])
   end
 
   def new
@@ -15,18 +16,16 @@ class BooksController < ApplicationController
     @media = Book.new(strong_params)
     @media.ranking = 0
     if @media.save
-      redirect_to book_path(@media.id)
+      render "show"
     else
       render "new"
     end
   end
 
   def edit
-    @media = Book.find(params[:id])
   end
 
   def update
-    @media = Book.find(params[:id])
     @media.attributes = strong_params
     if @media.save
       render "show"
@@ -36,13 +35,11 @@ class BooksController < ApplicationController
   end
 
   def destroy
-    book = Book.find(params[:id])
-    book.destroy
+    @media.destroy
     redirect_to books_path
   end
 
   def upvote
-    @media = Book.find(params[:id])
     @media.ranking += 1
     @media.save
     render "show"
@@ -52,5 +49,9 @@ class BooksController < ApplicationController
 
   def strong_params
     params.require(:book).permit(:name, :author, :description, :ranking)
+  end
+
+  def find_media
+    @media = Book.find(params[:id])
   end
 end
