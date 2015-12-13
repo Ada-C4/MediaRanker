@@ -13,6 +13,7 @@ RSpec.describe AlbumsController, type: :controller do
     end
     let(:good_params) do
       {
+        album_id: 1,
         id: 1,
         album: {
           name: "something something",

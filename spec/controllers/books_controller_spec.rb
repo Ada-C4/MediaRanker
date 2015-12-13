@@ -13,6 +13,7 @@ RSpec.describe BooksController, type: :controller do
     end
     let(:good_params) do
       {
+        book_id: 1,
         id: 1,
         book: {
           name: "something something",

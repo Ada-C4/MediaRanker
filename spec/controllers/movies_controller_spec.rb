@@ -13,6 +13,7 @@ RSpec.describe MoviesController, type: :controller do
     end
     let(:good_params) do
       {
+        movie_id: 1,
         id: 1,
         movie: {
           name: "something something",
