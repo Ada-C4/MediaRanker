@@ -48,10 +48,14 @@ class AlbumsController < ApplicationController
   private
 
   def strong_params
-    params.require(:album).permit(:name, :artist, :description, :ranking)
+    params.require(:album).permit(:name, :artist, :description)
   end
 
   def find_media
-    @media = Album.find(params[:id])
+    if params[:id].nil?
+      @media = Album.find(params[:album_id])
+    else
+      @media = Album.find(params[:id])
+    end
   end
 end

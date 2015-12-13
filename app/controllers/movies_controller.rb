@@ -48,10 +48,14 @@ class MoviesController < ApplicationController
   private
 
   def strong_params
-    params.require(:movie).permit(:name, :director, :description, :ranking)
+    params.require(:movie).permit(:name, :director, :description)
   end
 
   def find_media
-    @media = Movie.find(params[:id])
+    if params[:id].nil?
+      @media = Movie.find(params[:movie_id])
+    else
+      @media = Movie.find(params[:id])
+    end
   end
 end

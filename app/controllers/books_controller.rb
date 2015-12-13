@@ -48,10 +48,14 @@ class BooksController < ApplicationController
   private
 
   def strong_params
-    params.require(:book).permit(:name, :author, :description, :ranking)
+    params.require(:book).permit(:name, :author, :description)
   end
 
   def find_media
-    @media = Book.find(params[:id])
+    if params[:id].nil?
+      @media = Book.find(params[:book_id])
+    else
+      @media = Book.find(params[:id])
+    end
   end
 end
