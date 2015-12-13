@@ -1,0 +1,30 @@
+<div class="col-lg-12">
+  <h2><%= type %> <%= media %></h2>
+
+  <ul>
+    <% @media.errors.each do |column, message| %>
+      <li><strong><%= column.capitalize %></strong>: <%= message %></li>
+    <% end %>
+  </ul>
+
+  <%= form_for @media do |f| %>
+    <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control" %>
+    <% if @media.class == Movie %>
+      <%= f.label :director %>
+      <%= f.text_field :director, class: "form-control" %>
+    <% elsif @media.class == Book %>
+      <%= f.label :author %>
+      <%= f.text_field :author, class: "form-control" %>
+    <% elsif @media.class == Album %>
+      <%= f.label :artist %>
+      <%= f.text_field :artist, class: "form-control" %>
+    <% end %>
+    <%= f.label :description %>
+    <%= f.text_area :description, class: "form-control" %>
+    <br>
+    <%= f.submit value: "Save", class: "btn btn-default" %>
+  </div>
+  <% end %>
+</div>

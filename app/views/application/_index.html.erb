@@ -1,0 +1,30 @@
+<table class="table table-hover">
+  <tr>
+    <th>Ranking</th>
+    <th>Name</th>
+    <th>Upvote</th>
+  </tr>
+
+  <% @media.each do |media| %>
+    <tr>
+      <td>Ranked: <%= media.ranking %></td>
+      <td><%= link_to media.name, polymorphic_path(media) %></td>
+      <td><%= button_to "Upvote", polymorphic_path([media, :upvote]),
+        :method => :patch, class: "btn btn-default" %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to "View All Media", root_path, class: "btn btn-default" %>
+<%= link_to "Add a #{class_type}", new_polymorphic_path(class_type), class: "btn btn-default" %>
+
+
+
+
+<!-- polymorphic_url([:admin, @article, @comment])
+results in:
+
+admin_article_comment_url(@article, @comment)
+
+
+my route: movie_upvote_path -->
