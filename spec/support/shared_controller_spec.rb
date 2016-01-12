@@ -7,8 +7,9 @@ RSpec.shared_examples "a controller" do |subject_class|
     # end
     it "increments :votes" do
       patch :upvote, type: subject_class.to_s, id: item.id
+      before_votes = item.votes
       item.reload
-      expect(item.votes).to eq 23
+      expect(item.votes).to eq before_votes + 1
       expect(subject).to redirect_to polymorphic_path(item)
     end
   end

@@ -41,6 +41,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'pry-rails'
   gem 'simplecov'
+  gem 'factory_girl_rails'
 end
 
 group :development do
