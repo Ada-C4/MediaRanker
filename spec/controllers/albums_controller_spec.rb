@@ -2,13 +2,9 @@ require 'rails_helper'
 
 RSpec.describe AlbumsController, type: :controller do
   it_behaves_like "a medium controller" do
-    let(:medium) do
-      Album.create(name: "Something", artist: "Someone", description: "Something something something")
-    end
+    let(:medium) { create(:album1) }
 
-    let(:medium2) do
-      Album.create(name: "Something", artist: "Someone", description: "Something something something", ranking: 3)
-    end
+    let(:medium2) { create(:album2) }
 
     let(:model) do
       "Album".constantize
@@ -21,7 +17,7 @@ RSpec.describe AlbumsController, type: :controller do
       }
     }
     end
-    
+
     let(:update_params) do
     {
       album: {

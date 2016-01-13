@@ -2,13 +2,9 @@ require 'rails_helper'
 
 RSpec.describe MoviesController, type: :controller do
   it_behaves_like "a medium controller" do
-    let(:medium) do
-      Movie.create(name: "Something", director: "Someone", description: "Something something something")
-    end
+    let(:medium) { create(:movie1) }
 
-    let(:medium2) do
-      Movie.create(name: "Something", director: "Someone", description: "Something something something", ranking: 3)
-    end
+    let(:medium2) { create(:movie2) }
 
     let(:model) do
       "Movie".constantize
@@ -21,7 +17,7 @@ RSpec.describe MoviesController, type: :controller do
       }
     }
     end
-    
+
     let(:update_params) do
     {
       movie: {
