@@ -10,6 +10,8 @@ RSpec.describe BooksController, type: :controller do
       }
     end
 
+    let (:medium) { create(:book) }
+
     let (:bad_params) do
       {
         book: { name: "", description: "Book's description", author: "Book's author"

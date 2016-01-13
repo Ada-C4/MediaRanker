@@ -8,7 +8,6 @@ RSpec.shared_examples "a medium controller" do
 
   describe "GET 'show'" do
     it "renders the show view" do
-      medium = model.create(name: "Test")
       get :show, id: medium.id
       expect(subject).to render_template :show
     end
@@ -36,17 +35,12 @@ RSpec.shared_examples "a medium controller" do
 
   describe "GET 'edit'" do
     it "renders edit view" do
-      medium = model.create(name: "Test")
       get :edit, id: medium.id
       expect(subject).to render_template :edit
     end
   end
 
   describe "PATCH 'update'" do
-    let (:medium) do
-      model.create(name: "Test")
-    end
-
     it "redirects to show page" do
       patch :update, good_params.merge({id: medium.id})
       expect(subject).to redirect_to polymorphic_path(medium)
@@ -62,17 +56,12 @@ RSpec.shared_examples "a medium controller" do
 
   describe "DELETE 'destroy'" do
     it "redirects to index page" do
-      medium = model.create(name: "Test")
       delete :destroy, id: medium.id
       expect(subject).to redirect_to polymorphic_path(model.name.downcase.pluralize)
     end
   end
 
   describe "PATCH 'upvote'" do
-    let (:medium) do
-      model.create(name: "Test")
-    end
-
     it "increases ranked by 1" do
       patch :upvote, id: medium.id
       expect(model.all.last.ranked).to eq 1

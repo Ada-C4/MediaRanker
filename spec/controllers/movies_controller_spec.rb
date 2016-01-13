@@ -10,6 +10,8 @@ RSpec.describe MoviesController, type: :controller do
       }
     end
 
+    let (:medium) { create(:movie) }
+
     let (:bad_params) do
       {
         movie: { name: "", description: "Movie's description", director: "Movie's director"

@@ -10,6 +10,8 @@ RSpec.describe AlbumsController, type: :controller do
       }
     end
 
+    let (:medium) { create(:album) }
+
     let (:bad_params) do
       {
         album: { name: "", description: "Album's description", artist: "Album's artist"
