@@ -1,0 +1,28 @@
+<table class="table table-hover">
+  <tr>
+    <th>
+      Ranking
+    </th>
+    <th>
+      Name
+    </th>
+    <th>
+      Upvote
+    </th>
+  </tr>
+  <% media.each do |medium| %>
+    <tr>
+      <td>
+        Ranked: <%= medium.ranked %>
+      </td>
+      <td>
+        <%= link_to medium.name, polymorphic_path(medium) %>
+      </td>
+      <td>
+        <%= button_to "Upvote", polymorphic_path([medium, :upvote]), method: :patch, class: "btn btn-default" %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+<%= link_to "View All Media", root_path, method: :get, class: "btn btn-default" %>
+<%= link_to "Add a #{name.capitalize}", new_polymorphic_path(name), method: :get, class: "btn btn-default" %>
