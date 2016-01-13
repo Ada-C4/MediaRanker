@@ -1,9 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe AlbumsController, type: :controller do
-  let(:album) do
-    Album.create(name: "Some album", rank: 0)
-  end
+  let(:album) { create(:factory_album)}
 
   describe "GET 'index'" do
     it "is successful" do

@@ -1,6 +1,21 @@
 {
   "RSpec": {
     "coverage": {
+      "/Users/amyhunter/Desktop/first_two_weeks_of_ada_files/Amy/Ada/project-forks/MediaRanker/app/models/book.rb": [
+        1,
+        1,
+        null
+      ],
+      "/Users/amyhunter/Desktop/first_two_weeks_of_ada_files/Amy/Ada/project-forks/MediaRanker/app/models/movie.rb": [
+        1,
+        1,
+        null
+      ],
+      "/Users/amyhunter/Desktop/first_two_weeks_of_ada_files/Amy/Ada/project-forks/MediaRanker/app/models/album.rb": [
+        1,
+        1,
+        null
+      ],
       "/Users/amyhunter/Desktop/first_two_weeks_of_ada_files/Amy/Ada/project-forks/MediaRanker/app/helpers/albums_helper.rb": [
         1,
         null
@@ -215,23 +230,8 @@
         8,
         null,
         null
-      ],
-      "/Users/amyhunter/Desktop/first_two_weeks_of_ada_files/Amy/Ada/project-forks/MediaRanker/app/models/album.rb": [
-        1,
-        1,
-        null
-      ],
-      "/Users/amyhunter/Desktop/first_two_weeks_of_ada_files/Amy/Ada/project-forks/MediaRanker/app/models/book.rb": [
-        1,
-        1,
-        null
-      ],
-      "/Users/amyhunter/Desktop/first_two_weeks_of_ada_files/Amy/Ada/project-forks/MediaRanker/app/models/movie.rb": [
-        1,
-        1,
-        null
       ]
     },
-    "timestamp": 1449267779
+    "timestamp": 1452659735
   }
 }

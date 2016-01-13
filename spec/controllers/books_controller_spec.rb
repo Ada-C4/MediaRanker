@@ -1,9 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe BooksController, type: :controller do
-  let(:book) do
-    Book.create(name: "Some book", rank: 0)
-  end
+  let(:book) { create(:factory_book)}
 
   describe "GET 'index'" do
     it "is successful" do
@@ -34,7 +32,7 @@ RSpec.describe BooksController, type: :controller do
   end
 
   describe "POST 'create'" do
-    let(:params) do
+    let(:book_params) do
       {
         book:{
           name: "Something something something"
@@ -42,7 +40,7 @@ RSpec.describe BooksController, type: :controller do
       }
     end
 
-    let(:bad_params) do
+    let(:bad_book_params) do
       {
         book:{
           name: nil
@@ -52,22 +50,22 @@ RSpec.describe BooksController, type: :controller do
 
     it "creates a book" do
       last_book = Book.last
-      post :create, params
+      post :create, book_params
       expect(Book.last).to_not eq last_book
     end
 
     it "does not create a book when bad params are used" do
       last_book = Book.last
-      post :create, bad_params
+      post :create, bad_book_params
       expect(Book.last).to eq last_book
     end
 
     it "redirects to books index page" do
-      post :create, params
+      post :create, book_params
       # Success case to index page
       expect(subject).to redirect_to books_path
       # Error case to
-      post :create, bad_params
+      post :create, bad_book_params
       expect(subject).to render_template :new
     end
   end

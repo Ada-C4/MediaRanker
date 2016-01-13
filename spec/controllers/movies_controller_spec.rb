@@ -1,9 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe MoviesController, type: :controller do
-  let(:movie) do
-    Movie.create(name: "Some movie", rank: 0)
-  end
+  let(:movie) { create(:factory_movie)}
 
   describe "GET 'home'" do
     it "is successful" do
