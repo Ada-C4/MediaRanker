@@ -1,0 +1,57 @@
+class BooksController < ApplicationController
+
+  def index
+    @books = Book.all
+  end
+
+  def new
+    @url = "create"
+    @book = Book.new
+  end
+
+  def create
+    @book = Book.create(book_params[:book])
+    if @book.save
+      redirect_to books_path
+    else
+      render :new
+    end
+  end
+
+  def show
+    @book = Book.find(params[:id])
+  end
+
+  def edit
+    @book = Book.find(params[:id])
+    @legend = "Edit Book"
+  end
+
+  def update
+    @book = Book.update(params[:id], book_params[:book])
+      if @book.save
+        redirect_to book_path(params[:id])
+      else
+        render :edit
+      end
+  end
+
+  def destroy
+    Book.destroy(params[:id])
+    redirect_to books_path
+  end
+
+  def upvote
+    @book = Book.find(params[:id])
+    @book.rank += 1
+    @book.save
+    render :show
+  end
+
+private
+
+  def book_params
+    params.permit(book: [:name, :author, :description, :rank])
+  end
+
+end

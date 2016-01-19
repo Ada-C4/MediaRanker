@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-lg-12">
+    <table class="table table-hover">
+      <tbody>
+        <tr>
+          <th> Ranking </th>
+          <th> Name </th>
+          <th> Upvote </th>
+        </tr>
+        <% @books.each do |book| %>
+        <tr>
+          <td><%= book.rank %></td>
+          <td><%= link_to "#{book.name}", book_path(book.id) %></td>
+          <td><%= link_to "upvote", book_upvote_path(book.id), method: :post, class: "btn btn-default" %></td>
+          <% end %>
+        </tr>
+      </tbody>
+    </table>
+    <%= link_to "View All Media", root_path, class: "btn btn-default" %>
+    <%= link_to "Add a book", new_book_path, class: "btn btn-default" %>
+    </div>
+  </div>
+</div>
