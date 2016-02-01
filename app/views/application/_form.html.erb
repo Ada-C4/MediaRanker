@@ -1,0 +1,28 @@
+<ul>
+  <% item.errors.each do |column, message| %>
+    <li>
+      <strong><%= column.capitalize %></strong> <%= message %>
+    </li>
+  <% end %>
+</ul>
+
+<div class="row">
+  <div class="col-lg-12">
+    <%= form_for item do |f| %>
+      <div class="form-group">
+        <%= f.label :name, class: "" %>
+        <%= f.text_field :name, class: "form-control" %>
+
+        <%= f.label person, class: ""%>
+        <%= f.text_field person, class: "form-control" %>
+
+        <%= f.label :description, class: ""%>
+        <%= f.text_area :description, class: "form-control" %>
+      </div>
+
+      <div class="form-actions">
+        <%= f.submit "Save", class: "btn btn-default" %>
+      </div>
+    <% end %>
+  </div>
+</div>
