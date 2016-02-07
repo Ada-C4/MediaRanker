@@ -1,4 +1,18 @@
 Rails.application.routes.draw do
+  root 'welcome#index'
+
+  resources :books, controller: :media, type: 'Book' do
+    patch 'upvote', on: :member
+  end
+
+  resources :movies, controller: :media, type: 'Movie' do
+    patch 'upvote', on: :member
+  end
+
+  resources :albums, controller: :media, type: 'Album' do
+    patch 'upvote', on: :member
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

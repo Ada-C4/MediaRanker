@@ -10,6 +10,40 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
- *= require_self
  */
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+
+ th:first-of-type {
+   width: 21.4%;
+ }
+
+ th:last-of-type {
+   width: 19.6%;
+ }
+
+ th:nth-of-type(2) {
+   width: 58.8%;
+ }
+
+ .page-header {
+  background: image-url("stupid-owl.jpg");
+  background-repeat: no-repeat;
+ }
+
+ .page-header h1 {
+  margin-left: 150px;
+ }
+
+ a {
+  color: #428bca;
+ }
+
+ .button_to {
+  margin-bottom: 10px;
+ }
+
+ .btn-primary {
+  background-color: #428bca;
+  border-color: #357ebd;
+ }
